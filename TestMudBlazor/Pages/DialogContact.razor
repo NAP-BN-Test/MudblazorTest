@@ -1,0 +1,53 @@
+﻿@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+<MudDialog>
+    <DialogContent>
+        <MudText Typo="Typo.h6" GutterBottom="true">Danh sách liên hệ</MudText>
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="hoten" Label="Họ tệ" Variant="Variant.Outlined"></MudTextField>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="sdt" Label="Số điện thoại" Variant="Variant.Outlined"></MudTextField>
+            </MudItem>
+
+        </MudGrid>
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="email" Label="Email" Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})" Variant="Variant.Outlined"></MudTextField>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="fax" Label="Fax" Variant="Variant.Outlined"></MudTextField>
+            </MudItem>
+        </MudGrid>
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="6">
+                <MudSelect T="bool" Label="Chức vụ" Strict="true" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem T="bool" Value="false">A</MudSelectItem>
+                    <MudSelectItem T="bool" Value="true">B</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" sm="6" md="6">
+                <MudSelect T="bool" Label="Hoạt động" Strict="true" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem T="bool" Value="true">Dừng</MudSelectItem>
+                    <MudSelectItem T="bool" Value="false">Đang hoạt động</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    public string fax { get; set; }
+    public string hoten { get; set; }
+    public string sdt { get; set; }
+    public string email { get; set; }
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}

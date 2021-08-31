@@ -1,0 +1,71 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listcurrency"
+<MudGrid Style="margin-top: 10px">
+    <MudGrid>
+        <MudItem xs="6">
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách tiền tệ</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudToolBar>
+                <MudSpacer />
+                <MudLink Href="/addcurrency" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
+                <HeaderContent>
+                    <MudTh>Mã</MudTh>
+                    <MudTh>Tên</MudTh>
+                    <MudTh>Hoạt động</MudTh>
+                    <MudTh>Yêu thích</MudTh>
+                    <MudTh>Mặc định</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="ma">@context.ma</MudTd>
+                    <MudTd DataLabel="name">@context.name</MudTd>
+                    <MudTd DataLabel="action">@context.action</MudTd>
+                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
+                    <MudTd DataLabel="order">@context.order</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+</MudGrid>
+
+
+@code {
+    private bool hover = true;
+    EarningReport[] earningReports = new EarningReport[]
+{
+        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = true },
+        new EarningReport { ma = "QGMY ", name =  "b" ,  action = false, avorite = true, order = true},
+        new EarningReport { ma = "QGHQ", name = "c",  action = true, avorite = false, order = true },
+            };
+
+    class EarningReport
+    {
+        public string ma;
+        public string name;
+        public bool action;
+        public bool avorite;
+        public bool order;
+    }
+
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
+

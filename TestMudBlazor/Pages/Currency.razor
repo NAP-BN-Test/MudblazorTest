@@ -1,8 +1,10 @@
-﻿@page "/currency"
+﻿@page "/addcurrency"
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations 
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="6">
-            <MudText Typo="Typo.h5" GutterBottom="true">Tiền tệ</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Loại tiền tệ</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -15,34 +17,31 @@
     </MudGrid>
     <MudGrid>
         <MudItem xs="12">
-            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" OnValidSubmit="OnValidSubmit">
+            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                 <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="ma" Label="Mã" RequiredError="Nhập mã!" Required="true" Variant="Variant.Outlined"></MudTextField>
+                    <MudItem xs="12" sm="6" md="6">
+                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
                     </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="ten" Label="Tên" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="yt" Label="Yêu thích" Variant="Variant.Outlined"></MudTextField>
+
+                    <MudItem xs="12" sm="6" md="6">
+                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
-                    <MudItem xs="6" sm="6" md="4">
-                        <MudCheckBox T="bool" Required="true"  Class="ml-n2"
-                                     Label="Hoạt động" />
+                    <MudItem xs="12" sm="12" md="4">
+                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                                     Label="Yêu thích" />
                     </MudItem>
-                    <MudItem xs="6" sm="6" md="4">
-                        <MudCheckBox T="bool" Required="true"  Class="ml-n2"
+                    <MudItem xs="12" sm="12" md="4">
+                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
                                      Label="Mặc định" />
                     </MudItem>
-                </MudGrid>
-                <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Thêm</MudButton>
+                    <MudItem xs="12" sm="12" md="4">
+                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                                     Label="Hoạt động" />
                     </MudItem>
                 </MudGrid>
-            </MudForm>
+            </EditForm>
         </MudItem>
 
 
@@ -50,15 +49,27 @@
 </MudGrid>
 
 @code {
-    public string ma { get; set; }
-    public string ten { get; set; }
-    public string thutu { get; set; }
-    public string yt { get; set; }
 
-    MudForm form;
+    Form model = new Form();
+    public class Form
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        public string ma { get; set; }
+
+        public string ten { get; set; }
+        public string diachi { get; set; }
+        public string yt { get; set; }
+
+
+
+    }
+
     bool success;
     string[] errors = { };
     private void OnValidSubmit(EditContext context)
     {
     }
+
+
 }

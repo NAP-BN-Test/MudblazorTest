@@ -2,7 +2,12 @@
 
 
     <MudThemeProvider />
-    <MudDialogProvider />
+    <MudDialogProvider FullWidth="true" 
+    MaxWidth="MaxWidth.Medium"    
+    CloseButton="true"    
+    DisableBackdropClick="true"   
+    NoHeader="true"  
+    Position="DialogPosition.Center" />
     <MudSnackbarProvider />
     <MudLayout>
         <MudAppBar Elevation="1" Dense="@dense">
@@ -55,17 +60,16 @@
                 <MudText Typo="Typo.h6">LOCY</MudText>
             </MudDrawerHeader>
             <MudNavMenu>
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.Store">Store</MudNavLink>
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.LibraryBooks">Library</MudNavLink>
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Filled.Group">Community</MudNavLink>
+                <MudNavLink  Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Store">Demo</MudNavLink>
                 <MudNavGroup Title="Danh mục" Icon="@Icons.Filled.Group" Expanded="true">
-                    <MudNavLink Href="/nation">Quốc gia</MudNavLink>
-                    <MudNavLink Href="/groupcustomer">Nhóm khách hàng</MudNavLink>
-                    <MudNavLink Href="/customertype">Loại khách hàng</MudNavLink>
-                    <MudNavLink Href="/currency">Tiền tệ</MudNavLink>
-                    <MudNavLink Href="/position">Chức vụ</MudNavLink>
-                    <MudNavLink Href="/businesstype">Loại hình kinh doanh</MudNavLink>
-                    <MudNavLink Href="/bank">Ngân hàng</MudNavLink>
+                    <MudNavLink Href="/listcustomer">Khách hàng</MudNavLink>
+                    <MudNavLink Href="/listnation">Quốc gia</MudNavLink>
+                    <MudNavLink Href="/listgroupcustomer">Nhóm khách hàng</MudNavLink>
+                    <MudNavLink Href="/listcustomertype">Loại khách hàng</MudNavLink>
+                    <MudNavLink Href="/listcurrency">Tiền tệ</MudNavLink>
+                    <MudNavLink Href="/listposition">Chức vụ</MudNavLink>
+                    <MudNavLink Href="/listbusinesstype">Loại hình kinh doanh</MudNavLink>
+                    <MudNavLink Href="/listbank">Ngân hàng</MudNavLink>
                 </MudNavGroup>
             </MudNavMenu>
         </MudDrawer>

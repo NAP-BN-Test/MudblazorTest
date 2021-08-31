@@ -1,0 +1,114 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listcustomer"
+<MudGrid Style="margin-top: 10px">
+    <MudGrid>
+        <MudItem xs="6">
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách khách hàng</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudToolBar>
+                <MudSpacer />
+                <MudLink Href="/addcustomer" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" HorizontalScrollbar="true">
+                <HeaderContent>
+                    <MudTh>Mã khách hàng</MudTh>
+                    <MudTh>Nhóm khách hàng </MudTh>
+                    <MudTh>Tên</MudTh>
+                    <MudTh>Loại</MudTh>
+                    <MudTh>Địa chỉ</MudTh>
+                    <MudTh>Địa chỉ ĐKKD</MudTh>
+                    <MudTh>Quốc gia</MudTh>
+                    <MudTh>SĐT</MudTh>
+                    <MudTh>Email</MudTh>
+                    <MudTh>Fax</MudTh>
+                    <MudTh>Ngày sinh</MudTh>
+                    <MudTh>Mã số thuế</MudTh>
+                    <MudTh>Loại hình kinh doanh</MudTh>
+                    <MudTh>Loại khách hàng</MudTh>
+                    <MudTh>Loại tiền tệ</MudTh>
+                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>Hoạt động</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="makh">@context.makh</MudTd>
+                    <MudTd DataLabel="nkh">@context.nkh</MudTd>
+                    <MudTd DataLabel="name">@context.name</MudTd>
+                    <MudTd DataLabel="loai">@context.loai</MudTd>
+                    <MudTd DataLabel="dc">@context.dc</MudTd>
+                    <MudTd DataLabel="dcdkkd">@context.dcdkkd</MudTd>
+                    <MudTd DataLabel="quocgia">@context.quocgia</MudTd>
+                    <MudTd DataLabel="sdt">@context.sdt</MudTd>
+                    <MudTd DataLabel="email">@context.email</MudTd>
+                    <MudTd DataLabel="fax">@context.fax</MudTd>
+                    <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
+                    <MudTd DataLabel="masothue">@context.masothue</MudTd>
+                    <MudTd DataLabel="lhkd">@context.lhkd</MudTd>
+                    <MudTd DataLabel="loaikh">@context.loaikh</MudTd>
+                    <MudTd DataLabel="loaitiente">@context.loaitiente</MudTd>
+                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                    <MudTd DataLabel="hoatdong">@context.hoatdong</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+</MudGrid>
+
+
+@code {
+    private bool hover = true;
+    EarningReport[] earningReports = new EarningReport[]
+{
+        new EarningReport { makh = "KH01", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
+    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
+        new EarningReport { makh = "KH02", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
+    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
+        new EarningReport { makh = "KH03", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
+    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
+                    };
+
+
+    class EarningReport
+    {
+        public string makh;
+        public string nkh;
+        public string name;
+        public string loai;
+        public string dc;
+        public string dcdkkd;
+        public string quocgia;
+        public string sdt;
+        public string email;
+        public string fax;
+        public string ngaysinh;
+        public string masothue;
+        public string lhkd;
+        public string loaikh;
+        public string loaitiente;
+        public string ghichu;
+        public bool hoatdong;
+    }
+
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
+

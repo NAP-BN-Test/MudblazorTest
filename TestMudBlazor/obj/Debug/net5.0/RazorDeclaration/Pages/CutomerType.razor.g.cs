@@ -89,7 +89,21 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/customertype")]
+#nullable restore
+#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\CutomerType.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\CutomerType.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/addcustomertype")]
     public partial class CutomerType : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -98,19 +112,31 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\CutomerType.razor"
+#line 47 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\CutomerType.razor"
        
-    public string ma { get; set; }
-    public string ten { get; set; }
-    public string thutu { get; set; }
-    public string yt { get; set; }
 
-    MudForm form;
+    Form model = new Form();
+    public class Form
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        public string ma { get; set; }
+
+        public string ten { get; set; }
+        public string diachi { get; set; }
+        public string yt { get; set; }
+
+
+
+    }
+
     bool success;
     string[] errors = { };
     private void OnValidSubmit(EditContext context)
     {
     }
+
+
 
 #line default
 #line hidden
