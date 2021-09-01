@@ -97,7 +97,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
+#line 88 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
           
         private string[] states =
 {

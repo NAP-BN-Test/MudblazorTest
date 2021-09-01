@@ -1,0 +1,91 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listoffice"
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudGrid Style="margin-top: 10px">
+    <MudGrid>
+        <MudItem xs="12" Style="margin-top: 10px">
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách văn phòng</MudText>
+        </MudItem>
+        <MudItem xs="12">
+            <MudToolBar Class="toolbarCustom">
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudSpacer />
+                <MudLink Href="/addnation" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
+                <HeaderContent>
+                    <MudTh>Mã</MudTh>
+                    <MudTh>Tên</MudTh>
+                    <MudTh>Địa chỉ</MudTh>
+                    <MudTh>Điện thoại</MudTh>
+                    <MudTh>Fax</MudTh>
+                    <MudTh>Hoạt động</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="ma">@context.ma</MudTd>
+                    <MudTd DataLabel="ten">@context.ten</MudTd>
+                    <MudTd DataLabel="diachi">@context.diachi</MudTd>
+                    <MudTd DataLabel="dienthoai">@context.dienthoai</MudTd>
+                    <MudTd DataLabel="fax">@context.fax</MudTd>
+                    <MudTd DataLabel="hoatdong">@context.hoatdong</MudTd>
+                    
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+</MudGrid>
+
+
+@code {
+    private string searchString;
+    private bool hover = true;
+    EarningReport[] earningReports = new EarningReport[]
+{
+        new EarningReport { ma = "00001", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
+        new EarningReport { ma = "00002", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
+        new EarningReport { ma = "00003", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
+       
+                };
+
+    class EarningReport
+    {
+        public string ma;
+        public string ten;
+        public string diachi;
+        public string dienthoai;
+        public string fax;
+        public bool hoatdong;
+    }
+
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
+

@@ -1,0 +1,80 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listtypeservice"
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudGrid Style="margin-top: 10px">
+    <MudGrid>
+        <MudItem xs="12" Style="margin-top: 10px">
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách loại dịch vụ</MudText>
+        </MudItem>
+        <MudItem xs="12">
+            <MudToolBar Class="toolbarCustom">
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudSpacer />
+                <MudLink Href="/addservice" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
+                <HeaderContent>
+                    <MudTh>Mã</MudTh>
+                    <MudTh>Tên</MudTh>
+                    <MudTh>Ghi chú</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="ma">@context.ma</MudTd>
+                    <MudTd DataLabel="name">@context.name</MudTd>
+                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+</MudGrid>
+
+
+@code {
+    private bool hover = true;
+    private string searchString;
+    EarningReport[] earningReports = new EarningReport[]
+{
+        new EarningReport { ma = "DV01", name = "Vận Chuyển",  ghichu = "a", },
+        new EarningReport { ma = "DV02", name = "Vận Chuyển",  ghichu = "a", },
+        new EarningReport { ma = "DV03", name = "Vận Chuyển",  ghichu = "a", },
+                        };
+
+    class EarningReport
+    {
+        public string ma;
+        public string name;
+        public string ghichu;
+    }
+
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
+
