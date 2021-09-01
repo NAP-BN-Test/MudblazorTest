@@ -7,7 +7,7 @@
         padding-right: 0px;
     }
 
-    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+    .searchcutom.mud-input-control>.mud-input-control-input-container>div.mud-input.mud-input-text {
         margin-top: 0px;
     }
 </style>
@@ -18,9 +18,13 @@
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                    Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                    Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
-                <MudLink Href="/addnation" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudLink Href="/addnation" Typo="Typo.body2">
+                    <MudIconButton Icon="@Icons.Material.Outlined.Add" />
+                </MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                 <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
                 <MudIconButton Icon="@Icons.Material.Outlined.Print" />
@@ -29,7 +33,7 @@
             </MudToolBar>
         </MudItem>
     </MudGrid>
-    
+
     <MudGrid>
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
@@ -55,32 +59,31 @@
         </MudItem>
     </MudGrid>
 </MudGrid>
-        
 
-        @code {
-            private string searchString;
-            private bool hover = true;
-            EarningReport[] earningReports = new EarningReport[]
-        {
-        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10" },
-        new EarningReport { ma = "QGMY ", name =  "b" ,  action = false, avorite = true, order = "35"},
-        new EarningReport { ma = "QGHQ", name = "c",  action = true, avorite = false, order = "27" },
-                };
 
-            class EarningReport
-            {
-                public string ma;
-                public string name;
-                public bool action;
-                public bool avorite;
-                public string order;
-            }
+@code {
+    private string searchString;
+    private bool hover = true;
+    EarningReport[] earningReports = new EarningReport[]
+    {
+new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10" },
+new EarningReport { ma = "QGMY ", name = "b" , action = false, avorite = true, order = "35"},
+new EarningReport { ma = "QGHQ", name = "c", action = true, avorite = false, order = "27" },
+    };
 
-            private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-            private IEnumerable<EarningReport> Elements = new List<EarningReport>();
-            protected override async Task OnInitializedAsync()
-            {
-                Elements = earningReports;
-            }
-        }
+    class EarningReport
+    {
+        public string ma;
+        public string name;
+        public bool action;
+        public bool avorite;
+        public string order;
+    }
 
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
