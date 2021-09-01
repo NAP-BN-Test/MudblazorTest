@@ -1,0 +1,113 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listpersonnel"
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudGrid Style="margin-top: 10px">
+    <MudGrid>
+        <MudItem xs="12" Style="margin-top: 10px">
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách nhân sự</MudText>
+        </MudItem>
+        <MudItem xs="12">
+            <MudToolBar Class="toolbarCustom">
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudSpacer />
+                <MudLink Href="/addnation" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid>
+        <MudItem xs="12">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
+                <HeaderContent>
+                    <MudTh>Mã</MudTh>
+                    <MudTh>Họ</MudTh>
+                    <MudTh>Tên đệm</MudTh>
+                    <MudTh>Tên</MudTh>
+                    <MudTh>Ngày sinh</MudTh>
+                    <MudTh>Giới tính</MudTh>
+                    <MudTh>Số CMND/CCCD</MudTh>
+                    <MudTh>Địa chỉ thường trú</MudTh>
+                    <MudTh>Địa chỉ tạm trú</MudTh>
+                    <MudTh>Điện thoại</MudTh>
+                    <MudTh>Email</MudTh>
+                    <MudTh>Chức vụ</MudTh>
+                    <MudTh>Phòng ban</MudTh>
+                    <MudTh>Ghi chú</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="ma">@context.ma</MudTd>
+                    <MudTd DataLabel="ho">@context.ho</MudTd>
+                    <MudTd DataLabel="tendem">@context.tendem</MudTd>
+                    <MudTd DataLabel="ten">@context.ten</MudTd>
+                    <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
+                    <MudTd DataLabel="gioitinh">@context.gioitinh</MudTd>
+                    <MudTd DataLabel="cmnd">@context.cmnd</MudTd>
+                    <MudTd DataLabel="dcthuongtru">@context.dcthuongtru</MudTd>
+                    <MudTd DataLabel="dctamtru">@context.dctamtru</MudTd>
+                    <MudTd DataLabel="dienthoai">@context.dienthoai</MudTd>
+                    <MudTd DataLabel="email">@context.email</MudTd>
+                    <MudTd DataLabel="chucvu">@context.chucvu</MudTd>
+                    <MudTd DataLabel="phongban">@context.phongban</MudTd>
+                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+</MudGrid>
+
+
+@code {
+    private string searchString;
+    private bool hover = true;
+    EarningReport[] earningReports = new EarningReport[]
+{
+        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
+        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
+        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
+            };
+
+    class EarningReport
+    {
+        public string ma;
+        public string ho;
+        public string tendem;
+        public string ten;
+        public string ngaysinh;
+        public string gioitinh;
+        public string cmnd;
+        public string dcthuongtru;
+        public string dctamtru;
+        public string dienthoai;
+        public string email;
+        public string chucvu;
+        public string phongban;
+        public string ghichu;
+    }
+
+    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = earningReports;
+    }
+}
+

@@ -97,6 +97,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 86 "H:\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
        
     private string[] states =
@@ -134,6 +135,45 @@ using MudBlazor;
     {
         // In real life use an asynchronous function for fetching data from an api.
         await Task.Delay(5);
+=======
+#line 88 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
+          
+        private string[] states =
+{
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+        "Louisiana", "Maine", "Marshall Islands", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada",
+        "New Hampshire", "New Jersey", "New Mexico", "New York",
+        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
+        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
+        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    };
+        bool open = false;
+        DrawerClipMode clipMode = DrawerClipMode.Never;
+        bool Basic_CheckBox1 = false;
+        Breakpoint breakpoint = Breakpoint.Lg;
+        bool preserveOpenState = false;
+        bool dense = false;
+        void ToggleDrawer()
+        {
+            open = !open;
+        }
+        private string value1;
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+>>>>>>> 5cd7ad9fe0689811d6f0d55886cb65206bafafe3
 
         // if text is null or empty, show complete list
         if (string.IsNullOrEmpty(value))

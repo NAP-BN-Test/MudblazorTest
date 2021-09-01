@@ -1456,6 +1456,7 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pag
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\ListPosition.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\ListCustomer.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\ListCustomer.razor.g.cs
+<<<<<<< HEAD
 H:\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\blazor.boot.json
 H:\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\TestMudBlazor.StaticWebAssets.xml
 H:\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\TestMudBlazor.dll
@@ -2207,3 +2208,27 @@ H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\ShipCategory\ShipCategory.razor.g.cs
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\ShipCategory\AddUpdateShipCategory.razor.g.cs
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\ShipCategory\ShipCategory.razor.g.cs
+=======
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Department\ListDepartment.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Personnel\ListPersonnel.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Department\ListDepartment.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Personnel\ListPersonnel.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\FirmTransport\ListFirmTransport.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\TypeService\ListTypeService.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Unit\ListUnit.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Warehouse\ListWarehouse.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\FirmTransport\ListFirmTransport.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\TypeService\ListTypeService.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Unit\ListUnit.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Warehouse\ListWarehouse.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Rules\ListRules.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Rules\ListRules.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Office\ListOffice.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Office\ListOffice.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\FirmTransport\FirnTransport.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\FirmTransport\FirnTransport.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\TypeService\Service.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\TypeService\Service.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Department\Department.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Department\Department.razor.g.cs
+>>>>>>> 5cd7ad9fe0689811d6f0d55886cb65206bafafe3
