@@ -98,12 +98,13 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 46 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\ListNation.razor"
+#line 60 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\ListNation.razor"
                
+            private string searchString;
             private bool hover = true;
             EarningReport[] earningReports = new EarningReport[]
         {
-        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10" }, 
+        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10" },
         new EarningReport { ma = "QGMY ", name =  "b" ,  action = false, avorite = true, order = "35"},
         new EarningReport { ma = "QGHQ", name = "c",  action = true, avorite = false, order = "27" },
                 };

@@ -4,7 +4,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="6">
-            <MudText Typo="Typo.h5" GutterBottom="true">Ngân hàng</MudText>
+            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Ngân hàng</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -33,14 +33,19 @@
                     <MudItem xs="12" sm="12" md="12">
                         <MudTextField @bind-Value="model.diachi" Label="Tên" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
                     </MudItem>
-                    
+
                 </MudGrid>
 
                 <MudGrid>
-                    
+
                     <MudItem xs="12" sm="12" md="6">
                         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
                                      Label="Hoạt động" />
+                    </MudItem>
+                </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin, các ô có dấu (*) là bắt buộc"</MudText>
                     </MudItem>
                 </MudGrid>
             </EditForm>

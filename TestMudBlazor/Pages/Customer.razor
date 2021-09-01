@@ -2,16 +2,26 @@
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 @inject IDialogService DialogService
-    <style>
+
+ <style>
         .mud-tab {
             justify-content: unset !important;
         }
-    </style>
+
+        .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+            padding-left: 6px;
+            padding-right: 0px;
+        }
+
+        .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+            margin-top: 0px;
+        }
+ </style>
 
 <MudGrid Style="margin-top: 10px">
-    <MudGrid>
+    <MudGrid >
         <MudItem xs="6">
-            <MudText Typo="Typo.h5" GutterBottom="true">Khách hàng</MudText>
+            <MudText  Typo="Typo.h5" Style="line-height: 60px" GutterBottom="true">Khách hàng</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar >
@@ -22,7 +32,7 @@
             </MudToolBar>
         </MudItem>
     </MudGrid>
-    <MudGrid>
+    <MudGrid >
         <MudItem xs="12">
             <MudTabs Outlined="false" Position="Position.Right" Rounded="false" Border="false"
                      ApplyEffectsToContainer="true" Class="mt-8 custom_mudtabbar">
@@ -127,23 +137,31 @@
                                         @*<MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Thêm</MudButton>*@
                                     </MudItem>
                                 </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" >
+                                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin, các ô có dấu (*) là bắt buộc"</MudText>
+                                    </MudItem>
+                                </MudGrid>
                             </EditForm>
                         </MudItem>
                     </MudGrid>
+                    
                 </MudTabPanel>
                    
                     <MudTabPanel Style="font-size: 10px" Text="Danh sách liên hệ">
                         <MudGrid Style="margin-right: 10px">
                             <MudGrid>
-                                <MudItem xs="6">
-                                </MudItem>
-                                <MudItem xs="6">
-                                    <MudToolBar>
+                                <MudItem xs="12">
+                                    <MudToolBar Class="toolbarCustom">
+                                        <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                                         <MudSpacer />
-                                        <MudIconButton Icon="@Icons.Material.Outlined.Add" @onclick="OpenDialogContact" />
+                                        <MudLink Href="/addcustomer" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                                         <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
                                     </MudToolBar>
                                 </MudItem>
                             </MudGrid>
@@ -178,15 +196,16 @@
                     <MudTabPanel Style="font-size: 10px" Text="Danh sách tài khản ngân hàng">
                         <MudGrid Style="margin-right: 10px">
                             <MudGrid>
-                                <MudItem xs="6">
-                                </MudItem>
-                                <MudItem xs="6">
-                                    <MudToolBar>
+                                <MudItem xs="12">
+                                    <MudToolBar Class="toolbarCustom">
+                                        <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                                         <MudSpacer />
-                                        <MudIconButton Icon="@Icons.Material.Outlined.Add" @onclick="OpenDialogAccBank" />
+                                        <MudLink Href="/addcustomer" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                                         <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
                                     </MudToolBar>
                                 </MudItem>
                             </MudGrid>
@@ -228,10 +247,13 @@
         </MudItem>
     </MudGrid>
 
+
+
 </MudGrid>
 
 @code {
 
+    public string searchString { get; set; }
 
 
     MudForm form;

@@ -98,20 +98,19 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\ListCustomer.razor"
+#line 88 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\ListCustomer.razor"
        
     private bool hover = true;
     EarningReport[] earningReports = new EarningReport[]
 {
-        new EarningReport { makh = "KH01", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
-    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
-        new EarningReport { makh = "KH02", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
-    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
-        new EarningReport { makh = "KH03", nkh = "a", name = "Dũng" , loai = "Cá nhân", dc = "Hà Nội",dcdkkd = "Hà Nội",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "03/01/1999", masothue = "1035165165", lhkd = "AB",
-    loaikh = "CA", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
+        new EarningReport { makh = "3702717812", nkh = "AASC", name = "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ AN ĐẠT THÀNH" , loai = "Cá nhân", dc = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",dcdkkd = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "1035165165", lhkd = "AB",
+    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
+        new EarningReport { makh = "AG00001", nkh = "AG00001", name = "ANC INTERNATIONAL INC.  " , loai = "Cá nhân", dc = "879/29 HUONG LO 2 STREET, BINH TRI DONG A WARD, BINH TAN DISTRICT HO CHI MINH CITY - VIET NAM",dcdkkd = "879/29 HUONG LO 2 STREET, BINH TRI DONG A WARD, BINH TAN DISTRICT HO CHI MINH CITY - VIET NAM",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "0200807263", lhkd = "AB",
+    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },new EarningReport { makh = "3702717812", nkh = "APLOG", name = "AI SIKE ELECTRONICS(DONGGUAN)CO.,LTD" , loai = "Cá nhân", dc = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",dcdkkd = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
+            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "0219382223", lhkd = "AB",
+    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
                     };
 
 
@@ -135,6 +134,8 @@ using System.Net.Http.Json;
         public string ghichu;
         public bool hoatdong;
     }
+
+    private string searchString = "";
 
     private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
     private IEnumerable<EarningReport> Elements = new List<EarningReport>();

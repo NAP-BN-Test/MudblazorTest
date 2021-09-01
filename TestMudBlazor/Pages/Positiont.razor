@@ -4,7 +4,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="6">
-            <MudText Typo="Typo.h5" GutterBottom="true">Loại chức vụ</MudText>
+            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Loại chức vụ</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -37,11 +37,19 @@
                                      Label="Hoạt động" />
                     </MudItem>
                 </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin, các ô có dấu (*) là bắt buộc"</MudText>
+                    </MudItem>
+                </MudGrid>
             </EditForm>
         </MudItem>
 
 
+
     </MudGrid>
+
+
 </MudGrid>
 
 @code {

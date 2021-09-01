@@ -1,21 +1,35 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listgroupcustomer"
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
-        <MudItem xs="6">
+        <MudItem xs="12" Style="margin-top: 10px">
             <MudText Typo="Typo.h5" GutterBottom="true">Danh sách nhóm khách hàng</MudText>
         </MudItem>
-        <MudItem xs="6">
-            <MudToolBar>
+        <MudItem xs="12">
+            <MudToolBar Class="toolbarCustom">
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addgroupcustomer" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                 <MudIconButton Icon="@Icons.Material.Outlined.Delete" />
                 <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
             </MudToolBar>
         </MudItem>
     </MudGrid>
+   
     <MudGrid>
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
@@ -43,12 +57,13 @@
 
 @code {
     private bool hover = true;
+    private string searchString;
     EarningReport[] earningReports = new EarningReport[]
 {
         new EarningReport { ma = "NKH01", name = "a", action = true , avorite = true, order = "10" },
         new EarningReport { ma = "NKH02", name =  "b" ,  action = false, avorite = true, order = "35"},
         new EarningReport { ma = "NKH03", name = "c",  action = true, avorite = false, order = "27" },
-            };
+        };
 
     class EarningReport
     {

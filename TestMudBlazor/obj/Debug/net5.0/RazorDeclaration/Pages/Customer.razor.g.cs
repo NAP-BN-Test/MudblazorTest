@@ -112,9 +112,10 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 233 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Customer.razor"
+#line 254 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Customer.razor"
        
 
+    public string searchString { get; set; }
 
 
     MudForm form;
