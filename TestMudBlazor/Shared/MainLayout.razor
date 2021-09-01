@@ -58,7 +58,6 @@
                 Link="https://github.com/Garderoben/MudBlazor" Target="_blank" />
         </MudHidden>
 
-<<<<<<< HEAD
     </MudAppBar>
     <MudDrawer @bind-Open="@open" ClipMode="clipMode" Breakpoint="@breakpoint" PreserveOpenState="@preserveOpenState"
         Elevation="1" Variant="@DrawerVariant.Responsive">
@@ -76,8 +75,18 @@
                 <MudNavLink Href="/listposition">Chức vụ</MudNavLink>
                 <MudNavLink Href="/listbusinesstype">Loại hình kinh doanh</MudNavLink>
                 <MudNavLink Href="/listbank">Ngân hàng</MudNavLink>
+                <MudNavLink Href="/listpersonnel">Nhân sự</MudNavLink>
+                <MudNavLink Href="/listdepartment">Phòng ban</MudNavLink>
+                <MudNavLink Href="/listfirmtransport">Hãng vận chuyển</MudNavLink>
+                <MudNavLink Href="/listtypeservice">Dịch vụ</MudNavLink>
+                <MudNavLink Href="/listunit">Đơn vị</MudNavLink>
+                <MudNavLink Href="/listwarehouse">Kho</MudNavLink>
+                <MudNavLink Href="/listrules">Điều khoản</MudNavLink>
+                <MudNavLink Href="/listoffice">Văn phòng</MudNavLink>
                 <MudNavLink Href="/shipcategory">Danh mục tàu</MudNavLink>
                 <MudNavLink Href="/citycategory">Danh mục thành phố</MudNavLink>
+                <MudNavLink Href="/feetypecategory">Danh mục kiểu chi phí</MudNavLink>
+                <MudNavLink Href="/hs-code-category">Danh mục mã HS</MudNavLink>
             </MudNavGroup>
         </MudNavMenu>
     </MudDrawer>
@@ -112,134 +121,6 @@
     void ToggleDrawer()
     {
         open = !open;
-=======
-    <MudThemeProvider />
-    <MudDialogProvider FullWidth="true" 
-    MaxWidth="MaxWidth.Medium"    
-    CloseButton="true"    
-    DisableBackdropClick="true"   
-    NoHeader="true"  
-    Position="DialogPosition.Center" />
-    <MudSnackbarProvider />
-    <MudLayout>
-        <MudAppBar Elevation="1" Dense="@dense">
-            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
-            <MudHidden Breakpoint="Breakpoint.Xl" Invert="true">
-                <MudText>Logistics Cycle Management</MudText>
-            </MudHidden>
-            <MudHidden Breakpoint="Breakpoint.Lg" Invert="true">
-                <MudText>Logistics Cycle Management</MudText>
-            </MudHidden>
-            <MudSpacer />
-            <div style="width: 30%;background-color: rgba(255,255,255,.15); border-radius: 5px; position:relative; height: 40px; padding: 0 10px">
-                <MudAutocomplete DisableUnderLine="true" Variant="Variant.Text" Margin="Margin.Dense" T="string" Placeholder="Search" @bind-Value="value1" SearchFunc="@Search1"
-                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                 CoerceText="@coerceText" CoerceValue="@coerceValue"
-                                 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Dark" Style="width: 100%; top: -11px" />
-            </div>
-            <MudSpacer />
-            <MudHidden Breakpoint="Breakpoint.Md" Invert="true">
-                <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
-            </MudHidden>
-            <MudHidden Breakpoint="Breakpoint.Sm" Invert="true">
-                <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
-            </MudHidden>
-            <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
-                <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
-            </MudHidden>
-            <MudHidden Breakpoint="Breakpoint.Xl" Invert="true">
-                <MudMenu Label="Suport" Color="Color.Inherit" Direction="Direction.Bottom" EndIcon="@Icons.Filled.KeyboardArrowDown" OffsetY="true">
-                    <MudMenuItem>Enlist</MudMenuItem>
-                    <MudMenuItem>Barracks</MudMenuItem>
-                    <MudMenuItem>Armory</MudMenuItem>
-                </MudMenu>
-                <MudDivider Vertical="true" DividerType="DividerType.Middle" FlexItem="true" Style="margin-top: 20px; margin-bottom: 20px" />
-                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/Garderoben/MudBlazor" Target="_blank" />
-            </MudHidden>
-            <MudHidden Breakpoint="Breakpoint.Lg" Invert="true">
-                <MudMenu Label="Suport" Color="Color.Inherit" Direction="Direction.Bottom" EndIcon="@Icons.Filled.KeyboardArrowDown" OffsetY="true">
-                    <MudMenuItem>Enlist</MudMenuItem>
-                    <MudMenuItem>Barracks</MudMenuItem>
-                    <MudMenuItem>Armory</MudMenuItem>
-                </MudMenu>
-                <MudDivider Vertical="true" DividerType="DividerType.Middle" FlexItem="true" Style="margin-top: 20px; margin-bottom: 20px" />
-                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/Garderoben/MudBlazor" Target="_blank" />
-            </MudHidden>
-
-        </MudAppBar>
-        <MudDrawer @bind-Open="@open" ClipMode="clipMode" Breakpoint="@breakpoint" PreserveOpenState="@preserveOpenState" Elevation="1" Variant="@DrawerVariant.Responsive">
-            <MudDrawerHeader>
-                <MudText Typo="Typo.h6">LOCY</MudText>
-            </MudDrawerHeader>
-            <MudNavMenu>
-                <MudNavLink  Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Store">Demo</MudNavLink>
-                <MudNavGroup Title="Danh mục" Icon="@Icons.Filled.Group" Expanded="true">
-                    <MudNavLink Href="/listcustomer">Khách hàng</MudNavLink>
-                    <MudNavLink Href="/listnation">Quốc gia</MudNavLink>
-                    <MudNavLink Href="/listgroupcustomer">Nhóm khách hàng</MudNavLink>
-                    <MudNavLink Href="/listcustomertype">Loại khách hàng</MudNavLink>
-                    <MudNavLink Href="/listcurrency">Tiền tệ</MudNavLink>
-                    <MudNavLink Href="/listposition">Chức vụ</MudNavLink>
-                    <MudNavLink Href="/listbusinesstype">Loại hình kinh doanh</MudNavLink>
-                    <MudNavLink Href="/listbank">Ngân hàng</MudNavLink>
-                    <MudNavLink Href="/listpersonnel">Nhân sự</MudNavLink>
-                    <MudNavLink Href="/listdepartment">Phòng ban</MudNavLink>
-                    <MudNavLink Href="/listfirmtransport">Hãng vận chuyển</MudNavLink>
-                    <MudNavLink Href="/listtypeservice">Dịch vụ</MudNavLink>
-                    <MudNavLink Href="/listunit">Đơn vị</MudNavLink>
-                    <MudNavLink Href="/listwarehouse">Kho</MudNavLink>
-                    <MudNavLink Href="/listrules">Điều khoản</MudNavLink>
-                    <MudNavLink Href="/listoffice">Văn phòng</MudNavLink>
-                </MudNavGroup>
-            </MudNavMenu>
-        </MudDrawer>
-        <MudMainContent Class="pt-16 px-16" >
-            @Body
-        </MudMainContent>
-    </MudLayout>
-    @code{
-        private string[] states =
-{
-        "Alabama", "Alaska", "American Samoa", "Arizona",
-        "Arkansas", "California", "Colorado", "Connecticut",
-        "Delaware", "District of Columbia", "Federated States of Micronesia",
-        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
-        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-        "Louisiana", "Maine", "Marshall Islands", "Maryland",
-        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
-        "Missouri", "Montana", "Nebraska", "Nevada",
-        "New Hampshire", "New Jersey", "New Mexico", "New York",
-        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
-        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
-        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
-        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
-        "Washington", "West Virginia", "Wisconsin", "Wyoming",
-    };
-        bool open = false;
-        DrawerClipMode clipMode = DrawerClipMode.Never;
-        bool Basic_CheckBox1 = false;
-        Breakpoint breakpoint = Breakpoint.Lg;
-        bool preserveOpenState = false;
-        bool dense = false;
-        void ToggleDrawer()
-        {
-            open = !open;
-        }
-        private string value1;
-        private bool resetValueOnEmptyText;
-        private bool coerceText;
-        private bool coerceValue;
-        private async Task<IEnumerable<string>> Search1(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
-
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states;
-            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
->>>>>>> 5cd7ad9fe0689811d6f0d55886cb65206bafafe3
     }
     private string value1;
     private bool resetValueOnEmptyText;

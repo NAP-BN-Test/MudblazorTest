@@ -1,0 +1,81 @@
+@* Gihug 01/09/2021*@
+@page "/add-update-fee-type"
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+<MudGrid Style="margin-top: 10px">
+
+    <MudGrid>
+        <MudItem xs="6">
+            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới kiểu chi phí</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudToolBar>
+                <MudSpacer />
+                <MudIconButton Icon="@Icons.Material.Outlined.Add" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+            </MudToolBar>
+        </MudItem>
+    </MudGrid>
+    <MudGrid>
+        <MudItem xs="12">
+            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudTextField @bind-Value="model.code" Label="Mã (*)" Variant="Variant.Outlined"
+                            For="@(() => model.code)"></MudTextField>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudTextField @bind-Value="model.name" Label="Tên" Variant="Variant.Outlined"
+                            For="@(() => model.name)"></MudTextField>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
+                            For="@(() => model.note)"></MudTextField>
+                    </MudItem>
+
+                </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin,
+                            các ô có dấu (*) là bắt buộc"</MudText>
+                    </MudItem>
+                </MudGrid>
+            </EditForm>
+        </MudItem>
+
+
+    </MudGrid>
+</MudGrid>
+
+@code {
+
+    Form model = new Form();
+    public class Form
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        public string code { get; set; }
+
+        public string name { get; set; }
+        public string nation { get; set; }
+
+        public string stt { get; set; }
+        public bool actice { get; set; }
+
+        public string note { get; set; }
+
+
+
+    }
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+
+
+}
