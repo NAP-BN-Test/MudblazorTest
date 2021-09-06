@@ -1857,8 +1857,8 @@ using MudBlazor;
                 __builder2.OpenComponent<MudBlazor.MudTabPanel>(414);
                 __builder2.AddAttribute(415, "Text", "Country");
                 __builder2.AddAttribute(416, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.OpenComponent<TestMudBlazor.Pages.Nation>(417);
-                    __builder3.CloseComponent();
+                    __builder3.OpenElement(417, "TestMudBlazor.Pages.Nation");
+                    __builder3.CloseElement();
                 }
                 ));
                 __builder2.CloseComponent();

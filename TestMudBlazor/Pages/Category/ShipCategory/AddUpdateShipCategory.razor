@@ -51,20 +51,25 @@
                         <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
                                       For="@(() => model.note)"></MudTextField>
                     </MudItem>
+
+                </MudGrid>
+
+                <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
                         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
                                      Label="hoạt động" />
                     </MudItem>
+
                 </MudGrid>
 
-                    <MudGrid>
-                        <MudItem xs="12">
-                            <MudText Align="Align.Center" Style="color: red" GutterBottom="true">
-                                "Vui lòng nhập thông tin,
-                                các ô có dấu (*) là bắt buộc"
-                            </MudText>
-                        </MudItem>
-                    </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">
+                            "Vui lòng nhập thông tin,
+                            các ô có dấu (*) là bắt buộc"
+                        </MudText>
+                    </MudItem>
+                </MudGrid>
             </EditForm>
         </MudItem>
 
