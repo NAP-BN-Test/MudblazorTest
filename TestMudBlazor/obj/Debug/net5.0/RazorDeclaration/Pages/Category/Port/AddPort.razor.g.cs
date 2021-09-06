@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace TestMudBlazor.Pages.Category.HSCode
+namespace TestMudBlazor.Pages.Category.Port
 {
     #line hidden
     using System;
@@ -90,21 +90,21 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\AddUpdateHSCode.razor"
+#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Port\AddPort.razor"
 using System.Text.RegularExpressions;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\AddUpdateHSCode.razor"
+#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Port\AddPort.razor"
 using System.ComponentModel.DataAnnotations;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/add-update-hs-code")]
-    public partial class AddUpdateHSCode : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/addport")]
+    public partial class AddPort : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\AddUpdateHSCode.razor"
+#line 89 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Port\AddPort.razor"
        
 
     Form model = new Form();
@@ -122,14 +122,15 @@ using System.ComponentModel.DataAnnotations;
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
         public string code { get; set; }
 
-        public string descript { get; set; }
-        public string goods { get; set; }
+        public string name { get; set; }
         public string nation { get; set; }
 
         public string stt { get; set; }
-        public bool active { get; set; }
+        public bool actice { get; set; }
 
         public string note { get; set; }
+        public string loai { get; set; }
+        public string tp { get; set; }
         public string quocgia { get; set; }
 
 
@@ -141,7 +142,6 @@ using System.ComponentModel.DataAnnotations;
     private void OnValidSubmit(EditContext context)
     {
     }
-
     private string[] states =
     {
         "Alabama", "Alaska", "American Samoa", "Arizona",
@@ -174,6 +174,7 @@ using System.ComponentModel.DataAnnotations;
             return states;
         return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
+
 
 #line default
 #line hidden

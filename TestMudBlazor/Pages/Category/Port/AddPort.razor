@@ -1,12 +1,11 @@
-@* Gihug 01/09/2021*@
-@page "/addupdateship"
+﻿@page "/addport"
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 <MudGrid Style="margin-top: 10px">
 
     <MudGrid>
         <MudItem xs="6">
-            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới tàu</MudText>
+            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới cảng</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -36,6 +35,20 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="6">
+                        <MudAutocomplete T="string" Label="Loại" @bind-Value="model.loai" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.quocgia)" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="6">
+                        <MudAutocomplete T="string" Label="Thành phố" @bind-Value="model.tp" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.quocgia)" />
+                    </MudItem>
+
+                </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="6">
                         <MudAutocomplete T="string" Label="Quốc gia" @bind-Value="model.quocgia" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.quocgia)" />
@@ -52,15 +65,10 @@
                         <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
                                       For="@(() => model.note)"></MudTextField>
                     </MudItem>
-
-                </MudGrid>
-
-                <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
                         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
                                      Label="hoạt động" />
                     </MudItem>
-
                 </MudGrid>
 
                 <MudGrid>
@@ -94,6 +102,8 @@
         public bool actice { get; set; }
 
         public string note { get; set; }
+        public string loai { get; set; }
+        public string tp { get; set; }
         public string quocgia { get; set; }
 
 
@@ -105,7 +115,6 @@
     private void OnValidSubmit(EditContext context)
     {
     }
-
     private string[] states =
     {
         "Alabama", "Alaska", "American Samoa", "Arizona",
@@ -138,6 +147,5 @@
             return states;
         return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
-
 
 }
