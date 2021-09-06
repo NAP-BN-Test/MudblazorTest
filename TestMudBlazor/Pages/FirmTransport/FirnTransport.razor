@@ -20,23 +20,27 @@
         <MudItem xs="12">
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                 <MudGrid>
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="4">
                         <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="4">
                         <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
                     </MudItem>
 
-
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudAutocomplete T="string" Label="Loại" @bind-Value="model.type" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.type)" />
+                    </MudItem>
                 </MudGrid>
                 <MudGrid>
 
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="4">
                         <MudNumericField @bind-Value="model.thutu" Label="Thứ tự" Variant="Variant.Outlined" For="@(() => model.thutu)"></MudNumericField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="8">
                         <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
@@ -73,6 +77,8 @@
 
         public double thutu { get; set; }
 
+        public string type { get; set; }
+
         public string yt { get; set; }
 
 
@@ -83,6 +89,30 @@
     string[] errors = { };
     private void OnValidSubmit(EditContext context)
     {
+    }
+
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+    };
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
 

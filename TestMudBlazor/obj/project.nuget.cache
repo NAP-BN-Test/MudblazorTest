@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tlPHbbcAN80o1liVwyNSHfr3K9tBaazv3nGuZ9fO0WL6SRqGYSZeqAQ/9Yvxjy8nqrJ/4doq5FCF96REQfxgVA==",
+  "dgSpecHash": "s3+EIpj0D8GJ13Bzr3nPgFLYSyQXNfoztQXEd2xTWBSKGxIXCHHWmjCX9CCeZfBQftK2+SEfFtrbbQEoxuOCSw==",
   "success": true,
-  "projectFilePath": "H:\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
+  "projectFilePath": "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.7\\microsoft.aspnetcore.authorization.5.0.7.nupkg.sha512",
@@ -136,7 +136,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.9\\microsoft.netcore.app.runtime.browser-wasm.5.0.9.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.7\\microsoft.netcore.app.runtime.browser-wasm.5.0.7.nupkg.sha512"
   ],
   "logs": []
 }

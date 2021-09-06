@@ -31,12 +31,9 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudSelect T="string" Label="Loại phòng ban" MultiSelection="true" @bind-Value="value" @bind-SelectedValues="options" Variant="Variant.Outlined">
-                            @foreach (var state in states)
-                            {
-                                <MudSelectItem T="string" Value="@state">@state</MudSelectItem>
-                            }
-                        </MudSelect>
+                        <MudAutocomplete T="string" Label="Loại phòng ban" @bind-Value="model.type" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.type)" />
                     </MudItem>
 
                     <MudItem xs="12" sm="12" md="6">
@@ -45,7 +42,7 @@
 
                 </MudGrid>
 
-                
+
                 <MudGrid>
                     <MudItem xs="12">
                         <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin, các ô có dấu (*) là bắt buộc"</MudText>
@@ -66,6 +63,7 @@
         [Required(ErrorMessage = "Nhập mã!")]
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
         public string ma { get; set; }
+        public string type { get; set; }
 
         public string ten { get; set; }
         public string ghichu { get; set; }
@@ -85,6 +83,22 @@
 
     private string[] states =
     {
-        "Sale", "Kế toán", "Maketing", 
+        "Sale", "Kế toán", "Maketing",
     };
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
 }

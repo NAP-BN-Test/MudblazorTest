@@ -1,29 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "H:\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj": {}
+    "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj": {}
   },
   "projects": {
-    "H:\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj": {
+    "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
+        "projectUniqueName": "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
         "projectName": "TestMudBlazor",
-        "projectPath": "H:\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
+        "projectPath": "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\TestMudBlazor.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "H:\\MudblazorTest\\TestMudBlazor\\obj\\",
+        "outputPath": "C:\\Project\\FontEnd\\Blazor\\MudblazorTest\\TestMudBlazor\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -86,7 +90,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-              "version": "[5.0.9, 5.0.9]"
+              "version": "[5.0.7, 5.0.7]"
             }
           ],
           "frameworkReferences": {
@@ -94,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
