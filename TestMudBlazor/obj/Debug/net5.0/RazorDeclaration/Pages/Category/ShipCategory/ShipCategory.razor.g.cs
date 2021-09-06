@@ -83,7 +83,7 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "H:\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
+#line 2 "H:\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
 using System.Net.Http.Json;
 
 #line default
@@ -98,7 +98,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "H:\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
+#line 67 "H:\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
        
     private string searchString;
     private bool hover = true;

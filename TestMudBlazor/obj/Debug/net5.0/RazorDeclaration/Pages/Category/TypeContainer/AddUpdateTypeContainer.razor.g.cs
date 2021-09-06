@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace TestMudBlazor.Shared
+namespace TestMudBlazor.Pages.Category.TypeContainer
 {
     #line hidden
     using System;
@@ -89,7 +89,22 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class MainLayout : LayoutComponentBase
+#nullable restore
+#line 3 "H:\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\AddUpdateTypeContainer.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "H:\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\AddUpdateTypeContainer.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/add-update-type-container")]
+    public partial class AddUpdateTypeContainer : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,49 +112,34 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "H:\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
+#line 63 "H:\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\AddUpdateTypeContainer.razor"
        
-    private string[] states =
-                    {
-"Alabama", "Alaska", "American Samoa", "Arizona",
-"Arkansas", "California", "Colorado", "Connecticut",
-"Delaware", "District of Columbia", "Federated States of Micronesia",
-"Florida", "Georgia", "Guam", "Hawaii", "Idaho",
-"Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-"Louisiana", "Maine", "Marshall Islands", "Maryland",
-"Massachusetts", "Michigan", "Minnesota", "Mississippi",
-"Missouri", "Montana", "Nebraska", "Nevada",
-"New Hampshire", "New Jersey", "New Mexico", "New York",
-"North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
-"Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
-"Rhode Island", "South Carolina", "South Dakota", "Tennessee",
-"Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
-"Washington", "West Virginia", "Wisconsin", "Wyoming",
-};
-    bool open = false;
-    DrawerClipMode clipMode = DrawerClipMode.Never;
-    bool Basic_CheckBox1 = false;
-    Breakpoint breakpoint = Breakpoint.Lg;
-    bool preserveOpenState = false;
-    bool dense = false;
-    void ToggleDrawer()
-    {
-        open = !open;
-    }
-    private string value1;
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
 
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    Form model = new Form();
+    public class Form
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
+        public string code { get; set; }
+
+        public string name { get; set; }
+        
+        public string stt { get; set; }
+        public bool actice { get; set; }
+
+        public string note { get; set; }
+
+
+
     }
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+
+
 
 #line default
 #line hidden

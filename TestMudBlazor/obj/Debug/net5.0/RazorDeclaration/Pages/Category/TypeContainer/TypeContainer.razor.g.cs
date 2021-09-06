@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace TestMudBlazor.Shared
+namespace TestMudBlazor.Pages.Category.TypeContainer
 {
     #line hidden
     using System;
@@ -15,13 +15,6 @@ namespace TestMudBlazor.Shared
 #nullable restore
 #line 1 "H:\MudblazorTest\TestMudBlazor\_Imports.razor"
 using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "H:\MudblazorTest\TestMudBlazor\_Imports.razor"
-using System.Net.Http.Json;
 
 #line default
 #line hidden
@@ -89,7 +82,15 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class MainLayout : LayoutComponentBase
+#nullable restore
+#line 2 "H:\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\TypeContainer.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/type-container-category")]
+    public partial class TypeContainer : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,53 +98,37 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "H:\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
+#line 65 "H:\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\TypeContainer.razor"
        
-    private string[] states =
-                    {
-"Alabama", "Alaska", "American Samoa", "Arizona",
-"Arkansas", "California", "Colorado", "Connecticut",
-"Delaware", "District of Columbia", "Federated States of Micronesia",
-"Florida", "Georgia", "Guam", "Hawaii", "Idaho",
-"Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-"Louisiana", "Maine", "Marshall Islands", "Maryland",
-"Massachusetts", "Michigan", "Minnesota", "Mississippi",
-"Missouri", "Montana", "Nebraska", "Nevada",
-"New Hampshire", "New Jersey", "New Mexico", "New York",
-"North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
-"Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
-"Rhode Island", "South Carolina", "South Dakota", "Tennessee",
-"Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
-"Washington", "West Virginia", "Wisconsin", "Wyoming",
-};
-    bool open = false;
-    DrawerClipMode clipMode = DrawerClipMode.Never;
-    bool Basic_CheckBox1 = false;
-    Breakpoint breakpoint = Breakpoint.Lg;
-    bool preserveOpenState = false;
-    bool dense = false;
-    void ToggleDrawer()
+    private string searchString;
+    private bool hover = true;
+    TypeContainerCategory[] typeContainers = new TypeContainerCategory[]
     {
-        open = !open;
-    }
-    private string value1;
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
+new TypeContainerCategory { code = "TC01", name = "Container A", active = true , stt = 1 ,note=""},
+new TypeContainerCategory { code = "TC02 ", name = "Container B" , active = false,  stt = 2,note=""},
+new TypeContainerCategory { code = "TC03", name = "Container C", active = true,  stt = 3 ,note=""},
+    };
 
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    class TypeContainerCategory
+    {
+        public string code;
+        public string name;
+        public bool active;
+        public int stt;
+        public string note;
+    }
+
+    private HashSet<TypeContainerCategory> selectedItems1 = new HashSet<TypeContainerCategory>();
+    private IEnumerable<TypeContainerCategory> Elements = new List<TypeContainerCategory>();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = typeContainers;
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }
 #pragma warning restore 1591

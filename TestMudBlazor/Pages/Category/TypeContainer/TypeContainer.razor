@@ -1,7 +1,7 @@
-@* Gihug 01/09/2021*@
+@* Gihug 06/09/2021*@
 @using System.Net.Http.Json
 @inject HttpClient httpClient
-@page "/shipcategory"
+@page "/type-container-category"
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -15,7 +15,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh mục tàu</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Danh mục loại Container</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
@@ -23,7 +23,7 @@
                     Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                     Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
-                <MudLink Href="/addupdateship" Typo="Typo.body2">
+                <MudLink Href="/add-update-type-container" Typo="Typo.body2">
                     <MudIconButton Icon="@Icons.Material.Outlined.Add" />
                 </MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -41,7 +41,6 @@
                 <HeaderContent>
                     <MudTh>Mã</MudTh>
                     <MudTh>Tên</MudTh>
-                    <MudTh>Quốc gia</MudTh>
                     <MudTh>Hoạt động</MudTh>
                     <MudTh>Thứ tự sắp xếp</MudTh>
                     <MudTh>Ghi chú</MudTh>
@@ -49,7 +48,6 @@
                 <RowTemplate>
                     <MudTd DataLabel="code">@context.code</MudTd>
                     <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
                     <MudTd DataLabel="active">@context.active</MudTd>
                     <MudTd DataLabel="stt">@context.stt</MudTd>
                     <MudTd DataLabel="note">@context.note</MudTd>
@@ -67,27 +65,26 @@
 @code {
     private string searchString;
     private bool hover = true;
-    Ship[] ships = new Ship[]
+    TypeContainerCategory[] typeContainers = new TypeContainerCategory[]
     {
-new Ship { code = "S01", name = "Tàu A", active = true , nation = "Việt Nam", stt = 1 ,note=""},
-new Ship { code = "S02 ", name = "Tàu B" , active = false, nation = "Việt Nam", stt = 2,note=""},
-new Ship { code = "S03", name = "Tàu C", active = true, nation = "Trung Quốc", stt = 3 ,note=""},
+new TypeContainerCategory { code = "TC01", name = "Container A", active = true , stt = 1 ,note=""},
+new TypeContainerCategory { code = "TC02 ", name = "Container B" , active = false, stt = 2,note=""},
+new TypeContainerCategory { code = "TC03", name = "Container C", active = true, stt = 3 ,note=""},
     };
 
-    class Ship
+    class TypeContainerCategory
     {
         public string code;
         public string name;
         public bool active;
-        public string nation;
         public int stt;
         public string note;
     }
 
-    private HashSet<Ship> selectedItems1 = new HashSet<Ship>();
-    private IEnumerable<Ship> Elements = new List<Ship>();
+    private HashSet<TypeContainerCategory> selectedItems1 = new HashSet<TypeContainerCategory>();
+    private IEnumerable<TypeContainerCategory> Elements = new List<TypeContainerCategory>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = ships;
+        Elements = typeContainers;
     }
 }

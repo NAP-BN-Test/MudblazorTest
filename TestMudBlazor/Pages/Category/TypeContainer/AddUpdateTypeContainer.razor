@@ -1,12 +1,12 @@
-@* Gihug 01/09/2021*@
-@page "/add-update-hs-code"
+@* Gihug 06/09/2021*@
+@page "/add-update-type-container"
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 <MudGrid Style="margin-top: 10px">
 
     <MudGrid>
         <MudItem xs="6">
-            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới mã HS</MudText>
+            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới tàu</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -27,31 +27,21 @@
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.descript" Label="Mô tả" Variant="Variant.Outlined"
-                            For="@(() => model.descript)"></MudTextField>
+                        <MudTextField @bind-Value="model.name" Label="Tên" Variant="Variant.Outlined"
+                            For="@(() => model.name)"></MudTextField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.goods" Label="Hàng hóa" Variant="Variant.Outlined"
-                            For="@(() => model.goods)"></MudTextField>
+                <MudItem xs="12" sm="6" md="4">
+                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                            Label="hoạt động" />
                     </MudItem>
 
                 </MudGrid>
                 <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.nation" Label="Quốc gia" Variant="Variant.Outlined"
-                            For="@(() => model.nation)"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
-                            Label="hoạt động" />
-                    </MudItem>
                     <MudItem xs="12" sm="6" md="4">
                         <MudNumericField @bind-Value="model.stt" Label="Thứ tự" Variant="Variant.Outlined"
                             For="@(() => model.stt)"></MudNumericField>
                     </MudItem>
-                </MudGrid>
-                <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
                         <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
                             For="@(() => model.note)"></MudTextField>
@@ -79,12 +69,10 @@
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
         public string code { get; set; }
 
-        public string descript { get; set; }
-        public string goods { get; set; }
-        public string nation { get; set; }
-
+        public string name { get; set; }
+        
         public string stt { get; set; }
-        public bool active { get; set; }
+        public bool actice { get; set; }
 
         public string note { get; set; }
 

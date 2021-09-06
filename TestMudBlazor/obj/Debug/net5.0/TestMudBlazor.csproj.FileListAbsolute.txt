@@ -2268,3 +2268,7 @@ H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\HSCode\HSCode.razor.g.cs
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\HSCode\AddUpdateHSCode.razor.g.cs
 H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\HSCode\HSCode.razor.g.cs
+H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\TypeContainer\AddUpdateTypeContainer.razor.g.cs
+H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\TypeContainer\TypeContainer.razor.g.cs
+H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\TypeContainer\AddUpdateTypeContainer.razor.g.cs
+H:\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\TypeContainer\TypeContainer.razor.g.cs
