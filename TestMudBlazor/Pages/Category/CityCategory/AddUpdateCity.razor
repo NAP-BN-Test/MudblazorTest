@@ -21,40 +21,48 @@
         <MudItem xs="12">
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                 <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
+                    <MudItem xs="12" sm="6" md="6">
                         <MudTextField @bind-Value="model.code" Label="Mã (*)" Variant="Variant.Outlined"
-                            For="@(() => model.code)"></MudTextField>
+                                      For="@(() => model.code)"></MudTextField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="4">
+                    <MudItem xs="12" sm="6" md="6">
                         <MudTextField @bind-Value="model.name" Label="Tên" Variant="Variant.Outlined"
-                            For="@(() => model.name)"></MudTextField>
+                                      For="@(() => model.name)"></MudTextField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="4">
+
+
+                </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="6">
                         <MudTextField @bind-Value="model.nation" Label="Quốc gia" Variant="Variant.Outlined"
-                            For="@(() => model.nation)"></MudTextField>
+                                      For="@(() => model.nation)"></MudTextField>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="6">
+                        <MudNumericField @bind-Value="model.stt" Label="Thứ tự" Variant="Variant.Outlined"
+                                         For="@(() => model.stt)"></MudNumericField>
                     </MudItem>
 
                 </MudGrid>
                 <MudGrid>
+                    <MudItem xs="12" sm="6" md="12">
+                        <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
+                                      For="@(() => model.note)"></MudTextField>
+                    </MudItem>
                     <MudItem xs="12" sm="6" md="4">
                         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
-                            Label="hoạt động" />
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudNumericField @bind-Value="model.stt" Label="Thứ tự" Variant="Variant.Outlined"
-                            For="@(() => model.stt)"></MudNumericField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
-                            For="@(() => model.note)"></MudTextField>
+                                     Label="hoạt động" />
                     </MudItem>
                 </MudGrid>
+
                 <MudGrid>
                     <MudItem xs="12">
-                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin,
-                            các ô có dấu (*) là bắt buộc"</MudText>
+                        <MudText Align="Align.Center" Style="color: red" GutterBottom="true">
+                            "Vui lòng nhập thông tin,
+                            các ô có dấu (*) là bắt buộc"
+                        </MudText>
                     </MudItem>
                 </MudGrid>
             </EditForm>
