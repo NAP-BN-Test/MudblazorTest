@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Personnel\Personnel.razor"
+#line 103 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Personnel\Personnel.razor"
        
 
     Form model = new Form();
@@ -121,10 +121,22 @@ using System.ComponentModel.DataAnnotations;
         [Required(ErrorMessage = "Nhập mã!")]
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
         public string ma { get; set; }
-
+        public string ho { get; set; }
+        public string tendem { get; set; }
+        [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        public DateTime? ngaysinh { get; set; }
         public string ten { get; set; }
         public string diachi { get; set; }
+        public string diachitamtru { get; set; }
         public string yt { get; set; }
+        [Required(ErrorMessage = "Nhập cmnd!")]
+        public string cmnd { get; set; }
+        [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
+        public string email { get; set; }
+        public string sdt { get; set; }
+        public string ghichu { get; set; }
+        public string phongban { get; set; }
+        public string chucvu { get; set; }
 
 
 
@@ -134,6 +146,43 @@ using System.ComponentModel.DataAnnotations;
     string[] errors = { };
     private void OnValidSubmit(EditContext context)
     {
+    }
+
+    private string value { get; set; } = "Nothing selected";
+    private HashSet<string> options { get; set; } = new HashSet<string>() { "Alaska" };
+
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+        "Louisiana", "Maine", "Marshall Islands", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada",
+        "New Hampshire", "New Jersey", "New Mexico", "New York",
+        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
+        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
+        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    };
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
 #line default

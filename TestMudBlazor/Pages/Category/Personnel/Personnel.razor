@@ -21,26 +21,71 @@
 
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                 <MudGrid>
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="3">
                         <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
                     </MudItem>
 
-                    <MudItem xs="12" sm="6" md="6">
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudTextField @bind-Value="model.ho" Label="Họ" Variant="Variant.Outlined" For="@(() => model.ho)"></MudTextField>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudTextField @bind-Value="model.tendem" Label="Tên đệm" Variant="Variant.Outlined" For="@(() => model.tendem)"></MudTextField>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="3">
                         <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
-                    <MudItem xs="12" sm="12" md="12">
-                        <MudTextField @bind-Value="model.diachi" Label="Địa chỉ" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudDatePicker Label="Ngày sinh/Ngày lập" @bind-Date="model.ngaysinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.ngaysinh)" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudSelect T="bool" Label="Giới tính" Strict="true" Variant="Variant.Outlined" Format="F2">
+                            <MudSelectItem T="bool" Value="false">Nam</MudSelectItem>
+                            <MudSelectItem T="bool" Value="true">Nữ</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6" md="4">
+                        <MudTextField @bind-Value="model.cmnd" Label="CMND" Variant="Variant.Outlined" For="@(() => model.cmnd)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12" sm="12" md="6">
+                        <MudTextField @bind-Value="model.diachi" Label="Địa chỉ thường trú" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="12" sm="12" md="6">
+                        <MudTextField @bind-Value="model.diachitamtru" Label="Địa chỉ tạm trú" Variant="Variant.Outlined" For="@(() => model.diachitamtru)"></MudTextField>
+                    </MudItem>
+                </MudGrid>
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudTextField @bind-Value="model.sdt" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.sdt)"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudTextField @bind-Value="model.email" Label="Email (*)" Variant="Variant.Outlined" For="@(() => model.email)"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudAutocomplete T="string" Label="Chức vụ" @bind-Value="model.chucvu" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.chucvu)" />
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudAutocomplete T="string" Label="Phòng ban" @bind-Value="model.phongban" SearchFunc="@Search1"
+                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.phongban)" />
+                    </MudItem>
+                </MudGrid>
 
+                
                 <MudGrid>
 
-                    <MudItem xs="12" sm="12" md="6">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
-                                     Label="Hoạt động" />
+                    <MudItem xs="12" sm="12" md="12">
+                        <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
@@ -63,10 +108,22 @@
         [Required(ErrorMessage = "Nhập mã!")]
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
         public string ma { get; set; }
-
+        public string ho { get; set; }
+        public string tendem { get; set; }
+        [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        public DateTime? ngaysinh { get; set; }
         public string ten { get; set; }
         public string diachi { get; set; }
+        public string diachitamtru { get; set; }
         public string yt { get; set; }
+        [Required(ErrorMessage = "Nhập cmnd!")]
+        public string cmnd { get; set; }
+        [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
+        public string email { get; set; }
+        public string sdt { get; set; }
+        public string ghichu { get; set; }
+        public string phongban { get; set; }
+        public string chucvu { get; set; }
 
 
 
@@ -76,5 +133,42 @@
     string[] errors = { };
     private void OnValidSubmit(EditContext context)
     {
+    }
+
+    private string value { get; set; } = "Nothing selected";
+    private HashSet<string> options { get; set; } = new HashSet<string>() { "Alaska" };
+
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+        "Louisiana", "Maine", "Marshall Islands", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada",
+        "New Hampshire", "New Jersey", "New Mexico", "New York",
+        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
+        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
+        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    };
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 }
