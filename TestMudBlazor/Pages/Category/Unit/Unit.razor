@@ -2,24 +2,26 @@
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 <MudGrid Style="margin-top: 10px">
-    <MudGrid>
-        <MudItem xs="6">
-            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới đơn vị tính</MudText>
-        </MudItem>
-        <MudItem xs="6">
-            <MudToolBar>
-                <MudSpacer />
-                <MudIconButton Icon="@Icons.Material.Outlined.Add" />
-                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
-                <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
-            </MudToolBar>
-        </MudItem>
-    </MudGrid>
+    
     <MudGrid>
         <MudItem xs="12">
 
 
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới đơn vị tính</MudText>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudToolBar>
+                            <MudSpacer />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+                        </MudToolBar>
+                    </MudItem>
+                </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="6">
                         <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
@@ -29,7 +31,7 @@
                         <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
                     </MudItem>
 
-                    
+
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="6">
@@ -48,7 +50,7 @@
                         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
                                      Label="Hoạt động" />
                     </MudItem>
-                        
+
                 </MudGrid>
 
 

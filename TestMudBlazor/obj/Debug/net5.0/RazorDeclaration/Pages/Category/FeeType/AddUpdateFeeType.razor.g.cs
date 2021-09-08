@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FeeType\AddUpdateFeeType.razor"
+#line 57 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FeeType\AddUpdateFeeType.razor"
        
 
     Form model = new Form();

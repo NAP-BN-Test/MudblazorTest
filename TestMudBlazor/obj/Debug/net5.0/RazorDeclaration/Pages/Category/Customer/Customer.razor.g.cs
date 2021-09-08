@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 254 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
+#line 255 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
        
 
     public string searchString { get; set; }

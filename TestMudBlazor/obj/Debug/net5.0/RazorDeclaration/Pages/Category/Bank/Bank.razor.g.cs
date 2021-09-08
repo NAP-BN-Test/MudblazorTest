@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Bank\Bank.razor"
+#line 60 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Bank\Bank.razor"
        
 
     Form model = new Form();

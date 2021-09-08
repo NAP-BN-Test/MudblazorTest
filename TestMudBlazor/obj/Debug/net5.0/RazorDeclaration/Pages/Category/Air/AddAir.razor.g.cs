@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 75 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Air\AddAir.razor"
+#line 77 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Air\AddAir.razor"
        
 
     Form model = new Form();

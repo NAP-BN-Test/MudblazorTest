@@ -40,6 +40,7 @@
                     <MudGrid Style="margin-right: 10px">
                         <MudItem xs="12">
                             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
                                         <MudTextField @bind-Value="model.ma" Label="Mã khách hàng (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>

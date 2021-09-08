@@ -112,7 +112,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\Currency.razor"
+#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\Currency.razor"
        
 
     Form model = new Form();
