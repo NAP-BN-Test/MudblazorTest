@@ -24,18 +24,18 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.code" Label="Mã (*)" Variant="Variant.Outlined"
-                                      For="@(() => model.code)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined"
+                                      For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.goods" Label="Hàng hóa" Variant="Variant.Outlined"
-                                      For="@(() => model.goods)"></MudTextField>
+                        <MudTextField @bind-Value="model.HangHoa" Label="Hàng hóa" Variant="Variant.Outlined"
+                                      For="@(() => model.HangHoa)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.descript" Label="Mô tả" Variant="Variant.Outlined"
-                                      For="@(() => model.descript)"></MudTextField>
+                        <MudTextField @bind-Value="model.MoTa" Label="Mô tả" Variant="Variant.Outlined"
+                                      For="@(() => model.MoTa)"></MudTextField>
                     </MudItem>
 
 
@@ -43,26 +43,26 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudAutocomplete T="string" Label="Quốc gia" @bind-Value="model.quocgia" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="Quốc gia" @bind-Value="model.QuocGia" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.quocgia)" />
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.QuocGia)" />
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudNumericField @bind-Value="model.stt" Label="Thứ tự" Variant="Variant.Outlined"
-                                         For="@(() => model.stt)"></MudNumericField>
+                        <MudNumericField @bind-Value="model.ThuTu" Label="Thứ tự" Variant="Variant.Outlined"
+                                         For="@(() => model.ThuTu)"></MudNumericField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.note" Label="Ghi chú" Variant="Variant.Outlined"
-                                      For="@(() => model.note)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined"
+                                      For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
 
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                        <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong" RequiredError="You must agree" Class="ml-n2"
                                      Label="hoạt động" />
                     </MudItem>
                 </MudGrid>
@@ -83,25 +83,17 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    HSCODE model = new HSCODE();
+    public class HSCODE
     {
         [Required(ErrorMessage = "Nhập mã!")]
-        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string code { get; set; }
-
-        public string descript { get; set; }
-        public string goods { get; set; }
-        public string nation { get; set; }
-
-        public string stt { get; set; }
-        public bool active { get; set; }
-
-        public string note { get; set; }
-        public string quocgia { get; set; }
-
-
-
+        public string Ma { get; set; }
+        public string MoTa { get; set; }
+        public string HangHoa { get; set; }
+        public string QuocGia { get; set; }
+        public string ThuTu { get; set; }
+        public bool HoatDong { get; set; }
+        public string GhiChu { get; set; }
     }
 
     bool success;

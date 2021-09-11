@@ -22,24 +22,24 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudNumericField @bind-Value="model.thutu" Label="Thứ tự" Variant="Variant.Outlined" For="@(() => model.thutu)"></MudNumericField>
+                        <MudNumericField @bind-Value="model.ThuTu" Label="Thứ tự" Variant="Variant.Outlined" For="@(() => model.ThuTu)"></MudNumericField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="4">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                        <MudCheckBox T="bool" Required="true" @bind-Value="model.YeuThich" RequiredError="You must agree" Class="ml-n2"
                                      Label="Yêu thích" />
                     </MudItem>
                     <MudItem xs="12" sm="12" md="4">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                        <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong" RequiredError="You must agree" Class="ml-n2"
                                      Label="Hoạt động" />
                     </MudItem>
                 </MudGrid>
@@ -57,18 +57,15 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    NATION model = new NATION();
+    public class NATION
     {
         [Required(ErrorMessage = "Nhập mã!")]
-        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-
-        public string ten { get; set; }
-
-        public double thutu { get; set; }
-
-        public string yt { get; set; }
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public double ThuTu { get; set; }
+        public bool YeuThich { get; set; }
+        public bool HoatDong { get; set; }
 
 
 

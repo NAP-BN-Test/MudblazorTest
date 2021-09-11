@@ -48,14 +48,14 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="loai">@context.loai</MudTd>
-                    <MudTd DataLabel="tp">@context.tp</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="QuocGia">@context.QuocGia</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
+                    <MudTd DataLabel="ThanhPho">@context.ThanhPho</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -70,29 +70,31 @@
 @code {
     private string searchString;
     private bool hover = true;
-    City[] citys = new City[]
-    {
-new City { code = "HN", name = "Hà Nội", active = true , nation = "Việt Nam", stt = 1 ,note="", loai="1", tp="HCM"},
-new City { code = "HCM ", name = "Hồ Chí Minh" , active = false, nation = "Việt Nam", stt = 2,note="", loai="1", tp="HCM"},
-new City { code = "HP", name = "Hải Phòng", active = true, nation = "Việt Nam", stt = 3 ,note="", loai="1", tp="HCM"},
-        };
+    PortDetail[] portDetails = new PortDetail[]
+{
+new PortDetail { Ma = "HN", Ten = "Hà Nội", HoatDong = true , QuocGia = "Việt Nam", ThuTu = "1",GhiChu="", Loai="1", ThanhPho="HCM"},
+new PortDetail { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, QuocGia = "Việt Nam", ThuTu ="2",GhiChu="", Loai="1", ThanhPho="HCM"},
+new PortDetail { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, QuocGia = "Việt Nam", ThuTu = "3" ,GhiChu="", Loai="1", ThanhPho="HCM"},
+};
 
-    class City
+    class PortDetail
     {
-        public string code;
-        public string name;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
-        public string tp;
-        public string loai;
+        public string Ma;
+        public string Ten;
+        public string QuocGia;
+        public string ThuTu;
+        public bool HoatDong;
+        public string GhiChu;
+        public string Loai;
+        public string ThanhPho;
     }
 
-    private HashSet<City> selectedItems1 = new HashSet<City>();
-    private IEnumerable<City> Elements = new List<City>();
+
+
+    private HashSet<PortDetail> selectedItems1 = new HashSet<PortDetail>();
+    private IEnumerable<PortDetail> Elements = new List<PortDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = citys;
+        Elements = portDetails;
     }
 }

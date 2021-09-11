@@ -5,24 +5,24 @@
         <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">Thêm tài khoản ngân hàng</MudText>
         <MudGrid Style="margin-top: 10px">
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="stk" Label="Số tài khoản" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="SoTaiKhoan" Label="Số tài khoản" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="ctk" Label="Chủ tài khoản" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="ChuTaiKhoan" Label="Chủ tài khoản" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
 
         </MudGrid>
         <MudGrid>
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect T="bool" Label="Ngân hàng" Strict="true" Variant="Variant.Outlined" Format="F2">
+                <MudSelect Label="Ngân hàng" Strict="true" @bind-Value="NganHang" Variant="Variant.Outlined" Format="F2">
                     <MudSelectItem T="bool" Value="false">A</MudSelectItem>
                     <MudSelectItem T="bool" Value="true">B</MudSelectItem>
                 </MudSelect>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect T="bool" Label="Loại tiền tệ" Strict="true" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem T="bool" Value="false">A</MudSelectItem>
-                    <MudSelectItem T="bool" Value="true">B</MudSelectItem>
+                <MudSelect Label="Loại tiền tệ" Strict="true" @bind-Value="LoaiTienTe" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem Value="'a'">A</MudSelectItem>
+                    <MudSelectItem  Value="'a'">B</MudSelectItem>
                 </MudSelect>
             </MudItem>
         </MudGrid>
@@ -35,13 +35,10 @@
     </DialogActions>
 </MudDialog>
 @code {
-    public string chinhanh { get; set; }
-    public string hoten { get; set; }
-    public string sdt { get; set; }
-    public string ghichu { get; set; }
-    public string ctk { get; set; }
-    public string stk { get; set; }
-    public string dcchinhanh { get; set; }
+    public string ChuTaiKhoan { get; set; }
+    public string SoTaiKhoan { get; set; }
+    public string NganHang { get; set; }
+    public string LoaiTienTe { get; set; }
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));

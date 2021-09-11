@@ -41,11 +41,11 @@
                     <MudTh>Mặc định</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
-                    <MudTd DataLabel="order">@context.order</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="YeuThich">@context.YeuThich</MudTd>
+                    <MudTd DataLabel="MacDinh">@context.MacDinh</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -60,27 +60,30 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
-{
-        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = true },
-        new EarningReport { ma = "QGMY ", name =  "b" ,  action = false, avorite = true, order = true},
-        new EarningReport { ma = "QGHQ", name = "c",  action = true, avorite = false, order = true },
-        };
+    
 
-    class EarningReport
+    class Curency
     {
-        public string ma;
-        public string name;
-        public bool action;
-        public bool avorite;
-        public bool order;
+        public string Ma;
+        public string Ten;
+        public bool YeuThich;
+        public bool HoatDong;
+        public bool MacDinh;
+
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    Curency[] curencys = new Curency[]
+{
+        new Curency { Ma = "QGVN", Ten = "a", HoatDong = true , YeuThich = true, MacDinh = true },
+        new Curency { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, YeuThich = true, MacDinh = true},
+        new Curency { Ma = "QGHQ", Ten = "c",  HoatDong = true, YeuThich = false, MacDinh = true },
+    };
+
+    private HashSet<Curency> selectedItems1 = new HashSet<Curency>();
+    private IEnumerable<Curency> Elements = new List<Curency>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = curencys;
     }
 }
 

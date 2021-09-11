@@ -43,10 +43,10 @@
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.ma" Label="Mã khách hàng (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                                        <MudTextField @bind-Value="model.MaKhachHang" Label="Mã khách hàng (*)" Variant="Variant.Outlined" For="@(() => model.MaKhachHang)"></MudTextField>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudSelect T="string" Label="Nhóm khách hàng" MultiSelection="true" @bind-Value="model.nhom" @bind-SelectedValues="options" Variant="Variant.Outlined" For="@(() => model.nhom)">
+                                        <MudSelect T="string" Label="Nhóm khách hàng" MultiSelection="true" @bind-Value="model.NhomKhachhang" @bind-SelectedValues="options" Variant="Variant.Outlined" For="@(() => model.NhomKhachhang)">
                                             @foreach (var state in states)
                                             {
                                                 <MudSelectItem T="string" Value="@state">@state</MudSelectItem>
@@ -54,54 +54,54 @@
                                         </MudSelect>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudSelect T="bool" Label="Loại" Strict="true" Variant="Variant.Outlined" Format="F2">
-                                            <MudSelectItem T="bool" Value="false">Cá nhân</MudSelectItem>
-                                            <MudSelectItem T="bool" Value="true">Tổ chức</MudSelectItem>
+                                        <MudSelect @bind-Value="model.Loai" Label="Loại" Strict="true" Variant="Variant.Outlined" Format="F2">
+                                            <MudSelectItem  Value="'b'">Cá nhân</MudSelectItem>
+                                            <MudSelectItem  Value="'c'">Tổ chức</MudSelectItem>
                                         </MudSelect>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.diachi" Label="Địa chỉ" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
+                                        <MudTextField @bind-Value="model.DiaChi" Label="Địa chỉ" Variant="Variant.Outlined" For="@(() => model.DiaChi)"></MudTextField>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.diachidk" Label="Địa chỉ đăng ký kinh doanh" Variant="Variant.Outlined" For="@(() => model.diachidk)"></MudTextField>
+                                        <MudTextField @bind-Value="model.DiaChiDangKyKinhDoanh" Label="Địa chỉ đăng ký kinh doanh" Variant="Variant.Outlined" For="@(() => model.DiaChiDangKyKinhDoanh)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Quốc gia" @bind-Value="model.quocgia" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="Quốc gia" @bind-Value="model.QuocGia" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.quocgia)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.QuocGia)" />
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.sdt" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.sdt)"></MudTextField>
+                                        <MudTextField @bind-Value="model.SoDienThoai" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.email" Label="Email (*)" Variant="Variant.Outlined" For="@(() => model.email)"></MudTextField>
-                                    </MudItem>
-                                </MudGrid>
-
-                                <MudGrid>
-                                    <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.fax" Label="Fax" Variant="Variant.Outlined" For="@(() => model.fax)"></MudTextField>
-                                    </MudItem>
-                                    <MudItem xs="12" sm="6" md="4">
-                                        <MudDatePicker Label="Ngày sinh/Ngày lập" @bind-Date="model.ngaysinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.ngaysinh)" />
-                                    </MudItem>
-                                    <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.masothue" Label="Mã số thuế (*)" Variant="Variant.Outlined" For="@(() => model.masothue)"></MudTextField>
+                                        <MudTextField @bind-Value="model.Email" Label="Email (*)" Variant="Variant.Outlined" For="@(() => model.Email)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudSelect T="string" Label="Loại hình kinh doanh" MultiSelection="true" @bind-Value="value" @bind-SelectedValues="options" Variant="Variant.Outlined">
+                                        <MudTextField @bind-Value="model.Fax" Label="Fax" Variant="Variant.Outlined" For="@(() => model.Fax)"></MudTextField>
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudDatePicker Label="Ngày sinh/Ngày lập" @bind-Date="model.NgaySinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgaySinh)" />
+                                    </MudItem>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudTextField @bind-Value="model.MaSoThue" Label="Mã số thuế (*)" Variant="Variant.Outlined" For="@(() => model.MaSoThue)"></MudTextField>
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudSelect T="string" Label="Loại hình kinh doanh" @bind-Value="model.LoaiHinhKinhDoanh" MultiSelection="true"  @bind-SelectedValues="options" Variant="Variant.Outlined">
                                             @foreach (var state in states)
                                             {
                                                 <MudSelectItem T="string" Value="@state">@state</MudSelectItem>
@@ -109,7 +109,7 @@
                                         </MudSelect>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudSelect T="string" Label="Loại hình khách hàng" MultiSelection="true" @bind-Value="value" @bind-SelectedValues="options" Variant="Variant.Outlined">
+                                        <MudSelect T="string" Label="Loại hình khách hàng" @bind-Value="model.LoaiKhachHang" MultiSelection="true"  @bind-SelectedValues="options" Variant="Variant.Outlined">
                                             @foreach (var state in states)
                                             {
                                                 <MudSelectItem T="string" Value="@state">@state</MudSelectItem>
@@ -117,7 +117,7 @@
                                         </MudSelect>
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Loại tiền tệ" @bind-Value="value2" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="Loại tiền tệ" @bind-Value="model.LoaiTienTe" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" />
 
@@ -126,14 +126,14 @@
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="12" md="12">
-                                        <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
+                                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                                     </MudItem>
 
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                                        <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong" RequiredError="You must agree" Class="ml-n2"
                                                      Label="Hoạt động" />
                                         @*<MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Thêm</MudButton>*@
                                     </MudItem>
@@ -178,12 +178,12 @@
                                             <MudTh>Hoạt động</MudTh>
                                         </HeaderContent>
                                         <RowTemplate>
-                                            <MudTd DataLabel="hoten">@context.hoten</MudTd>
-                                            <MudTd DataLabel="sdt">@context.sdt</MudTd>
-                                            <MudTd DataLabel="email">@context.email</MudTd>
-                                            <MudTd DataLabel="fax">@context.fax</MudTd>
-                                            <MudTd DataLabel="position">@context.position</MudTd>
-                                            <MudTd DataLabel="action">@context.action</MudTd>
+                                            <MudTd DataLabel="HoTen">@context.HoTen</MudTd>
+                                            <MudTd DataLabel="SoDienThoai">@context.SoDienThoai</MudTd>
+                                            <MudTd DataLabel="Email">@context.Email</MudTd>
+                                            <MudTd DataLabel="Fax">@context.Fax</MudTd>
+                                            <MudTd DataLabel="ChucVu">@context.ChucVu</MudTd>
+                                            <MudTd DataLabel="HanhDong">@context.HanhDong</MudTd>
                                         </RowTemplate>
                                         <PagerContent>
                                             <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -224,14 +224,14 @@
                                             <MudTh>Hoạt động</MudTh>
                                         </HeaderContent>
                                         <RowTemplate>
-                                            <MudTd DataLabel="stk">@context.stk</MudTd>
-                                            <MudTd DataLabel="ctk">@context.ctk</MudTd>
-                                            <MudTd DataLabel="nh">@context.nh</MudTd>
-                                            <MudTd DataLabel="cn">@context.cn</MudTd>
-                                            <MudTd DataLabel="dccn">@context.dccn</MudTd>
-                                            <MudTd DataLabel="tinh">@context.tinh</MudTd>
-                                            <MudTd DataLabel="note">@context.note</MudTd>
-                                            <MudTd DataLabel="action">@context.action</MudTd>
+                                            <MudTd DataLabel="SoTaiKhoan">@context.SoTaiKhoan</MudTd>
+                                            <MudTd DataLabel="ChuTaiKhoan">@context.ChuTaiKhoan</MudTd>
+                                            <MudTd DataLabel="NganHang">@context.NganHang</MudTd>
+                                            <MudTd DataLabel="ChiNhanh">@context.ChiNhanh</MudTd>
+                                            <MudTd DataLabel="DiaChiChiNhanh">@context.DiaChiChiNhanh</MudTd>
+                                            <MudTd DataLabel="Tinh">@context.Tinh</MudTd>
+                                            <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
+                                            <MudTd DataLabel="HanhDong">@context.HanhDong</MudTd>
                                         </RowTemplate>
                                         <PagerContent>
                                             <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -263,42 +263,32 @@
     private void OnValidSubmit(EditContext context)
     {
     }
-    Form model = new Form();
-    public class Form
+    CustomerDetail model = new CustomerDetail();
+    public class CustomerDetail
     {
         [Required(ErrorMessage = "Nhập mã khách hàng!")]
-        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-
-        public string ten { get; set; }
-
+        public string MaKhachHang { get; set; }
+        public string Ten { get; set; }
         [Required(ErrorMessage = "Nhập số điện thoại!")]
-        public string sdt { get; set; }
-
+        public string SoDienThoai { get; set; }
         public string thutu { get; set; }
-
-        public string yt { get; set; }
-
-        public string nhom { get; set; }
-
-        public string diachidk { get; set; }
-
-        public string diachi { get; set; }
-
-        public string quocgia { get; set; }
-
+        public string Loai { get; set; }
+        public string NhomKhachhang { get; set; }
+        public string DiaChiDangKyKinhDoanh { get; set; }
+        public string DiaChi { get; set; }
+        public string QuocGia { get; set; }
         [Required(ErrorMessage = "Nhập email!")]
         [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
-        public string email { get; set; }
-
-        public string masothue { get; set; }
-
-        public string fax { get; set; }
-
-        public string ghichu { get; set; }
-
+        public string Email { get; set; }
+        public string MaSoThue { get; set; }
+        public string Fax { get; set; }
+        public string LoaiTienTe { get; set; }
+        public string LoaiKhachHang { get; set; }
+        public string LoaiHinhKinhDoanh { get; set; }
+        public string GhiChu { get; set; }
+        public bool HoatDong { get; set; }
         [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-        public DateTime? ngaysinh { get; set; }
+        public DateTime? NgaySinh { get; set; }
 
     }
 
@@ -338,19 +328,19 @@
     private bool hover = true;
     Listcontact[] listcontact = new Listcontact[]
 {
-        new Listcontact { hoten = "CV01", sdt = "a", email = "abc@gmail.com" , fax = "1234568", position = "10", action= true },
-        new Listcontact { hoten = "CV01", sdt = "a", email = "abc@gmail.com" , fax = "1234568", position = "10", action= true },
-        new Listcontact { hoten = "CV01", sdt = "a", email = "abc@gmail.com" , fax = "1234568", position = "10", action= true },
+        new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
+        new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
+        new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
             };
 
     class Listcontact
     {
-        public string hoten;
-        public string sdt;
-        public bool action;
-        public string email;
-        public string fax;
-        public string position;
+        public string HoTen;
+        public string SoDienThoai;
+        public bool HanhDong;
+        public string Email;
+        public string Fax;
+        public string ChucVu;
     }
 
     private HashSet<Listcontact> selectedItems1 = new HashSet<Listcontact>();
@@ -364,21 +354,21 @@
 
     class ListBank
     {
-        public string note;
-        public string tinh;
-        public string dccn;
-        public string cn;
-        public string nh;
-        public string ctk;
-        public string stk;
-        public bool action;
+        public string GhiChu;
+        public string Tinh;
+        public string DiaChiChiNhanh;
+        public string ChiNhanh;
+        public string NganHang;
+        public string ChuTaiKhoan;
+        public string SoTaiKhoan;
+        public bool HanhDong;
     }
 
     ListBank[] listbank = new ListBank[]
 {
-        new ListBank { stk = "04041999999", ctk = "Dũng", action = true , nh = "TPBANK", cn = "HÀ NỘI", dccn="Hà Nội", tinh="Hà Nội", note="abc" },
-        new ListBank { stk = "04041999999", ctk = "Dũng", action = true , nh = "TPBANK", cn = "HÀ NỘI", dccn="Hà Nội", tinh="Hà Nội", note="abc" },
-        new ListBank { stk = "04041999999", ctk = "Dũng", action = true , nh = "TPBANK", cn = "HÀ NỘI", dccn="Hà Nội", tinh="Hà Nội", note="abc" },
+        new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
+        new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
+        new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
     };
 
 

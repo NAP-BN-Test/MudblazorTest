@@ -42,12 +42,12 @@
                     <MudTh>Hoạt động</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="ten">@context.ten</MudTd>
-                    <MudTd DataLabel="diachi">@context.diachi</MudTd>
-                    <MudTd DataLabel="dienthoai">@context.dienthoai</MudTd>
-                    <MudTd DataLabel="fax">@context.fax</MudTd>
-                    <MudTd DataLabel="hoatdong">@context.hoatdong</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="DiaChi">@context.DiaChi</MudTd>
+                    <MudTd DataLabel="SoDienThoai">@context.SoDienThoai</MudTd>
+                    <MudTd DataLabel="Fax">@context.Fax</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
                     
                 </RowTemplate>
                 <PagerContent>
@@ -63,29 +63,29 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    OfficeDetail[] offices = new OfficeDetail[]
 {
-        new EarningReport { ma = "00001", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
-        new EarningReport { ma = "00002", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
-        new EarningReport { ma = "00003", ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "0923265265", fax = "1321541321", hoatdong = true },
-       
-                };
+        new OfficeDetail { Ma = "00001", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
+        new OfficeDetail { Ma = "00002", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
+        new OfficeDetail { Ma = "00003", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
 
-    class EarningReport
+            };
+
+    class OfficeDetail
     {
-        public string ma;
-        public string ten;
-        public string diachi;
-        public string dienthoai;
-        public string fax;
-        public bool hoatdong;
+        public string Ma;
+        public string Ten;
+        public string SoDienThoai;
+        public bool HoatDong;
+        public string Fax;
+        public string DiaChi;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<OfficeDetail> selectedItems1 = new HashSet<OfficeDetail>();
+    private IEnumerable<OfficeDetail> Elements = new List<OfficeDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = offices;
     }
 }
 

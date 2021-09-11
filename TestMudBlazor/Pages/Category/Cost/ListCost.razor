@@ -46,12 +46,12 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="Kieu">@context.Kieu</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -66,27 +66,28 @@
 @code {
     private string searchString;
     private bool hover = true;
-    City[] citys = new City[]
+    
+    class Cost
     {
-new City { code = "HN", name = "Hà Nội", active = true , nation = "1", stt = 1 ,note=""},
-new City { code = "HCM ", name = "Hồ Chí Minh" , active = false, nation = "1", stt = 2,note=""},
-new City { code = "HP", name = "Hải Phòng", active = true, nation = "1", stt = 3 ,note=""},
-        };
-
-    class City
-    {
-        public string code;
-        public string name;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public string Kieu { get; set; }
+        public string ThuTu { get; set; }
+        public bool HoatDong { get; set; }
+        public string GhiChu { get; set; }
     }
 
-    private HashSet<City> selectedItems1 = new HashSet<City>();
-    private IEnumerable<City> Elements = new List<City>();
+    Cost[] costs = new Cost[]
+{
+new Cost { Ma = "HN", Ten = "Hà Nội", HoatDong = true , Kieu = "1", ThuTu = "1" ,GhiChu=""},
+new Cost { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, Kieu = "1", ThuTu = "2",GhiChu=""},
+new Cost { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, Kieu = "1", ThuTu = "3" ,GhiChu=""},
+    };
+
+    private HashSet<Cost> selectedItems1 = new HashSet<Cost>();
+    private IEnumerable<Cost> Elements = new List<Cost>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = citys;
+        Elements = costs;
     }
 }

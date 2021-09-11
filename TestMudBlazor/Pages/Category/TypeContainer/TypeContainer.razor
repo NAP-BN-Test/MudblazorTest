@@ -46,11 +46,11 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -67,18 +67,18 @@
     private bool hover = true;
     TypeContainerCategory[] typeContainers = new TypeContainerCategory[]
     {
-new TypeContainerCategory { code = "TC01", name = "Container A", active = true , stt = 1 ,note=""},
-new TypeContainerCategory { code = "TC02 ", name = "Container B" , active = false, stt = 2,note=""},
-new TypeContainerCategory { code = "TC03", name = "Container C", active = true, stt = 3 ,note=""},
+new TypeContainerCategory { Ma = "TC01", Ten = "Container A", HoatDong = true , ThuTu = "1" ,GhiChu=""},
+new TypeContainerCategory { Ma = "TC02 ", Ten = "Container B" , HoatDong = false, ThuTu = "2",GhiChu=""},
+new TypeContainerCategory { Ma = "TC03", Ten = "Container C", HoatDong = true, ThuTu = "3",GhiChu=""},
     };
 
     class TypeContainerCategory
     {
-        public string code;
-        public string name;
-        public bool active;
-        public int stt;
-        public string note;
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public string ThuTu { get; set; }
+        public bool HoatDong { get; set; }
+        public string GhiChu { get; set; }
     }
 
     private HashSet<TypeContainerCategory> selectedItems1 = new HashSet<TypeContainerCategory>();

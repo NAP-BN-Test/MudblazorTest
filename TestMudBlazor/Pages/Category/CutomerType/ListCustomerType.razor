@@ -40,10 +40,10 @@
                     <MudTh>Yêu thích</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="YeuThich">@context.YeuThich</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -58,27 +58,27 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
-{
-        new EarningReport { ma = "LKH01", name = "a", action = true , avorite = true, order = "10" },
-        new EarningReport { ma = "LKH02", name =  "b" ,  action = false, avorite = true, order = "35"},
-        new EarningReport { ma = "LKH03", name = "c",  action = true, avorite = false, order = "27" },
-            };
+    
 
-    class EarningReport
-    {
-        public string ma;
-        public string name;
-        public bool action;
-        public bool avorite;
-        public string order;
+    class CustomerType {
+        public string Ma;
+        public string Ten;
+        public bool HoatDong;
+        public bool YeuThich;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    CustomerType[] customerTypes = new CustomerType[]
+{
+        new CustomerType { Ma = "LKH01", Ten = "a", HoatDong = true , YeuThich = true},
+        new CustomerType { Ma = "LKH02", Ten =  "b" ,  HoatDong = false, YeuThich = true},
+        new CustomerType { Ma = "LKH03", Ten = "c",  HoatDong = true, YeuThich = false},
+        };
+
+    private HashSet<CustomerType> selectedItems1 = new HashSet<CustomerType>();
+    private IEnumerable<CustomerType> Elements = new List<CustomerType>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = customerTypes;
     }
 }
 

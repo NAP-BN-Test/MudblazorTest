@@ -45,11 +45,11 @@
                     <MudTh>Thứ tự sắp xếp</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
-                    <MudTd DataLabel="order">@context.order</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="YeuThich">@context.YeuThich</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -64,26 +64,26 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
-    {
-new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10" },
-new EarningReport { ma = "QGMY ", name = "b" , action = false, avorite = true, order = "35"},
-new EarningReport { ma = "QGHQ", name = "c", action = true, avorite = false, order = "27" },
-    };
+    NATION[] nations = new NATION[]
+{
+new NATION { Ma = "QGVN", Ten = "a", HoatDong = true , YeuThich = true, ThuTu = "10" },
+new NATION { Ma = "QGMY ", Ten = "b" , HoatDong = false, YeuThich = true, ThuTu = "35"},
+new NATION { Ma = "QGHQ", Ten = "c", HoatDong = true, YeuThich = false, ThuTu = "27" },
+};
 
-    class EarningReport
+    class NATION
     {
-        public string ma;
-        public string name;
-        public bool action;
-        public bool avorite;
-        public string order;
+        public string Ma;
+        public string Ten;
+        public string ThuTu;
+        public bool YeuThich;
+        public bool HoatDong;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<NATION> selectedItems1 = new HashSet<NATION>();
+    private IEnumerable<NATION> Elements = new List<NATION>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = nations;
     }
 }

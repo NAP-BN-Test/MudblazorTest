@@ -23,32 +23,32 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudAutocomplete T="string" Label="Loại" @bind-Value="model.type" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="Loại" @bind-Value="model.Loai" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.type)" />
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Loai)" />
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudNumericField @bind-Value="model.thutu" Label="Thứ tự" Variant="Variant.Outlined" For="@(() => model.thutu)"></MudNumericField>
+                        <MudNumericField @bind-Value="model.ThuTu" Label="Thứ tự" Variant="Variant.Outlined" For="@(() => model.ThuTu)"></MudNumericField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="8">
-                        <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="12">
-                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2"
+                        <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong"  RequiredError="You must agree" Class="ml-n2"
                                      Label="Hoạt động" />
                     </MudItem>
                 </MudGrid>
@@ -66,22 +66,16 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    FirmTransport model = new FirmTransport();
+    public class FirmTransport
     {
         [Required(ErrorMessage = "Nhập mã!")]
-        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-
-        public string ten { get; set; }
-
-        public string ghichu { get; set; }
-
-        public double thutu { get; set; }
-
-        public string type { get; set; }
-
-        public string yt { get; set; }
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public string GhiChu { get; set; }
+        public double ThuTu { get; set; }
+        public string Loai { get; set; }
+        public string HoatDong { get; set; }
 
 
 

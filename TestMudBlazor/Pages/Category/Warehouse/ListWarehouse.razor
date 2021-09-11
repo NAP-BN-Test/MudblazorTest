@@ -46,16 +46,16 @@
                     <MudTh>Hoạt động</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="ten">@context.ten</MudTd>
-                    <MudTd DataLabel="loai">@context.loai</MudTd>
-                    <MudTd DataLabel="dichvu">@context.dichvu</MudTd>
-                    <MudTd DataLabel="diachi">@context.diachi</MudTd>
-                    <MudTd DataLabel="dienthoai">@context.dienthoai</MudTd>
-                    <MudTd DataLabel="fax">@context.fax</MudTd>
-                    <MudTd DataLabel="nguoiphutrach">@context.nguoiphutrach</MudTd>
-                    <MudTd DataLabel="quocgia">@context.quocgia</MudTd>
-                    <MudTd DataLabel="hoatdong">@context.hoatdong</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
+                    <MudTd DataLabel="DichVu">@context.DichVu</MudTd>
+                    <MudTd DataLabel="DiaChi">@context.DiaChi</MudTd>
+                    <MudTd DataLabel="Sodienthoai">@context.Sodienthoai</MudTd>
+                    <MudTd DataLabel="Fax">@context.Fax</MudTd>
+                    <MudTd DataLabel="NguoiPhuTrach">@context.NguoiPhuTrach</MudTd>
+                    <MudTd DataLabel="QuocGia">@context.QuocGia</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -70,32 +70,32 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    WareHouseDetail[] wareHouseDetails = new WareHouseDetail[]
 {
-        new EarningReport { ma = "00001", loai = "a", dichvu = "Vận chuyển" , ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "1321541321", fax = "123" , nguoiphutrach = "Dũng", quocgia = "Việt Nam", hoatdong = true  },
-        new EarningReport { ma = "00002", loai = "b", dichvu = "Vận chuyển" , ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "1321541321", fax = "3232" , nguoiphutrach = "Hưng", quocgia = "Việt Nam", hoatdong = true  },
-        new EarningReport { ma = "00003", loai = "c", dichvu = "Vận chuyển" , ten = "Bảnh", diachi = "Từ Sơn - Bắc Ninh", dienthoai = "1321541321", fax = "423423423" , nguoiphutrach = "Tùng", quocgia = "Việt Nam", hoatdong = true  },
-                };
+        new WareHouseDetail { Ma = "00001", Loai = "a", DichVu = "Vận chuyển" , Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", Sodienthoai = "1321541321", Fax = "123" , NguoiPhuTrach = "Dũng", QuocGia = "Việt Nam", HoatDong = true  },
+        new WareHouseDetail { Ma = "00002", Loai = "b", DichVu = "Vận chuyển" , Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", Sodienthoai = "1321541321", Fax = "3232" , NguoiPhuTrach = "Hưng", QuocGia = "Việt Nam", HoatDong = true  },
+        new WareHouseDetail { Ma = "00003", Loai = "c", DichVu = "Vận chuyển" , Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", Sodienthoai = "1321541321", Fax = "423423423" , NguoiPhuTrach = "Tùng", QuocGia = "Việt Nam", HoatDong = true  },
+            };
 
-    class EarningReport
+    class WareHouseDetail
     {
-        public string ma;
-        public string ten;
-        public string loai;
-        public string dichvu;
-        public string diachi;
-        public string dienthoai;
-        public string fax;
-        public string nguoiphutrach;
-        public string quocgia;
-        public bool hoatdong;
+        public string Ma { get; set; }
+        public string Loai { get; set; }
+        public string Ten { get; set; }
+        public string DichVu { get; set; }
+        public string DiaChi { get; set; }
+        public string Sodienthoai { get; set; }
+        public string Fax { get; set; }
+        public string NguoiPhuTrach { get; set; }
+        public string QuocGia { get; set; }
+        public bool HoatDong { get; set; }
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<WareHouseDetail> selectedItems1 = new HashSet<WareHouseDetail>();
+    private IEnumerable<WareHouseDetail> Elements = new List<WareHouseDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = wareHouseDetails;
     }
 }
 

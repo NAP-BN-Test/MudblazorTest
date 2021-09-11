@@ -47,13 +47,13 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="descript">@context.descript</MudTd>
-                    <MudTd DataLabel="goods">@context.goods</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="MoTa">@context.MoTa</MudTd>
+                    <MudTd DataLabel="MoTa">@context.MoTa</MudTd>
+                    <MudTd DataLabel="MoTa">@context.MoTa</MudTd>
+                    <MudTd DataLabel="MoTa">@context.MoTa</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -68,29 +68,31 @@
 @code {
     private string searchString;
     private bool hover = true;
-    HSCodeDetail[] hsCodes = new HSCodeDetail[]
-    {
-new HSCodeDetail { code = "HS01", descript = "Mã HS A", goods="AAA",active = true , nation = "Việt Nam", stt = 1
-,note=""},
-new HSCodeDetail { code = "HS02 ", descript = "Mã HS B" , goods="AAA",active = false, nation = "Việt Nam", stt =
-2,note=""},
-new HSCodeDetail { code = "HS03", descript = "Mã HS C", goods="AAA",active = true, nation = "Trung Quốc", stt = 3
-,note=""},
-    };
+    HSCODE[] hsCodes = new HSCODE[]
+{
+new HSCODE { Ma = "HS01", MoTa = "Mã HS A", HangHoa="AAA",HoatDong = true , QuocGia = "Việt Nam", ThuTu = "1"
+,GhiChu=""},
+new HSCODE { Ma = "HS02 ", MoTa = "Mã HS B" , HangHoa="AAA",HoatDong = false, QuocGia = "Việt Nam", ThuTu =
+"2",GhiChu=""},
+new HSCODE { Ma = "HS03", MoTa = "Mã HS C", HangHoa="AAA",HoatDong = true, QuocGia = "Trung Quốc", ThuTu = "3"
+,GhiChu=""},
+};
 
-    class HSCodeDetail
+    class HSCODE
     {
-        public string code;
-        public string descript;
-        public string goods;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
+        public string Ma { get; set; }
+        public string MoTa { get; set; }
+        public string HangHoa { get; set; }
+        public string QuocGia { get; set; }
+        public string ThuTu { get; set; }
+        public bool HoatDong { get; set; }
+        public string GhiChu { get; set; }
     }
 
-    private HashSet<HSCodeDetail> selectedItems1 = new HashSet<HSCodeDetail>();
-    private IEnumerable<HSCodeDetail> Elements = new List<HSCodeDetail>();
+
+
+    private HashSet<HSCODE> selectedItems1 = new HashSet<HSCODE>();
+    private IEnumerable<HSCODE> Elements = new List<HSCODE>();
     protected override async Task OnInitializedAsync()
     {
         Elements = hsCodes;

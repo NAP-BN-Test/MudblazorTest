@@ -50,20 +50,20 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="ho">@context.ho</MudTd>
-                    <MudTd DataLabel="tendem">@context.tendem</MudTd>
-                    <MudTd DataLabel="ten">@context.ten</MudTd>
-                    <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
-                    <MudTd DataLabel="gioitinh">@context.gioitinh</MudTd>
-                    <MudTd DataLabel="cmnd">@context.cmnd</MudTd>
-                    <MudTd DataLabel="dcthuongtru">@context.dcthuongtru</MudTd>
-                    <MudTd DataLabel="dctamtru">@context.dctamtru</MudTd>
-                    <MudTd DataLabel="dienthoai">@context.dienthoai</MudTd>
-                    <MudTd DataLabel="email">@context.email</MudTd>
-                    <MudTd DataLabel="chucvu">@context.chucvu</MudTd>
-                    <MudTd DataLabel="phongban">@context.phongban</MudTd>
-                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ho">@context.Ho</MudTd>
+                    <MudTd DataLabel="TenDem">@context.TenDem</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="NgaySinh">@context.NgaySinh</MudTd>
+                    <MudTd DataLabel="GioiTinh">@context.GioiTinh</MudTd>
+                    <MudTd DataLabel="Cmnd">@context.Cmnd</MudTd>
+                    <MudTd DataLabel="DiaChiThuongTru">@context.DiaChiThuongTru</MudTd>
+                    <MudTd DataLabel="DiaChiTamTru">@context.DiaChiTamTru</MudTd>
+                    <MudTd DataLabel="SoDienThoai">@context.SoDienThoai</MudTd>
+                    <MudTd DataLabel="Email">@context.Email</MudTd>
+                    <MudTd DataLabel="ChucVu">@context.ChucVu</MudTd>
+                    <MudTd DataLabel="PhongBan">@context.PhongBan</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -78,36 +78,37 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    PersonnelDetail[] personnelDetails = new PersonnelDetail[]
 {
-        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
-        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
-        new EarningReport { ma = "00001", ho = "Nguyễn", tendem = "Anh" , ten = "Bảnh", ngaysinh = "10/11/2003", gioitinh = "Nữ", cmnd = "1321541321", dcthuongtru = "Minh Khai, Hà Nội" , dctamtru = "Gầm cầu Nhật Tân", dienthoai = "039662312131", email = "banhaa@gmail.com", chucvu = "Trưởng Phòng" , phongban = "B1", ghichu = "10"  },
-            };
+        new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
+        new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
+        new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
+        };
 
-    class EarningReport
+
+    class PersonnelDetail
     {
-        public string ma;
-        public string ho;
-        public string tendem;
-        public string ten;
-        public string ngaysinh;
-        public string gioitinh;
-        public string cmnd;
-        public string dcthuongtru;
-        public string dctamtru;
-        public string dienthoai;
-        public string email;
-        public string chucvu;
-        public string phongban;
-        public string ghichu;
+        public string Ma;
+        public string Ho;
+        public string TenDem;
+        public DateTime? NgaySinh;
+        public string Ten;
+        public bool GioiTinh;
+        public string DiaChiThuongTru;
+        public string DiaChiTamTru;
+        public string Cmnd;
+        public string Email;
+        public string SoDienThoai;
+        public string GhiChu;
+        public string PhongBan;
+        public string ChucVu;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<PersonnelDetail> selectedItems1 = new HashSet<PersonnelDetail>();
+    private IEnumerable<PersonnelDetail> Elements = new List<PersonnelDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = personnelDetails;
     }
 }
 

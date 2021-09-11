@@ -38,18 +38,16 @@
                     <MudTh>Tên</MudTh>
                     <MudTh>Loại</MudTh>
                     <MudTh>Hoạt động</MudTh>
-                    <MudTh>Yêu thích</MudTh>
                     <MudTh>Thứ tự sắp xếp</MudTh>
                     <MudTh>Ghi chu</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="type">@context.type</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
-                    <MudTd DataLabel="order">@context.order</MudTd>
-                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -64,29 +62,29 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    FirmTransport[] firmTransports = new FirmTransport[]
 {
-        new EarningReport { ma = "QGVN", name = "a", action = true , avorite = true, order = "10", type = "b",ghichu ="abc"  },
-        new EarningReport { ma = "QGMY ", name =  "b" ,  action = false, avorite = true, order = "35", type = "b",ghichu ="abc" },
-        new EarningReport { ma = "QGHQ", name = "c",  action = true, avorite = false, order = "27" , type = "b",ghichu ="abc" },
-            };
+        new FirmTransport { Ma = "QGVN", Ten = "a", HoatDong = true , ThuTu = "10", Loai = "b",GhiChu ="abc"  },
+        new FirmTransport { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, ThuTu = "35", Loai = "b",GhiChu ="abc" },
+        new FirmTransport { Ma = "QGHQ", Ten = "c",  HoatDong = true, ThuTu = "27" , Loai = "b",GhiChu ="abc" },
+        };
 
-    class EarningReport
+    class FirmTransport
     {
-        public string ma;
-        public string name;
-        public string type;
-        public bool action;
-        public bool avorite;
-        public string order;
-        public string ghichu;
+        public string Ma;
+        public string Ten;
+        public string Loai;
+        public bool HoatDong;
+        public string ThuTu;
+        public string GhiChu;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+
+    private HashSet<FirmTransport> selectedItems1 = new HashSet<FirmTransport>();
+    private IEnumerable<FirmTransport> Elements = new List<FirmTransport>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = firmTransports;
     }
 }
 

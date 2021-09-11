@@ -24,22 +24,22 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudAutocomplete T="string" Label="Loại phòng ban" @bind-Value="model.type" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="Loại phòng ban" @bind-Value="model.LoaiPhongBan" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.type)" />
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiPhongBan)" />
                     </MudItem>
 
                     <MudItem xs="12" sm="12" md="6">
-                        <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>
@@ -59,19 +59,14 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    DepartmentForm model = new DepartmentForm();
+    public class DepartmentForm
     {
         [Required(ErrorMessage = "Nhập mã!")]
-        //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-        public string type { get; set; }
-
-        public string ten { get; set; }
-        public string ghichu { get; set; }
-
-
-
+        public string Ma { get; set; }
+        public string LoaiPhongBan { get; set; }
+        public string Ten { get; set; }
+        public string GhiChu { get; set; }
     }
 
     bool success;

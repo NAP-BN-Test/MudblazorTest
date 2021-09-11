@@ -39,9 +39,9 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -56,25 +56,25 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
+    ServiceDetail[] serviceDetails = new ServiceDetail[]
 {
-        new EarningReport { ma = "DV01", name = "Vận Chuyển",  ghichu = "a", },
-        new EarningReport { ma = "DV02", name = "Vận Chuyển",  ghichu = "a", },
-        new EarningReport { ma = "DV03", name = "Vận Chuyển",  ghichu = "a", },
-                        };
+        new ServiceDetail { Ma = "DV01", Ten = "Vận Chuyển",  GhiChu = "a", },
+        new ServiceDetail { Ma = "DV02", Ten = "Vận Chuyển",  GhiChu = "a", },
+        new ServiceDetail { Ma = "DV03", Ten = "Vận Chuyển",  GhiChu = "a", },
+                    };
 
-    class EarningReport
+    class ServiceDetail
     {
-        public string ma;
-        public string name;
-        public string ghichu;
+        public string Ma;
+        public string Ten;
+        public string GhiChu;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<ServiceDetail> selectedItems1 = new HashSet<ServiceDetail>();
+    private IEnumerable<ServiceDetail> Elements = new List<ServiceDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = serviceDetails;
     }
 }
 

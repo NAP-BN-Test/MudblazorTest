@@ -39,9 +39,9 @@
                     <MudTh>Loại</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="mota">@context.mota</MudTd>
-                    <MudTd DataLabel="loai">@context.loai</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="MoTa">@context.MoTa</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -56,26 +56,26 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
+    RulesDetail[] rulesDetails = new RulesDetail[]
 {
-        new EarningReport { loai = "DV01", name = "Vận Chuyển",  mota = "a", },
-        new EarningReport { loai = "DV02", name = "Vận Chuyển",  mota = "a", },
-        new EarningReport { loai = "DV03", name = "Vận Chuyển",  mota = "a", },
-                            };
+        new RulesDetail { Loai = "DV01", Ten = "Vận Chuyển",  MoTa = "a", },
+        new RulesDetail { Loai = "DV02", Ten = "Vận Chuyển",  MoTa = "a", },
+        new RulesDetail { Loai = "DV03", Ten = "Vận Chuyển",  MoTa = "a", },
+                        };
 
-    class EarningReport
+    class RulesDetail
     {
-        public string ma;
-        public string name;
-        public string mota;
-        public string loai;
+
+        public string Ten;
+        public string MoTa;
+        public string Loai;
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<RulesDetail> selectedItems1 = new HashSet<RulesDetail>();
+    private IEnumerable<RulesDetail> Elements = new List<RulesDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = rulesDetails;
     }
 }
 

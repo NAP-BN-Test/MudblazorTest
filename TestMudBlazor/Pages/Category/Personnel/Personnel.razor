@@ -22,62 +22,62 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.ho" Label="Họ" Variant="Variant.Outlined" For="@(() => model.ho)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ho" Label="Họ" Variant="Variant.Outlined" For="@(() => model.Ho)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.tendem" Label="Tên đệm" Variant="Variant.Outlined" For="@(() => model.tendem)"></MudTextField>
+                        <MudTextField @bind-Value="model.TenDem" Label="Tên đệm" Variant="Variant.Outlined" For="@(() => model.TenDem)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudDatePicker Label="Ngày sinh/Ngày lập" @bind-Date="model.ngaysinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.ngaysinh)" />
+                        <MudDatePicker Label="Ngày sinh/Ngày lập" @bind-Date="model.NgaySinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgaySinh)" />
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudSelect T="bool" Label="Giới tính" Strict="true" Variant="Variant.Outlined" Format="F2">
+                        <MudSelect T="bool" Label="Giới tính" Strict="true" @bind-Value="model.GioiTinh" Variant="Variant.Outlined" Format="F2">
                             <MudSelectItem T="bool" Value="false">Nam</MudSelectItem>
                             <MudSelectItem T="bool" Value="true">Nữ</MudSelectItem>
                         </MudSelect>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.cmnd" Label="CMND (*)" Variant="Variant.Outlined" For="@(() => model.cmnd)"></MudTextField>
+                        <MudTextField @bind-Value="model.Cmnd" Label="CMND (*)" Variant="Variant.Outlined" For="@(() => model.Cmnd)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudTextField @bind-Value="model.diachi" Label="Địa chỉ thường trú" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
+                        <MudTextField @bind-Value="model.DiaChiThuongTru" Label="Địa chỉ thường trú" Variant="Variant.Outlined" For="@(() => model.DiaChiThuongTru)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudTextField @bind-Value="model.diachitamtru" Label="Địa chỉ tạm trú" Variant="Variant.Outlined" For="@(() => model.diachitamtru)"></MudTextField>
+                        <MudTextField @bind-Value="model.DiaChiTamTru" Label="Địa chỉ tạm trú" Variant="Variant.Outlined" For="@(() => model.DiaChiTamTru)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.sdt" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.sdt)"></MudTextField>
+                        <MudTextField @bind-Value="model.SoDienThoai" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.email" Label="Email" Variant="Variant.Outlined" For="@(() => model.email)"></MudTextField>
+                        <MudTextField @bind-Value="model.Email" Label="Email" Variant="Variant.Outlined" For="@(() => model.Email)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudAutocomplete T="string" Label="Chức vụ" @bind-Value="model.chucvu" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="Chức vụ" @bind-Value="model.ChucVu" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.chucvu)" />
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ChucVu)" />
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudAutocomplete T="string" Label="Phòng ban" @bind-Value="model.phongban" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="Phòng ban" @bind-Value="model.PhongBan" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.phongban)" />
+                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PhongBan)" />
                     </MudItem>
                 </MudGrid>
 
@@ -85,7 +85,7 @@
                 <MudGrid>
 
                     <MudItem xs="12" sm="12" md="12">
-                        <MudTextField @bind-Value="model.ghichu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.ghichu)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
@@ -103,29 +103,28 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    PersonnelDetail model = new PersonnelDetail();
+    public class PersonnelDetail
     {
         [Required(ErrorMessage = "Nhập mã!")]
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-        public string ho { get; set; }
-        public string tendem { get; set; }
+        public string Ma { get; set; }
+        public string Ho { get; set; }
+        public string TenDem { get; set; }
         [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-        public DateTime? ngaysinh { get; set; }
-        public string ten { get; set; }
-        public string diachi { get; set; }
-        public string diachitamtru { get; set; }
-        public string yt { get; set; }
+        public DateTime? NgaySinh { get; set; }
+        public string Ten { get; set; }
+        public bool GioiTinh { get; set; }
+        public string DiaChiThuongTru { get; set; }
+        public string DiaChiTamTru { get; set; }
         [Required(ErrorMessage = "Nhập cmnd!")]
-        public string cmnd { get; set; }
+        public string Cmnd { get; set; }
         [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
-        public string email { get; set; }
-        public string sdt { get; set; }
-        public string ghichu { get; set; }
-        public string phongban { get; set; }
-        public string chucvu { get; set; }
-
+        public string Email { get; set; }
+        public string SoDienThoai { get; set; }
+        public string GhiChu { get; set; }
+        public string PhongBan { get; set; }
+        public string ChucVu { get; set; }
 
 
     }

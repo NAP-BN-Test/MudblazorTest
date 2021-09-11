@@ -24,16 +24,16 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="12">
-                        <MudTextField @bind-Value="model.diachi" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.diachi)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>
@@ -53,16 +53,14 @@
 
 @code {
 
-    Form model = new Form();
-    public class Form
+    ServiceDetail model = new ServiceDetail();
+    public class ServiceDetail
     {
         [Required(ErrorMessage = "Nhập mã!")]
         //[StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
-        public string ma { get; set; }
-
-        public string ten { get; set; }
-        public string diachi { get; set; }
-        public string yt { get; set; }
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public string GhiChu { get; set; }
 
 
 

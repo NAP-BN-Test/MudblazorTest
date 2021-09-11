@@ -40,10 +40,10 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="loai">@context.loai</MudTd>
-                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="LoaiPhongBan">@context.LoaiPhongBan</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -58,26 +58,30 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
-{
-        new EarningReport { ma = "PB01", name = "Dũng", loai = "Sale" , ghichu = "a", },
-        new EarningReport { ma = "PB01", name = "Tùng", loai = "Dev" , ghichu = "a", },
-        new EarningReport { ma = "PB01", name = "Hưng", loai = "Maketing" , ghichu = "a", },
-                    };
+    
 
-    class EarningReport
+    class Department
     {
-        public string ma;
-        public string name;
-        public string loai;
-        public string ghichu;
+        public string Ma { get; set; }
+        public string LoaiPhongBan { get; set; }
+        public string Ten { get; set; }
+        public string GhiChu { get; set; }
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+
+    Department[] departments = new Department[]
+{
+        new Department { Ma = "PB01", Ten = "Dũng", LoaiPhongBan = "Sale" , GhiChu = "a", },
+        new Department { Ma = "PB01", Ten = "Tùng", LoaiPhongBan = "Dev" , GhiChu = "a", },
+        new Department { Ma = "PB01", Ten = "Hưng", LoaiPhongBan = "Maketing" , GhiChu = "a", },
+                };
+
+
+    private HashSet<Department> selectedItems1 = new HashSet<Department>();
+    private IEnumerable<Department> Elements = new List<Department>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = departments;
     }
 }
 

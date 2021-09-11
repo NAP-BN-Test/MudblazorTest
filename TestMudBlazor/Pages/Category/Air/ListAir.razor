@@ -46,12 +46,12 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="GiaTriToiThieu">@context.GiaTriToiThieu</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -66,27 +66,28 @@
 @code {
     private string searchString;
     private bool hover = true;
-    City[] citys = new City[]
-    {
-new City { code = "HN", name = "Hà Nội", active = true , nation = "Việt Nam", stt = 1 ,note=""},
-new City { code = "HCM ", name = "Hồ Chí Minh" , active = false, nation = "Việt Nam", stt = 2,note=""},
-new City { code = "HP", name = "Hải Phòng", active = true, nation = "Việt Nam", stt = 3 ,note=""},
+
+    Air[] air = new Air[]
+        {
+            new Air { Ma = "HN", Ten = "Hà Nội", HoatDong = true , GiaTriToiThieu = "Việt Nam", ThuTu = "1" ,GhiChu=""},
+            new Air { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, GiaTriToiThieu = "Việt Nam", ThuTu = "2",GhiChu=""},
+            new Air { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, GiaTriToiThieu = "Việt Nam", ThuTu ="3" ,GhiChu=""},
         };
 
-    class City
+    class Air
     {
-        public string code;
-        public string name;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
+        public string Ma;
+        public string Ten;
+        public string GiaTriToiThieu;
+        public string ThuTu;
+        public string GhiChu;
+        public bool HoatDong;
     }
 
-    private HashSet<City> selectedItems1 = new HashSet<City>();
-    private IEnumerable<City> Elements = new List<City>();
+    private HashSet<Air> selectedItems1 = new HashSet<Air>();
+    private IEnumerable<Air> Elements = new List<Air>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = citys;
+        Elements = air;
     }
 }

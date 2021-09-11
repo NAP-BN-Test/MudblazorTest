@@ -43,9 +43,9 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -62,16 +62,16 @@
     private bool hover = true;
     FeeTypeDetail[] feeTypes = new FeeTypeDetail[]
     {
-new FeeTypeDetail { code = "FT01", name = "Kiểu chi phí A" ,note=""},
-new FeeTypeDetail { code = "FT02 ", name = "Kiểu chi phí B" ,note=""},
-new FeeTypeDetail { code = "FT03", name = "Kiểu chi phí C" ,note=""},
+new FeeTypeDetail { Ma = "FT01", Ten = "Kiểu chi phí A" ,GhiChu=""},
+new FeeTypeDetail { Ma = "FT02 ", Ten = "Kiểu chi phí B" ,GhiChu=""},
+new FeeTypeDetail { Ma = "FT03", Ten = "Kiểu chi phí C" ,GhiChu=""},
     };
 
     class FeeTypeDetail
     {
-        public string code;
-        public string name;
-        public string note;
+        public string Ma;
+        public string Ten;
+        public string GhiChu;
     }
 
     private HashSet<FeeTypeDetail> selectedItems1 = new HashSet<FeeTypeDetail>();

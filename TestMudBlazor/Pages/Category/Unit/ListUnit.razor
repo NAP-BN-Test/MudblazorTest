@@ -38,16 +38,14 @@
                     <MudTh>Tên</MudTh>
                     <MudTh>Loại</MudTh>
                     <MudTh>Hoạt động</MudTh>
-                    <MudTh>Yêu thích</MudTh>
                     <MudTh>Thứ tự sắp xếp</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="type">@context.type</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
-                    <MudTd DataLabel="order">@context.order</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -62,25 +60,24 @@
 @code {
     private string searchString;
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    UnitDetail[] earningReports = new UnitDetail[]
 {
-        new EarningReport { ma = "QGVN", name = "KG", action = true , avorite = true, order = "10", type = "b" },
-        new EarningReport { ma = "QGMY ", name =  "TẤN" ,  action = false, avorite = true, order = "35", type = "b" },
-        new EarningReport { ma = "QGHQ", name = "TẠ",  action = true, avorite = false, order = "27" , type = "b" },
-                };
+        new UnitDetail { Ma = "QGVN", Ten = "KG", HoatDong = true , ThuTu = "10", Loai = "b" },
+        new UnitDetail { Ma = "QGMY ", Ten =  "TẤN" ,  HoatDong = false, ThuTu = "35", Loai = "b" },
+        new UnitDetail { Ma = "QGHQ", Ten = "TẠ",  HoatDong = true,  ThuTu = "27" , Loai = "b" },
+            };
 
-    class EarningReport
+    class UnitDetail
     {
-        public string ma;
-        public string name;
-        public string type;
-        public bool action;
-        public bool avorite;
-        public string order;
+        public string Ma { get; set; }
+        public string Loai { get; set; }
+        public string Ten { get; set; }
+        public bool HoatDong { get; set; }
+        public string ThuTu { get; set; }
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<UnitDetail> selectedItems1 = new HashSet<UnitDetail>();
+    private IEnumerable<UnitDetail> Elements = new List<UnitDetail>();
     protected override async Task OnInitializedAsync()
     {
         Elements = earningReports;

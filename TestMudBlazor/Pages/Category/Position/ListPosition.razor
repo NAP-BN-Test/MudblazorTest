@@ -40,10 +40,10 @@
                     <MudTh>Yêu thích</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="ma">@context.ma</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="action">@context.action</MudTd>
-                    <MudTd DataLabel="avorite">@context.avorite</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="YeuThich">@context.YeuThich</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -58,27 +58,26 @@
 @code {
     private bool hover = true;
     private string searchString;
-    EarningReport[] earningReports = new EarningReport[]
+    PositionDetail[] positionDetails = new PositionDetail[]
 {
-        new EarningReport { ma = "CV01", name = "a", action = true , avorite = true, order = "10" },
-        new EarningReport { ma = "CV02", name =  "b" ,  action = false, avorite = true, order = "35"},
-        new EarningReport { ma = "CV03", name = "c",  action = true, avorite = false, order = "27" },
-                };
+        new PositionDetail { Ma = "CV01", Ten = "a", HoatDong = true , YeuThich = true, },
+        new PositionDetail { Ma = "CV02", Ten =  "b" ,  HoatDong = false, YeuThich = true,},
+        new PositionDetail { Ma = "CV03", Ten = "c",  HoatDong = true, YeuThich = false,  },
+            };
 
-    class EarningReport
+    class PositionDetail
     {
-        public string ma;
-        public string name;
-        public bool action;
-        public bool avorite;
-        public string order;
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public bool YeuThich { get; set; }
+        public bool HoatDong { get; set; }
     }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<PositionDetail> selectedItems1 = new HashSet<PositionDetail>();
+    private IEnumerable<PositionDetail> Elements = new List<PositionDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = positionDetails;
     }
 }
 

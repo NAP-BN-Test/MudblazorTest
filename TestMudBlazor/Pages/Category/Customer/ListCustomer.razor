@@ -48,32 +48,38 @@
                     <MudTh>SĐT</MudTh>
                     <MudTh>Email</MudTh>
                     <MudTh>Fax</MudTh>
+                    @*<MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
+                        <MudTh>Ngày sinh</MudTh>
+                    </MudHidden>*@
                     <MudTh>Ngày sinh</MudTh>
-                    <MudTh>Mã số thuế</MudTh>
-                    <MudTh>Loại hình kinh doanh</MudTh>
-                    <MudTh>Loại khách hàng</MudTh>
-                    <MudTh>Loại tiền tệ</MudTh>
-                    <MudTh>Ghi chú</MudTh>
-                    <MudTh>Hoạt động</MudTh>
+                        <MudTh>Mã số thuế</MudTh>
+                        <MudTh>Loại hình kinh doanh</MudTh>
+                        <MudTh>Loại khách hàng</MudTh>
+                        <MudTh>Loại tiền tệ</MudTh>
+                        <MudTh>Ghi chú</MudTh>
+                        <MudTh>Hoạt động</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="makh">@context.makh</MudTd>
-                    <MudTd DataLabel="nkh">@context.nkh</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="loai">@context.loai</MudTd>
-                    <MudTd DataLabel="dc">@context.dc</MudTd>
-                    <MudTd DataLabel="dcdkkd">@context.dcdkkd</MudTd>
-                    <MudTd DataLabel="quocgia">@context.quocgia</MudTd>
-                    <MudTd DataLabel="sdt">@context.sdt</MudTd>
-                    <MudTd DataLabel="email">@context.email</MudTd>
-                    <MudTd DataLabel="fax">@context.fax</MudTd>
-                    <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
-                    <MudTd DataLabel="masothue">@context.masothue</MudTd>
-                    <MudTd DataLabel="lhkd">@context.lhkd</MudTd>
-                    <MudTd DataLabel="loaikh">@context.loaikh</MudTd>
-                    <MudTd DataLabel="loaitiente">@context.loaitiente</MudTd>
-                    <MudTd DataLabel="ghichu">@context.ghichu</MudTd>
-                    <MudTd DataLabel="hoatdong">@context.hoatdong</MudTd>
+                    <MudTd DataLabel="MaKhachHang">@context.MaKhachHang</MudTd>
+                    <MudTd DataLabel="NhomKhachhang">@context.NhomKhachhang</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="Loai">@context.Loai</MudTd>
+                    <MudTd DataLabel="DiaChi">@context.DiaChi</MudTd>
+                    <MudTd DataLabel="DiaChiDangKyKinhDoanh">@context.DiaChiDangKyKinhDoanh</MudTd>
+                    <MudTd DataLabel="QuocGia">@context.QuocGia</MudTd>
+                    <MudTd DataLabel="SoDienThoai">@context.SoDienThoai</MudTd>
+                    <MudTd DataLabel="Email">@context.Email</MudTd>
+                    <MudTd DataLabel="Fax">@context.Fax</MudTd>
+                    @*<MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
+                        <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
+                    </MudHidden>*@
+                    <MudTd DataLabel="NgaySinh">@context.NgaySinh</MudTd>
+                        <MudTd DataLabel="MaSoThue">@context.MaSoThue</MudTd>
+                        <MudTd DataLabel="LoaiHinhKinhDoanh">@context.LoaiHinhKinhDoanh</MudTd>
+                        <MudTd DataLabel="LoaiKhachHang">@context.LoaiKhachHang</MudTd>
+                        <MudTd DataLabel="LoaiTienTe">@context.LoaiTienTe</MudTd>
+                        <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
+                        <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -87,47 +93,43 @@
 
 @code {
     private bool hover = true;
-    EarningReport[] earningReports = new EarningReport[]
+    CustomerDetail[] customerDetails = new CustomerDetail[]
 {
-        new EarningReport { makh = "3702717812", nkh = "AASC", name = "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ AN ĐẠT THÀNH" , loai = "Cá nhân", dc = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",dcdkkd = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "1035165165", lhkd = "AB",
-    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
-        new EarningReport { makh = "AG00001", nkh = "AG00001", name = "ANC INTERNATIONAL INC.  " , loai = "Cá nhân", dc = "879/29 HUONG LO 2 STREET, BINH TRI DONG A WARD, BINH TAN DISTRICT HO CHI MINH CITY - VIET NAM",dcdkkd = "879/29 HUONG LO 2 STREET, BINH TRI DONG A WARD, BINH TAN DISTRICT HO CHI MINH CITY - VIET NAM",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "0200807263", lhkd = "AB",
-    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },new EarningReport { makh = "3702717812", nkh = "APLOG", name = "AI SIKE ELECTRONICS(DONGGUAN)CO.,LTD" , loai = "Cá nhân", dc = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",dcdkkd = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
-            quocgia = "Việt Nam", sdt = "033396855" , email = "dung@gmail.com", fax = "1965632220" ,ngaysinh = "2021-06-23 18:41:04", masothue = "0219382223", lhkd = "AB",
-    loaikh = "OTH", loaitiente = "VNĐ", ghichu = "Không", hoatdong = true },
-                    };
+        new CustomerDetail { MaKhachHang = "3702717812", NhomKhachhang = "AASC", Ten = "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ AN ĐẠT THÀNH" , Loai = "Cá nhân", DiaChi = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",DiaChiDangKyKinhDoanh = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
+            QuocGia = "Việt Nam", SoDienThoai = "033396855" , Email = "dung@gmail.com", Fax = "1965632220" ,NgaySinh = DateTime.Now, MaSoThue = "1035165165", LoaiHinhKinhDoanh = "AB",
+    LoaiKhachHang = "OTH", LoaiTienTe = "VNĐ", GhiChu = "Không", HoatDong = true },
+                };
 
 
-    class EarningReport
+    class CustomerDetail
     {
-        public string makh;
-        public string nkh;
-        public string name;
-        public string loai;
-        public string dc;
-        public string dcdkkd;
-        public string quocgia;
-        public string sdt;
-        public string email;
-        public string fax;
-        public string ngaysinh;
-        public string masothue;
-        public string lhkd;
-        public string loaikh;
-        public string loaitiente;
-        public string ghichu;
-        public bool hoatdong;
+        public string MaKhachHang;
+        public string Ten;
+        public string SoDienThoai;
+        public string thutu;
+        public string Loai;
+        public string NhomKhachhang;
+        public string DiaChiDangKyKinhDoanh;
+        public string DiaChi;
+        public string QuocGia;
+        public string Email;
+        public string MaSoThue;
+        public string Fax;
+        public string LoaiTienTe;
+        public string LoaiKhachHang;
+        public string LoaiHinhKinhDoanh;
+        public string GhiChu;
+        public bool HoatDong;
+        public DateTime? NgaySinh;
     }
 
     private string searchString = "";
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+    private HashSet<CustomerDetail> selectedItems1 = new HashSet<CustomerDetail>();
+    private IEnumerable<CustomerDetail> Elements = new List<CustomerDetail>();
     protected override async Task OnInitializedAsync()
     {
-        Elements = earningReports;
+        Elements = customerDetails;
     }
 }
 

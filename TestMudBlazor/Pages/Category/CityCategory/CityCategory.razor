@@ -46,12 +46,12 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="QuocGia">@context.QuocGia</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -68,19 +68,19 @@
     private bool hover = true;
     City[] citys = new City[]
     {
-new City { code = "HN", name = "Hà Nội", active = true , nation = "Việt Nam", stt = 1 ,note=""},
-new City { code = "HCM ", name = "Hồ Chí Minh" , active = false, nation = "Việt Nam", stt = 2,note=""},
-new City { code = "HP", name = "Hải Phòng", active = true, nation = "Việt Nam", stt = 3 ,note=""},
+new City { Ma = "HN", Ten = "Hà Nội", HoatDong = true , QuocGia = "Việt Nam", ThuTu = "1" ,GhiChu=""},
+new City { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, QuocGia = "Việt Nam", ThuTu = "2",GhiChu=""},
+new City { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, QuocGia = "Việt Nam", ThuTu = "3" ,GhiChu=""},
     };
 
     class City
     {
-        public string code;
-        public string name;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
+        public string Ma;
+        public string Ten;
+        public bool HoatDong;
+        public string QuocGia;
+        public string ThuTu;
+        public string GhiChu;
     }
 
     private HashSet<City> selectedItems1 = new HashSet<City>();

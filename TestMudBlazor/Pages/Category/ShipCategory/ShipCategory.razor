@@ -47,12 +47,12 @@
                     <MudTh>Ghi chú</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="code">@context.code</MudTd>
-                    <MudTd DataLabel="name">@context.name</MudTd>
-                    <MudTd DataLabel="nation">@context.nation</MudTd>
-                    <MudTd DataLabel="active">@context.active</MudTd>
-                    <MudTd DataLabel="stt">@context.stt</MudTd>
-                    <MudTd DataLabel="note">@context.note</MudTd>
+                    <MudTd DataLabel="Ma">@context.Ma</MudTd>
+                    <MudTd DataLabel="Ten">@context.Ten</MudTd>
+                    <MudTd DataLabel="QuocGia">@context.QuocGia</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="ThuTu">@context.ThuTu</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -67,25 +67,25 @@
 @code {
     private string searchString;
     private bool hover = true;
-    Ship[] ships = new Ship[]
-    {
-new Ship { code = "S01", name = "Tàu A", active = true , nation = "Việt Nam", stt = 1 ,note=""},
-new Ship { code = "S02 ", name = "Tàu B" , active = false, nation = "Việt Nam", stt = 2,note=""},
-new Ship { code = "S03", name = "Tàu C", active = true, nation = "Trung Quốc", stt = 3 ,note=""},
-    };
+    ShipCategoryDetail[] ships = new ShipCategoryDetail[]
+{
+new ShipCategoryDetail { Ma = "S01", Ten = "Tàu A", HoatDong = true , QuocGia = "Việt Nam", ThuTu ="1" ,GhiChu=""},
+new ShipCategoryDetail { Ma = "S02 ", Ten = "Tàu B" , HoatDong = false, QuocGia = "Việt Nam", ThuTu = "2",GhiChu=""},
+new ShipCategoryDetail { Ma = "S03", Ten = "Tàu C", HoatDong = true, QuocGia = "Trung Quốc", ThuTu = "3" ,GhiChu=""},
+};
 
-    class Ship
+    class ShipCategoryDetail
     {
-        public string code;
-        public string name;
-        public bool active;
-        public string nation;
-        public int stt;
-        public string note;
+        public string Ma;
+        public string Ten;
+        public string QuocGia;
+        public string ThuTu;
+        public bool HoatDong;
+        public string GhiChu;
     }
 
-    private HashSet<Ship> selectedItems1 = new HashSet<Ship>();
-    private IEnumerable<Ship> Elements = new List<Ship>();
+    private HashSet<ShipCategoryDetail> selectedItems1 = new HashSet<ShipCategoryDetail>();
+    private IEnumerable<ShipCategoryDetail> Elements = new List<ShipCategoryDetail>();
     protected override async Task OnInitializedAsync()
     {
         Elements = ships;
