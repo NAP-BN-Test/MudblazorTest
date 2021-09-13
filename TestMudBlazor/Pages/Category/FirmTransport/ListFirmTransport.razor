@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listfirmtransport"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách hãng vận chuyển</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addfirmtransport" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -34,12 +35,12 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Loại</MudTh>
-                    <MudTh>Hoạt động</MudTh>
-                    <MudTh>Thứ tự sắp xếp</MudTh>
-                    <MudTh>Ghi chu</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -67,7 +68,7 @@
         new FirmTransport { Ma = "QGVN", Ten = "a", HoatDong = true , ThuTu = "10", Loai = "b",GhiChu ="abc"  },
         new FirmTransport { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, ThuTu = "35", Loai = "b",GhiChu ="abc" },
         new FirmTransport { Ma = "QGHQ", Ten = "c",  HoatDong = true, ThuTu = "27" , Loai = "b",GhiChu ="abc" },
-        };
+            };
 
     class FirmTransport
     {
@@ -85,6 +86,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = firmTransports;
+        lang.InitLocalizedComponent(this);
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listair"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh mục Air</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]"
                               Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                               Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
@@ -38,12 +39,12 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Giá trị tối thiểu</MudTh>
-                    <MudTh>Hoạt động</MudTh>
-                    <MudTh>Thứ tự sắp xếp</MudTh>
-                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -72,7 +73,7 @@
             new Air { Ma = "HN", Ten = "Hà Nội", HoatDong = true , GiaTriToiThieu = "Việt Nam", ThuTu = "1" ,GhiChu=""},
             new Air { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, GiaTriToiThieu = "Việt Nam", ThuTu = "2",GhiChu=""},
             new Air { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, GiaTriToiThieu = "Việt Nam", ThuTu ="3" ,GhiChu=""},
-        };
+            };
 
     class Air
     {
@@ -89,5 +90,6 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = air;
+        lang.InitLocalizedComponent(this);
     }
 }

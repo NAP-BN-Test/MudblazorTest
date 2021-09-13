@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FeeType\AddUpdateFeeType.razor"
 using System.Text.RegularExpressions;
 
@@ -112,7 +126,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FeeType\AddUpdateFeeType.razor"
+#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FeeType\AddUpdateFeeType.razor"
        
 
     FeeTypeDetail model = new FeeTypeDetail();
@@ -132,11 +146,15 @@ using System.ComponentModel.DataAnnotations;
     {
     }
 
-
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
     }
 }
 #pragma warning restore 1591

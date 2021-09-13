@@ -80,6 +80,20 @@ using TestMudBlazor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\NavMenu.razor"
 using MudBlazor;
 

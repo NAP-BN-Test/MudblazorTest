@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\ListCurrency.razor"
 using System.Net.Http.Json;
 
@@ -98,11 +112,11 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 60 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\ListCurrency.razor"
+#line 61 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\ListCurrency.razor"
        
     private bool hover = true;
     private string searchString;
-    
+
 
     class Curency
     {
@@ -119,18 +133,20 @@ using System.Net.Http.Json;
         new Curency { Ma = "QGVN", Ten = "a", HoatDong = true , YeuThich = true, MacDinh = true },
         new Curency { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, YeuThich = true, MacDinh = true},
         new Curency { Ma = "QGHQ", Ten = "c",  HoatDong = true, YeuThich = false, MacDinh = true },
-    };
+        };
 
     private HashSet<Curency> selectedItems1 = new HashSet<Curency>();
     private IEnumerable<Curency> Elements = new List<Curency>();
     protected override async Task OnInitializedAsync()
     {
         Elements = curencys;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

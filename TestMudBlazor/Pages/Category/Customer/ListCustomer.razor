@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listcustomer"
+@inject ILanguageContainerService lang
 <style>
     .mud-table-cell {
         min-width: 170px !important;
@@ -10,15 +11,15 @@
         padding-left: 6px;
         padding-right: 0px;
     }
+
     .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
         margin-top: 0px;
     }
-
 </style>
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách khách hàng</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
@@ -36,28 +37,28 @@
 
     <MudGrid>
         <MudItem xs="12">
-            <MudTable  Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" HorizontalScrollbar="true">
+            <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" HorizontalScrollbar="true">
                 <HeaderContent>
-                    <MudTh>Mã khách hàng</MudTh>
-                    <MudTh>Nhóm khách hàng </MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Loại</MudTh>
-                    <MudTh>Địa chỉ</MudTh>
-                    <MudTh>Địa chỉ ĐKKD</MudTh>
-                    <MudTh>Quốc gia</MudTh>
-                    <MudTh>SĐT</MudTh>
-                    <MudTh>Email</MudTh>
-                    <MudTh>Fax</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                     @*<MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
-                        <MudTh>Ngày sinh</MudTh>
-                    </MudHidden>*@
-                    <MudTh>Ngày sinh</MudTh>
-                        <MudTh>Mã số thuế</MudTh>
-                        <MudTh>Loại hình kinh doanh</MudTh>
-                        <MudTh>Loại khách hàng</MudTh>
-                        <MudTh>Loại tiền tệ</MudTh>
-                        <MudTh>Ghi chú</MudTh>
-                        <MudTh>Hoạt động</MudTh>
+                            <MudTh>Ngày sinh</MudTh>
+                        </MudHidden>*@
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
+                <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="MaKhachHang">@context.MaKhachHang</MudTd>
@@ -71,15 +72,15 @@
                     <MudTd DataLabel="Email">@context.Email</MudTd>
                     <MudTd DataLabel="Fax">@context.Fax</MudTd>
                     @*<MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
-                        <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
-                    </MudHidden>*@
+                            <MudTd DataLabel="ngaysinh">@context.ngaysinh</MudTd>
+                        </MudHidden>*@
                     <MudTd DataLabel="NgaySinh">@context.NgaySinh</MudTd>
-                        <MudTd DataLabel="MaSoThue">@context.MaSoThue</MudTd>
-                        <MudTd DataLabel="LoaiHinhKinhDoanh">@context.LoaiHinhKinhDoanh</MudTd>
-                        <MudTd DataLabel="LoaiKhachHang">@context.LoaiKhachHang</MudTd>
-                        <MudTd DataLabel="LoaiTienTe">@context.LoaiTienTe</MudTd>
-                        <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
-                        <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
+                    <MudTd DataLabel="MaSoThue">@context.MaSoThue</MudTd>
+                    <MudTd DataLabel="LoaiHinhKinhDoanh">@context.LoaiHinhKinhDoanh</MudTd>
+                    <MudTd DataLabel="LoaiKhachHang">@context.LoaiKhachHang</MudTd>
+                    <MudTd DataLabel="LoaiTienTe">@context.LoaiTienTe</MudTd>
+                    <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
+                    <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -98,7 +99,7 @@
         new CustomerDetail { MaKhachHang = "3702717812", NhomKhachhang = "AASC", Ten = "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ AN ĐẠT THÀNH" , Loai = "Cá nhân", DiaChi = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",DiaChiDangKyKinhDoanh = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
             QuocGia = "Việt Nam", SoDienThoai = "033396855" , Email = "dung@gmail.com", Fax = "1965632220" ,NgaySinh = DateTime.Now, MaSoThue = "1035165165", LoaiHinhKinhDoanh = "AB",
     LoaiKhachHang = "OTH", LoaiTienTe = "VNĐ", GhiChu = "Không", HoatDong = true },
-                };
+                    };
 
 
     class CustomerDetail
@@ -130,6 +131,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = customerDetails;
+        lang.InitLocalizedComponent(this);
     }
 }
 

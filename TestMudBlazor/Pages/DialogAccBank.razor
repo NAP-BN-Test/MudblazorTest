@@ -1,56 +1,57 @@
 ﻿@using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+@inject ILanguageContainerService lang
 <MudDialog>
     <DialogContent>
-        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">Thêm tài khoản ngân hàng</MudText>
+        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">@lang.Keys["Code"]</MudText>
         <MudGrid Style="margin-top: 10px">
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="SoTaiKhoan" Label="Số tài khoản" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="SoTaiKhoan" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="ChuTaiKhoan" Label="Chủ tài khoản" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="ChuTaiKhoan" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
 
         </MudGrid>
         <MudGrid>
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect  Label="Ngân hàng" @bind-Value="NganHang" Strict="true" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem  Value="'a'">A</MudSelectItem>
-                    <MudSelectItem  Value="'b'">B</MudSelectItem>
+                <MudSelect Label="@lang.Keys["Code"]" @bind-Value="NganHang" Strict="true" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem Value="'a'">A</MudSelectItem>
+                    <MudSelectItem Value="'b'">B</MudSelectItem>
                 </MudSelect>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="ChiNhanh" Label="Chi nhánh" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="ChiNhanh" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
         </MudGrid>
         <MudGrid>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="DiaChiChiNhanh" Label="Địa chỉ chi nhánh" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="DiaChiChiNhanh" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
 
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect  Label="Tỉnh thành phố" @bind-Value="TinhThanhPho" Strict="true" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem  Value="'a'">Bắc Ninh</MudSelectItem>
-                    <MudSelectItem  Value="'b'">Bắc Giang</MudSelectItem>
+                <MudSelect Label="@lang.Keys["Code"]" @bind-Value="TinhThanhPho" Strict="true" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem Value="'a'">@lang.Keys["Code"]</MudSelectItem>
+                    <MudSelectItem Value="'b'">@lang.Keys["Code"]</MudSelectItem>
                 </MudSelect>
             </MudItem>
         </MudGrid>
         <MudGrid>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="GhiChu" Label="Ghi chú" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="GhiChu" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
 
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect T="bool" Label="Hoạt động" @bind-Value="HanhDong" Strict="true" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem T="bool" Value="true">Dừng</MudSelectItem>
-                    <MudSelectItem T="bool" Value="false">Đang hoạt động</MudSelectItem>
+                <MudSelect T="bool" Label="@lang.Keys["Code"]" @bind-Value="HanhDong" Strict="true" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem T="bool" Value="true">@lang.Keys["Code"]</MudSelectItem>
+                    <MudSelectItem T="bool" Value="false">@lang.Keys["Code"]</MudSelectItem>
                 </MudSelect>
             </MudItem>
         </MudGrid>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+        <MudButton OnClick="Cancel">@lang.Keys["Code"]</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">@lang.Keys["Code"]</MudButton>
     </DialogActions>
 </MudDialog>
 @code {
@@ -66,4 +67,9 @@
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
 }

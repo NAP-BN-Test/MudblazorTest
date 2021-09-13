@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Personnel\ListPersonnel.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 78 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Personnel\ListPersonnel.razor"
+#line 79 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Personnel\ListPersonnel.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
         new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
         new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
         new PersonnelDetail { Ma = "00001", Ho = "Nguyễn", TenDem = "Anh" , Ten = "Bảnh", NgaySinh = DateTime.Now, GioiTinh = true, Cmnd = "1321541321", DiaChiThuongTru = "Minh Khai, Hà Nội" , DiaChiTamTru = "Gầm cầu Nhật Tân", SoDienThoai = "039662312131", Email = "banhaa@gmail.com", ChucVu = "Trưởng Phòng" , PhongBan = "B1", GhiChu = "10"  },
-        };
+            };
 
 
     class PersonnelDetail
@@ -138,6 +152,7 @@ using System.Net.Http.Json;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\GroupCustomer.razor"
 using System.Text.RegularExpressions;
 
@@ -112,7 +126,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\GroupCustomer.razor"
+#line 55 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\GroupCustomer.razor"
        
 
     GroupCus model = new GroupCus();
@@ -133,12 +147,16 @@ using System.ComponentModel.DataAnnotations;
     private void OnValidSubmit(EditContext context)
     {
     }
-
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
     }
 }
 #pragma warning restore 1591

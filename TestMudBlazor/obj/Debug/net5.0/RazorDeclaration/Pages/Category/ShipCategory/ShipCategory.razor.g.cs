@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
+#line 68 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\ShipCategory\ShipCategory.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
 new ShipCategoryDetail { Ma = "S01", Ten = "Tàu A", HoatDong = true , QuocGia = "Việt Nam", ThuTu ="1" ,GhiChu=""},
 new ShipCategoryDetail { Ma = "S02 ", Ten = "Tàu B" , HoatDong = false, QuocGia = "Việt Nam", ThuTu = "2",GhiChu=""},
 new ShipCategoryDetail { Ma = "S03", Ten = "Tàu C", HoatDong = true, QuocGia = "Trung Quốc", ThuTu = "3" ,GhiChu=""},
-};
+    };
 
     class ShipCategoryDetail
     {
@@ -124,11 +138,13 @@ new ShipCategoryDetail { Ma = "S03", Ten = "Tàu C", HoatDong = true, QuocGia = 
     protected override async Task OnInitializedAsync()
     {
         Elements = ships;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\HSCode.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\HSCode.razor"
+#line 69 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\HSCode\HSCode.razor"
        
     private string searchString;
     private bool hover = true;
@@ -110,7 +124,7 @@ new HSCODE { Ma = "HS02 ", MoTa = "Mã HS B" , HangHoa="AAA",HoatDong = false, Q
 "2",GhiChu=""},
 new HSCODE { Ma = "HS03", MoTa = "Mã HS C", HangHoa="AAA",HoatDong = true, QuocGia = "Trung Quốc", ThuTu = "3"
 ,GhiChu=""},
-};
+    };
 
     class HSCODE
     {
@@ -130,11 +144,13 @@ new HSCODE { Ma = "HS03", MoTa = "Mã HS C", HangHoa="AAA",HoatDong = true, Quoc
     protected override async Task OnInitializedAsync()
     {
         Elements = hsCodes;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

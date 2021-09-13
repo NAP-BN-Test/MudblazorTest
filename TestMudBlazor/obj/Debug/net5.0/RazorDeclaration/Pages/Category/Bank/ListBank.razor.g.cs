@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Bank\ListBank.razor"
 using System.Net.Http.Json;
 
@@ -98,18 +112,18 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Bank\ListBank.razor"
+#line 59 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Bank\ListBank.razor"
        
     private bool hover = true;
     private string searchString;
-   
+
 
     Bank[] bank = new Bank[]
 {
         new Bank { Ma = "NH01", Ten = "a", HoatDong = true ,  DiaChi = "Bắc Ninh" },
         new Bank { Ma = "NH02", Ten =  "b" ,  HoatDong = false, DiaChi = "Hà Nội"},
         new Bank { Ma = "NH03", Ten = "c",  HoatDong = true,  DiaChi = "Sapa" },
-           };
+               };
 
     class Bank
     {
@@ -124,11 +138,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = bank;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

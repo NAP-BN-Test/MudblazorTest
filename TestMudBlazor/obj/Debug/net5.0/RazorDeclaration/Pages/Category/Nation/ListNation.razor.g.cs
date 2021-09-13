@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Nation\ListNation.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Nation\ListNation.razor"
+#line 65 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Nation\ListNation.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
 new NATION { Ma = "QGVN", Ten = "a", HoatDong = true , YeuThich = true, ThuTu = "10" },
 new NATION { Ma = "QGMY ", Ten = "b" , HoatDong = false, YeuThich = true, ThuTu = "35"},
 new NATION { Ma = "QGHQ", Ten = "c", HoatDong = true, YeuThich = false, ThuTu = "27" },
-};
+    };
 
     class NATION
     {
@@ -123,11 +137,13 @@ new NATION { Ma = "QGHQ", Ten = "c", HoatDong = true, YeuThich = false, ThuTu = 
     protected override async Task OnInitializedAsync()
     {
         Elements = nations;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

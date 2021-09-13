@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listdepartment"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,7 +15,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách phòng ban</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
@@ -34,10 +35,10 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Loại phòng</MudTh>
-                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -58,7 +59,7 @@
 @code {
     private bool hover = true;
     private string searchString;
-    
+
 
     class Department
     {
@@ -74,7 +75,7 @@
         new Department { Ma = "PB01", Ten = "Dũng", LoaiPhongBan = "Sale" , GhiChu = "a", },
         new Department { Ma = "PB01", Ten = "Tùng", LoaiPhongBan = "Dev" , GhiChu = "a", },
         new Department { Ma = "PB01", Ten = "Hưng", LoaiPhongBan = "Maketing" , GhiChu = "a", },
-                };
+                    };
 
 
     private HashSet<Department> selectedItems1 = new HashSet<Department>();
@@ -82,6 +83,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = departments;
+        lang.InitLocalizedComponent(this);
     }
 }
 

@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
 using System.Text.RegularExpressions;
 
@@ -192,7 +206,7 @@ using System.ComponentModel.DataAnnotations;
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
-            };
+                };
 
     class Listcontact
     {
@@ -210,6 +224,8 @@ using System.ComponentModel.DataAnnotations;
     {
         Elements = listcontact;
         Elements2 = listbank;
+
+        lang.InitLocalizedComponent(this);
     }
 
 
@@ -230,7 +246,7 @@ using System.ComponentModel.DataAnnotations;
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
-    };
+        };
 
 
 
@@ -255,9 +271,11 @@ using System.ComponentModel.DataAnnotations;
 
 
 
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

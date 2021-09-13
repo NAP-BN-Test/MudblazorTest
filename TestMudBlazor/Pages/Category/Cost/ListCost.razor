@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listcost"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Chi phí</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]"
                               Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                               Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
@@ -38,12 +39,12 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Kiểu</MudTh>
-                    <MudTh>Hoạt động</MudTh>
-                    <MudTh>Thứ tự sắp xếp</MudTh>
-                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -66,7 +67,7 @@
 @code {
     private string searchString;
     private bool hover = true;
-    
+
     class Cost
     {
         public string Ma { get; set; }
@@ -82,12 +83,13 @@
 new Cost { Ma = "HN", Ten = "Hà Nội", HoatDong = true , Kieu = "1", ThuTu = "1" ,GhiChu=""},
 new Cost { Ma = "HCM ", Ten = "Hồ Chí Minh" , HoatDong = false, Kieu = "1", ThuTu = "2",GhiChu=""},
 new Cost { Ma = "HP", Ten = "Hải Phòng", HoatDong = true, Kieu = "1", ThuTu = "3" ,GhiChu=""},
-    };
+        };
 
     private HashSet<Cost> selectedItems1 = new HashSet<Cost>();
     private IEnumerable<Cost> Elements = new List<Cost>();
     protected override async Task OnInitializedAsync()
     {
         Elements = costs;
+        lang.InitLocalizedComponent(this);
     }
 }

@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listtypeservice"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách loại dịch vụ</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addservice" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -34,9 +35,9 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -61,7 +62,7 @@
         new ServiceDetail { Ma = "DV01", Ten = "Vận Chuyển",  GhiChu = "a", },
         new ServiceDetail { Ma = "DV02", Ten = "Vận Chuyển",  GhiChu = "a", },
         new ServiceDetail { Ma = "DV03", Ten = "Vận Chuyển",  GhiChu = "a", },
-                    };
+                        };
 
     class ServiceDetail
     {
@@ -75,6 +76,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = serviceDetails;
+        lang.InitLocalizedComponent(this);
     }
 }
 

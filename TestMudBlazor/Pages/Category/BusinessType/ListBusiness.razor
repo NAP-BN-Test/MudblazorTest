@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listbusinesstype"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách loại hình kinh doanh</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addbusinesstype" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -29,15 +30,15 @@
             </MudToolBar>
         </MudItem>
     </MudGrid>
-    
+
     <MudGrid>
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Hoạt động</MudTh>
-                    <MudTh>Yêu thích</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -58,7 +59,7 @@
 @code {
     private bool hover = true;
     private string searchString;
-   
+
 
     class Business
     {
@@ -73,7 +74,7 @@
         new Business { Ma = "LHKH01", Ten = "a", HoatDong = true , YeuThich = true,  },
         new Business { Ma = "LHKH02", Ten =  "b" ,  HoatDong = false, YeuThich = true,},
         new Business { Ma = "LHKH03", Ten = "c",  HoatDong = true, YeuThich = false, },
-            };
+                };
 
     private HashSet<Business> selectedItems1 = new HashSet<Business>();
     private IEnumerable<Business> Elements = new List<Business>();

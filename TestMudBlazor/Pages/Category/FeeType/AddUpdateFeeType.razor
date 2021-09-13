@@ -2,21 +2,22 @@
 @page "/add-update-fee-type"
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+@inject ILanguageContainerService lang
 <MudGrid Style="margin-top: 10px">
 
-    
+
     <MudGrid>
         <MudItem xs="12">
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
                 <MudGrid>
                     <MudItem xs="6">
-                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Thêm mới kiểu chi phí</MudText>
+                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
                     </MudItem>
                     <MudItem xs="6">
                         <MudToolBar>
                             <MudSpacer />
-                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit"/>
+                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
                             <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                             <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
                         </MudToolBar>
@@ -24,17 +25,17 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.Ma" Label="Mã (*)" Variant="Variant.Outlined"
+                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"
                                       For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.Ten" Label="Tên" Variant="Variant.Outlined"
+                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"
                                       For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.GhiChu" Label="Ghi chú" Variant="Variant.Outlined"
+                        <MudTextField @bind-Value="model.GhiChu" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"
                                       For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
 
@@ -73,5 +74,8 @@
     {
     }
 
-
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
 }

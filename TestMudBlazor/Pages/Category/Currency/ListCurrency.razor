@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listcurrency"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách tiền tệ</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addcurrency" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -29,16 +30,16 @@
             </MudToolBar>
         </MudItem>
     </MudGrid>
-    
+
     <MudGrid>
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Hoạt động</MudTh>
-                    <MudTh>Yêu thích</MudTh>
-                    <MudTh>Mặc định</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -60,7 +61,7 @@
 @code {
     private bool hover = true;
     private string searchString;
-    
+
 
     class Curency
     {
@@ -77,13 +78,14 @@
         new Curency { Ma = "QGVN", Ten = "a", HoatDong = true , YeuThich = true, MacDinh = true },
         new Curency { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, YeuThich = true, MacDinh = true},
         new Curency { Ma = "QGHQ", Ten = "c",  HoatDong = true, YeuThich = false, MacDinh = true },
-    };
+        };
 
     private HashSet<Curency> selectedItems1 = new HashSet<Curency>();
     private IEnumerable<Curency> Elements = new List<Curency>();
     protected override async Task OnInitializedAsync()
     {
         Elements = curencys;
+        lang.InitLocalizedComponent(this);
     }
 }
 

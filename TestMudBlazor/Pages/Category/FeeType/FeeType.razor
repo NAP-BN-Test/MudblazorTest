@@ -1,26 +1,27 @@
 @using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/feetypecategory"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
         padding-right: 0px;
     }
 
-    .searchcutom.mud-input-control>.mud-input-control-input-container>div.mud-input.mud-input-text {
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
         margin-top: 0px;
     }
 </style>
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh mục kiểu chi phí</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
-                    Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
-                    Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                              Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/add-update-fee-type" Typo="Typo.body2">
                     <MudIconButton Icon="@Icons.Material.Outlined.Add" />
@@ -38,9 +39,9 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Ghi chú</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -65,7 +66,7 @@
 new FeeTypeDetail { Ma = "FT01", Ten = "Kiểu chi phí A" ,GhiChu=""},
 new FeeTypeDetail { Ma = "FT02 ", Ten = "Kiểu chi phí B" ,GhiChu=""},
 new FeeTypeDetail { Ma = "FT03", Ten = "Kiểu chi phí C" ,GhiChu=""},
-    };
+        };
 
     class FeeTypeDetail
     {
@@ -79,5 +80,6 @@ new FeeTypeDetail { Ma = "FT03", Ten = "Kiểu chi phí C" ,GhiChu=""},
     protected override async Task OnInitializedAsync()
     {
         Elements = feeTypes;
+        lang.InitLocalizedComponent(this);
     }
 }

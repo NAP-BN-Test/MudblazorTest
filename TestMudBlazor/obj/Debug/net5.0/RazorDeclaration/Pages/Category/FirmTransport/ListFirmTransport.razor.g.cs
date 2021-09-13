@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\ListFirmTransport.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\ListFirmTransport.razor"
+#line 63 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\ListFirmTransport.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
         new FirmTransport { Ma = "QGVN", Ten = "a", HoatDong = true , ThuTu = "10", Loai = "b",GhiChu ="abc"  },
         new FirmTransport { Ma = "QGMY ", Ten =  "b" ,  HoatDong = false, ThuTu = "35", Loai = "b",GhiChu ="abc" },
         new FirmTransport { Ma = "QGHQ", Ten = "c",  HoatDong = true, ThuTu = "27" , Loai = "b",GhiChu ="abc" },
-        };
+            };
 
     class FirmTransport
     {
@@ -125,11 +139,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = firmTransports;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listrules"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,7 +15,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách điều khoản</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
@@ -34,9 +35,9 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Mô tả</MudTh>
-                    <MudTh>Loại</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ten">@context.Ten</MudTd>
@@ -61,7 +62,7 @@
         new RulesDetail { Loai = "DV01", Ten = "Vận Chuyển",  MoTa = "a", },
         new RulesDetail { Loai = "DV02", Ten = "Vận Chuyển",  MoTa = "a", },
         new RulesDetail { Loai = "DV03", Ten = "Vận Chuyển",  MoTa = "a", },
-                        };
+                            };
 
     class RulesDetail
     {
@@ -76,6 +77,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = rulesDetails;
+        lang.InitLocalizedComponent(this);
     }
 }
 

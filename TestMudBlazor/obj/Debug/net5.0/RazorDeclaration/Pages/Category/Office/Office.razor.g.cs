@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\Office.razor"
 using System.Text.RegularExpressions;
 
@@ -163,6 +177,7 @@ using System.ComponentModel.DataAnnotations;
     protected override async Task OnInitializedAsync()
     {
         Elements2 = listbank;
+        lang.InitLocalizedComponent(this);
     }
 
 
@@ -179,7 +194,7 @@ using System.ComponentModel.DataAnnotations;
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng",  NganHang = "TPBANK",  LoaiTienTe="VNĐ" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", NganHang = "TPBANK",  LoaiTienTe="USD"},
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", NganHang = "TPBANK",  LoaiTienTe="VNĐ" },
-        };
+            };
 
 
 
@@ -207,6 +222,7 @@ using System.ComponentModel.DataAnnotations;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿@using System.Net.Http.Json
 @inject HttpClient httpClient
 @page "/listoffice"
+@inject ILanguageContainerService lang
 <style>
     .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
         padding-left: 6px;
@@ -14,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách văn phòng</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addoffice" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -34,12 +35,12 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>Mã</MudTh>
-                    <MudTh>Tên</MudTh>
-                    <MudTh>Địa chỉ</MudTh>
-                    <MudTh>Điện thoại</MudTh>
-                    <MudTh>Fax</MudTh>
-                    <MudTh>Hoạt động</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Code"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>
@@ -48,7 +49,7 @@
                     <MudTd DataLabel="SoDienThoai">@context.SoDienThoai</MudTd>
                     <MudTd DataLabel="Fax">@context.Fax</MudTd>
                     <MudTd DataLabel="HoatDong">@context.HoatDong</MudTd>
-                    
+
                 </RowTemplate>
                 <PagerContent>
                     <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -69,7 +70,7 @@
         new OfficeDetail { Ma = "00002", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
         new OfficeDetail { Ma = "00003", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
 
-            };
+                };
 
     class OfficeDetail
     {
@@ -86,6 +87,7 @@
     protected override async Task OnInitializedAsync()
     {
         Elements = offices;
+        lang.InitLocalizedComponent(this);
     }
 }
 

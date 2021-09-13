@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Rules\ListRules.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Rules\ListRules.razor"
+#line 57 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Rules\ListRules.razor"
        
     private bool hover = true;
     private string searchString;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
         new RulesDetail { Loai = "DV01", Ten = "Vận Chuyển",  MoTa = "a", },
         new RulesDetail { Loai = "DV02", Ten = "Vận Chuyển",  MoTa = "a", },
         new RulesDetail { Loai = "DV03", Ten = "Vận Chuyển",  MoTa = "a", },
-                        };
+                            };
 
     class RulesDetail
     {
@@ -122,11 +136,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = rulesDetails;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }
