@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TestMudBlazor"
+    "\\TestMudBlazor",
+    "\\TestMudBlazor\\Pages",
+    "\\TestMudBlazor\\Pages\\Category",
+    "\\TestMudBlazor\\Pages\\Category\\Customer"
   ],
-  "SelectedNode": "\\TestMudBlazor\\Program.cs",
+  "SelectedNode": "\\TestMudBlazor\\Pages\\Category\\Customer\\Customer.razor",
   "PreviewInSolutionExplorer": false
 }

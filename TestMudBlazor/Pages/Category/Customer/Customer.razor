@@ -60,10 +60,9 @@
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudSelect @bind-Value="model.Loai" Label="Loại" Strict="true" Variant="Variant.Outlined" Format="F2">
-                                            <MudSelectItem  Value="'b'">Cá nhân</MudSelectItem>
-                                            <MudSelectItem  Value="'c'">Tổ chức</MudSelectItem>
-                                        </MudSelect>
+                                        <MudAutocomplete T="string" Label="Loại" @bind-Value="model.Loai" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Loai)" />
                                     </MudItem>
                                     <MudItem xs="12" sm="6" md="4">
                                         <MudTextField @bind-Value="model.DiaChi" Label="Địa chỉ" Variant="Variant.Outlined" For="@(() => model.DiaChi)"></MudTextField>

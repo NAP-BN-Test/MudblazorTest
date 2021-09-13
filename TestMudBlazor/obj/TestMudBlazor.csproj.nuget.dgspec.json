@@ -45,6 +45,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AKSoftware.Localization.MultiLanguages": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "AKSoftware.Localization.MultiLanguages.Blazor": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[5.0.7, )"

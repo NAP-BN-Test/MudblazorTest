@@ -536,7 +536,6 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\SezjYDEb.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\7W5Tq8nF.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\dELALmUQ.gz
-C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\+JvG1Hsu.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\hFBg+tiF.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\8pDZEs6b.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\cpSXYUQQ.gz
@@ -805,3 +804,13 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDecl
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Category\Air\ListAir.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\Air\AddAir.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Category\Air\ListAir.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\AKSoftware.Localization.MultiLanguages.dll.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\AKSoftware.Localization.MultiLanguages.Blazor.dll.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\YamlDotNet.dll.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\AKSoftware.Localization.MultiLanguages.dll
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\AKSoftware.Localization.MultiLanguages.Blazor.dll
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\bin\Debug\net5.0\wwwroot\_framework\YamlDotNet.dll
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\Z2y1e92y.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\SY7DW88K.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\3SGdfVaM.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\pPwupoIX.gz

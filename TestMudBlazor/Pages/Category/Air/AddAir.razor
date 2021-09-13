@@ -2,9 +2,10 @@
 @page "/addair"
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+
 <MudGrid Style="margin-top: 10px">
 
-   
+
     <MudGrid>
         <MudItem xs="12">
             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
@@ -16,7 +17,7 @@
                     <MudItem xs="6">
                         <MudToolBar>
                             <MudSpacer />
-                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit"/>
+                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
                             <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                             <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
                         </MudToolBar>
@@ -129,4 +130,7 @@
             return states;
         return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
+
+
+
 }
