@@ -12,7 +12,7 @@
                 <DataAnnotationsValidator />
                 <MudGrid>
                     <MudItem xs="6">
-                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
+                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["AddRules"]</MudText>
                     </MudItem>
                     <MudItem xs="6">
                         <MudToolBar>
@@ -26,11 +26,11 @@
                 <MudGrid>
 
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Ten"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="12" md="6">
-                        <MudAutocomplete T="string" Label="@lang.Keys["Code"]" @bind-Value="model.Loai" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="@lang.Keys["Loai"]" @bind-Value="model.Loai" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Loai)" />
                     </MudItem>
@@ -39,7 +39,7 @@
 
 
                     <MudItem xs="12" sm="12" md="12">
-                        <MudTextField @bind-Value="model.MoTa" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.MoTa)"></MudTextField>
+                        <MudTextField @bind-Value="model.MoTa" Label="@lang.Keys["MoTa"]" Variant="Variant.Outlined" For="@(() => model.MoTa)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>

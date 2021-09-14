@@ -814,3 +814,5 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\SY7DW88K.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\3SGdfVaM.gz
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\build-gz\pPwupoIX.gz
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Quotation\ListQuotation.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Quotation\ListQuotation.razor.g.cs

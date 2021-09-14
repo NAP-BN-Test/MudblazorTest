@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\ListGroupCustomer.razor"
 using System.Net.Http.Json;
 
@@ -98,13 +112,14 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\ListGroupCustomer.razor"
+#line 59 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\GroupCustomer\ListGroupCustomer.razor"
        
     private bool hover = true;
     private string searchString;
-    
 
-    class GroupCus {
+
+    class GroupCus
+    {
         public string Ma;
         public string Ten;
         public bool HoatDong;
@@ -116,7 +131,7 @@ using System.Net.Http.Json;
         new GroupCus { Ma = "NKH01", Ten = "a", HoatDong = true , YeuThich = true, },
         new GroupCus { Ma = "NKH02", Ten =  "b" ,  HoatDong = false, YeuThich = true,},
         new GroupCus { Ma = "NKH03", Ten = "c",  HoatDong = true, YeuThich = false, },
-    };
+        };
 
 
 
@@ -125,11 +140,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = groupCus;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\TypeContainer.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\TypeContainer.razor"
+#line 66 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\TypeContainer\TypeContainer.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
 new TypeContainerCategory { Ma = "TC01", Ten = "Container A", HoatDong = true , ThuTu = "1" ,GhiChu=""},
 new TypeContainerCategory { Ma = "TC02 ", Ten = "Container B" , HoatDong = false, ThuTu = "2",GhiChu=""},
 new TypeContainerCategory { Ma = "TC03", Ten = "Container C", HoatDong = true, ThuTu = "3",GhiChu=""},
-    };
+        };
 
     class TypeContainerCategory
     {
@@ -123,11 +137,13 @@ new TypeContainerCategory { Ma = "TC03", Ten = "Container C", HoatDong = true, T
     protected override async Task OnInitializedAsync()
     {
         Elements = typeContainers;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

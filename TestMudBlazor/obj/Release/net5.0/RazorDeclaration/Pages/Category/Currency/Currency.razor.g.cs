@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\Currency.razor"
 using System.Text.RegularExpressions;
 
@@ -112,7 +126,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\Currency.razor"
+#line 59 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Currency\Currency.razor"
        
 
     CurrencyForm model = new CurrencyForm();
@@ -122,7 +136,7 @@ using System.ComponentModel.DataAnnotations;
         public string Ma { get; set; }
         public string Ten { get; set; }
         public bool YeuThich { get; set; }
-        public bool HoatDong { get; set; } 
+        public bool HoatDong { get; set; }
         public bool MacDinh { get; set; }
 
 
@@ -135,11 +149,15 @@ using System.ComponentModel.DataAnnotations;
     {
     }
 
-
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
     }
 }
 #pragma warning restore 1591

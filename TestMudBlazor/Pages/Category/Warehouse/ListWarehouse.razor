@@ -15,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["ListWareHouse"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
                 <MudLink Href="/addwarehouse" Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" /></MudLink>
                 <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -35,16 +35,16 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Ma"]</MudTh>
+                    <MudTh>@lang.Keys["Ten"]</MudTh>
+                    <MudTh>@lang.Keys["Loai"]</MudTh>
+                    <MudTh>@lang.Keys["DichVu"]</MudTh>
+                    <MudTh>@lang.Keys["DiaChi"]</MudTh>
+                    <MudTh>@lang.Keys["Sodienthoai"]</MudTh>
+                    <MudTh>@lang.Keys["Fax"]</MudTh>
+                    <MudTh>@lang.Keys["NguoiPhuTrach"]</MudTh>
+                    <MudTh>@lang.Keys["QuocGia"]</MudTh>
+                    <MudTh>@lang.Keys["HoatDong"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>

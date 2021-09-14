@@ -4,8 +4,9 @@
     "\\TestMudBlazor",
     "\\TestMudBlazor\\Pages",
     "\\TestMudBlazor\\Pages\\Category",
+    "\\TestMudBlazor\\Pages\\Category\\Air",
     "\\TestMudBlazor\\Pages\\Category\\Customer"
   ],
-  "SelectedNode": "\\TestMudBlazor\\Pages\\Category\\Customer\\Customer.razor",
+  "SelectedNode": "\\TestMudBlazor\\Pages\\Category\\Air\\AddAir.razor",
   "PreviewInSolutionExplorer": false
 }

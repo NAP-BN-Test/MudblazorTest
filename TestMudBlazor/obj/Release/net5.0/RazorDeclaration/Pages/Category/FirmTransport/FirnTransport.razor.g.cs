@@ -90,6 +90,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\FirnTransport.razor"
 using System.Text.RegularExpressions;
 
@@ -112,7 +126,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\FirnTransport.razor"
+#line 68 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\FirmTransport\FirnTransport.razor"
        
 
     FirmTransport model = new FirmTransport();
@@ -160,11 +174,17 @@ using System.ComponentModel.DataAnnotations;
         return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        lang.InitLocalizedComponent(this);
+    }
+
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
     }
 }
 #pragma warning restore 1591

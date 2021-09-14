@@ -66,7 +66,7 @@
         </MudDrawerHeader>
         <MudNavMenu>
             <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Filled.Store">Demo</MudNavLink>
-            <MudNavGroup Title="Danh mục" Icon="@Icons.Filled.Group" Expanded="true">
+            <MudNavGroup Title="Danh mục" Icon="@Icons.Filled.BorderAll" >
                 <MudNavLink Href="/listcustomer">Khách hàng</MudNavLink>
                 <MudNavLink Href="/listnation">Quốc gia</MudNavLink>
                 <MudNavLink Href="/listgroupcustomer">Nhóm khách hàng</MudNavLink>
@@ -91,6 +91,12 @@
                 <MudNavLink Href="/listport">Cảng</MudNavLink>
                 <MudNavLink Href="/listcost">Chi phi</MudNavLink>
                 <MudNavLink Href="/listair">Air</MudNavLink>
+            </MudNavGroup>
+            <MudNavGroup Title="Báo giá" Icon="@Icons.Filled.Book" >
+                <MudNavLink Href="/listquotation">Danh sách báo giá</MudNavLink>
+                <MudNavLink Href="/listquotationsea">Báo giá SEA</MudNavLink>
+                <MudNavLink Href="/listgroupcustomer">Báo giá AIR</MudNavLink>
+                <MudNavLink Href="/listcustomertype">Báo giá khác</MudNavLink>
             </MudNavGroup>
         </MudNavMenu>
     </MudDrawer>

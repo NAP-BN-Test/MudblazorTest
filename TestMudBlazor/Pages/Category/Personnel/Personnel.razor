@@ -10,7 +10,7 @@
                 <DataAnnotationsValidator />
                 <MudGrid>
                     <MudItem xs="6">
-                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
+                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["AddPersonnel"]</MudText>
                     </MudItem>
                     <MudItem xs="6">
                         <MudToolBar>
@@ -23,60 +23,60 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Ma"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.Ho" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ho)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ho" Label="@lang.Keys["Ho"]" Variant="Variant.Outlined" For="@(() => model.Ho)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.TenDem" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.TenDem)"></MudTextField>
+                        <MudTextField @bind-Value="model.TenDem" Label="@lang.Keys["TenDem"]" Variant="Variant.Outlined" For="@(() => model.TenDem)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Ten"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="4">
-                        <MudDatePicker Label="@lang.Keys["Code"]" @bind-Date="model.NgaySinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgaySinh)" />
+                        <MudDatePicker Label="@lang.Keys["NgaySinh"]" @bind-Date="model.NgaySinh" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgaySinh)" />
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudSelect T="bool" Label="@lang.Keys["Code"]" Strict="true" @bind-Value="model.GioiTinh" Variant="Variant.Outlined" Format="F2">
-                            <MudSelectItem T="bool" Value="false">@lang.Keys["Code"]</MudSelectItem>
-                            <MudSelectItem T="bool" Value="true">@lang.Keys["Code"]</MudSelectItem>
+                        <MudSelect T="bool" Label="@lang.Keys["GioiTinh"]" Strict="true" @bind-Value="model.GioiTinh" Variant="Variant.Outlined" Format="F2">
+                            <MudSelectItem T="bool" Value="false">Nam</MudSelectItem>
+                            <MudSelectItem T="bool" Value="true">Nữ</MudSelectItem>
                         </MudSelect>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="model.Cmnd" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Cmnd)"></MudTextField>
+                        <MudTextField @bind-Value="model.Cmnd" Label="@lang.Keys["Cmnd"]" Variant="Variant.Outlined" For="@(() => model.Cmnd)"></MudTextField>
                     </MudItem>
 
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudTextField @bind-Value="model.DiaChiThuongTru" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.DiaChiThuongTru)"></MudTextField>
+                        <MudTextField @bind-Value="model.DiaChiThuongTru" Label="@lang.Keys["DiaChiThuongTru"]" Variant="Variant.Outlined" For="@(() => model.DiaChiThuongTru)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="12" md="6">
-                        <MudTextField @bind-Value="model.DiaChiTamTru" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.DiaChiTamTru)"></MudTextField>
+                        <MudTextField @bind-Value="model.DiaChiTamTru" Label="@lang.Keys["DiaChiTamTru"]" Variant="Variant.Outlined" For="@(() => model.DiaChiTamTru)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.SoDienThoai" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
+                        <MudTextField @bind-Value="model.SoDienThoai" Label="@lang.Keys["SoDienThoai"]" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.Email" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Email)"></MudTextField>
+                        <MudTextField @bind-Value="model.Email" Label="@lang.Keys["Email"]" Variant="Variant.Outlined" For="@(() => model.Email)"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudAutocomplete T="string" Label="@lang.Keys["Code"]" @bind-Value="model.ChucVu" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="@lang.Keys["ChucVu"]" @bind-Value="model.ChucVu" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ChucVu)" />
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudAutocomplete T="string" Label="@lang.Keys["Code"]" @bind-Value="model.PhongBan" SearchFunc="@Search1"
+                        <MudAutocomplete T="string" Label="@lang.Keys["PhongBan"]" @bind-Value="model.PhongBan" SearchFunc="@Search1"
                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PhongBan)" />
                     </MudItem>
@@ -86,7 +86,7 @@
                 <MudGrid>
 
                     <MudItem xs="12" sm="12" md="12">
-                        <MudTextField @bind-Value="model.GhiChu" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
+                        <MudTextField @bind-Value="model.GhiChu" Label="@lang.Keys["GhiChu"]" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>

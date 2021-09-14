@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Unit\ListUnit.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 60 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Unit\ListUnit.razor"
+#line 61 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Unit\ListUnit.razor"
        
     private string searchString;
     private bool hover = true;
@@ -107,7 +121,7 @@ using System.Net.Http.Json;
         new UnitDetail { Ma = "QGVN", Ten = "KG", HoatDong = true , ThuTu = "10", Loai = "b" },
         new UnitDetail { Ma = "QGMY ", Ten =  "TẤN" ,  HoatDong = false, ThuTu = "35", Loai = "b" },
         new UnitDetail { Ma = "QGHQ", Ten = "TẠ",  HoatDong = true,  ThuTu = "27" , Loai = "b" },
-            };
+                };
 
     class UnitDetail
     {
@@ -123,11 +137,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = earningReports;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

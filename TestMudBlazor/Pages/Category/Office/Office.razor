@@ -21,7 +21,7 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="6">
-            <MudText Typo="Typo.h5" Style="line-height: 60px" GutterBottom="true">@lang.Keys["Code"]</MudText>
+            <MudText Typo="Typo.h5" Style="line-height: 60px" GutterBottom="true">@lang.Keys["AddOffice"]</MudText>
         </MudItem>
         <MudItem xs="6">
             <MudToolBar>
@@ -36,39 +36,39 @@
         <MudItem xs="12">
             <MudTabs Outlined="false" Position="Position.Right" Rounded="false" Border="false"
                      ApplyEffectsToContainer="true" Class="mt-8 custom_mudtabbar">
-                <MudTabPanel Style="font-size: 10px" Text="@lang.Keys["Code"]">
+                <MudTabPanel Style="font-size: 10px" Text="@lang.Keys["VanPhong"]">
                     <MudGrid Style="margin-right: 10px">
                         <MudItem xs="12">
                             <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
+                                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Ma"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                                     </MudItem>
 
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
+                                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Ten"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                                     </MudItem>
 
                                     <MudItem xs="12" sm="12" md="4">
-                                        <MudTextField @bind-Value="model.SoDienThoai" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
+                                        <MudTextField @bind-Value="model.SoDienThoai" Label="@lang.Keys["SoDienThoai"]" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
                                 <MudGrid>
 
 
                                     <MudItem xs="12" sm="12" md="8">
-                                        <MudTextField @bind-Value="model.DiaChi" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.DiaChi)"></MudTextField>
+                                        <MudTextField @bind-Value="model.DiaChi" Label="@lang.Keys["DiaChi"]" Variant="Variant.Outlined" For="@(() => model.DiaChi)"></MudTextField>
                                     </MudItem>
 
                                     <MudItem xs="12" sm="12" md="4">
-                                        <MudTextField @bind-Value="model.Fax" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Fax)"></MudTextField>
+                                        <MudTextField @bind-Value="model.Fax" Label="@lang.Keys["Fax"]" Variant="Variant.Outlined" For="@(() => model.Fax)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="12" md="12">
                                         <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong" RequiredError="You must agree" Class="ml-n2"
-                                                     Label="@lang.Keys["Code"]" />
+                                                     Label="@lang.Keys["HoatDong"]" />
                                     </MudItem>
 
                                 </MudGrid>
@@ -84,12 +84,12 @@
                 </MudTabPanel>
 
 
-                <MudTabPanel Style="font-size: 10px" Text="@lang.Keys["Code"]">
+                <MudTabPanel Style="font-size: 10px" Text="@lang.Keys["ThongTinNganHang"]">
                     <MudGrid Style="margin-right: 10px">
                         <MudGrid>
                             <MudItem xs="12">
                                 <MudToolBar Class="toolbarCustom">
-                                    <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
+                                    <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 searchcutom"></MudTextField>
                                     <MudSpacer />
                                     <MudLink Typo="Typo.body2"><MudIconButton Icon="@Icons.Material.Outlined.Add" @onclick="OpenDialogAccBank" /></MudLink>
                                     <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
@@ -104,10 +104,10 @@
                             <MudItem xs="12">
                                 <MudTable Items="@Elements2" MultiSelection="true" @bind-SelectedItems="selectedItemsBank" Hover="@hover">
                                     <HeaderContent>
-                                        <MudTh>@lang.Keys["Code"]</MudTh>
-                                        <MudTh>@lang.Keys["Code"]</MudTh>
-                                        <MudTh>@lang.Keys["Code"]</MudTh>
-                                        <MudTh>@lang.Keys["Code"]</MudTh>
+                                        <MudTh>@lang.Keys["SoTaiKhoan"]</MudTh>
+                                        <MudTh>@lang.Keys["ChuTaiKhoan"]</MudTh>
+                                        <MudTh>@lang.Keys["NganHang"]</MudTh>
+                                        <MudTh>@lang.Keys["LoaiTienTe"]</MudTh>
                                     </HeaderContent>
                                     <RowTemplate>
                                         <MudTd DataLabel="SoTaiKhoan">@context.SoTaiKhoan</MudTd>

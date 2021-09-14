@@ -3,27 +3,27 @@
 @inject ILanguageContainerService lang
 <MudDialog>
     <DialogContent>
-        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">@lang.Keys["Code"]</MudText>
+        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">@lang.Keys["ThongTinNganHang"]</MudText>
         <MudGrid Style="margin-top: 10px">
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="SoTaiKhoan" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="SoTaiKhoan" Label="@lang.Keys["SoTaiKhoan"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="ChuTaiKhoan" Label="@lang.Keys["Code"]" Variant="Variant.Outlined"></MudTextField>
+                <MudTextField @bind-Value="ChuTaiKhoan" Label="@lang.Keys["ChuTaiKhoan"]" Variant="Variant.Outlined"></MudTextField>
             </MudItem>
 
         </MudGrid>
         <MudGrid>
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect Label="@lang.Keys["Code"]" Strict="true" @bind-Value="NganHang" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem T="bool" Value="false">@lang.Keys["Code"]</MudSelectItem>
-                    <MudSelectItem T="bool" Value="true">@lang.Keys["Code"]</MudSelectItem>
+                <MudSelect Label="@lang.Keys["NganHang"]" Strict="true" @bind-Value="NganHang" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem T="bool" Value="false">a</MudSelectItem>
+                    <MudSelectItem T="bool" Value="true">b</MudSelectItem>
                 </MudSelect>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudSelect Label="@lang.Keys["Code"]" Strict="true" @bind-Value="LoaiTienTe" Variant="Variant.Outlined" Format="F2">
-                    <MudSelectItem Value="'a'">@lang.Keys["Code"]</MudSelectItem>
-                    <MudSelectItem Value="'a'">@lang.Keys["Code"]</MudSelectItem>
+                <MudSelect Label="@lang.Keys["LoaiTienTe"]" Strict="true" @bind-Value="LoaiTienTe" Variant="Variant.Outlined" Format="F2">
+                    <MudSelectItem Value="'a'">a</MudSelectItem>
+                    <MudSelectItem Value="'a'">b</MudSelectItem>
                 </MudSelect>
             </MudItem>
         </MudGrid>
@@ -31,8 +31,8 @@
 
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">@lang.Keys["Code"]</MudButton>
-        <MudButton Color="Color.Primary" OnClick="Submit">@lang.Keys["Code"]</MudButton>
+        <MudButton OnClick="Cancel">@lang.Keys["Cancel"]</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">@lang.Keys["Submit"]</MudButton>
     </DialogActions>
 </MudDialog>
 @code {

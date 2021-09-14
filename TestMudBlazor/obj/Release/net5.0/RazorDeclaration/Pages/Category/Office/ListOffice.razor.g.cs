@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\ListOffice.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\ListOffice.razor"
+#line 64 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\ListOffice.razor"
        
     private string searchString;
     private bool hover = true;
@@ -108,7 +122,7 @@ using System.Net.Http.Json;
         new OfficeDetail { Ma = "00002", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
         new OfficeDetail { Ma = "00003", Ten = "Bảnh", DiaChi = "Từ Sơn - Bắc Ninh", SoDienThoai = "0923265265", Fax = "1321541321", HoatDong = true },
 
-            };
+                };
 
     class OfficeDetail
     {
@@ -125,11 +139,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = offices;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }

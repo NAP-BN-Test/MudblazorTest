@@ -10,7 +10,7 @@
                 <DataAnnotationsValidator />
                 <MudGrid>
                     <MudItem xs="6">
-                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
+                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">@lang.Keys["AddCurrency"]</MudText>
                     </MudItem>
                     <MudItem xs="6">
                         <MudToolBar>
@@ -23,25 +23,25 @@
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ma" Label="@lang.Keys["Ma"]" Variant="Variant.Outlined" For="@(() => model.Ma)"></MudTextField>
                     </MudItem>
 
                     <MudItem xs="12" sm="6" md="6">
-                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Code"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
+                        <MudTextField @bind-Value="model.Ten" Label="@lang.Keys["Ten"]" Variant="Variant.Outlined" For="@(() => model.Ten)"></MudTextField>
                     </MudItem>
                 </MudGrid>
                 <MudGrid>
                     <MudItem xs="12" sm="12" md="4">
                         <MudCheckBox T="bool" Required="true" @bind-Value="model.YeuThich" RequiredError="You must agree" Class="ml-n2"
-                                     Label="@lang.Keys["Code"]" />
+                                     Label="@lang.Keys["YeuThich"]" />
                     </MudItem>
                     <MudItem xs="12" sm="12" md="4">
                         <MudCheckBox T="bool" Required="true" @bind-Value="model.MacDinh" RequiredError="You must agree" Class="ml-n2"
-                                     Label="@lang.Keys["Code"]" />
+                                     Label="@lang.Keys["MacDinh"]" />
                     </MudItem>
                     <MudItem xs="12" sm="12" md="4">
                         <MudCheckBox T="bool" Required="true" @bind-Value="model.HoatDong" RequiredError="You must agree" Class="ml-n2"
-                                     Label="@lang.Keys["Code"]" />
+                                     Label="@lang.Keys["HoatDong"]" />
                     </MudItem>
                 </MudGrid>
                 <MudGrid>

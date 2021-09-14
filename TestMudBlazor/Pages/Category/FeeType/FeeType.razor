@@ -15,11 +15,11 @@
 <MudGrid Style="margin-top: 10px">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["Code"]</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">@lang.Keys["ListFeeType"]</MudText>
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]"
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Search"]"
                               Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                               Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
@@ -39,9 +39,9 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Ma"]</MudTh>
+                    <MudTh>@lang.Keys["Ten"]</MudTh>
+                    <MudTh>@lang.Keys["GhiChu"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>

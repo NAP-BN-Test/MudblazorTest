@@ -19,7 +19,7 @@
         </MudItem>
         <MudItem xs="12">
             <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["Code"]"
+                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="@lang.Keys["ListCost"]"
                               Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
                               Class="mt-0 searchcutom"></MudTextField>
                 <MudSpacer />
@@ -39,12 +39,12 @@
         <MudItem xs="12">
             <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
                 <HeaderContent>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
-                    <MudTh>@lang.Keys["Code"]</MudTh>
+                    <MudTh>@lang.Keys["Ma"]</MudTh>
+                    <MudTh>@lang.Keys["Ten"]</MudTh>
+                    <MudTh>@lang.Keys["Kieu"]</MudTh>
+                    <MudTh>@lang.Keys["HoatDong"]</MudTh>
+                    <MudTh>@lang.Keys["ThuTu"]</MudTh>
+                    <MudTh>@lang.Keys["GhiChu"]</MudTh>
                 </HeaderContent>
                 <RowTemplate>
                     <MudTd DataLabel="Ma">@context.Ma</MudTd>

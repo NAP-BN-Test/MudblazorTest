@@ -83,6 +83,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+using AKSoftware.Localization.MultiLanguages.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\ListCustomer.razor"
 using System.Net.Http.Json;
 
@@ -98,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 94 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\ListCustomer.razor"
+#line 95 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\ListCustomer.razor"
        
     private bool hover = true;
     CustomerDetail[] customerDetails = new CustomerDetail[]
@@ -106,7 +120,7 @@ using System.Net.Http.Json;
         new CustomerDetail { MaKhachHang = "3702717812", NhomKhachhang = "AASC", Ten = "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ AN ĐẠT THÀNH" , Loai = "Cá nhân", DiaChi = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",DiaChiDangKyKinhDoanh = "24-26 LÝ QUỐC SƯ, PHƯỜNG HÀNG TRỐNG, QUẬN HOÀN KIẾM, TP HÀ NỘI, VIỆT NAM",
             QuocGia = "Việt Nam", SoDienThoai = "033396855" , Email = "dung@gmail.com", Fax = "1965632220" ,NgaySinh = DateTime.Now, MaSoThue = "1035165165", LoaiHinhKinhDoanh = "AB",
     LoaiKhachHang = "OTH", LoaiTienTe = "VNĐ", GhiChu = "Không", HoatDong = true },
-                };
+                    };
 
 
     class CustomerDetail
@@ -138,11 +152,13 @@ using System.Net.Http.Json;
     protected override async Task OnInitializedAsync()
     {
         Elements = customerDetails;
+        lang.InitLocalizedComponent(this);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILanguageContainerService lang { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
     }
 }
