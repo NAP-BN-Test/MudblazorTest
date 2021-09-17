@@ -1,0 +1,105 @@
+﻿@using System.ComponentModel.DataAnnotations
+@inject IDialogService DialogService
+@using DiaLog
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudDialog>
+
+    <DialogContent>
+        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">Thêm đơn giá SEA</MudText>
+        <MudGrid>
+            <MudItem xs="12">
+                <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
+
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudAutocomplete T="string" Label="Loại Cont" @bind-Value="model.LoaiCont" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiCont)" />
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudTextField @bind-Value="model.Amount" Label="Amount" Variant="Variant.Outlined"
+                                          For="@(() => model.Amount)"></MudTextField>
+                        </MudItem>
+
+
+
+                    </MudGrid>
+                    
+                </EditForm>
+            </MudItem>
+        </MudGrid>
+
+        
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Submit</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    PortDetail model = new PortDetail();
+    public class PortDetail
+    {
+        [Required(ErrorMessage = "Chọn loại cont!")]
+        public string LoaiCont { get; set; }
+        [Required(ErrorMessage = "Nhập Amount!")]
+        public string Amount { get; set; }
+
+
+    }
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+    };
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+    private void OpenPrice()
+    {
+        DialogService.Show<DialogPrice>("maxWidth");
+    }
+
+
+
+}

@@ -117,6 +117,13 @@ using System.ComponentModel.DataAnnotations;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\Office.razor"
+using DiaLog;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/addoffice")]
     public partial class Office : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -126,7 +133,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 137 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\Office.razor"
+#line 138 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Office\Office.razor"
        
 
     public string searchString { get; set; }
@@ -194,7 +201,7 @@ using System.ComponentModel.DataAnnotations;
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng",  NganHang = "TPBANK",  LoaiTienTe="VNĐ" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", NganHang = "TPBANK",  LoaiTienTe="USD"},
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", NganHang = "TPBANK",  LoaiTienTe="VNĐ" },
-            };
+                };
 
 
 

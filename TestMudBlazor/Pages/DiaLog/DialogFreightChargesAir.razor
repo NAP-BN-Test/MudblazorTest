@@ -1,0 +1,148 @@
+﻿@using System.ComponentModel.DataAnnotations
+@inject IDialogService DialogService
+@using DiaLog
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudDialog>
+
+    <DialogContent>
+        <MudText Typo="Typo.h6" GutterBottom="true" Style="margin-top: 10px">Thêm cước</MudText>
+        <MudGrid>
+            <MudItem xs="12">
+                <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
+
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudTextField @bind-Value="model.MaHangVanChuyen" Label="Mã hãng vận chuyển" Variant="Variant.Outlined"
+                                          For="@(() => model.MaHangVanChuyen)"></MudTextField>
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudTextField @bind-Value="model.HangVanChuyen" Label="Hãng vận chuyển" Variant="Variant.Outlined"
+                                          For="@(() => model.HangVanChuyen)"></MudTextField>
+                        </MudItem>
+
+
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="Cảng bốc" @bind-Value="model.CangBoc" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.CangBoc)" />
+                        </MudItem>
+
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="Cảng dỡ" @bind-Value="model.CangDo" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.CangDo)" />
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="Tiền tệ" @bind-Value="model.TienTe" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.TienTe)" />
+                        </MudItem>
+                    </MudGrid>
+
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudAutocomplete T="string" Label="Đơn giá" @bind-Value="model.DonGia" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.DonGia)" />
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="6">
+                            <MudNumericField @bind-Value="model.PhuPhi" Label="Phụ phí" Variant="Variant.Outlined"
+                                             For="@(() => model.PhuPhi)"></MudNumericField>
+                        </MudItem>
+
+                        
+                    </MudGrid>
+
+
+                    
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudText Align="Align.Center" Style="color: red" GutterBottom="true">
+                                "Vui lòng nhập thông tin,
+                                các ô có dấu (*) là bắt buộc"
+                            </MudText>
+                        </MudItem>
+                    </MudGrid>
+                </EditForm>
+            </MudItem>
+        </MudGrid>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Submit</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    DetailFreightCharges model = new DetailFreightCharges();
+
+    public class DetailFreightCharges
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        public string MaHangVanChuyen { get; set; }
+        public string HangVanChuyen { get; set; }
+        public string CangBoc { get; set; }
+        public string CangDo { get; set; }
+        public string TienTe { get; set; }
+        public string DonGia { get; set; }
+        public string PhuPhi { get; set; }
+    }
+
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+    };
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+
+
+
+
+}

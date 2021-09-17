@@ -3,6 +3,7 @@
 @using System.ComponentModel.DataAnnotations
 @inject IDialogService DialogService
 @inject ILanguageContainerService lang
+@using DiaLog 
 <style>
     .mud-tab {
         justify-content: unset !important;
@@ -330,7 +331,7 @@
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
-                };
+                    };
 
     class Listcontact
     {
@@ -370,7 +371,7 @@
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
-        };
+            };
 
 
 

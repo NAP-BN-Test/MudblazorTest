@@ -117,6 +117,13 @@ using System.ComponentModel.DataAnnotations;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
+using DiaLog;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/addcustomer")]
     public partial class Customer : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -126,7 +133,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 254 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
+#line 255 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Category\Customer\Customer.razor"
        
 
     public string searchString { get; set; }
@@ -206,7 +213,7 @@ using System.ComponentModel.DataAnnotations;
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
         new Listcontact { HoTen = "CV01", SoDienThoai = "a", Email = "abc@gmail.com" , Fax = "1234568", ChucVu = "10", HanhDong= true },
-                };
+                    };
 
     class Listcontact
     {
@@ -246,7 +253,7 @@ using System.ComponentModel.DataAnnotations;
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
         new ListBank { SoTaiKhoan = "04041999999", ChuTaiKhoan = "Dũng", HanhDong = true , NganHang = "TPBANK", ChiNhanh = "HÀ NỘI", DiaChiChiNhanh="Hà Nội", Tinh="Hà Nội", GhiChu="abc" },
-        };
+            };
 
 
 
