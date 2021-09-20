@@ -21,16 +21,20 @@
                     <DataAnnotationsValidator />
 
                     <MudGrid>
-                        <MudItem xs="12" sm="6" md="6">
+                        <MudItem xs="12" sm="6" md="4">
                             <MudTextField @bind-Value="model.MaHangTau" Label="Mã hãng tàu" Variant="Variant.Outlined"
                                           For="@(() => model.MaHangTau)"></MudTextField>
                         </MudItem>
 
-                        <MudItem xs="12" sm="6" md="6">
+                        <MudItem xs="12" sm="6" md="4">
                             <MudTextField @bind-Value="model.TenHangTau" Label="Tên hãng tàu" Variant="Variant.Outlined"
                                           For="@(() => model.TenHangTau)"></MudTextField>
                         </MudItem>
-
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="Loại Cont" @bind-Value="model.LoaiCont" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiCont)" />
+                        </MudItem>
 
 
                     </MudGrid>
@@ -54,11 +58,8 @@
                     </MudGrid>
 
                     <MudGrid>
-                        <MudItem xs="12" sm="6" md="4">
-                            <MudAutocomplete T="string" Label="Loại Cont" @bind-Value="model.LoaiCont" SearchFunc="@Search1"
-                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiCont)" />
-                        </MudItem>
+
+
                         <MudItem xs="12" sm="6" md="4">
                             <MudNumericField @bind-Value="model.GiaLCL" Label="Giá LCL" Variant="Variant.Outlined"
                                              For="@(() => model.GiaLCL)"></MudNumericField>
@@ -69,7 +70,26 @@
                                              ResetValueOnEmptyText="@resetValueOnEmptyText"
                                              CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.DVTLCL)" />
                         </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="Đơn vị FCL" @bind-Value="model.LoaiCont" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiCont)" />
+                        </MudItem>
+                    </MudGrid>
 
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudNumericField @bind-Value="model.GiaLCL" Label="20'" Variant="Variant.Outlined"
+                                             For="@(() => model.GiaLCL)"></MudNumericField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudNumericField @bind-Value="model.GiaLCL" Label="40'" Variant="Variant.Outlined"
+                                             For="@(() => model.GiaLCL)"></MudNumericField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudNumericField @bind-Value="model.GiaLCL" Label="HQ" Variant="Variant.Outlined"
+                                             For="@(() => model.GiaLCL)"></MudNumericField>
+                        </MudItem>
                     </MudGrid>
 
 
@@ -81,14 +101,7 @@
 
                     </MudGrid>
 
-                    <MudGrid>
-                        <MudItem xs="12">
-                            <MudText Align="Align.Center" Style="color: red" GutterBottom="true">
-                                "Vui lòng nhập thông tin,
-                                các ô có dấu (*) là bắt buộc"
-                            </MudText>
-                        </MudItem>
-                    </MudGrid>
+
                 </EditForm>
             </MudItem>
         </MudGrid>
@@ -121,7 +134,7 @@
         public string CangDo { get; set; }
         public string TienTe { get; set; }
         public string LoaiCont { get; set; }
-        public string GiaLCL { get; set; }
+        public int GiaLCL { get; set; }
         public string DVTLCL { get; set; }
         public string GhiChu { get; set; }
     }

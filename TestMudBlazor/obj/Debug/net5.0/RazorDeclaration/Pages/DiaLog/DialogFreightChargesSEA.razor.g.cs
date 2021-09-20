@@ -125,7 +125,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 102 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogFreightChargesSEA.razor"
+#line 115 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogFreightChargesSEA.razor"
        
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
@@ -148,7 +148,7 @@ using DiaLog;
         public string CangDo { get; set; }
         public string TienTe { get; set; }
         public string LoaiCont { get; set; }
-        public string GiaLCL { get; set; }
+        public int GiaLCL { get; set; }
         public string DVTLCL { get; set; }
         public string GhiChu { get; set; }
     }

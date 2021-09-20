@@ -3,6 +3,20 @@
 @using System.ComponentModel.DataAnnotations
 @inject IDialogService DialogService
 @using DiaLog
+<style>
+    .mud-tab {
+        justify-content: unset !important;
+    }
+
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
 <MudGrid Style="margin-top: 10px">
 
     <MudGrid>
@@ -10,12 +24,12 @@
             <MudTabs Outlined="false" Position="Position.Right" Rounded="false" Border="false"
                      ApplyEffectsToContainer="true" Class="mt-8 custom_mudtabbar">
                 <MudTabPanel Style="font-size: 10px" Text="Báo giá">
-                    <MudItem xs="12" Style="margin-right: 10px">
+                    <MudItem xs="12" Style="margin-right: 50px;  ">
                         <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
                             <DataAnnotationsValidator />
                             <MudGrid>
                                 <MudItem xs="6">
-                                    <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Báo giá SEA 2</MudText>
+                                    <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Báo giá SEA 1 </MudText>
                                 </MudItem>
                                 <MudItem xs="6">
                                     <MudToolBar>
@@ -31,21 +45,22 @@
                                     <MudTextField @bind-Value="model.SoBaoGia" Label="Số báo giá" Variant="Variant.Outlined" For="@(() => model.SoBaoGia)"></MudTextField>
                                 </MudItem>
 
-                                <MudItem xs="12" sm="6" md="4">
+                                <MudItem xs="12" sm="6" md="8">
                                     <MudAutocomplete T="string" Label="Khách hàng" @bind-Value="model.KhachHang" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
                                 </MudItem>
 
+
+                            </MudGrid>
+
+
+                            <MudGrid>
                                 <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="PICKH" @bind-Value="model.PICKH" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PICKH)" />
                                 </MudItem>
-                            </MudGrid>
-
-
-                            <MudGrid>
                                 <MudItem xs="12" sm="6" md="4">
                                     <MudTextField @bind-Value="model.Email" Label="Email" Variant="Variant.Outlined" For="@(() => model.Email)"></MudTextField>
                                 </MudItem>
@@ -54,56 +69,62 @@
                                     <MudTextField @bind-Value="model.SoDienThoai" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)"></MudTextField>
                                 </MudItem>
 
+
+                            </MudGrid>
+                            <MudGrid>
+
                                 <MudItem xs="12" sm="6" md="4">
+                                    <MudAutocomplete T="string" Label="Loại Tải" @bind-Value="model.LoaiTai" SearchFunc="@Search1"
+                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiTai)" />
+                                </MudItem>
+                                <MudItem xs="12" sm="6" md="8">
                                     <MudTextField @bind-Value="model.HangHoa" Label="Hàng Hóa" Variant="Variant.Outlined" For="@(() => model.HangHoa)"></MudTextField>
                                 </MudItem>
                             </MudGrid>
 
                             <MudGrid>
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudTextField @bind-Value="model.DiemDi" Label="Điểm đi" Variant="Variant.Outlined" For="@(() => model.DiemDi)"></MudTextField>
-                                </MudItem>
 
-                                <MudItem xs="12" sm="6" md="3">
+
+                                <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="Cảng đi" @bind-Value="model.CangDi" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.CangDi)" />
                                 </MudItem>
-
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudTextField @bind-Value="model.DiemDen" Label="Điểm đến" Variant="Variant.Outlined" For="@(() => model.DiemDen)"></MudTextField>
+                                <MudItem xs="12" sm="6" md="8">
+                                    <MudTextField @bind-Value="model.DiemDi" Label="Điểm đi" Variant="Variant.Outlined" For="@(() => model.DiemDi)"></MudTextField>
                                 </MudItem>
 
-                                <MudItem xs="12" sm="6" md="3">
+
+
+
+                            </MudGrid>
+
+                            <MudGrid>
+
+
+                                <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="Cảng đến" @bind-Value="model.Cangden" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Cangden)" />
                                 </MudItem>
+
+                                <MudItem xs="12" sm="6" md="8">
+                                    <MudTextField @bind-Value="model.DiemDen" Label="Điểm đến" Variant="Variant.Outlined" For="@(() => model.DiemDen)"></MudTextField>
+                                </MudItem>
+
+
+
+
                             </MudGrid>
 
                             <MudGrid>
-                                <MudItem xs="12" sm="6" md="3">
+                                <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="Loại XNK" @bind-Value="model.LoaiXNK" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiXNK)" />
                                 </MudItem>
 
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudAutocomplete T="string" Label="Loại Tải" @bind-Value="model.LoaiTai" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoaiTai)" />
-                                </MudItem>
-
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudDatePicker Label="Ngày phát hành" @bind-Date="model.NgayPhatHang" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayPhatHang)" />
-                                </MudItem>
-
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudDatePicker Label="Ngày hiệu lực" @bind-Date="model.NgayHieuLuc" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayHieuLuc)" />
-                                </MudItem>
-                            </MudGrid>
-
-                            <MudGrid>
                                 <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="Điều kiện giao hàng" @bind-Value="model.DieuKienGiaoHang" SearchFunc="@Search1"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
@@ -116,6 +137,18 @@
                                                      CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.NhanVienKinhDoanh)" />
                                 </MudItem>
 
+
+                            </MudGrid>
+
+                            <MudGrid>
+                                <MudItem xs="12" sm="6" md="4">
+                                    <MudDatePicker Label="Ngày phát hành" @bind-Date="model.NgayPhatHang" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayPhatHang)" />
+                                </MudItem>
+
+                                <MudItem xs="12" sm="6" md="4">
+                                    <MudDatePicker Label="Ngày hiệu lực" @bind-Date="model.NgayHieuLuc" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayHieuLuc)" />
+                                </MudItem>
+
                                 <MudItem xs="12" sm="6" md="4">
                                     <MudAutocomplete T="string" Label="Trạng thái" @bind-Value="model.TrangThai" SearchFunc="@Search2"
                                                      ResetValueOnEmptyText="@resetValueOnEmptyText"
@@ -125,23 +158,17 @@
                             </MudGrid>
 
                             <MudGrid>
-                                <MudItem xs="12" sm="12" md="6">
+                                <MudItem xs="12" sm="12" md="12">
                                     <MudTextField @bind-Value="model.GhiChu" Label="Ghi Chú " Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                                 </MudItem>
-                                <MudItem xs="12" sm="12" md="6">
-                                    <MudTextField @bind-Value="model.MoTa" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model.MoTa)"></MudTextField>
-                                </MudItem>
+                                
                             </MudGrid>
-                            <MudGrid>
-                                <MudItem xs="12">
-                                    <MudText Align="Align.Center" Style="color: red" GutterBottom="true">"Vui lòng nhập thông tin, các ô có dấu (*) là bắt buộc"</MudText>
-                                </MudItem>
-                            </MudGrid>
+
                         </EditForm>
                     </MudItem>
                 </MudTabPanel>
                 <MudTabPanel Style="font-size: 10px" Text="Cước">
-                    <MudGrid Style="margin-right: 10px">
+                    <MudGrid Style="margin-right: 40px">
                         <MudGrid>
                             <MudItem xs="6">
                                 <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Cước</MudText>
@@ -171,6 +198,10 @@
                                         <MudTh>Cảng dỡ</MudTh>
                                         <MudTh>Tiền tệ</MudTh>
                                         <MudTh>Loại cont</MudTh>
+                                        <MudTh>20'</MudTh>
+                                        <MudTh>40'</MudTh>
+                                        <MudTh>HQ</MudTh>
+                                        <MudTh>Đ.V FCL</MudTh>
                                         <MudTh>Giá LCL</MudTh>
                                         <MudTh>DVT LCL</MudTh>
                                         <MudTh>Ghi chú</MudTh>
@@ -181,6 +212,10 @@
                                         <MudTd DataLabel="CangBoc">@context.CangBoc</MudTd>
                                         <MudTd DataLabel="CangDo">@context.CangDo</MudTd>
                                         <MudTd DataLabel="TienTe">@context.TienTe</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
                                         <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
                                         <MudTd DataLabel="GiaLCL">@context.GiaLCL</MudTd>
                                         <MudTd DataLabel="DVTLCL">@context.DVTLCL</MudTd>
@@ -196,7 +231,7 @@
                     </MudGrid>
                 </MudTabPanel>
                 <MudTabPanel Style="font-size: 10px" Text="Cước khác">
-                    <MudGrid Style="margin-right: 10px">
+                    <MudGrid Style="margin-right: 50px">
                         <MudGrid>
                             <MudItem xs="6">
                                 <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Cước khác</MudText>
@@ -225,6 +260,10 @@
                                         <MudTh>Kiểu phí</MudTh>
                                         <MudTh>Tiền tệ</MudTh>
                                         <MudTh>Loại cont</MudTh>
+                                        <MudTh>20'</MudTh>
+                                        <MudTh>40'</MudTh>
+                                        <MudTh>HQ</MudTh>
+                                        <MudTh>FCL Unit</MudTh>
                                         <MudTh>Giá LCL</MudTh>
                                         <MudTh>DVT LCL</MudTh>
                                         <MudTh>Ghi chú</MudTh>
@@ -234,6 +273,10 @@
                                         <MudTd DataLabel="TenPhi">@context.TenPhi</MudTd>
                                         <MudTd DataLabel="KieuPhi">@context.KieuPhi</MudTd>
                                         <MudTd DataLabel="TienTe">@context.TienTe</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
+                                        <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
                                         <MudTd DataLabel="LoaiCont">@context.LoaiCont</MudTd>
                                         <MudTd DataLabel="GiaLCL">@context.GiaLCL</MudTd>
                                         <MudTd DataLabel="DVTLCL">@context.DVTLCL</MudTd>
@@ -249,7 +292,7 @@
                     </MudGrid>
                 </MudTabPanel>
                 <MudTabPanel Style="font-size: 10px" Text="Ghi chú báo giá">
-                    <MudItem xs="12" Style="margin-right: 10px">
+                    <MudItem xs="12" Style="margin-right: 50px">
                         <EditForm Model="@model1" OnValidSubmit="OnValidSubmit1">
                             <DataAnnotationsValidator />
                             <MudGrid>

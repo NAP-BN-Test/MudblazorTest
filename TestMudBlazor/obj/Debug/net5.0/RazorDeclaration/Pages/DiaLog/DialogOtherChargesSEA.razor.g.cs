@@ -125,7 +125,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogOtherChargesSEA.razor"
+#line 113 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogOtherChargesSEA.razor"
        
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
