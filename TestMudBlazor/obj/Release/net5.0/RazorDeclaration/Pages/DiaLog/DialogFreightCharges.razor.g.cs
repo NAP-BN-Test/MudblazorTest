@@ -103,6 +103,20 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DiaLogFreightCharges.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DiaLogFreightCharges.razor"
+using DiaLog;
+
+#line default
+#line hidden
+#nullable disable
     public partial class DiaLogFreightCharges : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +124,92 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 93 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DiaLogFreightCharges.razor"
+       
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = prices;
+    }
+
+    DetailFreightCharges model = new DetailFreightCharges();
+
+    public class DetailFreightCharges
+    {
+        [Required(ErrorMessage = "Nhập mã!")]
+        public string MaHangVanChuyen { get; set; }
+        public string HangVanChuyen { get; set; }
+        public string CangBoc { get; set; }
+        public string CangDo { get; set; }
+        public string TienTe { get; set; }
+        public string GiaDonVi { get; set; }
+        public string MaPhi { get; set; }
+        public string TenPhi { get; set; }
+        public string GhiChu { get; set; }
+    }
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+    };
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+
+    private string searchString;
+    private bool hover = true;
+    Price[] prices = new Price[]
+{
+        new Price { DvtAir = "QGVN", Amount = "KG", },
+        new Price { DvtAir = "QGMY ", Amount =  "TẤN" ,},
+        new Price { DvtAir = "QGHQ", Amount = "TẠ",  },
+                                };
+
+    class Price
+    {
+        public string DvtAir { get; set; }
+        public string Amount { get; set; }
+    }
+
+    private HashSet<Price> selectedItems1 = new HashSet<Price>();
+    private IEnumerable<Price> Elements = new List<Price>();
+
+    private void OpenPrice()
+    {
+        DialogService.Show<DialogPriceAir>("maxWidth");
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }
 #pragma warning restore 1591

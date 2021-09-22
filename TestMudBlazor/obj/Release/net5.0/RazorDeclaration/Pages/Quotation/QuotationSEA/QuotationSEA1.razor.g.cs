@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 228 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA1.razor"
+#line 267 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA1.razor"
        
 
     Quotation model = new Quotation();
@@ -243,9 +243,9 @@ using DiaLog;
 
     DetailQuatationSea1[] detailQuatationSea1 = new DetailQuatationSea1[]
 {
-        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="1000", GhiChu=""},
-        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="1000", GhiChu=""},
-        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , DonGia="1000", GhiChu=""},
+        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="4.000/20DC;5.000/40DC", GhiChu=""},
+        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="4.000/20DC;5.000/40DC", GhiChu=""},
+        new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , DonGia="4.000/20DC;5.000/40DC", GhiChu=""},
                 };
 
 

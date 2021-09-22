@@ -133,9 +133,13 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 311 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
+#line 396 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
        
+    private bool dense1 = false;
+    private bool dense2 = false;
 
+    private bool bordered1 = false;
+    private bool bordered2 = false;
     Quotation model = new Quotation();
     GhiChuBaoGia model1 = new GhiChuBaoGia();
     public class GhiChuBaoGia
@@ -263,18 +267,20 @@ using DiaLog;
 
     DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
 {
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , GiaDonVi="1000", GhiChu=""},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , GiaDonVi="1000", GhiChu=""},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , GiaDonVi="1000", GhiChu=""},
-                    };
+        new DetailCuocKhac { MaPhi = "CCF", TenPhi = "Phí thủ tục hải quan",  KieuPhi = "Phí thủ tục hải quan",  TienTe="VNĐ" , GiaDonVi="1.000.000", GhiChu=""},
+        new DetailCuocKhac { MaPhi = "CDC", TenPhi = "Phí Khai hải quan", KieuPhi = "Phí khai hải quan",  TienTe="USD" , GiaDonVi="2000", GhiChu=""},
+        new DetailCuocKhac { MaPhi = "HD", TenPhi = "Phí dịch vụ làm hàng", KieuPhi = "Phí dịch vụ làm hàng",  TienTe="VNĐ"  , GiaDonVi="1.000.000", GhiChu=""},
+                        };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
 {
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", GhiChu="", GiaDonVi="1000",  TenPhi="1000",MaPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", GhiChu="",  GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", GhiChu="", GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
-                   };
+        new DetailCuoc { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty Cổ phần Giao nhận DHL",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="Cảng Đà Nẵng", GhiChu="", GiaDonVi="1.000.000",  TenPhi="Phí thủ tục hải quan",MaPhi="CCF", },
+        new DetailCuoc { MaHangVanChuyen = "TRANSIMEX", HangVanChuyen = "Công ty CP transimex", CangBoc = "Sân bay nội bài",  TienTe="USD" , CangDo="Sân bay Tân Sơn Nhất", GhiChu="",  GiaDonVi="200", TenPhi="Phí khai hải quan",MaPhi="CDC", },
+        new DetailCuoc { MaHangVanChuyen = "SOTRANS", HangVanChuyen = "Công ty Cổ phần kho vận Miền Nam", CangBoc = "Cảng Chân Mây",  TienTe="VNĐ"  , CangDo="Cảng Hải Phòng", GhiChu="", GiaDonVi="1.000.000", TenPhi="Phí dịch vụ làm hàng",MaPhi="HD", },
+                       };
+
+
 
 
     private HashSet<DetailCuocKhac> selectedItems = new HashSet<DetailCuocKhac>();
@@ -292,6 +298,7 @@ using DiaLog;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar Snackbar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 255 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR1.razor"
+#line 293 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR1.razor"
        
 
     Quotation model = new Quotation();
@@ -247,7 +247,7 @@ using DiaLog;
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
-                    };
+                        };
 
 
     private HashSet<DetailQuatationSea1> selectedItems = new HashSet<DetailQuatationSea1>();
@@ -262,6 +262,7 @@ using DiaLog;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar Snackbar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

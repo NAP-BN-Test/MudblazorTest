@@ -125,7 +125,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 107 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogOtherChargesAir2.razor"
+#line 100 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\DiaLog\DialogOtherChargesAir2.razor"
        
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }

@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 282 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
+#line 324 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
        
 
     Quotation model = new Quotation();
@@ -192,7 +192,7 @@ using DiaLog;
 
     private void OpenFreightCharges()
     {
-        DialogService.Show<DiaLogFreightChargesAir2>("Simple Dialog");
+        DialogService.Show<DiaLogFreightCharges>("Simple Dialog");
     }
 
 
@@ -257,6 +257,7 @@ using DiaLog;
         public string TienTe;
         public string GiaDonVi;
         public string TenPhi;
+        public string MaPhi;
         public string GhiChu;
     }
 
@@ -270,9 +271,9 @@ using DiaLog;
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
 {
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", GhiChu="", GiaDonVi="1000",  TenPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", GhiChu="",  GiaDonVi="1000", TenPhi="1000",},
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", GhiChu="", GiaDonVi="1000", TenPhi="1000",},
+        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", GhiChu="", GiaDonVi="1000",  TenPhi="1000",MaPhi="1000", },
+        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", GhiChu="",  GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
+        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", GhiChu="", GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
                    };
 
 

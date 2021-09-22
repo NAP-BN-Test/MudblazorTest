@@ -133,9 +133,10 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 330 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA2.razor"
+#line 449 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA2.razor"
        
-
+    private bool dense1 = false;
+    private bool dense2 = false;
     Quotation model = new Quotation();
     GhiChuBaoGia model1 = new GhiChuBaoGia();
     public class GhiChuBaoGia
@@ -245,6 +246,10 @@ using DiaLog;
         public string KieuPhi;
         public string TienTe;
         public string LoaiCont;
+        public string HaiMuoiDC;
+        public string BonMuoiDC;
+        public string HQ;
+        public string FCLUnit;
         public string GiaLCL;
         public string DVTLCL;
         public string GhiChu;
@@ -258,25 +263,32 @@ using DiaLog;
         public string CangDo;
         public string TienTe;
         public string LoaiCont;
+        public string HaiMuoiDC;
+        public string BonMuoiDC;
+        public string HQ;
+        public string DVFCV;
         public string GiaLCL;
         public string DVTLCL;
         public string GhiChu;
     }
 
+
+
     DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
 {
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , LoaiCont="1000", GhiChu="", DVTLCL="1000", GiaLCL="10000"},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , LoaiCont="1000", GhiChu="", DVTLCL="1000", GiaLCL="10000"},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , LoaiCont="1000", GhiChu="", DVTLCL="1000", GiaLCL="10000"},
+        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="Tons", GiaLCL="2.000.000"},
+        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
             };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
 {
-        new DetailCuoc { MaHangTau = "04041999999", TenHangTau = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", LoaiCont="a", GhiChu="VNĐ" , DVTLCL="1000", GiaLCL="10000"},
-        new DetailCuoc { MaHangTau = "04041999999", TenHangTau = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", LoaiCont="b", GhiChu="VNĐ" , DVTLCL="1000", GiaLCL="21323"},
-        new DetailCuoc { MaHangTau = "04041999999", TenHangTau = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", LoaiCont="c", GhiChu="VNĐ" , DVTLCL="1000", GiaLCL="12312312"},
+        new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="Tons", GiaLCL="2.000.000"},
+        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
            };
+
 
 
     private HashSet<DetailCuocKhac> selectedItems = new HashSet<DetailCuocKhac>();
@@ -294,6 +306,7 @@ using DiaLog;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar Snackbar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

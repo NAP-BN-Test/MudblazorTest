@@ -238,6 +238,19 @@
 
 
                             </MudGrid>
+
+                            <MudGrid>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.GhiChu)" Lines="5"></MudTextField>
+                                </MudItem>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.LienHe" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="5"></MudTextField>
+                                </MudItem>
+
+
+                            </MudGrid>
                         </EditForm>
                     </MudItem>
                         

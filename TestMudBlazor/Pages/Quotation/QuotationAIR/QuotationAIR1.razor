@@ -3,6 +3,7 @@
 @using System.ComponentModel.DataAnnotations
 @inject IDialogService DialogService
 @using DiaLog
+@inject ISnackbar Snackbar
 <style>
     .mud-tab {
         justify-content: unset !important;
@@ -161,7 +162,7 @@
                                 <MudItem xs="12" sm="12" md="12">
                                     <MudTextField @bind-Value="model.GhiChu" Label="Ghi Chú " Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                                 </MudItem>
-                                
+
                             </MudGrid>
 
                         </EditForm>
@@ -190,7 +191,7 @@
                         </MudGrid>
                         <MudGrid>
                             <MudItem xs="12">
-                                <MudTable Items="@Elements2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover">
+                                <MudTable Items="@Elements2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                                     <HeaderContent>
                                         <MudTh>Mã phí</MudTh>
                                         <MudTh>Tên phí</MudTh>
@@ -207,6 +208,30 @@
                                         <MudTd DataLabel="DonGia">@context.DonGia</MudTd>
                                         <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                                     </RowTemplate>
+                                    <RowEditingTemplate>
+                                        <MudTd DataLabel="MaPhi">
+                                            <MudTextField @bind-Value="@context.MaPhi" Required />
+                                        </MudTd>
+                                        <MudTd DataLabel="TenPhi">
+                                            <MudTextField @bind-Value="@context.TenPhi"  />
+                                        </MudTd>
+                                        <MudTd DataLabel="KieuPhi">
+                                            <MudAutocomplete T="string" @bind-Value="@context.KieuPhi" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.KieuPhi)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="TienTe">
+                                            <MudAutocomplete T="string" @bind-Value="@context.TienTe" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.TienTe)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="DonGia">
+                                            <MudTextField @bind-Value="@context.DonGia"  />
+                                        </MudTd>
+                                        <MudTd DataLabel="GhiChu">
+                                            <MudTextField @bind-Value="@context.GhiChu"  />
+                                        </MudTd>
+                                    </RowEditingTemplate>
                                     <PagerContent>
                                         <MudTablePager PageSizeOptions="new int[]{50, 100}" />
                                     </PagerContent>
@@ -235,6 +260,19 @@
 
                                 <MudItem xs="12" sm="6" md="6">
                                     <MudTextField @bind-Value="model1.LienHe" Label="Liên hệ" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="5"></MudTextField>
+                                </MudItem>
+
+
+                            </MudGrid>
+
+                            <MudGrid>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.GhiChu)" Lines="5"></MudTextField>
+                                </MudItem>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.LienHe" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="5"></MudTextField>
                                 </MudItem>
 
 
@@ -365,7 +403,7 @@
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
         new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
-                    };
+                        };
 
 
     private HashSet<DetailQuatationSea1> selectedItems = new HashSet<DetailQuatationSea1>();

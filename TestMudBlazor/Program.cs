@@ -8,6 +8,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using MudBlazor.Services;
+using AKSoftware.Localization.MultiLanguages;
+using System.Reflection;
+
 namespace TestMudBlazor
 {
     public class Program
@@ -19,7 +22,7 @@ namespace TestMudBlazor
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddMudServices();
-
+            builder.Services.AddLanguageContainer(Assembly.GetExecutingAssembly(), "");
             await builder.Build().RunAsync();
         }
     }

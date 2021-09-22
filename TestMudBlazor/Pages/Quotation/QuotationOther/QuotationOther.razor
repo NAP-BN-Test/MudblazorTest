@@ -3,6 +3,7 @@
 @using System.ComponentModel.DataAnnotations
 @inject IDialogService DialogService
 @using DiaLog
+@inject ISnackbar Snackbar
 <style>
     .mud-tab {
         justify-content: unset !important;
@@ -161,7 +162,7 @@
                                 <MudItem xs="12" sm="12" md="12">
                                     <MudTextField @bind-Value="model.GhiChu" Label="Ghi Chú " Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
                                 </MudItem>
-                                
+
                             </MudGrid>
 
                         </EditForm>
@@ -191,7 +192,7 @@
                         </MudGrid>
                         <MudGrid>
                             <MudItem xs="12">
-                                <MudTable Items="@Elements3" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover">
+                                <MudTable Items="@Elements3" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                                     <HeaderContent>
                                         <MudTh>Mã hãng vận chuyển</MudTh>
                                         <MudTh>Hãng vận chuyển</MudTh>
@@ -214,11 +215,52 @@
                                         <MudTd DataLabel="GiaDonVi">@context.GiaDonVi</MudTd>
                                         <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                                     </RowTemplate>
+                                    <RowEditingTemplate>
+                                        <MudTd DataLabel="MaHangVanChuyen">
+                                            <MudTextField @bind-Value="@context.MaHangVanChuyen" Required />
+                                        </MudTd>
+                                        <MudTd DataLabel="HangVanChuyen">
+                                            <MudTextField @bind-Value="@context.HangVanChuyen" />
+                                        </MudTd>
+                                        <MudTd DataLabel="CangBoc">
+                                            <MudAutocomplete T="string" @bind-Value="@context.CangBoc" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangBoc)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="CangDo">
+                                            <MudAutocomplete T="string" @bind-Value="@context.CangDo" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangDo)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="TienTe">
+                                            <MudAutocomplete T="string" @bind-Value="@context.TienTe" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.TienTe)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="MaPhi">
+                                            <MudTextField @bind-Value="@context.MaPhi" Required />
+                                        </MudTd>
+                                        <MudTd DataLabel="TenPhi">
+                                            <MudTextField @bind-Value="@context.TenPhi" Required />
+                                        </MudTd>
+                                        <MudTd DataLabel="GiaDonVi">
+                                            <MudTextField @bind-Value="@context.GiaDonVi" />
+                                        </MudTd>
+                                        <MudTd DataLabel="GhiChu">
+                                            <MudTextField @bind-Value="@context.GhiChu" />
+                                        </MudTd>
+                                    </RowEditingTemplate>
                                     <PagerContent>
                                         <MudTablePager PageSizeOptions="new int[]{50, 100}" />
                                     </PagerContent>
 
                                 </MudTable>
+                                <div class="d-flex flex-wrap mt-4">
+                                    <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
+                                    @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
+                                    <MudSpacer />
+
+                                </div>
                             </MudItem>
                         </MudGrid>
                     </MudGrid>
@@ -246,7 +288,7 @@
                         </MudGrid>
                         <MudGrid>
                             <MudItem xs="12">
-                                <MudTable Items="@Elements2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover">
+                                <MudTable Items="@Elements2" Dense="@dense2" Bordered="@bordered2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                                     <HeaderContent>
                                         <MudTh>Mã phí</MudTh>
                                         <MudTh>Tên phí</MudTh>
@@ -263,11 +305,41 @@
                                         <MudTd DataLabel="GiaDonVi">@context.GiaDonVi</MudTd>
                                         <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                                     </RowTemplate>
+                                    <RowEditingTemplate>
+                                        <MudTd DataLabel="MaPhi">
+                                            <MudTextField @bind-Value="@context.MaPhi" Required />
+                                        </MudTd>
+                                        <MudTd DataLabel="TenPhi">
+                                            <MudTextField @bind-Value="@context.TenPhi" />
+                                        </MudTd>
+                                        <MudTd DataLabel="KieuPhi">
+                                            <MudAutocomplete T="string" @bind-Value="@context.KieuPhi" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.KieuPhi)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="TienTe">
+                                            <MudAutocomplete T="string" @bind-Value="@context.TienTe" SearchFunc="@Search1"
+                                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.TienTe)" />
+                                        </MudTd>
+                                        <MudTd DataLabel="GiaDonVi">
+                                            <MudTextField @bind-Value="@context.GiaDonVi" />
+                                        </MudTd>
+                                        <MudTd DataLabel="GhiChu">
+                                            <MudTextField @bind-Value="@context.GhiChu" />
+                                        </MudTd>
+                                    </RowEditingTemplate>
                                     <PagerContent>
                                         <MudTablePager PageSizeOptions="new int[]{50, 100}" />
                                     </PagerContent>
 
                                 </MudTable>
+                                <div class="d-flex flex-wrap mt-4">
+                                    <MudSwitch @bind-Checked="@dense2" Color="Color.Secondary">Thu hẹp</MudSwitch>
+                                    @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
+                                    <MudSpacer />
+                                    
+                                </div>
                             </MudItem>
                         </MudGrid>
                     </MudGrid>
@@ -295,6 +367,19 @@
 
 
                             </MudGrid>
+
+                            <MudGrid>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.GhiChu)" Lines="5"></MudTextField>
+                                </MudItem>
+
+                                <MudItem xs="12" sm="6" md="6">
+                                    <MudTextField @bind-Value="model1.LienHe" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="5"></MudTextField>
+                                </MudItem>
+
+
+                            </MudGrid>
                         </EditForm>
                     </MudItem>
 
@@ -309,7 +394,11 @@
 </MudGrid>
 
 @code {
+    private bool dense1 = false;
+    private bool dense2 = false;
 
+    private bool bordered1 = false;
+    private bool bordered2 = false;
     Quotation model = new Quotation();
     GhiChuBaoGia model1 = new GhiChuBaoGia();
     public class GhiChuBaoGia
@@ -437,18 +526,20 @@
 
     DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
 {
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng",  KieuPhi = "TPBANK",  TienTe="VNĐ" , GiaDonVi="1000", GhiChu=""},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="USD" , GiaDonVi="1000", GhiChu=""},
-        new DetailCuocKhac { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK",  TienTe="VNĐ"  , GiaDonVi="1000", GhiChu=""},
-                    };
+        new DetailCuocKhac { MaPhi = "CCF", TenPhi = "Phí thủ tục hải quan",  KieuPhi = "Phí thủ tục hải quan",  TienTe="VNĐ" , GiaDonVi="1.000.000", GhiChu=""},
+        new DetailCuocKhac { MaPhi = "CDC", TenPhi = "Phí Khai hải quan", KieuPhi = "Phí khai hải quan",  TienTe="USD" , GiaDonVi="2000", GhiChu=""},
+        new DetailCuocKhac { MaPhi = "HD", TenPhi = "Phí dịch vụ làm hàng", KieuPhi = "Phí dịch vụ làm hàng",  TienTe="VNĐ"  , GiaDonVi="1.000.000", GhiChu=""},
+                        };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
 {
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", GhiChu="", GiaDonVi="1000",  TenPhi="1000",MaPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", GhiChu="",  GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", GhiChu="", GiaDonVi="1000", TenPhi="1000",MaPhi="1000", },
-                   };
+        new DetailCuoc { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty Cổ phần Giao nhận DHL",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="Cảng Đà Nẵng", GhiChu="", GiaDonVi="1.000.000",  TenPhi="Phí thủ tục hải quan",MaPhi="CCF", },
+        new DetailCuoc { MaHangVanChuyen = "TRANSIMEX", HangVanChuyen = "Công ty CP transimex", CangBoc = "Sân bay nội bài",  TienTe="USD" , CangDo="Sân bay Tân Sơn Nhất", GhiChu="",  GiaDonVi="200", TenPhi="Phí khai hải quan",MaPhi="CDC", },
+        new DetailCuoc { MaHangVanChuyen = "SOTRANS", HangVanChuyen = "Công ty Cổ phần kho vận Miền Nam", CangBoc = "Cảng Chân Mây",  TienTe="VNĐ"  , CangDo="Cảng Hải Phòng", GhiChu="", GiaDonVi="1.000.000", TenPhi="Phí dịch vụ làm hàng",MaPhi="HD", },
+                       };
+
+
 
 
     private HashSet<DetailCuocKhac> selectedItems = new HashSet<DetailCuocKhac>();
