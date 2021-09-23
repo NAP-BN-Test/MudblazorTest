@@ -133,8 +133,11 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 338 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR2.razor"
+#line 432 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR2.razor"
        
+
+    private bool dense1 = false;
+    private bool dense2 = false;
 
     Quotation model = new Quotation();
     GhiChuBaoGia model1 = new GhiChuBaoGia();
@@ -258,24 +261,33 @@ using DiaLog;
         public string CangBoc;
         public string CangDo;
         public string TienTe;
-        public string DonGia;
+        public string Min;
+        public string Am45;
+        public string Duong45;
+        public string Duong100;
+        public string Duong300;
+        public string Duong500;
+        public string Duong1000;
         public string PhuPhi;
     }
 
+
+
     DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
 {
-        new DetailCuocKhac { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  LoaiCuoc = "TPBANK",  TienTe="VNĐ" , Cuoc="1000", GhiChu="", TenCuoc="1000", GiaDonVi="10000", DonVi="10000"},
-        new DetailCuocKhac { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", LoaiCuoc = "TPBANK",  TienTe="USD" , Cuoc="1000", GhiChu="", TenCuoc="1000", GiaDonVi="10000", DonVi="10000"},
-        new DetailCuocKhac { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", LoaiCuoc = "TPBANK",  TienTe="VNĐ"  , Cuoc="1000", GhiChu="", TenCuoc="1000", GiaDonVi="10000", DonVi="10000"},
+        new DetailCuocKhac { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  LoaiCuoc = "Cước chính",  TienTe="VNĐ" , Cuoc="AC", GhiChu="", TenCuoc="Cước vận chuyển hàng không", GiaDonVi="1.000.000", DonVi="KGS"},
+        new DetailCuocKhac { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", LoaiCuoc = "Phi làm Bill",  TienTe="USD" , Cuoc="AWB", GhiChu="", TenCuoc="Phí làm bill", GiaDonVi="300", DonVi="KGS"},
+        new DetailCuocKhac { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", LoaiCuoc = "Phí THC",  TienTe="VNĐ"  , Cuoc="THC", GhiChu="", TenCuoc="Phí xếp dỡ", GiaDonVi="300000", DonVi="KGS"},
                 };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
 {
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng",  CangBoc = "TPBANK",  TienTe="VNĐ" , CangDo="1000", DonGia="", PhuPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="USD" , CangDo="1000", DonGia="",  PhuPhi="1000", },
-        new DetailCuoc { MaHangVanChuyen = "04041999999", HangVanChuyen = "Dũng", CangBoc = "TPBANK",  TienTe="VNĐ"  , CangDo="1000", DonGia="", PhuPhi="1000", },
+        new DetailCuoc { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  CangBoc = "Sân bay Nội Bài",  TienTe="VNĐ" , CangDo="Sân bay Tân Sơn Nhất", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí an ninh", },
+        new DetailCuoc { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", CangBoc = "Sân bay Liên Khương",  TienTe="USD" , CangDo="Sân bay Nội Bài",Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="",  PhuPhi="Phụ phí an ninh", },
+        new DetailCuoc { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", CangBoc = "Sân bay Vinh",  TienTe="VNĐ"  , CangDo="Sân bay Cát Bi Hải Phòng", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí soi chiếu", },
                };
+
 
 
     private HashSet<DetailCuocKhac> selectedItems = new HashSet<DetailCuocKhac>();
@@ -293,6 +305,7 @@ using DiaLog;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar Snackbar { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }

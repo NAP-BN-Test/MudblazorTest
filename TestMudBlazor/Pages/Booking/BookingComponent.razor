@@ -18,21 +18,6 @@
             margin-top: 0px;
         }
 
-        .test1 {
-        }
-
-            .test1:hover .toolbatest {
-                display: block;
-            }
-
-            .test1:hover .toolbatest-fake {
-                display: block;
-            }
-
-            .test1:hover .date {
-                display: none;
-            }
-
 
         
     </style>
@@ -40,74 +25,241 @@
 
         <MudGrid>
             <MudItem xs="12">
-                <MudTabs Outlined="false" Position="Position.Right" Rounded="false" Border="false"
-                         ApplyEffectsToContainer="true" Class="mt-8 custom_mudtabbar">
-                    <MudTabPanel Style="font-size: 10px" Text="Thông tin chung">
-                        <MudItem xs="12" Style="margin-right: 50px">
-                            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
-                                <DataAnnotationsValidator />
+                <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Booking</MudText>
+                        </MudItem>
+                        <MudItem xs="6">
+                            
+                            <MudGrid>
+                                <MudItem xs="12" sm="6" md="10" Style="padding-right: 40px">
+                                    <MudToolBar>
+                                        <MudSpacer />
+                                        <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
+                                        <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                                        <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+                                    </MudToolBar>
+                                </MudItem>
+                                <MudItem xs="12" sm="6" md="2">
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+                    </MudGrid>
+                    <DataAnnotationsValidator />
+                    <MudTabs Outlined="false" Position="Position.Right" Rounded="false" Border="false"
+                             ApplyEffectsToContainer="true" Class="custom_mudtabbar">
+                        <MudTabPanel Style="font-size: 10px" Text="Thông tin chung">
+                            <MudItem xs="12" Style="margin-right: 40px">
                                 <MudGrid>
-                                    <MudItem xs="6">
-                                        <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Booking</MudText>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Service" @bind-Value="model.Service" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Service)" />
                                     </MudItem>
-                                    <MudItem xs="6">
-                                        <MudToolBar>
-                                            <MudSpacer />
-                                            <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
-                                            <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
-                                            <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
-                                        </MudToolBar>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudTextField @bind-Value="model.MasterNo" Label="Master No" Variant="Variant.Outlined" For="@(() => model.MasterNo)"></MudTextField>
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudTextField @bind-Value="model.HouseNo" Label="House No" Variant="Variant.Outlined" For="@(() => model.HouseNo)"></MudTextField>
                                     </MudItem>
                                 </MudGrid>
-                                <MudGrid>
+
+                                <MudGrid Style="margin-top: 20px">
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Load Type" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="Customer" @bind-Value="model.Customer" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Customer)" />
                                     </MudItem>
 
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Freight Terms" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="Carrier" @bind-Value="model.Carrier" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Carrier)" />
                                     </MudItem>
 
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Service Terms" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="POR" @bind-Value="model.POR" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.POR)" />
                                     </MudItem>
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Inco Terms" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="P.I.C/Tel" @bind-Value="model.PICTel1" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PICTel1)" />
                                     </MudItem>
 
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="Cargo Close" @bind-Value="model.KhachHang" SearchFunc="@Search1"
-                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                        <MudGrid >
+                                            <MudItem xs="12" sm="6" md="6">
+                                                <MudTextField @bind-Value="model.Vessel" Label="Vessel" Variant="Variant.Outlined" For="@(() => model.Vessel)"></MudTextField>
+                                            </MudItem>
+
+                                            <MudItem xs="12" sm="6" md="6">
+                                                <MudTextField @bind-Value="model.VOY" Label="VOY" Variant="Variant.Outlined" For="@(() => model.VOY)"></MudTextField>
+                                            </MudItem>
+
+                                        </MudGrid>
                                     </MudItem>
 
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="S/I Close" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="VIA" @bind-Value="model.VIA" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.VIA)" />
                                     </MudItem>
-
-
-
-
                                 </MudGrid>
 
                                 <MudGrid>
                                     <MudItem xs="12" sm="6" md="4">
-                                        <MudAutocomplete T="string" Label="WMG Close" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                        <MudAutocomplete T="string" Label="Shipper" @bind-Value="model.Shipper" SearchFunc="@Search1"
                                                          ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Shipper)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="ETD" @bind-Value="model.ETD" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ETD)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Final Dest" @bind-Value="model.FinalDest" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.FinalDest)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="P.I.C/Tel" @bind-Value="model.PICTel2" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PICTel2)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudDatePicker Label="ETA" @bind-Date="model.ETA" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.ETA)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Warehose" @bind-Value="model.Warehose" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Warehose)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Consignee" @bind-Value="model.Consignee" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Consignee)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="POL" @bind-Value="model.POL" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.POL)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Delivery" @bind-Value="model.Delivery" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Delivery)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Partner" @bind-Value="model.Partner" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Partner)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="POD" @bind-Value="model.POD" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.POD)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Stuffing Place" @bind-Value="model.StuffingPlace" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.StuffingPlace)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid Style="margin-top: 20px">
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Item" @bind-Value="model.Item" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Item)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudGrid >
+                                            <MudItem xs="12" sm="6" md="6">
+                                                <MudNumericField @bind-Value="model.Qty" Label="Qty" Variant="Variant.Outlined" For="@(() => model.Qty)"></MudNumericField>
+                                            </MudItem>
+
+                                            <MudItem xs="12" sm="6" md="6">
+                                                <MudTextField @bind-Value="model.Package" Label="Package" Variant="Variant.Outlined" For="@(() => model.Package)"></MudTextField>
+                                            </MudItem>
+
+                                        </MudGrid>
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudNumericField @bind-Value="model.NWeight" Label="N. Weight" Variant="Variant.Outlined" For="@(() => model.NWeight)"></MudNumericField>
+                                    </MudItem>
+                                </MudGrid>
+                            </MudItem>
+                        </MudTabPanel>
+                        <MudTabPanel Style="font-size: 10px" Text="Thông tin container">
+                            <MudItem xs="12" Style="margin-right: 40px">
+                               
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Load Type" @bind-Value="model.LoadType" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoadType)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Freight Terms" @bind-Value="model.FreightTerms" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.FreightTerms)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Service Terms" @bind-Value="model.ServiceTerms" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ServiceTerms)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudAutocomplete T="string" Label="Inco Terms" @bind-Value="model.IncoTerms" SearchFunc="@Search1"
+                                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.IncoTerms)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudDatePicker Label="Cargo Close" @bind-Date="model.CargoClose" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.CargoClose)" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudDatePicker Label="S/I Close" @bind-Date="model.SIClose" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.SIClose)" />
+                                    </MudItem>
+                                </MudGrid>
+
+                                <MudGrid>
+                                    <MudItem xs="12" sm="6" md="4">
+                                        <MudDatePicker Label="WMG Close" @bind-Date="model.WMGClose" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.WMGClose)" />
                                     </MudItem>
                                 </MudGrid>
 
@@ -122,21 +274,21 @@
                                     <MudItem xs="12" sm="6" md="4">
                                         <MudItem xs="12" Style="padding-top: 5px">
                                             <MudTable Context="tableRowContext" Style="position: relative;max-width: 1000px; min-width: 300px" Items="@Elements2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover"
-                                                      CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))" >
+                                                      CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                                                 <HeaderContent>
                                                     <MudTh>Cntr</MudTh>
                                                     <MudTh>Qty</MudTh>
                                                 </HeaderContent>
-                                                <RowTemplate >
-                                                    <MudTd DataLabel="MaPhi">@tableRowContext.MaPhi</MudTd>
-                                                    <MudTd DataLabel="TenPhi">@tableRowContext.TenPhi</MudTd>
+                                                <RowTemplate>
+                                                    <MudTd DataLabel="Cntr">@tableRowContext.Cntr</MudTd>
+                                                    <MudTd DataLabel="Qty">@tableRowContext.Qty</MudTd>
                                                 </RowTemplate>
                                                 <RowEditingTemplate>
-                                                    <MudTd DataLabel="MaPhi">
-                                                        <MudTextField @bind-Value="@tableRowContext.MaPhi" Required />
+                                                    <MudTd DataLabel="Cntr">
+                                                        <MudTextField @bind-Value="@tableRowContext.Cntr" Required />
                                                     </MudTd>
-                                                    <MudTd DataLabel="TenPhi">
-                                                        <MudTextField @bind-Value="@tableRowContext.TenPhi" Required />
+                                                    <MudTd DataLabel="Qty">
+                                                        <MudTextField @bind-Value="@tableRowContext.Qty" Required />
                                                     </MudTd>
                                                 </RowEditingTemplate>
                                             </MudTable>
@@ -146,15 +298,15 @@
                                     <MudItem xs="12" sm="6" md="8">
                                         <MudGrid>
                                             <MudItem xs="12" sm="6" md="6">
-                                                <MudAutocomplete T="string" Label="Sale" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                                <MudAutocomplete T="string" Label="Sale" @bind-Value="model.Sale" SearchFunc="@Search1"
                                                                  ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Sale)" />
                                             </MudItem>
 
                                             <MudItem xs="12" sm="6" md="6">
-                                                <MudAutocomplete T="string" Label="Operator" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                                <MudAutocomplete T="string" Label="Operator" @bind-Value="model.Operator" SearchFunc="@Search1"
                                                                  ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Operator)" />
 
                                             </MudItem>
 
@@ -163,13 +315,13 @@
 
                                         <MudGrid>
                                             <MudItem xs="12" sm="6" md="6">
-                                                <MudAutocomplete T="string" Label="User" @bind-Value="model.KhachHang" SearchFunc="@Search1"
+                                                <MudAutocomplete T="string" Label="User" @bind-Value="model.User" SearchFunc="@Search1"
                                                                  ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.KhachHang)" />
+                                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.User)" />
                                             </MudItem>
 
                                             <MudItem xs="12" sm="6" md="6">
-                                                <MudDatePicker Label="Date" @bind-Date="model.NgayPhatHang" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayPhatHang)" />
+                                                <MudDatePicker Label="Date" @bind-Date="model.Date" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.Date)" />
                                             </MudItem>
 
 
@@ -177,7 +329,7 @@
 
                                         <MudGrid>
                                             <MudItem xs="12" sm="12" md="12">
-                                                <MudTextField @bind-Value="model.GhiChu" Label="Remark" Variant="Variant.Outlined" For="@(() => model.GhiChu)"></MudTextField>
+                                                <MudTextField @bind-Value="model.Remark" Label="Remark" Variant="Variant.Outlined" For="@(() => model.Remark)"></MudTextField>
                                             </MudItem>
 
                                         </MudGrid>
@@ -190,17 +342,13 @@
 
 
 
-                            </EditForm>
-                        </MudItem>
-                    </MudTabPanel>
-                    <MudTabPanel Style="font-size: 10px" Text="Thông tin container">
-                        <MudGrid Style="margin-right: 40px">
 
-                        </MudGrid>
-                    </MudTabPanel>
+                            </MudItem>
+                        </MudTabPanel>
 
-                </MudTabs>
 
+                    </MudTabs>
+                </EditForm>
             </MudItem>
 
 
@@ -209,38 +357,54 @@
 
     @code {
 
-        Quotation model = new Quotation();
+        Booking model = new Booking();
         GhiChuBaoGia model1 = new GhiChuBaoGia();
         public class GhiChuBaoGia
         {
             public string GhiChu { get; set; }
             public string LienHe { get; set; }
         }
-        public class Quotation
+        public class Booking
         {
-            public string SoBaoGia { get; set; }
-            public string KhachHang { get; set; }
-            public string PICKH { get; set; }
-            [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
-            public string Email { get; set; }
-            public string SoDienThoai { get; set; }
-            public string HangHoa { get; set; }
-            public string Cangden { get; set; }
-            public string DiemDen { get; set; }
-            public string CangDi { get; set; }
-            public string DiemDi { get; set; }
-            public string LoaiXNK { get; set; }
-            public string LoaiTai { get; set; }
-            [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-            public DateTime? NgayHieuLuc { get; set; }
-            [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-            public DateTime? NgayPhatHang { get; set; }
-            public string NhanVienKinhDoanh { get; set; }
-            public string TrangThai { get; set; }
-            public string DieuKienGiaoHang { get; set; }
-            public string MoTa { get; set; }
-            public string GhiChu { get; set; }
+            public string LoadType { get; set; }
+            public string FreightTerms { get; set; }
+            public string ServiceTerms { get; set; }
+            public string IncoTerms { get; set; }
+            public DateTime? CargoClose { get; set; }
+            public DateTime? WMGClose { get; set; }
+            public DateTime? SIClose { get; set; }
+            public string Sale { get; set; }
+            public string Operator { get; set; }
+            public string User { get; set; }
+            public DateTime? Date { get; set; }
+            public string Remark { get; set; }
 
+            public string HouseNo { get; set; }
+            public string MasterNo { get; set; }
+            public string Service { get; set; }
+            public string POR { get; set; }
+            public string Carrier { get; set; }
+            public string Customer { get; set; }
+            public string Vessel { get; set; }
+            public string VOY { get; set; }
+            public string VIA { get; set; }
+            public string PICTel1 { get; set; }
+            public string FinalDest { get; set; }
+            public string ETD { get; set; }
+            public string Shipper { get; set; }
+            public string Warehose { get; set; }
+            public DateTime? ETA { get; set; }
+            public string PICTel2 { get; set; }
+            public string Delivery { get; set; }
+            public string POL { get; set; }
+            public string Consignee { get; set; }
+            public string StuffingPlace { get; set; }
+            public string POD { get; set; }
+            public string Partner { get; set; }
+            public string NWeight { get; set; }
+            public string Package { get; set; }
+            public string Qty { get; set; }
+            public string Item { get; set; }
         }
 
         bool success;
@@ -255,7 +419,7 @@
         }
         protected override async Task OnInitializedAsync()
         {
-            Elements2 = detailQuatationSea1;
+            Elements2 = detailContainerlists;
         }
 
         private void OpenDetailQuotation()
@@ -306,25 +470,21 @@
             return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        class DetailQuatationSea1
+        class DetailContainerlist
         {
-            public string MaPhi;
-            public string TenPhi;
-            public string KieuPhi;
-            public string TienTe;
-            public string DonGia;
-            public string GhiChu;
+            public string Cntr;
+            public string Qty;
         }
 
-        DetailQuatationSea1[] detailQuatationSea1 = new DetailQuatationSea1[]
+        DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
     {
-        new DetailQuatationSea1 { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
-        new DetailQuatationSea1 { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
+        new DetailContainerlist { Cntr = "OF", Qty = "1", },
+        new DetailContainerlist { Cntr = "OF", Qty = "2", },
                                 };
 
 
-        private HashSet<DetailQuatationSea1> selectedItems = new HashSet<DetailQuatationSea1>();
-        private IEnumerable<DetailQuatationSea1> Elements2 = new List<DetailQuatationSea1>();
+        private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
+        private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
 
 
 
