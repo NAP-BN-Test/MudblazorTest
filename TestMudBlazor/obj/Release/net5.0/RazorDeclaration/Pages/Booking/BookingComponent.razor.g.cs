@@ -13,112 +13,112 @@ namespace TestMudBlazor.Pages.Booking
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 1 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 2 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 3 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 4 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 5 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 6 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 7 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 8 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 9 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 10 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 11 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 12 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 13 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
+#line 2 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
 using System.Text.RegularExpressions;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
+#line 3 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
 using System.ComponentModel.DataAnnotations;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
+#line 5 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
 using DiaLog;
 
 #line default
@@ -133,41 +133,57 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 210 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
+#line 358 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
            
 
-        Quotation model = new Quotation();
+        Booking model = new Booking();
         GhiChuBaoGia model1 = new GhiChuBaoGia();
         public class GhiChuBaoGia
         {
             public string GhiChu { get; set; }
             public string LienHe { get; set; }
         }
-        public class Quotation
+        public class Booking
         {
-            public string SoBaoGia { get; set; }
-            public string KhachHang { get; set; }
-            public string PICKH { get; set; }
-            [EmailAddress(ErrorMessage = "Email không đúng định dạng!")]
-            public string Email { get; set; }
-            public string SoDienThoai { get; set; }
-            public string HangHoa { get; set; }
-            public string Cangden { get; set; }
-            public string DiemDen { get; set; }
-            public string CangDi { get; set; }
-            public string DiemDi { get; set; }
-            public string LoaiXNK { get; set; }
-            public string LoaiTai { get; set; }
-            [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-            public DateTime? NgayHieuLuc { get; set; }
-            [Range(typeof(DateTime), "1/1/1970", "12/31/3000", ErrorMessage = "Value for {0} must be between {1} and {2}")]
-            public DateTime? NgayPhatHang { get; set; }
-            public string NhanVienKinhDoanh { get; set; }
-            public string TrangThai { get; set; }
-            public string DieuKienGiaoHang { get; set; }
-            public string MoTa { get; set; }
-            public string GhiChu { get; set; }
+            public string LoadType { get; set; }
+            public string FreightTerms { get; set; }
+            public string ServiceTerms { get; set; }
+            public string IncoTerms { get; set; }
+            public DateTime? CargoClose { get; set; }
+            public DateTime? WMGClose { get; set; }
+            public DateTime? SIClose { get; set; }
+            public string Sale { get; set; }
+            public string Operator { get; set; }
+            public string User { get; set; }
+            public DateTime? Date { get; set; }
+            public string Remark { get; set; }
 
+            public string HouseNo { get; set; }
+            public string MasterNo { get; set; }
+            public string Service { get; set; }
+            public string POR { get; set; }
+            public string Carrier { get; set; }
+            public string Customer { get; set; }
+            public string Vessel { get; set; }
+            public string VOY { get; set; }
+            public string VIA { get; set; }
+            public string PICTel1 { get; set; }
+            public string FinalDest { get; set; }
+            public string ETD { get; set; }
+            public string Shipper { get; set; }
+            public string Warehose { get; set; }
+            public DateTime? ETA { get; set; }
+            public string PICTel2 { get; set; }
+            public string Delivery { get; set; }
+            public string POL { get; set; }
+            public string Consignee { get; set; }
+            public string StuffingPlace { get; set; }
+            public string POD { get; set; }
+            public string Partner { get; set; }
+            public string NWeight { get; set; }
+            public string Package { get; set; }
+            public string Qty { get; set; }
+            public string Item { get; set; }
         }
 
         bool success;
@@ -182,7 +198,7 @@ using DiaLog;
         }
         protected override async Task OnInitializedAsync()
         {
-            Elements2 = detailQuatationSea1;
+            Elements2 = detailContainerlists;
         }
 
         private void OpenDetailQuotation()
@@ -233,25 +249,21 @@ using DiaLog;
             return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        class DetailQuatationSea1
+        class DetailContainerlist
         {
-            public string MaPhi;
-            public string TenPhi;
-            public string KieuPhi;
-            public string TienTe;
-            public string DonGia;
-            public string GhiChu;
+            public string Cntr;
+            public string Qty;
         }
 
-        DetailQuatationSea1[] detailQuatationSea1 = new DetailQuatationSea1[]
+        DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
     {
-        new DetailQuatationSea1 { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "TPBANK",  TienTe="VNĐ" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
-        new DetailQuatationSea1 { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế", KieuPhi = "TPBANK",  TienTe="USD" , DonGia="1000/MIN(KG); 22.500/+45(KG)", GhiChu=""},
+        new DetailContainerlist { Cntr = "OF", Qty = "1", },
+        new DetailContainerlist { Cntr = "OF", Qty = "2", },
                                 };
 
 
-        private HashSet<DetailQuatationSea1> selectedItems = new HashSet<DetailQuatationSea1>();
-        private IEnumerable<DetailQuatationSea1> Elements2 = new List<DetailQuatationSea1>();
+        private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
+        private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
 
 
 

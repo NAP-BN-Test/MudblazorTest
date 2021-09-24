@@ -848,3 +848,11 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\TestMud
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\TestMudBlazor.dll
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\ref\TestMudBlazor.dll
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\TestMudBlazor.pdb
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\Booking\BookingComponent.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\Booking\ListBooking.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\Booking\BookingComponent.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\Booking\ListBooking.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\Booking\Booking2.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\Booking\Booking2.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\Quotation\QuotationSEA\QuotationSEA3.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor.g.cs

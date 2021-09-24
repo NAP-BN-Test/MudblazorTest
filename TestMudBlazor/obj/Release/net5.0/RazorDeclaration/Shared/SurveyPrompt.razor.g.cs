@@ -13,91 +13,91 @@ namespace TestMudBlazor.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 1 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 2 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 3 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 4 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 5 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 6 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 7 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 8 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 9 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 10 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 11 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 12 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
+#line 13 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages.Blazor;
 
 #line default
@@ -111,7 +111,7 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\SurveyPrompt.razor"
+#line 12 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Shared\SurveyPrompt.razor"
        
     // Demonstrates how a parent component can supply parameters
     [Parameter]

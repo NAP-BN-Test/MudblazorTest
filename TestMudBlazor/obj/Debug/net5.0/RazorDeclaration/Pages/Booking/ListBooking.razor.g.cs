@@ -168,6 +168,7 @@ using System.Net.Http.Json;
             ConsigneeName = "Công ty TNHH FIT Việt Nam", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "AGIP SPA" ,CarrierName="AGIP SPA", POL = "JPTYO" , POLName = "TOKYO-TOKYO, Japan", POD = "HPP" ,PODName="CẢNG HẢI PHÒNG",
             ClosingDate = "", CntrType = "20D’C", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
             SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14020", Status = "ACTIVE"},
+
         };
 
 

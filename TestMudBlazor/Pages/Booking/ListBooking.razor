@@ -12,7 +12,7 @@
         margin-top: 0px;
     }
 </style>
-<MudGrid Style="margin-top: 10px">
+<MudGrid Style="margin-top: 10px; ">
     <MudGrid>
         <MudItem xs="12" Style="margin-top: 10px">
             <MudText Typo="Typo.h5" GutterBottom="true">Danh sách Booking</MudText>
@@ -31,12 +31,12 @@
         </MudItem>
     </MudGrid>
 
-    <MudGrid>
+    <MudGrid >
         <MudItem xs="12">
-            <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
-                <HeaderContent>
-                    <MudTh>Service</MudTh>
-                    <MudTh>Order No</MudTh>
+            <MudTable Items="@Elements" FixedHeader="true" Style="white-space: nowrap" Dense="@dense1" Breakpoint="Breakpoint.Sm" HorizontalScrollbar="true" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                <HeaderContent >
+                    <MudTh >Service</MudTh>
+                    <MudTh >Order No</MudTh>
                     <MudTh>House No</MudTh>
                     <MudTh>Master No</MudTh>
                     <MudTh>Job No</MudTh>
@@ -69,8 +69,8 @@
                     <MudTh>Status</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="Service">@context.Service</MudTd>
-                    <MudTd DataLabel="OrderNo">@context.OrderNo</MudTd>
+                    <MudTd DataLabel="Service" >@context.Service</MudTd>
+                    <MudTd DataLabel="OrderNo" >@context.OrderNo</MudTd>
                     <MudTd DataLabel="HouseNo">@context.HouseNo</MudTd>
                     <MudTd DataLabel="MasterNo">@context.MasterNo</MudTd>
                     <MudTd DataLabel="JobNo">@context.JobNo</MudTd>
@@ -174,6 +174,7 @@
             ConsigneeName = "Công ty TNHH FIT Việt Nam", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "AGIP SPA" ,CarrierName="AGIP SPA", POL = "JPTYO" , POLName = "TOKYO-TOKYO, Japan", POD = "HPP" ,PODName="CẢNG HẢI PHÒNG",
             ClosingDate = "", CntrType = "20D’C", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
             SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14020", Status = "ACTIVE"},
+
         };
 
 
