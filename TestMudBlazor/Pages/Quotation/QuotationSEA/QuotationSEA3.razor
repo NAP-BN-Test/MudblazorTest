@@ -17,12 +17,12 @@
     .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
         margin-top: 0px;
     }
-
 </style>
-<MudContainer Class="mt-16">
-    <MudGrid>
-        <MudItem xs="12">
-            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <MudContainer Class="mt-16">
+        <MudGrid>
+            <MudItem xs="12">
+
                 <DataAnnotationsValidator />
                 <MudGrid>
                     <MudItem xs="6">
@@ -58,10 +58,10 @@
                                          CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PICKH)" Margin="Margin.Dense" />
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.SoDienThoai" Disabled="true" Label="Số điện thoại" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Phone" Adornment="Adornment.Start"></MudTextField>
+                        <MudTextField @bind-Value="model.SoDienThoai" Disabled="true" Variant="Variant.Outlined" For="@(() => model.SoDienThoai)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Phone" Adornment="Adornment.Start"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model.Email" Label="Email" Disabled="true" Variant="Variant.Outlined" For="@(() => model.Email)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Email" Adornment="Adornment.Start"></MudTextField>
+                        <MudTextField @bind-Value="model.Email" Disabled="true" Variant="Variant.Outlined" For="@(() => model.Email)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Email" Adornment="Adornment.Start"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
                         <MudDatePicker Label="Ngày phát hành" @bind-Date="model.NgayPhatHang" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" For="@(() => model.NgayPhatHang)" Margin="Margin.Dense" />
@@ -77,7 +77,7 @@
                         <MudTextField @bind-Value="model.DiemDi" Label="Điểm đi" Variant="Variant.Outlined" For="@(() => model.DiemDi)" Margin="Margin.Dense"></MudTextField>
                     </MudItem>
                     <MudItem xs="12" sm="6" md="3">
-                        <MudDatePicker Label="Ngày hiệu lực" @bind-Date="model.NgayHieuLuc" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayHieuLuc)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary"/>
+                        <MudDatePicker Label="Ngày hiệu lực" @bind-Date="model.NgayHieuLuc" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.NgayHieuLuc)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
                     </MudItem>
                 </MudGrid>
 
@@ -135,212 +135,221 @@
 
                 </MudGrid>
 
-                <MudGrid Style="margin-top: 20px">
-                    <MudItem xs="12" sm="6" md="3">
-                        <MudText  Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Cước</MudText>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="9">
-                        <MudTextField @bind-Value="model.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model.GhiChu)" Margin="Margin.Dense"></MudTextField>
-                    </MudItem>
-                </MudGrid>
 
-                <MudGrid>
-                    <MudItem xs="12">
-                        <MudTable Items="@Elements3" Style="white-space: nowrap" Context="tableRowContext" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
-                            <HeaderContent>
-                                <MudTh>Mã hãng tàu</MudTh>
-                                <MudTh>Tên hãng tàu</MudTh>
-                                <MudTh>Cảng bốc</MudTh>
-                                <MudTh>Cảng dỡ</MudTh>
-                                <MudTh>Tiền tệ</MudTh>
-                                <MudTh>Loại cont</MudTh>
-                                <MudTh>20'</MudTh>
-                                <MudTh>40'</MudTh>
-                                <MudTh>HQ</MudTh>
-                                <MudTh>Đ.V FCL</MudTh>
-                                <MudTh>Giá LCL</MudTh>
-                                <MudTh>DVT LCL</MudTh>
-                                <MudTh>Ghi chú</MudTh>
-                            </HeaderContent>
-                            <RowTemplate>
-                                <MudTd DataLabel="MaHangTau">@tableRowContext.MaHangTau</MudTd>
-                                <MudTd DataLabel="TenHangTau">@tableRowContext.TenHangTau</MudTd>
-                                <MudTd DataLabel="CangBoc">@tableRowContext.CangBoc</MudTd>
-                                <MudTd DataLabel="CangDo">@tableRowContext.CangDo</MudTd>
-                                <MudTd DataLabel="TienTe">@tableRowContext.TienTe</MudTd>
-                                <MudTd DataLabel="LoaiCont">@tableRowContext.LoaiCont</MudTd>
-                                <MudTd DataLabel="HaiMuoiDC">@tableRowContext.HaiMuoiDC</MudTd>
-                                <MudTd DataLabel="BonMuoiDC">@tableRowContext.BonMuoiDC</MudTd>
-                                <MudTd DataLabel="HQ">@tableRowContext.HQ</MudTd>
-                                <MudTd DataLabel="DVFCV">@tableRowContext.DVFCV</MudTd>
-                                <MudTd DataLabel="GiaLCL">@tableRowContext.GiaLCL</MudTd>
-                                <MudTd DataLabel="DVTLCL">@tableRowContext.DVTLCL</MudTd>
-                                <MudTd DataLabel="GhiChu">@tableRowContext.GhiChu</MudTd>
-                            </RowTemplate>
-                            <RowEditingTemplate>
-                                <MudTd DataLabel="MaHangTau">
-                                    <MudTextField @bind-Value="@tableRowContext.MaHangTau" Required />
-                                </MudTd>
-                                <MudTd DataLabel="TenHangTau">
-                                    <MudTextField @bind-Value="@tableRowContext.TenHangTau" />
-                                </MudTd>
-                                <MudTd DataLabel="CangBoc">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext.CangBoc" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.CangBoc)" />
-                                </MudTd>
-                                <MudTd DataLabel="CangDo">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext.CangDo" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.CangDo)" />
-                                </MudTd>
-                                <MudTd DataLabel="TienTe">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext.TienTe" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.TienTe)" />
-                                </MudTd>
-                                <MudTd DataLabel="LoaiCont">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext.LoaiCont" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.LoaiCont)" />
-                                </MudTd>
-                                <MudTd DataLabel="HaiMuoiDC">
-                                    <MudTextField @bind-Value="@tableRowContext.HaiMuoiDC" />
-                                </MudTd>
-                                <MudTd DataLabel="BonMuoiDC">
-                                    <MudTextField @bind-Value="@tableRowContext.BonMuoiDC" />
-                                </MudTd>
-                                <MudTd DataLabel="HQ">
-                                    <MudTextField @bind-Value="@tableRowContext.HQ" />
-                                </MudTd>
-                                <MudTd DataLabel="DVFCV">
-                                    <MudTextField @bind-Value="@tableRowContext.DVFCV" />
-                                </MudTd>
-                                <MudTd DataLabel="GiaLCL">
-                                    <MudTextField @bind-Value="@tableRowContext.GiaLCL" />
-                                </MudTd>
-                                <MudTd DataLabel="DVTLCL">
-                                    <MudTextField @bind-Value="@tableRowContext.DVTLCL" />
-                                </MudTd>
-                                <MudTd DataLabel="GhiChu">
-                                    <MudTextField @bind-Value="@tableRowContext.GhiChu" />
-                                </MudTd>
-                            </RowEditingTemplate>
-                            <PagerContent>
-                                <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
-                            </PagerContent>
 
-                        </MudTable>
+            </MudItem>
+        </MudGrid>
 
-                    </MudItem>
-                </MudGrid>
+    </MudContainer>
+    <div Style="background-color: #c8d2d5; padding-top: 1px; padding-bottom: 30px; padding-left: 20px; padding-right: 20px; margin-bottom: 20px; margin-top: 20px">
+        <div style="background-color: white; padding-left: 10px; padding-right: 10px">
 
-                <MudGrid Style="margin-top: 20px">
-                    <MudItem xs="12" sm="6" md="3">
-                        <MudText Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Cước khác</MudText>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="9">
-                        <MudTextField @bind-Value="model.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model.GhiChu)" Margin="Margin.Dense"></MudTextField>
-                    </MudItem>
-                </MudGrid>
 
-                <MudGrid>
-                    <MudItem xs="12">
-                        <MudTable Items="@Elements2"  Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
-                            <HeaderContent>
-                                <MudTh>Mã phí</MudTh>
-                                <MudTh>Tên phí</MudTh>
-                                <MudTh>Kiểu phí</MudTh>
-                                <MudTh>Tiền tệ</MudTh>
-                                <MudTh>Loại cont</MudTh>
-                                <MudTh>20'</MudTh>
-                                <MudTh>40'</MudTh>
-                                <MudTh>HQ</MudTh>
-                                <MudTh>FCL Unit</MudTh>
-                                <MudTh>Giá LCL</MudTh>
-                                <MudTh>DVT LCL</MudTh>
-                                <MudTh>Ghi chú</MudTh>
-                            </HeaderContent>
-                            <RowTemplate>
-                                <MudTd DataLabel="MaPhi">@tableRowContext2.MaPhi</MudTd>
-                                <MudTd DataLabel="TenPhi">@tableRowContext2.TenPhi</MudTd>
-                                <MudTd DataLabel="KieuPhi">@tableRowContext2.KieuPhi</MudTd>
-                                <MudTd DataLabel="TienTe">@tableRowContext2.TienTe</MudTd>
-                                <MudTd DataLabel="LoaiCont">@tableRowContext2.LoaiCont</MudTd>
-                                <MudTd DataLabel="HaiMuoiDC">@tableRowContext2.HaiMuoiDC</MudTd>
-                                <MudTd DataLabel="BonMuoiDC">@tableRowContext2.BonMuoiDC</MudTd>
-                                <MudTd DataLabel="HQ">@tableRowContext2.HQ</MudTd>
-                                <MudTd DataLabel="FCLUnit">@tableRowContext2.FCLUnit</MudTd>
-                                <MudTd DataLabel="GiaLCL">@tableRowContext2.GiaLCL</MudTd>
-                                <MudTd DataLabel="DVTLCL">@tableRowContext2.DVTLCL</MudTd>
-                                <MudTd DataLabel="GhiChu">@tableRowContext2.GhiChu</MudTd>
-                            </RowTemplate>
-                            <RowEditingTemplate>
-                                <MudTd DataLabel="MaPhi">
-                                    <MudTextField @bind-Value="@tableRowContext2.MaPhi" Required />
-                                </MudTd>
-                                <MudTd DataLabel="TenPhi">
-                                    <MudTextField @bind-Value="@tableRowContext2.TenPhi" />
-                                </MudTd>
-                                <MudTd DataLabel="KieuPhi">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext2.KieuPhi" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.KieuPhi)" />
-                                </MudTd>
-                                <MudTd DataLabel="TienTe">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext2.TienTe" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.TienTe)" />
-                                </MudTd>
-                                <MudTd DataLabel="LoaiCont">
-                                    <MudAutocomplete T="string" @bind-Value="@tableRowContext2.LoaiCont" SearchFunc="@Search1"
-                                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                                     CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.LoaiCont)" />
-                                </MudTd>
-                                <MudTd DataLabel="HaiMuoiDC">
-                                    <MudTextField @bind-Value="@tableRowContext2.HaiMuoiDC" />
-                                </MudTd>
-                                <MudTd DataLabel="BonMuoiDC">
-                                    <MudTextField @bind-Value="@tableRowContext2.BonMuoiDC" />
-                                </MudTd>
-                                <MudTd DataLabel="HQ">
-                                    <MudTextField @bind-Value="@tableRowContext2.HQ" />
-                                </MudTd>
-                                <MudTd DataLabel="FCLUnit">
-                                    <MudTextField @bind-Value="@tableRowContext2.FCLUnit" />
-                                </MudTd>
-                                <MudTd DataLabel="GiaLCL">
-                                    <MudTextField @bind-Value="@tableRowContext2.GiaLCL" />
-                                </MudTd>
-                                <MudTd DataLabel="DVTLCL">
-                                    <MudTextField @bind-Value="@tableRowContext2.DVTLCL" />
-                                </MudTd>
-                                <MudTd DataLabel="GhiChu">
-                                    <MudTextField @bind-Value="@tableRowContext2.GhiChu" />
-                                </MudTd>
-                            </RowEditingTemplate>
-                            <PagerContent>
-                                <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
-                            </PagerContent>
+            <MudGrid Style="margin-top: 20px">
+                <MudItem xs="12" sm="6" md="3">
+                    <MudText Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Cước</MudText>
+                </MudItem>
+                <MudItem xs="12" sm="6" md="9">
+                    <MudTextField @bind-Value="model.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model.GhiChu)" Margin="Margin.Dense"></MudTextField>
+                </MudItem>
+            </MudGrid>
 
-                        </MudTable>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTable Items="@Elements3" Style="white-space: nowrap" Context="tableRowContext" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                        <HeaderContent>
+                            <MudTh>Mã hãng tàu</MudTh>
+                            <MudTh>Tên hãng tàu</MudTh>
+                            <MudTh>Cảng bốc</MudTh>
+                            <MudTh>Cảng dỡ</MudTh>
+                            <MudTh>Tiền tệ</MudTh>
+                            <MudTh>Loại cont</MudTh>
+                            <MudTh>20'</MudTh>
+                            <MudTh>40'</MudTh>
+                            <MudTh>HQ</MudTh>
+                            <MudTh>Đ.V FCL</MudTh>
+                            <MudTh>Giá LCL</MudTh>
+                            <MudTh>DVT LCL</MudTh>
+                            <MudTh>Ghi chú</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="MaHangTau">@tableRowContext.MaHangTau</MudTd>
+                            <MudTd DataLabel="TenHangTau">@tableRowContext.TenHangTau</MudTd>
+                            <MudTd DataLabel="CangBoc">@tableRowContext.CangBoc</MudTd>
+                            <MudTd DataLabel="CangDo">@tableRowContext.CangDo</MudTd>
+                            <MudTd DataLabel="TienTe">@tableRowContext.TienTe</MudTd>
+                            <MudTd DataLabel="LoaiCont">@tableRowContext.LoaiCont</MudTd>
+                            <MudTd DataLabel="HaiMuoiDC">@tableRowContext.HaiMuoiDC</MudTd>
+                            <MudTd DataLabel="BonMuoiDC">@tableRowContext.BonMuoiDC</MudTd>
+                            <MudTd DataLabel="HQ">@tableRowContext.HQ</MudTd>
+                            <MudTd DataLabel="DVFCV">@tableRowContext.DVFCV</MudTd>
+                            <MudTd DataLabel="GiaLCL">@tableRowContext.GiaLCL</MudTd>
+                            <MudTd DataLabel="DVTLCL">@tableRowContext.DVTLCL</MudTd>
+                            <MudTd DataLabel="GhiChu">@tableRowContext.GhiChu</MudTd>
+                        </RowTemplate>
+                        <RowEditingTemplate>
+                            <MudTd DataLabel="MaHangTau">
+                                <MudTextField @bind-Value="@tableRowContext.MaHangTau" Required />
+                            </MudTd>
+                            <MudTd DataLabel="TenHangTau">
+                                <MudTextField @bind-Value="@tableRowContext.TenHangTau" />
+                            </MudTd>
+                            <MudTd DataLabel="CangBoc">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext.CangBoc" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.CangBoc)" />
+                            </MudTd>
+                            <MudTd DataLabel="CangDo">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext.CangDo" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.CangDo)" />
+                            </MudTd>
+                            <MudTd DataLabel="TienTe">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext.TienTe" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.TienTe)" />
+                            </MudTd>
+                            <MudTd DataLabel="LoaiCont">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext.LoaiCont" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => tableRowContext.LoaiCont)" />
+                            </MudTd>
+                            <MudTd DataLabel="HaiMuoiDC">
+                                <MudTextField @bind-Value="@tableRowContext.HaiMuoiDC" />
+                            </MudTd>
+                            <MudTd DataLabel="BonMuoiDC">
+                                <MudTextField @bind-Value="@tableRowContext.BonMuoiDC" />
+                            </MudTd>
+                            <MudTd DataLabel="HQ">
+                                <MudTextField @bind-Value="@tableRowContext.HQ" />
+                            </MudTd>
+                            <MudTd DataLabel="DVFCV">
+                                <MudTextField @bind-Value="@tableRowContext.DVFCV" />
+                            </MudTd>
+                            <MudTd DataLabel="GiaLCL">
+                                <MudTextField @bind-Value="@tableRowContext.GiaLCL" />
+                            </MudTd>
+                            <MudTd DataLabel="DVTLCL">
+                                <MudTextField @bind-Value="@tableRowContext.DVTLCL" />
+                            </MudTd>
+                            <MudTd DataLabel="GhiChu">
+                                <MudTextField @bind-Value="@tableRowContext.GhiChu" />
+                            </MudTd>
+                        </RowEditingTemplate>
+                        <PagerContent>
+                            <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
+                        </PagerContent>
 
-                    </MudItem>
-                </MudGrid>
+                    </MudTable>
 
-                <MudGrid Style="margin-top: 20px">
-                    <MudItem xs="12" sm="6" md="9">
-                        <MudTextField @bind-Value="model1.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model1.GhiChu)" Lines="3" Margin="Margin.Dense"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="3">
-                        <MudTextField @bind-Value="model1.LienHe" Label="Liên hệ" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="3" Margin="Margin.Dense"></MudTextField>
-                    </MudItem>
-                </MudGrid>
-            </EditForm>
-        </MudItem>
-    </MudGrid>
+                </MudItem>
+            </MudGrid>
 
-</MudContainer>
+
+            <MudGrid Style="margin-top: 20px">
+                <MudItem xs="12" sm="6" md="3">
+                    <MudText Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Cước khác</MudText>
+                </MudItem>
+                <MudItem xs="12" sm="6" md="9">
+                    <MudTextField @bind-Value="model.GhiChu" Label="Mô tả" Variant="Variant.Outlined" For="@(() => model.GhiChu)" Margin="Margin.Dense"></MudTextField>
+                </MudItem>
+            </MudGrid>
+
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTable Items="@Elements2" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                        <HeaderContent>
+                            <MudTh>Mã phí</MudTh>
+                            <MudTh>Tên phí</MudTh>
+                            <MudTh>Kiểu phí</MudTh>
+                            <MudTh>Tiền tệ</MudTh>
+                            <MudTh>Loại cont</MudTh>
+                            <MudTh>20'</MudTh>
+                            <MudTh>40'</MudTh>
+                            <MudTh>HQ</MudTh>
+                            <MudTh>FCL Unit</MudTh>
+                            <MudTh>Giá LCL</MudTh>
+                            <MudTh>DVT LCL</MudTh>
+                            <MudTh>Ghi chú</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="MaPhi">@tableRowContext2.MaPhi</MudTd>
+                            <MudTd DataLabel="TenPhi">@tableRowContext2.TenPhi</MudTd>
+                            <MudTd DataLabel="KieuPhi">@tableRowContext2.KieuPhi</MudTd>
+                            <MudTd DataLabel="TienTe">@tableRowContext2.TienTe</MudTd>
+                            <MudTd DataLabel="LoaiCont">@tableRowContext2.LoaiCont</MudTd>
+                            <MudTd DataLabel="HaiMuoiDC">@tableRowContext2.HaiMuoiDC</MudTd>
+                            <MudTd DataLabel="BonMuoiDC">@tableRowContext2.BonMuoiDC</MudTd>
+                            <MudTd DataLabel="HQ">@tableRowContext2.HQ</MudTd>
+                            <MudTd DataLabel="FCLUnit">@tableRowContext2.FCLUnit</MudTd>
+                            <MudTd DataLabel="GiaLCL">@tableRowContext2.GiaLCL</MudTd>
+                            <MudTd DataLabel="DVTLCL">@tableRowContext2.DVTLCL</MudTd>
+                            <MudTd DataLabel="GhiChu">@tableRowContext2.GhiChu</MudTd>
+                        </RowTemplate>
+                        <RowEditingTemplate>
+                            <MudTd DataLabel="MaPhi">
+                                <MudTextField @bind-Value="@tableRowContext2.MaPhi" Required />
+                            </MudTd>
+                            <MudTd DataLabel="TenPhi">
+                                <MudTextField @bind-Value="@tableRowContext2.TenPhi" />
+                            </MudTd>
+                            <MudTd DataLabel="KieuPhi">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.KieuPhi" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.KieuPhi)" />
+                            </MudTd>
+                            <MudTd DataLabel="TienTe">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.TienTe" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.TienTe)" />
+                            </MudTd>
+                            <MudTd DataLabel="LoaiCont">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.LoaiCont" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.LoaiCont)" />
+                            </MudTd>
+                            <MudTd DataLabel="HaiMuoiDC">
+                                <MudTextField @bind-Value="@tableRowContext2.HaiMuoiDC" />
+                            </MudTd>
+                            <MudTd DataLabel="BonMuoiDC">
+                                <MudTextField @bind-Value="@tableRowContext2.BonMuoiDC" />
+                            </MudTd>
+                            <MudTd DataLabel="HQ">
+                                <MudTextField @bind-Value="@tableRowContext2.HQ" />
+                            </MudTd>
+                            <MudTd DataLabel="FCLUnit">
+                                <MudTextField @bind-Value="@tableRowContext2.FCLUnit" />
+                            </MudTd>
+                            <MudTd DataLabel="GiaLCL">
+                                <MudTextField @bind-Value="@tableRowContext2.GiaLCL" />
+                            </MudTd>
+                            <MudTd DataLabel="DVTLCL">
+                                <MudTextField @bind-Value="@tableRowContext2.DVTLCL" />
+                            </MudTd>
+                            <MudTd DataLabel="GhiChu">
+                                <MudTextField @bind-Value="@tableRowContext2.GhiChu" />
+                            </MudTd>
+                        </RowEditingTemplate>
+                        <PagerContent>
+                            <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
+                        </PagerContent>
+
+                    </MudTable>
+
+                </MudItem>
+            </MudGrid>
+
+            <MudGrid Style="margin-top: 20px">
+                <MudItem xs="12" sm="6" md="9">
+                    <MudTextField @bind-Value="model1.GhiChu" Label="Ghi chú" Variant="Variant.Outlined" For="@(() => model1.GhiChu)" Lines="3" Margin="Margin.Dense"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudTextField @bind-Value="model1.LienHe" Label="Liên hệ" Variant="Variant.Outlined" For="@(() => model1.LienHe)" Lines="3" Margin="Margin.Dense"></MudTextField>
+                </MudItem>
+            </MudGrid>
+        </div>
+    </div>
+</EditForm>
 @code {
     private bool dense1 = true;
     private bool dense2 = true;
@@ -486,7 +495,7 @@
         new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
         new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="Tons", GiaLCL="2.000.000"},
         new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-                    };
+                            };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
@@ -494,7 +503,7 @@
         new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
         new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="Tons", GiaLCL="2.000.000"},
         new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
-                   };
+                           };
 
 
 

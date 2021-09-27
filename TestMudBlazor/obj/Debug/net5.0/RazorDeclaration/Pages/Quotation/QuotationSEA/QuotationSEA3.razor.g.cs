@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 344 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor"
+#line 353 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor"
        
     private bool dense1 = true;
     private bool dense2 = true;
@@ -279,7 +279,7 @@ using DiaLog;
         new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
         new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="Tons", GiaLCL="2.000.000"},
         new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40’DC",HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", FCLUnit="1000", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-                    };
+                            };
 
 
     DetailCuoc[] detailCuocs = new DetailCuoc[]
@@ -287,7 +287,7 @@ using DiaLog;
         new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
         new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="Tons", GiaLCL="2.000.000"},
         new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40’DC", HaiMuoiDC="1000", BonMuoiDC="1000", HQ="1000", DVFCV="1000", GhiChu="VNĐ" , DVTLCL="CBM", GiaLCL="1.000.000"},
-                   };
+                           };
 
 
 
