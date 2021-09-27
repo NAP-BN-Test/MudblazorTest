@@ -112,14 +112,14 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 118 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\ListQuotation.razor"
-           
-        private bool dense1 = false;
-        private string searchString;
-        private bool hover = true;
+#line 119 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\ListQuotation.razor"
+               
+            private bool dense1 = false;
+            private string searchString;
+            private bool hover = true;
 
-        Quatation[] quatation = new Quatation[]
-        {
+            Quatation[] quatation = new Quatation[]
+            {
             new Quatation { SoBaoGia = "HP-DN", LoaiHinh = "SEA", MaKhachHang = "ThuyKhue" , TenKhachHang = "Công ty Cổ phần Giầy Thụy Khuê", NguoiPhuTrach = "Tâm" ,CangBoc="Cảng Hải Phòng", CangDo = "Cảng Đà Nẵng" , TrangThai = "Hoạt Động", NguoiTao = "Long" ,GhiChu=""},
             new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="Sân bay Nôi Bài", CangDo = "Sân bay Tân Sơn Nhất" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
             new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="Cảng Hải Phòng", CangDo = "TOKYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
@@ -127,64 +127,64 @@ using System.Net.Http.Json;
 
 
 
-        class Quatation
+            class Quatation
+            {
+                public string SoBaoGia;
+                public string LoaiHinh;
+                public string MaKhachHang;
+                public string TenKhachHang;
+                public string NguoiPhuTrach;
+                public string CangBoc;
+                public string CangDo;
+                public string TrangThai;
+                public string NguoiTao;
+                public string GhiChu;
+            }
+
+            private HashSet<Quatation> selectedItems1 = new HashSet<Quatation>();
+            private IEnumerable<Quatation> Elements = new List<Quatation>();
+            protected override async Task OnInitializedAsync()
+            {
+                Elements = quatation;
+            }
+
+            private bool resetValueOnEmptyText;
+            private bool coerceText;
+            private bool coerceValue;
+            private string value1, value2;
+
+            private string[] states =
         {
-            public string SoBaoGia;
-            public string LoaiHinh;
-            public string MaKhachHang;
-            public string TenKhachHang;
-            public string NguoiPhuTrach;
-            public string CangBoc;
-            public string CangDo;
-            public string TrangThai;
-            public string NguoiTao;
-            public string GhiChu;
-        }
-
-        private HashSet<Quatation> selectedItems1 = new HashSet<Quatation>();
-        private IEnumerable<Quatation> Elements = new List<Quatation>();
-        protected override async Task OnInitializedAsync()
-        {
-            Elements = quatation;
-        }
-
-        private bool resetValueOnEmptyText;
-        private bool coerceText;
-        private bool coerceValue;
-        private string value1, value2;
-
-        private string[] states =
-    {
         "Hà Nội", "Bắc Ninh", "TP HCM",
     };
 
-        private string[] states2 =
-    {
+            private string[] states2 =
+        {
         "Xác nhận", "Treo", "Hủy",
     };
 
-        private async Task<IEnumerable<string>> Search1(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
+            private async Task<IEnumerable<string>> Search1(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
 
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states;
-            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states;
+                return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
 
-        private async Task<IEnumerable<string>> Search2(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
+            private async Task<IEnumerable<string>> Search2(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
 
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states2;
-            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
-    
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states2;
+                return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+        
 
 #line default
 #line hidden

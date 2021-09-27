@@ -50,43 +50,18 @@
     }
     }
 </style>
-<MudTabs Outlined="false" Border="false" Rounded="true" ApplyEffectsToContainer="false">
-    <MudTabPanel Text="Email">
-        <MudGrid Style="margin-top: 10px">
-            <MudItem xs="12" sm="12" md="12">
+<MudMainContent Class="pt-16 px-16">
+    <MudTabs Outlined="false" Border="false" Rounded="true" ApplyEffectsToContainer="false">
+        <MudTabPanel Text="Email">
+            <MudGrid Style="margin-top: 10px">
+                <MudItem xs="12" sm="12" md="12">
 
 
-                <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="true">
-                    <HeaderContent>
-                        <MudTd colspan="5">
-                            <MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
-                                <MudToolBar Style="height: 24px">
-                                    <MudIconButton Icon="@Icons.Material.Outlined.Add" />
-                                    <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
-                                    <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
-                                    <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
-                                    <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
-                                    <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
-                                </MudToolBar>
-                            </MudHidden>
-
-                        </MudTd>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="1"><MudRating SelectedValue="0" MaxValue="1" /></MudTd>
-
-                        <MudTd DataLabel="abc" class="test1" Style="position: relative;max-width: 1000px; min-width: 300px">
-                            <div class="flex-parent">
-                                <div class="long-and-truncated">
-                                    @context.Name
-                                </div>
-                                <div>
-                                    <MudText Class="date" Typo="Typo.subtitle2">20/12/2021</MudText>
-                                </div>
-                                <div class="toolbatest-fake"></div>
-                                <div class="toolbatest">
-                                    <MudToolBar>
-                                        <MudSpacer />
+                    <MudTable Items="@Elements" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="true">
+                        <HeaderContent>
+                            <MudTd colspan="5">
+                                <MudHidden IsHidden="selectedItems1==null || selectedItems1.Count == 0" Invert="true">
+                                    <MudToolBar Style="height: 24px">
                                         <MudIconButton Icon="@Icons.Material.Outlined.Add" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
@@ -94,155 +69,181 @@
                                         <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
                                         <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
                                     </MudToolBar>
+                                </MudHidden>
+
+                            </MudTd>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="1"><MudRating SelectedValue="0" MaxValue="1" /></MudTd>
+
+                            <MudTd DataLabel="abc" class="test1" Style="position: relative;max-width: 1000px; min-width: 300px">
+                                <div class="flex-parent">
+                                    <div class="long-and-truncated">
+                                        @context.Name
+                                    </div>
+                                    <div>
+                                        <MudText Class="date" Typo="Typo.subtitle2">20/12/2021</MudText>
+                                    </div>
+                                    <div class="toolbatest-fake"></div>
+                                    <div class="toolbatest">
+                                        <MudToolBar>
+                                            <MudSpacer />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.Add" />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
+                                            <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
+                                        </MudToolBar>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </MudTd>
+                            </MudTd>
 
-                    </RowTemplate>
-                </MudTable>
-            </MudItem>
-
+                        </RowTemplate>
+                    </MudTable>
+                </MudItem>
 
 
 
-        </MudGrid>
-    </MudTabPanel>
-    <MudTabPanel Text="Form">
-        <MudGrid Style="margin-top: 10px">
-            <MudItem xs="10">
-                <MudGrid>
-                    <MudItem xs="6">
-                        <MudText Typo="Typo.h5" GutterBottom="true">Word order</MudText>
-                    </MudItem>
-                    <MudItem xs="6">
-                        <MudToolBar>
-                            <MudSpacer />
-                            <MudIconButton Icon="@Icons.Material.Outlined.Add" />
-                            <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
-                            <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
-                            <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
-                            <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
-                            <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
-                        </MudToolBar>
-                    </MudItem>
-                </MudGrid>
-                <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                </MudGrid>
-                <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudDatePicker Label="Date Format" @bind-Date="date" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" />
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudAutocomplete T="string" Label="US States" @bind-Value="value1" SearchFunc="@Search1"
-                                         ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                         CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" />
-                    </MudItem>
-                </MudGrid>
-                <MudGrid>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                    <MudItem xs="12" sm="6" md="4">
-                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                    </MudItem>
-                </MudGrid>
-                <MudGrid>
-                    <MudItem xs="4" sm="4" md="4">
-                        <MudTextField T="string" Label="Outlined" Variant="Variant.Outlined" Text="TextValue" Lines="8" />
-                    </MudItem>
-                    <MudItem xs="8" sm="8" md="8">
-                        <MudGrid>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                            </MudItem>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                            </MudItem>
-                        </MudGrid>
-                        <MudGrid>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                            </MudItem>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudGrid>
-                                    <MudItem xs="6" sm="6" md="6">
-                                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                                    </MudItem>
-                                    <MudItem xs="6" sm="6" md="6">
-                                        <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                                    </MudItem>
-                                </MudGrid>
-                            </MudItem>
-                        </MudGrid>
-                        <MudGrid>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                            </MudItem>
-                            <MudItem xs="6" sm="6" md="6">
-                                <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                            </MudItem>
-                        </MudGrid>
-                    </MudItem>
 
-                </MudGrid>
+            </MudGrid>
+        </MudTabPanel>
+        <MudTabPanel Text="Form">
+            <MudGrid Style="margin-top: 10px">
+                <MudItem xs="10">
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudText Typo="Typo.h5" GutterBottom="true">Word order</MudText>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudToolBar>
+                                <MudSpacer />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Add" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
+                            </MudToolBar>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="4">
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudDatePicker Label="Date Format" @bind-Date="date" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" />
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudAutocomplete T="string" Label="US States" @bind-Value="value1" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="4" sm="4" md="4">
+                            <MudTextField T="string" Label="Outlined" Variant="Variant.Outlined" Text="TextValue" Lines="8" />
+                        </MudItem>
+                        <MudItem xs="8" sm="8" md="8">
+                            <MudGrid>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                </MudItem>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                </MudItem>
+                            </MudGrid>
+                            <MudGrid>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                </MudItem>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudGrid>
+                                        <MudItem xs="6" sm="6" md="6">
+                                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                        </MudItem>
+                                        <MudItem xs="6" sm="6" md="6">
+                                            <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                        </MudItem>
+                                    </MudGrid>
+                                </MudItem>
+                            </MudGrid>
+                            <MudGrid>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                </MudItem>
+                                <MudItem xs="6" sm="6" md="6">
+                                    <MudTextField @bind-Value="TextValue" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
 
-            </MudItem>
-            <MudItem xs="2">
-                <MudHidden Breakpoint="Breakpoint.MdAndDown" Invert="false">
-                    <MudNavMenu>
-                        <MudText Typo="Typo.h6" Class="px-4">Thông tin</MudText>
-                        <MudTabs Style="flex-direction: column !important; margin-left: 20px; margin-top: 10px !important" Outlined="false" Position="Position.Right" Rounded="false" Border="false"
-                                 ApplyEffectsToContainer="false" Class="mt-8">
-                            <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Thông tin chung" /></MudNavLink>
-                            <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Tờ khai hải quan" /></MudNavLink>
-                            <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Thông tin container" /></MudNavLink>
-                            <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Tờ khai hải quan" /></MudNavLink>
+                    </MudGrid>
+
+                </MudItem>
+                <MudItem xs="2">
+                    <MudHidden Breakpoint="Breakpoint.MdAndDown" Invert="false">
+                        <MudNavMenu>
+                            <MudText Typo="Typo.h6" Class="px-4">Thông tin</MudText>
+                            <MudTabs Style="flex-direction: column !important; margin-left: 20px; margin-top: 10px !important" Outlined="false" Position="Position.Right" Rounded="false" Border="false"
+                                     ApplyEffectsToContainer="false" Class="mt-8">
+                                <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Thông tin chung" /></MudNavLink>
+                                <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Tờ khai hải quan" /></MudNavLink>
+                                <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Thông tin container" /></MudNavLink>
+                                <MudNavLink Href="/#"><MudTabPanel Style="font-size: 10px" Text="Tờ khai hải quan" /></MudNavLink>
 
 
-                        </MudTabs>
-                    </MudNavMenu>
-                </MudHidden>
+                            </MudTabs>
+                        </MudNavMenu>
+                    </MudHidden>
 
-            </MudItem>
-        </MudGrid>
-    </MudTabPanel>
+                </MudItem>
+            </MudGrid>
+        </MudTabPanel>
 
-    <MudTabPanel Text="Country">
-        <TestMudBlazor.Pages.Category.Nation.Nation />
-    </MudTabPanel>
-</MudTabs>
-
-@code {
-    bool open = false;
-    bool dense = false;
-    bool preserveOpenState = false;
-    bool Basic_CheckBox1 = false;
-    Breakpoint breakpoint = Breakpoint.Lg;
-    DrawerClipMode clipMode = DrawerClipMode.Never;
-    DateTime? date = DateTime.Today;
-    public string TextValue { get; set; }
-    private string value1;
-    private string _normalText;
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private string[] states =
-{
+        <MudTabPanel Text="Country">
+            <TestMudBlazor.Pages.Category.Nation.Nation />
+        </MudTabPanel>
+    </MudTabs>
+    </MudMainContent>
+    @code {
+        bool open = false;
+        bool dense = false;
+        bool preserveOpenState = false;
+        bool Basic_CheckBox1 = false;
+        Breakpoint breakpoint = Breakpoint.Lg;
+        DrawerClipMode clipMode = DrawerClipMode.Never;
+        DateTime? date = DateTime.Today;
+        public string TextValue { get; set; }
+        private string value1;
+        private string _normalText;
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private string[] states =
+    {
         "Alabama", "Alaska", "American Samoa", "Arizona",
         "Arkansas", "California", "Colorado", "Connecticut",
         "Delaware", "District of Columbia", "Federated States of Micronesia",
@@ -259,41 +260,41 @@
         "Washington", "West Virginia", "Wisconsin", "Wyoming",
     };
 
-    private async Task<IEnumerable<string>> Search1(string value)
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states;
+            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        void ToggleDrawer()
+        {
+            open = !open;
+        }
+
+
+        EarningReport[] earningReports = new EarningReport[]
     {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
-
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
-
-    void ToggleDrawer()
-    {
-        open = !open;
-    }
-
-
-    EarningReport[] earningReports = new EarningReport[]
-{
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science " +
             "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" +
             " Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
-};
+    };
 
-    class EarningReport
-    {
-        public string Name;
-    }
+        class EarningReport
+        {
+            public string Name;
+        }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
-    protected override async Task OnInitializedAsync()
-    {
-        Elements = earningReports;
+        private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+        private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+        protected override async Task OnInitializedAsync()
+        {
+            Elements = earningReports;
+        }
     }
-}

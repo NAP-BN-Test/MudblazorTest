@@ -12,116 +12,117 @@
             margin-top: 0px;
         }
     </style>
-    <MudGrid Style="margin-top: 10px">
-        <MudGrid>
-            <MudItem xs="12" Style="margin-top: 10px">
-                <MudText Typo="Typo.h5" GutterBottom="true">Danh sách báo giá</MudText>
-            </MudItem>
-            <MudItem xs="12">
-                <MudToolBar Class="toolbarCustom">
-                    <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
-                                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
-                                  Class="mt-0 searchcutom"></MudTextField>
-                    <MudSpacer />
-                    <MudIconButton Icon="@Icons.Material.Outlined.Archive" />
-                    <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+    <MudMainContent Class="pt-16 px-16">
+        <MudGrid Style="margin-top: 10px">
+            <MudGrid>
+                <MudItem xs="12" Style="margin-top: 10px">
+                    <MudText Typo="Typo.h5" GutterBottom="true">Danh sách báo giá</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudToolBar Class="toolbarCustom">
+                        <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                                      Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                                      Class="mt-0 searchcutom"></MudTextField>
+                        <MudSpacer />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Archive" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Print" />
 
 
-                </MudToolBar>
-            </MudItem>
+                    </MudToolBar>
+                </MudItem>
+            </MudGrid>
+
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                        <HeaderContent>
+                            <MudTh>Số báo giá</MudTh>
+                            <MudTh>Loại hình</MudTh>
+                            <MudTh>Mã khách hàng</MudTh>
+                            <MudTh>Tên khách hàng</MudTh>
+                            <MudTh>Người phụ trách</MudTh>
+                            <MudTh>Cảng bốc</MudTh>
+                            <MudTh>Cảng dỡ</MudTh>
+                            <MudTh>Trạng thái</MudTh>
+                            <MudTh>Người tạo</MudTh>
+                            <MudTh>Ghi chú</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="SoBaoGia">@context.SoBaoGia</MudTd>
+                            <MudTd DataLabel="LoaiHinh">@context.LoaiHinh</MudTd>
+                            <MudTd DataLabel="MaKhachHang">@context.MaKhachHang</MudTd>
+                            <MudTd DataLabel="TenKhachHang">@context.TenKhachHang</MudTd>
+                            <MudTd DataLabel="NguoiPhuTrach">@context.NguoiPhuTrach</MudTd>
+                            <MudTd DataLabel="CangBoc">@context.CangBoc</MudTd>
+                            <MudTd DataLabel="CangDo">@context.CangDo</MudTd>
+                            <MudTd DataLabel="TrangThai">@context.TrangThai</MudTd>
+                            <MudTd DataLabel="NguoiTao">@context.NguoiTao</MudTd>
+                            <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
+                        </RowTemplate>
+                        <RowEditingTemplate>
+                            <MudTd DataLabel="SoBaoGia">
+                                <MudTextField @bind-Value="@context.SoBaoGia" Required />
+                            </MudTd>
+                            <MudTd DataLabel="LoaiHinh">
+                                <MudAutocomplete T="string" @bind-Value="@context.LoaiHinh" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.LoaiHinh)" />
+                            </MudTd>
+                            <MudTd DataLabel="MaKhachHang">
+                                <MudTextField @bind-Value="@context.MaKhachHang" />
+                            </MudTd>
+                            <MudTd DataLabel="TenKhachHang">
+                                <MudTextField @bind-Value="@context.TenKhachHang" />
+                            </MudTd>
+                            <MudTd DataLabel="NguoiPhuTrach">
+                                <MudTextField @bind-Value="@context.NguoiPhuTrach" />
+
+                            </MudTd>
+                            <MudTd DataLabel="CangBoc">
+                                <MudAutocomplete T="string" @bind-Value="@context.CangBoc" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangBoc)" />
+                            </MudTd>
+                            <MudTd DataLabel="CangDo">
+                                <MudAutocomplete T="string" @bind-Value="@context.CangDo" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangDo)" />
+                            </MudTd>
+                            <MudTd DataLabel="TrangThai">
+                                <MudAutocomplete T="string" @bind-Value="@context.TrangThai" SearchFunc="@Search2"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.TrangThai)" />
+                            </MudTd>
+                            <MudTd DataLabel="NguoiTao">
+                                <MudTextField @bind-Value="@context.NguoiTao" />
+                            </MudTd>
+                            <MudTd DataLabel="GhiChu">
+                                <MudTextField @bind-Value="@context.GhiChu" />
+                            </MudTd>
+                        </RowEditingTemplate>
+                        <PagerContent>
+                            <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                        </PagerContent>
+
+                    </MudTable>
+                    <div class="d-flex flex-wrap mt-4">
+                        <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
+                        @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
+                        <MudSpacer />
+
+                    </div>
+                </MudItem>
+            </MudGrid>
         </MudGrid>
 
-        <MudGrid>
-            <MudItem xs="12">
-                <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
-                    <HeaderContent>
-                        <MudTh>Số báo giá</MudTh>
-                        <MudTh>Loại hình</MudTh>
-                        <MudTh>Mã khách hàng</MudTh>
-                        <MudTh>Tên khách hàng</MudTh>
-                        <MudTh>Người phụ trách</MudTh>
-                        <MudTh>Cảng bốc</MudTh>
-                        <MudTh>Cảng dỡ</MudTh>
-                        <MudTh>Trạng thái</MudTh>
-                        <MudTh>Người tạo</MudTh>
-                        <MudTh>Ghi chú</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="SoBaoGia">@context.SoBaoGia</MudTd>
-                        <MudTd DataLabel="LoaiHinh">@context.LoaiHinh</MudTd>
-                        <MudTd DataLabel="MaKhachHang">@context.MaKhachHang</MudTd>
-                        <MudTd DataLabel="TenKhachHang">@context.TenKhachHang</MudTd>
-                        <MudTd DataLabel="NguoiPhuTrach">@context.NguoiPhuTrach</MudTd>
-                        <MudTd DataLabel="CangBoc">@context.CangBoc</MudTd>
-                        <MudTd DataLabel="CangDo">@context.CangDo</MudTd>
-                        <MudTd DataLabel="TrangThai">@context.TrangThai</MudTd>
-                        <MudTd DataLabel="NguoiTao">@context.NguoiTao</MudTd>
-                        <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
-                    </RowTemplate>
-                    <RowEditingTemplate>
-                        <MudTd DataLabel="SoBaoGia">
-                            <MudTextField @bind-Value="@context.SoBaoGia" Required />
-                        </MudTd>
-                        <MudTd DataLabel="LoaiHinh">
-                            <MudAutocomplete T="string" @bind-Value="@context.LoaiHinh" SearchFunc="@Search1"
-                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.LoaiHinh)" />
-                        </MudTd>
-                        <MudTd DataLabel="MaKhachHang">
-                            <MudTextField @bind-Value="@context.MaKhachHang" />
-                        </MudTd>
-                        <MudTd DataLabel="TenKhachHang">
-                            <MudTextField @bind-Value="@context.TenKhachHang" />
-                        </MudTd>
-                        <MudTd DataLabel="NguoiPhuTrach">
-                            <MudTextField @bind-Value="@context.NguoiPhuTrach" />
+        </MudMainContent>
+        @code {
+            private bool dense1 = false;
+            private string searchString;
+            private bool hover = true;
 
-                        </MudTd>
-                        <MudTd DataLabel="CangBoc">
-                            <MudAutocomplete T="string" @bind-Value="@context.CangBoc" SearchFunc="@Search1"
-                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangBoc)" />
-                        </MudTd>
-                        <MudTd DataLabel="CangDo">
-                            <MudAutocomplete T="string" @bind-Value="@context.CangDo" SearchFunc="@Search1"
-                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.CangDo)" />
-                        </MudTd>
-                        <MudTd DataLabel="TrangThai">
-                            <MudAutocomplete T="string" @bind-Value="@context.TrangThai" SearchFunc="@Search2"
-                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @context.TrangThai)" />
-                        </MudTd>
-                        <MudTd DataLabel="NguoiTao">
-                            <MudTextField @bind-Value="@context.NguoiTao" />
-                        </MudTd>
-                        <MudTd DataLabel="GhiChu">
-                            <MudTextField @bind-Value="@context.GhiChu" />
-                        </MudTd>
-                    </RowEditingTemplate>
-                    <PagerContent>
-                        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
-                    </PagerContent>
-
-                </MudTable>
-                <div class="d-flex flex-wrap mt-4">
-                    <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
-                    @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
-                    <MudSpacer />
-
-                </div>
-            </MudItem>
-        </MudGrid>
-    </MudGrid>
-
-
-    @code {
-        private bool dense1 = false;
-        private string searchString;
-        private bool hover = true;
-
-        Quatation[] quatation = new Quatation[]
-        {
+            Quatation[] quatation = new Quatation[]
+            {
             new Quatation { SoBaoGia = "HP-DN", LoaiHinh = "SEA", MaKhachHang = "ThuyKhue" , TenKhachHang = "Công ty Cổ phần Giầy Thụy Khuê", NguoiPhuTrach = "Tâm" ,CangBoc="Cảng Hải Phòng", CangDo = "Cảng Đà Nẵng" , TrangThai = "Hoạt Động", NguoiTao = "Long" ,GhiChu=""},
             new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="Sân bay Nôi Bài", CangDo = "Sân bay Tân Sơn Nhất" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
             new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="Cảng Hải Phòng", CangDo = "TOKYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
@@ -129,61 +130,61 @@
 
 
 
-        class Quatation
+            class Quatation
+            {
+                public string SoBaoGia;
+                public string LoaiHinh;
+                public string MaKhachHang;
+                public string TenKhachHang;
+                public string NguoiPhuTrach;
+                public string CangBoc;
+                public string CangDo;
+                public string TrangThai;
+                public string NguoiTao;
+                public string GhiChu;
+            }
+
+            private HashSet<Quatation> selectedItems1 = new HashSet<Quatation>();
+            private IEnumerable<Quatation> Elements = new List<Quatation>();
+            protected override async Task OnInitializedAsync()
+            {
+                Elements = quatation;
+            }
+
+            private bool resetValueOnEmptyText;
+            private bool coerceText;
+            private bool coerceValue;
+            private string value1, value2;
+
+            private string[] states =
         {
-            public string SoBaoGia;
-            public string LoaiHinh;
-            public string MaKhachHang;
-            public string TenKhachHang;
-            public string NguoiPhuTrach;
-            public string CangBoc;
-            public string CangDo;
-            public string TrangThai;
-            public string NguoiTao;
-            public string GhiChu;
-        }
-
-        private HashSet<Quatation> selectedItems1 = new HashSet<Quatation>();
-        private IEnumerable<Quatation> Elements = new List<Quatation>();
-        protected override async Task OnInitializedAsync()
-        {
-            Elements = quatation;
-        }
-
-        private bool resetValueOnEmptyText;
-        private bool coerceText;
-        private bool coerceValue;
-        private string value1, value2;
-
-        private string[] states =
-    {
         "Hà Nội", "Bắc Ninh", "TP HCM",
     };
 
-        private string[] states2 =
-    {
+            private string[] states2 =
+        {
         "Xác nhận", "Treo", "Hủy",
     };
 
-        private async Task<IEnumerable<string>> Search1(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
+            private async Task<IEnumerable<string>> Search1(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
 
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states;
-            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states;
+                return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            private async Task<IEnumerable<string>> Search2(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
+
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states2;
+                return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
         }
-
-        private async Task<IEnumerable<string>> Search2(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
-
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states2;
-            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
-    }
