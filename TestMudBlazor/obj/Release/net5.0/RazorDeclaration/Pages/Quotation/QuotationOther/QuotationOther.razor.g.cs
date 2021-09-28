@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 397 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
+#line 312 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationOther\QuotationOther.razor"
            
         private bool dense1 = false;
         private bool dense2 = false;
@@ -265,7 +265,7 @@ using DiaLog;
             public string GhiChu;
         }
 
-        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+               DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
     {
         new DetailCuocKhac { MaPhi = "CCF", TenPhi = "Phí thủ tục hải quan",  KieuPhi = "Phí thủ tục hải quan",  TienTe="VNĐ" , GiaDonVi="1.000.000", GhiChu=""},
         new DetailCuocKhac { MaPhi = "CDC", TenPhi = "Phí Khai hải quan", KieuPhi = "Phí khai hải quan",  TienTe="USD" , GiaDonVi="2000", GhiChu=""},
@@ -279,6 +279,7 @@ using DiaLog;
         new DetailCuoc { MaHangVanChuyen = "TRANSIMEX", HangVanChuyen = "Công ty CP transimex", CangBoc = "Sân bay nội bài",  TienTe="USD" , CangDo="Sân bay Tân Sơn Nhất", GhiChu="",  GiaDonVi="200", TenPhi="Phí khai hải quan",MaPhi="CDC", },
         new DetailCuoc { MaHangVanChuyen = "SOTRANS", HangVanChuyen = "Công ty Cổ phần kho vận Miền Nam", CangBoc = "Cảng Chân Mây",  TienTe="VNĐ"  , CangDo="Cảng Hải Phòng", GhiChu="", GiaDonVi="1.000.000", TenPhi="Phí dịch vụ làm hàng",MaPhi="HD", },
                            };
+
 
 
 

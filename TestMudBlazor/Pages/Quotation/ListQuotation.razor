@@ -34,7 +34,7 @@
 
             <MudGrid>
                 <MudItem xs="12">
-                    <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" 
+                    <MudTable Items="@Elements" Style="white-space: nowrap" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" 
                               >
                         <HeaderContent>
                             <MudTh>Số báo giá</MudTh>
@@ -53,11 +53,11 @@
                             <MudTd DataLabel="LoaiHinh">@context.LoaiHinh</MudTd>
                             <MudTd DataLabel="MaKhachHang">@context.MaKhachHang</MudTd>
                             <MudTd DataLabel="TenKhachHang">@context.TenKhachHang</MudTd>
-                            <MudTd DataLabel="NguoiPhuTrach">@context.NguoiPhuTrach</MudTd>
+                            <MudTd DataLabel="NguoiPhuTrach" Style="text-align: center">@context.NguoiPhuTrach</MudTd>
                             <MudTd DataLabel="CangBoc">@context.CangBoc</MudTd>
                             <MudTd DataLabel="CangDo">@context.CangDo</MudTd>
                             <MudTd DataLabel="TrangThai">@context.TrangThai</MudTd>
-                            <MudTd DataLabel="NguoiTao">@context.NguoiTao</MudTd>
+                            <MudTd DataLabel="NguoiTao" Style="text-align: center">@context.NguoiTao</MudTd>
                             <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                         </RowTemplate>
                         @*<RowEditingTemplate>
@@ -128,6 +128,7 @@
             new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="Sân bay Nôi Bài", CangDo = "Sân bay Tân Sơn Nhất" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
             new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="Cảng Hải Phòng", CangDo = "TOKYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
                 };
+
 
 
 

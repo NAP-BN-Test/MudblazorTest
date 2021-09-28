@@ -112,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 119 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\ListQuotation.razor"
+#line 120 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\ListQuotation.razor"
                
             private bool dense1 = false;
             private string searchString;
@@ -124,6 +124,7 @@ using System.Net.Http.Json;
             new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="Sân bay Nôi Bài", CangDo = "Sân bay Tân Sơn Nhất" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
             new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="Cảng Hải Phòng", CangDo = "TOKYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
                 };
+
 
 
 

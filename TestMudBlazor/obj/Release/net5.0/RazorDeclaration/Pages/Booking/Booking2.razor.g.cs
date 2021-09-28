@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 335 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 337 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();

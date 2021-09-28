@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 433 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR2.razor"
+#line 346 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationAIR\QuotationAIR2.razor"
            
 
         private bool dense1 = false;
@@ -273,7 +273,7 @@ using DiaLog;
 
 
 
-        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+                DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
     {
         new DetailCuocKhac { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  LoaiCuoc = "Cước chính",  TienTe="VNĐ" , Cuoc="AC", GhiChu="", TenCuoc="Cước vận chuyển hàng không", GiaDonVi="1.000.000", DonVi="KGS"},
         new DetailCuocKhac { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", LoaiCuoc = "Phi làm Bill",  TienTe="USD" , Cuoc="AWB", GhiChu="", TenCuoc="Phí làm bill", GiaDonVi="300", DonVi="KGS"},
@@ -287,6 +287,8 @@ using DiaLog;
         new DetailCuoc { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", CangBoc = "Sân bay Liên Khương",  TienTe="USD" , CangDo="Sân bay Nội Bài",Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="",  PhuPhi="Phụ phí an ninh", },
         new DetailCuoc { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", CangBoc = "Sân bay Vinh",  TienTe="VNĐ"  , CangDo="Sân bay Cát Bi Hải Phòng", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí soi chiếu", },
                    };
+
+
 
 
 

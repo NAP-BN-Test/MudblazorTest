@@ -27,7 +27,7 @@
                     <DataAnnotationsValidator />
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudText Style="line-height: 60px" Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">AIR</MudText>
+                            <MudText Style="line-height: 60px" Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Báo giá khác</MudText>
                         </MudItem>
                         <MudItem xs="6">
                             <MudToolBar Class="toolBar">
@@ -168,7 +168,7 @@
             <MudItem xs="12">
                 <MudTable Items="@Elements3" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                     <HeaderContent>
-                        <MudTh>Mã hãng vận chuyển</MudTh>
+                        <MudTh>Mã hãng VC</MudTh>
                         <MudTh>Hãng vận chuyển</MudTh>
                         <MudTh>Cảng bốc</MudTh>
                         <MudTh>Cảng dỡ</MudTh>
@@ -183,10 +183,10 @@
                         <MudTd DataLabel="HangVanChuyen">@context.HangVanChuyen</MudTd>
                         <MudTd DataLabel="CangBoc">@context.CangBoc</MudTd>
                         <MudTd DataLabel="CangDo">@context.CangDo</MudTd>
-                        <MudTd DataLabel="TienTe">@context.TienTe</MudTd>
-                        <MudTd DataLabel="MaPhi">@context.MaPhi</MudTd>
+                        <MudTd DataLabel="TienTe" Style="text-align: center">@context.TienTe</MudTd>
+                        <MudTd DataLabel="MaPhi" Style="text-align: center">@context.MaPhi</MudTd>
                         <MudTd DataLabel="TenPhi">@context.TenPhi</MudTd>
-                        <MudTd DataLabel="GiaDonVi">@context.GiaDonVi</MudTd>
+                        <MudTd DataLabel="GiaDonVi" Style="text-align: right">@context.GiaDonVi</MudTd>
                         <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                     </RowTemplate>
                     <RowEditingTemplate>
@@ -257,8 +257,8 @@
                         <MudTd DataLabel="MaPhi">@context.MaPhi</MudTd>
                         <MudTd DataLabel="TenPhi">@context.TenPhi</MudTd>
                         <MudTd DataLabel="KieuPhi">@context.KieuPhi</MudTd>
-                        <MudTd DataLabel="TienTe">@context.TienTe</MudTd>
-                        <MudTd DataLabel="GiaDonVi">@context.GiaDonVi</MudTd>
+                        <MudTd DataLabel="TienTe" Style="text-align: center">@context.TienTe</MudTd>
+                        <MudTd DataLabel="GiaDonVi" Style="text-align: right">@context.GiaDonVi</MudTd>
                         <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                     </RowTemplate>
                     <RowEditingTemplate>
@@ -440,7 +440,7 @@
             public string GhiChu;
         }
 
-        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+               DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
     {
         new DetailCuocKhac { MaPhi = "CCF", TenPhi = "Phí thủ tục hải quan",  KieuPhi = "Phí thủ tục hải quan",  TienTe="VNĐ" , GiaDonVi="1.000.000", GhiChu=""},
         new DetailCuocKhac { MaPhi = "CDC", TenPhi = "Phí Khai hải quan", KieuPhi = "Phí khai hải quan",  TienTe="USD" , GiaDonVi="2000", GhiChu=""},
@@ -454,6 +454,7 @@
         new DetailCuoc { MaHangVanChuyen = "TRANSIMEX", HangVanChuyen = "Công ty CP transimex", CangBoc = "Sân bay nội bài",  TienTe="USD" , CangDo="Sân bay Tân Sơn Nhất", GhiChu="",  GiaDonVi="200", TenPhi="Phí khai hải quan",MaPhi="CDC", },
         new DetailCuoc { MaHangVanChuyen = "SOTRANS", HangVanChuyen = "Công ty Cổ phần kho vận Miền Nam", CangBoc = "Cảng Chân Mây",  TienTe="VNĐ"  , CangDo="Cảng Hải Phòng", GhiChu="", GiaDonVi="1.000.000", TenPhi="Phí dịch vụ làm hàng",MaPhi="HD", },
                            };
+
 
 
 

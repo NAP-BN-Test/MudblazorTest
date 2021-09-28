@@ -167,7 +167,7 @@
             <MudItem xs="12">
                 <MudTable Items="@Elements3" Style="white-space: nowrap" Context="tableRowContext1" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems3" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                     <HeaderContent>
-                        <MudTh>Mã hãng vận chuyển</MudTh>
+                        <MudTh>Mã hãng VC</MudTh>
                         <MudTh>Hãng vận chuyển</MudTh>
                         <MudTh>Cảng bốc</MudTh>
                         <MudTh>Cảng dỡ</MudTh>
@@ -186,7 +186,7 @@
                         <MudTd DataLabel="HangVanChuyen">@tableRowContext1.HangVanChuyen</MudTd>
                         <MudTd DataLabel="CangBoc">@tableRowContext1.CangBoc</MudTd>
                         <MudTd DataLabel="CangDo">@tableRowContext1.CangDo</MudTd>
-                        <MudTd DataLabel="TienTe">@tableRowContext1.TienTe</MudTd>
+                        <MudTd DataLabel="TienTe" Style="text-align: center">@tableRowContext1.TienTe</MudTd>
                         <MudTd DataLabel="Min">@tableRowContext1.Min</MudTd>
                         <MudTd DataLabel="Am45">@tableRowContext1.Am45</MudTd>
                         <MudTd DataLabel="Duong45">@tableRowContext1.Duong45</MudTd>
@@ -266,7 +266,7 @@
             <MudItem xs="12">
                 <MudTable Items="@Elements2" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
                     <HeaderContent>
-                        <MudTh>Mã hãng vận chuyển</MudTh>
+                        <MudTh>Mã hãng VC</MudTh>
                         <MudTh>Hãng vận chuyển</MudTh>
                         <MudTh>Loại cước</MudTh>
                         <MudTh>Cước</MudTh>
@@ -279,12 +279,12 @@
                     <RowTemplate>
                         <MudTd DataLabel="MaHangVanChuyen">@tableRowContext2.MaHangVanChuyen</MudTd>
                         <MudTd DataLabel="HangVanChuyen">@tableRowContext2.HangVanChuyen</MudTd>
-                        <MudTd DataLabel="LoaiCuoc">@tableRowContext2.LoaiCuoc</MudTd>
-                        <MudTd DataLabel="Cuoc">@tableRowContext2.Cuoc</MudTd>
+                        <MudTd DataLabel="LoaiCuoc" Style="text-align: center">@tableRowContext2.LoaiCuoc</MudTd>
+                        <MudTd DataLabel="Cuoc" Style="text-align: center">@tableRowContext2.Cuoc</MudTd>
                         <MudTd DataLabel="TenCuoc">@tableRowContext2.TenCuoc</MudTd>
-                        <MudTd DataLabel="TienTe">@tableRowContext2.TienTe</MudTd>
-                        <MudTd DataLabel="GiaDonVi">@tableRowContext2.GiaDonVi</MudTd>
-                        <MudTd DataLabel="DonVi">@tableRowContext2.DonVi</MudTd>
+                        <MudTd DataLabel="TienTe" Style="text-align: center">@tableRowContext2.TienTe</MudTd>
+                        <MudTd DataLabel="GiaDonVi" Style="text-align: right">@tableRowContext2.GiaDonVi</MudTd>
+                        <MudTd DataLabel="DonVi" Style="text-align: center">@tableRowContext2.DonVi</MudTd>
                         <MudTd DataLabel="GhiChu">@tableRowContext2.GhiChu</MudTd>
                     </RowTemplate>
                     <RowEditingTemplate>
@@ -482,7 +482,7 @@
 
 
 
-        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+                DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
     {
         new DetailCuocKhac { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  LoaiCuoc = "Cước chính",  TienTe="VNĐ" , Cuoc="AC", GhiChu="", TenCuoc="Cước vận chuyển hàng không", GiaDonVi="1.000.000", DonVi="KGS"},
         new DetailCuocKhac { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", LoaiCuoc = "Phi làm Bill",  TienTe="USD" , Cuoc="AWB", GhiChu="", TenCuoc="Phí làm bill", GiaDonVi="300", DonVi="KGS"},
@@ -496,6 +496,8 @@
         new DetailCuoc { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", CangBoc = "Sân bay Liên Khương",  TienTe="USD" , CangDo="Sân bay Nội Bài",Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="",  PhuPhi="Phụ phí an ninh", },
         new DetailCuoc { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", CangBoc = "Sân bay Vinh",  TienTe="VNĐ"  , CangDo="Sân bay Cát Bi Hải Phòng", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí soi chiếu", },
                    };
+
+
 
 
 

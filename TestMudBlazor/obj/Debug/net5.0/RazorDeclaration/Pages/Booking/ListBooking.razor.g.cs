@@ -155,21 +155,21 @@ using System.Net.Http.Json;
         }
 
         Booking[] bookings = new Booking[]
-    {
-            new Booking { Service = "SEA", OrderNo = "", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-001" ,BookingNo="B01", Customer = "Công ty cổ phần Hà Thăng" , Vessel = "Maersk Discovery", VOY = "001" ,Consignee="SEIKO",
+{
+            new Booking { Service = "SEA", OrderNo = "Or-240921", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-001" ,BookingNo="SGN0794274", Customer = "Công ty cổ phần Hà Thăng" , Vessel = "Maersk Discovery", VOY = "001" ,Consignee="SEIKO",
             ConsigneeName = "Công ty TNHH SEIKO VN", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "ABOU" ,CarrierName="ABOX SA", POL = "SH" , POLName = "SHANGHAI", POD = "CATLAI" ,PODName="CẢNG CÁT LÁI",
-            ClosingDate = "", CntrType = "40 D’C", CntrQty = "1" , SalesCode = "Tamtt", SalesName = "Trần Thanh Tâm" , Incoterms = "CIF" ,LoadType="FCL",
-            SVCTerm = "CY/CY", Package = "BOX", Unit = "kgs" , WeightOP = "6500", Status = "Active"},
-            new Booking { Service = "SEA", OrderNo = "", HouseNo = "LNBCLI201697" , MasterNo = "SITGNBCL113569B", JobNo = "NAP21-002" ,BookingNo="B02", Customer = "Công ty TNHH Mai Hương" , Vessel = "AKARI", VOY = "002" ,Consignee="Haivina",
-            ConsigneeName = "Công ty TNHH Haivina", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "ADVU" ,CarrierName="ADVU INC", POL = "Ningbo" , POLName = "NINGBO, CN", POD = "HPH" ,PODName="CẢNG HẢI PHÒNG",
-            ClosingDate = "", CntrType = "20 D’C", CntrQty = "1" , SalesCode = "NamLV", SalesName = "Lê Vĩnh Nam" , Incoterms = "FOB" ,LoadType="FCL",
-            SVCTerm = "CFS-DOOR", Package = "BOX", Unit = "kgs" , WeightOP = "883.950", Status = "active"},
-            new Booking { Service = "SEA", OrderNo = "", HouseNo = "HMSO-15001162" , MasterNo = "MOLU12014991846", JobNo = "NAP21-003" ,BookingNo="B03", Customer = "Công ty cổ phần Nhựa Châu Âu" , Vessel = "BIEN DONG NAVIGATOR", VOY = "510W" ,Consignee="FIT",
-            ConsigneeName = "Công ty TNHH FIT Việt Nam", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "AGIP SPA" ,CarrierName="AGIP SPA", POL = "JPTYO" , POLName = "TOKYO-TOKYO, Japan", POD = "HPP" ,PODName="CẢNG HẢI PHÒNG",
-            ClosingDate = "", CntrType = "20D’C", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
-            SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14020", Status = "ACTIVE"},
+            ClosingDate = "", CntrType = "40", CntrQty = "1" , SalesCode = "Tamtt", SalesName = "Trần Thanh Tâm" , Incoterms = "CIF" ,LoadType="FCL",
+            SVCTerm = "CY/CY", Package = "BOX", Unit = "kgs" , WeightOP = "6.500", Status = "Hoạt động"},
+            new Booking { Service = "SEA", OrderNo = "Or-250921", HouseNo = "LNBCLI201697" , MasterNo = "SITGNBCL113569B", JobNo = "NAP21-002" ,BookingNo="855291456", Customer = "Công ty TNHH Mai Hương" , Vessel = "AKARI", VOY = "002" ,Consignee="Haivina",
+            ConsigneeName = "Công ty TNHH Haivina", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "ADVU" ,CarrierName="ADVU INC", POL = "Ningbo" , POLName = "NINGBO ", POD = "HPH" ,PODName="CẢNG HẢI PHÒNG",
+            ClosingDate = "", CntrType = "20", CntrQty = "1" , SalesCode = "NamLV", SalesName = "Lê Vĩnh Nam" , Incoterms = "FOB" ,LoadType="FCL",
+            SVCTerm = "CFS-DOOR", Package = "BOX", Unit = "kgs" , WeightOP = "883.950", Status = "Hoạt động"},
+            new Booking { Service = "SEA", OrderNo = "Or-280921", HouseNo = "HMSO-15001162" , MasterNo = "MOLU12014991846", JobNo = "NAP21-003" ,BookingNo="2601352270", Customer = "Công ty cổ phần Nhựa Châu Âu" , Vessel = "BIEN DONG NAVIGATOR", VOY = "510W" ,Consignee="FIT",
+            ConsigneeName = "Công ty TNHH FIT Việt Nam", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "AGIP SPA" ,CarrierName="AGIP SPA", POL = "JPTYO" , POLName = "TOKYO ", POD = "HPH" ,PODName="CẢNG HẢI PHÒNG",
+            ClosingDate = "", CntrType = "20", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
+            SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14.020", Status = "Hoạt động"},
+        };
 
-            };
 
 
 

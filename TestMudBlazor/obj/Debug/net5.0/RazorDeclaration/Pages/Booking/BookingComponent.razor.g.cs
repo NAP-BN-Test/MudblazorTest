@@ -133,141 +133,141 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 358 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
-           
+#line 359 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\BookingComponent.razor"
+               
 
-        Booking model = new Booking();
-        GhiChuBaoGia model1 = new GhiChuBaoGia();
-        public class GhiChuBaoGia
+            Booking model = new Booking();
+            GhiChuBaoGia model1 = new GhiChuBaoGia();
+            public class GhiChuBaoGia
+            {
+                public string GhiChu { get; set; }
+                public string LienHe { get; set; }
+            }
+            public class Booking
+            {
+                public string LoadType { get; set; }
+                public string FreightTerms { get; set; }
+                public string ServiceTerms { get; set; }
+                public string IncoTerms { get; set; }
+                public DateTime? CargoClose { get; set; }
+                public DateTime? WMGClose { get; set; }
+                public DateTime? SIClose { get; set; }
+                public string Sale { get; set; }
+                public string Operator { get; set; }
+                public string User { get; set; }
+                public DateTime? Date { get; set; }
+                public string Remark { get; set; }
+
+                public string HouseNo { get; set; }
+                public string MasterNo { get; set; }
+                public string Service { get; set; }
+                public string POR { get; set; }
+                public string Carrier { get; set; }
+                public string Customer { get; set; }
+                public string Vessel { get; set; }
+                public string VOY { get; set; }
+                public string VIA { get; set; }
+                public string PICTel1 { get; set; }
+                public string FinalDest { get; set; }
+                public string ETD { get; set; }
+                public string Shipper { get; set; }
+                public string Warehose { get; set; }
+                public DateTime? ETA { get; set; }
+                public string PICTel2 { get; set; }
+                public string Delivery { get; set; }
+                public string POL { get; set; }
+                public string Consignee { get; set; }
+                public string StuffingPlace { get; set; }
+                public string POD { get; set; }
+                public string Partner { get; set; }
+                public string NWeight { get; set; }
+                public string Package { get; set; }
+                public string Qty { get; set; }
+                public string Item { get; set; }
+            }
+
+            bool success;
+            string[] errors = { };
+            private void OnValidSubmit(EditContext context)
+            {
+                //detailQuatationSea1.Add(new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK", TienTe = "VNĐ", DonGia = "1000/MIN(KG); 22.500/+45(KG)", GhiChu = "" });
+            }
+
+            private void OnValidSubmit1(EditContext context)
+            {
+            }
+            protected override async Task OnInitializedAsync()
+            {
+                Elements2 = detailContainerlists;
+            }
+
+            private void OpenDetailQuotation()
+            {
+                DialogService.Show<DialogDetailQuotationAir>("Simple Dialog");
+            }
+
+
+            private bool resetValueOnEmptyText;
+            private bool coerceText;
+            private bool coerceValue;
+            private string value1, value2;
+            private bool hover = true;
+            public string searchString { get; set; }
+
+            private string[] states =
         {
-            public string GhiChu { get; set; }
-            public string LienHe { get; set; }
-        }
-        public class Booking
-        {
-            public string LoadType { get; set; }
-            public string FreightTerms { get; set; }
-            public string ServiceTerms { get; set; }
-            public string IncoTerms { get; set; }
-            public DateTime? CargoClose { get; set; }
-            public DateTime? WMGClose { get; set; }
-            public DateTime? SIClose { get; set; }
-            public string Sale { get; set; }
-            public string Operator { get; set; }
-            public string User { get; set; }
-            public DateTime? Date { get; set; }
-            public string Remark { get; set; }
-
-            public string HouseNo { get; set; }
-            public string MasterNo { get; set; }
-            public string Service { get; set; }
-            public string POR { get; set; }
-            public string Carrier { get; set; }
-            public string Customer { get; set; }
-            public string Vessel { get; set; }
-            public string VOY { get; set; }
-            public string VIA { get; set; }
-            public string PICTel1 { get; set; }
-            public string FinalDest { get; set; }
-            public string ETD { get; set; }
-            public string Shipper { get; set; }
-            public string Warehose { get; set; }
-            public DateTime? ETA { get; set; }
-            public string PICTel2 { get; set; }
-            public string Delivery { get; set; }
-            public string POL { get; set; }
-            public string Consignee { get; set; }
-            public string StuffingPlace { get; set; }
-            public string POD { get; set; }
-            public string Partner { get; set; }
-            public string NWeight { get; set; }
-            public string Package { get; set; }
-            public string Qty { get; set; }
-            public string Item { get; set; }
-        }
-
-        bool success;
-        string[] errors = { };
-        private void OnValidSubmit(EditContext context)
-        {
-            //detailQuatationSea1.Add(new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK", TienTe = "VNĐ", DonGia = "1000/MIN(KG); 22.500/+45(KG)", GhiChu = "" });
-        }
-
-        private void OnValidSubmit1(EditContext context)
-        {
-        }
-        protected override async Task OnInitializedAsync()
-        {
-            Elements2 = detailContainerlists;
-        }
-
-        private void OpenDetailQuotation()
-        {
-            DialogService.Show<DialogDetailQuotationAir>("Simple Dialog");
-        }
-
-
-        private bool resetValueOnEmptyText;
-        private bool coerceText;
-        private bool coerceValue;
-        private string value1, value2;
-        private bool hover = true;
-        public string searchString { get; set; }
-
-        private string[] states =
-    {
         "Alabama", "Alaska", "American Samoa", "Arizona",
         "Arkansas", "California", "Colorado", "Connecticut",
         "Delaware", "District of Columbia", "Federated States of Micronesia",
         "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
     };
 
-        private string[] states2 =
-        {
+            private string[] states2 =
+            {
         "Xác nhận", "Treo", "Hủy",
     };
 
-        private async Task<IEnumerable<string>> Search1(string value)
+            private async Task<IEnumerable<string>> Search1(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
+
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states;
+                return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            private async Task<IEnumerable<string>> Search2(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
+
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states2;
+                return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            class DetailContainerlist
+            {
+                public string Cntr;
+                public string Qty;
+            }
+
+            DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
         {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
-
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states;
-            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
-
-        private async Task<IEnumerable<string>> Search2(string value)
-        {
-            // In real life use an asynchronous function for fetching data from an api.
-            await Task.Delay(5);
-
-            // if text is null or empty, show complete list
-            if (string.IsNullOrEmpty(value))
-                return states2;
-            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-        }
-
-        class DetailContainerlist
-        {
-            public string Cntr;
-            public string Qty;
-        }
-
-        DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
-    {
         new DetailContainerlist { Cntr = "OF", Qty = "1", },
         new DetailContainerlist { Cntr = "OF", Qty = "2", },
                                 };
 
 
-        private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
-        private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
+            private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
+            private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
 
 
 
-    
+        
 
 #line default
 #line hidden
