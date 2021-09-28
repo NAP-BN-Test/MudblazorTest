@@ -12,156 +12,157 @@
         margin-top: 0px;
     }
 </style>
-<MudGrid Style="margin-top: 10px; ">
-    <MudGrid>
-        <MudItem xs="12" Style="margin-top: 10px">
-            <MudText Typo="Typo.h5" GutterBottom="true">Danh sách Booking</MudText>
-        </MudItem>
-        <MudItem xs="12">
-            <MudToolBar Class="toolbarCustom">
-                <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
-                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
-                              Class="mt-0 searchcutom"></MudTextField>
-                <MudSpacer />
-                <MudIconButton Icon="@Icons.Material.Outlined.Archive" />
-                <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+<MudMainContent Class="pt-16 px-16">
+    <MudGrid Style="margin-top: 10px; ">
+        <MudGrid>
+            <MudItem xs="12" Style="margin-top: 10px">
+                <MudText Typo="Typo.h5" GutterBottom="true">Danh sách Booking</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudToolBar Class="toolbarCustom">
+                    <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                                  Class="mt-0 searchcutom"></MudTextField>
+                    <MudSpacer />
+                    <MudIconButton Icon="@Icons.Material.Outlined.Archive" />
+                    <MudIconButton Icon="@Icons.Material.Outlined.Print" />
 
 
-            </MudToolBar>
-        </MudItem>
+                </MudToolBar>
+            </MudItem>
+        </MudGrid>
+
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTable Items="@Elements" FixedHeader="true" Style="white-space: nowrap" Dense="@dense1" Breakpoint="Breakpoint.Sm" HorizontalScrollbar="true" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                    <HeaderContent>
+                        <MudTh>Service</MudTh>
+                        <MudTh>Order No</MudTh>
+                        <MudTh>House No</MudTh>
+                        <MudTh>Master No</MudTh>
+                        <MudTh>Job No</MudTh>
+                        <MudTh>Booking No</MudTh>
+                        <MudTh>Customer</MudTh>
+                        <MudTh>Vessel</MudTh>
+                        <MudTh>VOY</MudTh>
+                        <MudTh>Consignee </MudTh>
+                        <MudTh>Consignee Name</MudTh>
+                        <MudTh>Door Date</MudTh>
+                        <MudTh>ETD</MudTh>
+                        <MudTh>ETA</MudTh>
+                        <MudTh>Carrier</MudTh>
+                        <MudTh>Carrier Name</MudTh>
+                        <MudTh>POL</MudTh>
+                        <MudTh>POL Name</MudTh>
+                        <MudTh>POD</MudTh>
+                        <MudTh>POD Name</MudTh>
+                        <MudTh>Closing Date</MudTh>
+                        <MudTh>Cntr Type</MudTh>
+                        <MudTh>Cntr Qty</MudTh>
+                        <MudTh>Sales Code</MudTh>
+                        <MudTh>Sales Name</MudTh>
+                        <MudTh>Incoterms</MudTh>
+                        <MudTh>Load Type</MudTh>
+                        <MudTh>SVC Term</MudTh>
+                        <MudTh>Package</MudTh>
+                        <MudTh>Unit</MudTh>
+                        <MudTh>Weight OP</MudTh>
+                        <MudTh>Status</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Service">@context.Service</MudTd>
+                        <MudTd DataLabel="OrderNo">@context.OrderNo</MudTd>
+                        <MudTd DataLabel="HouseNo">@context.HouseNo</MudTd>
+                        <MudTd DataLabel="MasterNo">@context.MasterNo</MudTd>
+                        <MudTd DataLabel="JobNo">@context.JobNo</MudTd>
+                        <MudTd DataLabel="BookingNo">@context.BookingNo</MudTd>
+                        <MudTd DataLabel="Customer">@context.Customer</MudTd>
+                        <MudTd DataLabel="Vessel">@context.Vessel</MudTd>
+                        <MudTd DataLabel="VOY">@context.VOY</MudTd>
+                        <MudTd DataLabel="Consignee">@context.Consignee</MudTd>
+                        <MudTd DataLabel="ConsigneeName">@context.ConsigneeName</MudTd>
+                        <MudTd DataLabel="DoorDate">@context.DoorDate</MudTd>
+                        <MudTd DataLabel="ETD">@context.ETD</MudTd>
+                        <MudTd DataLabel="ETA">@context.ETA</MudTd>
+                        <MudTd DataLabel="Carrier">@context.Carrier</MudTd>
+                        <MudTd DataLabel="CarrierName">@context.CarrierName</MudTd>
+                        <MudTd DataLabel="POL">@context.POL</MudTd>
+                        <MudTd DataLabel="POLName">@context.POLName</MudTd>
+                        <MudTd DataLabel="POD">@context.POD</MudTd>
+                        <MudTd DataLabel="PODName">@context.PODName</MudTd>
+                        <MudTd DataLabel="ClosingDate">@context.ClosingDate</MudTd>
+                        <MudTd DataLabel="CntrType">@context.CntrType</MudTd>
+                        <MudTd DataLabel="CntrQty">@context.CntrQty</MudTd>
+                        <MudTd DataLabel="SalesCode">@context.SalesCode</MudTd>
+                        <MudTd DataLabel="SalesName">@context.SalesName</MudTd>
+                        <MudTd DataLabel="Incoterms">@context.Incoterms</MudTd>
+                        <MudTd DataLabel="LoadType">@context.LoadType</MudTd>
+                        <MudTd DataLabel="SVCTerm">@context.SVCTerm</MudTd>
+                        <MudTd DataLabel="Package">@context.Package</MudTd>
+                        <MudTd DataLabel="Unit">@context.Unit</MudTd>
+                        <MudTd DataLabel="WeightOP">@context.WeightOP</MudTd>
+                        <MudTd DataLabel="Status">@context.Status</MudTd>
+
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                    </PagerContent>
+
+                </MudTable>
+                <div class="d-flex flex-wrap mt-4">
+                    <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
+                    @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
+                    <MudSpacer />
+
+                </div>
+            </MudItem>
+        </MudGrid>
     </MudGrid>
+</MudMainContent>
 
-    <MudGrid >
-        <MudItem xs="12">
-            <MudTable Items="@Elements" FixedHeader="true" Style="white-space: nowrap" Dense="@dense1" Breakpoint="Breakpoint.Sm" HorizontalScrollbar="true" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
-                <HeaderContent >
-                    <MudTh >Service</MudTh>
-                    <MudTh >Order No</MudTh>
-                    <MudTh>House No</MudTh>
-                    <MudTh>Master No</MudTh>
-                    <MudTh>Job No</MudTh>
-                    <MudTh>Booking No</MudTh>
-                    <MudTh>Customer</MudTh>
-                    <MudTh>Vessel</MudTh>
-                    <MudTh>VOY</MudTh>
-                    <MudTh>Consignee </MudTh>
-                    <MudTh>Consignee Name</MudTh>
-                    <MudTh>Door Date</MudTh>
-                    <MudTh>ETD</MudTh>
-                    <MudTh>ETA</MudTh>
-                    <MudTh>Carrier</MudTh>
-                    <MudTh>Carrier Name</MudTh>
-                    <MudTh>POL</MudTh>
-                    <MudTh>POL Name</MudTh>
-                    <MudTh>POD</MudTh>
-                    <MudTh>POD Name</MudTh>
-                    <MudTh>Closing Date</MudTh>
-                    <MudTh>Cntr Type</MudTh>
-                    <MudTh>Cntr Qty</MudTh>
-                    <MudTh>Sales Code</MudTh>
-                    <MudTh>Sales Name</MudTh>
-                    <MudTh>Incoterms</MudTh>
-                    <MudTh>Load Type</MudTh>
-                    <MudTh>SVC Term</MudTh>
-                    <MudTh>Package</MudTh>
-                    <MudTh>Unit</MudTh>
-                    <MudTh>Weight OP</MudTh>
-                    <MudTh>Status</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd DataLabel="Service" >@context.Service</MudTd>
-                    <MudTd DataLabel="OrderNo" >@context.OrderNo</MudTd>
-                    <MudTd DataLabel="HouseNo">@context.HouseNo</MudTd>
-                    <MudTd DataLabel="MasterNo">@context.MasterNo</MudTd>
-                    <MudTd DataLabel="JobNo">@context.JobNo</MudTd>
-                    <MudTd DataLabel="BookingNo">@context.BookingNo</MudTd>
-                    <MudTd DataLabel="Customer">@context.Customer</MudTd>
-                    <MudTd DataLabel="Vessel">@context.Vessel</MudTd>
-                    <MudTd DataLabel="VOY">@context.VOY</MudTd>
-                    <MudTd DataLabel="Consignee">@context.Consignee</MudTd>
-                    <MudTd DataLabel="ConsigneeName">@context.ConsigneeName</MudTd>
-                    <MudTd DataLabel="DoorDate">@context.DoorDate</MudTd>
-                    <MudTd DataLabel="ETD">@context.ETD</MudTd>
-                    <MudTd DataLabel="ETA">@context.ETA</MudTd>
-                    <MudTd DataLabel="Carrier">@context.Carrier</MudTd>
-                    <MudTd DataLabel="CarrierName">@context.CarrierName</MudTd>
-                    <MudTd DataLabel="POL">@context.POL</MudTd>
-                    <MudTd DataLabel="POLName">@context.POLName</MudTd>
-                    <MudTd DataLabel="POD">@context.POD</MudTd>
-                    <MudTd DataLabel="PODName">@context.PODName</MudTd>
-                    <MudTd DataLabel="ClosingDate">@context.ClosingDate</MudTd>
-                    <MudTd DataLabel="CntrType">@context.CntrType</MudTd>
-                    <MudTd DataLabel="CntrQty">@context.CntrQty</MudTd>
-                    <MudTd DataLabel="SalesCode">@context.SalesCode</MudTd>
-                    <MudTd DataLabel="SalesName">@context.SalesName</MudTd>
-                    <MudTd DataLabel="Incoterms">@context.Incoterms</MudTd>
-                    <MudTd DataLabel="LoadType">@context.LoadType</MudTd>
-                    <MudTd DataLabel="SVCTerm">@context.SVCTerm</MudTd>
-                    <MudTd DataLabel="Package">@context.Package</MudTd>
-                    <MudTd DataLabel="Unit">@context.Unit</MudTd>
-                    <MudTd DataLabel="WeightOP">@context.WeightOP</MudTd>
-                    <MudTd DataLabel="Status">@context.Status</MudTd>
+    @code {
+        private bool dense1 = false;
+        private string searchString;
+        private bool hover = true;
 
-                </RowTemplate>
-                <PagerContent>
-                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
-                </PagerContent>
+        class Booking
+        {
+            public string Service;
+            public string OrderNo;
+            public string HouseNo;
+            public string MasterNo;
+            public string JobNo;
+            public string BookingNo;
+            public string Customer;
+            public string Vessel;
+            public string VOY;
+            public string Consignee;
+            public string ConsigneeName;
+            public DateTime? DoorDate;
+            public DateTime? ETD;
+            public DateTime? ETA;
+            public string Carrier;
+            public string CarrierName;
+            public string POL;
+            public string POLName;
+            public string POD;
+            public string PODName;
+            public string ClosingDate;
+            public string CntrType;
+            public string CntrQty;
+            public string SalesCode;
+            public string SalesName;
+            public string Incoterms;
+            public string LoadType;
+            public string SVCTerm;
+            public string Package;
+            public string Unit;
+            public string WeightOP;
+            public string Status;
+        }
 
-            </MudTable>
-            <div class="d-flex flex-wrap mt-4">
-                <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
-                @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
-                <MudSpacer />
-
-            </div>
-        </MudItem>
-    </MudGrid>
-</MudGrid>
-
-
-@code {
-    private bool dense1 = false;
-    private string searchString;
-    private bool hover = true;
-
-    class Booking
+        Booking[] bookings = new Booking[]
     {
-        public string Service;
-        public string OrderNo;
-        public string HouseNo;
-        public string MasterNo;
-        public string JobNo;
-        public string BookingNo;
-        public string Customer;
-        public string Vessel;
-        public string VOY;
-        public string Consignee;
-        public string ConsigneeName;
-        public DateTime? DoorDate;
-        public DateTime? ETD;
-        public DateTime? ETA;
-        public string Carrier;
-        public string CarrierName;
-        public string POL;
-        public string POLName;
-        public string POD;
-        public string PODName;
-        public string ClosingDate;
-        public string CntrType;
-        public string CntrQty;
-        public string SalesCode;
-        public string SalesName;
-        public string Incoterms;
-        public string LoadType;
-        public string SVCTerm;
-        public string Package;
-        public string Unit;
-        public string WeightOP;
-        public string Status;
-    }
-
-    Booking[] bookings = new Booking[]
-{
             new Booking { Service = "SEA", OrderNo = "", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-001" ,BookingNo="B01", Customer = "Công ty cổ phần Hà Thăng" , Vessel = "Maersk Discovery", VOY = "001" ,Consignee="SEIKO",
             ConsigneeName = "Công ty TNHH SEIKO VN", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "ABOU" ,CarrierName="ABOX SA", POL = "SH" , POLName = "SHANGHAI", POD = "CATLAI" ,PODName="CẢNG CÁT LÁI",
             ClosingDate = "", CntrType = "40 D’C", CntrQty = "1" , SalesCode = "Tamtt", SalesName = "Trần Thanh Tâm" , Incoterms = "CIF" ,LoadType="FCL",
@@ -175,7 +176,7 @@
             ClosingDate = "", CntrType = "20D’C", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
             SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14020", Status = "ACTIVE"},
 
-        };
+            };
 
 
 
@@ -185,47 +186,47 @@
 
 
 
-    private HashSet<Booking> selectedItems1 = new HashSet<Booking>();
-    private IEnumerable<Booking> Elements = new List<Booking>();
-    protected override async Task OnInitializedAsync()
+        private HashSet<Booking> selectedItems1 = new HashSet<Booking>();
+        private IEnumerable<Booking> Elements = new List<Booking>();
+        protected override async Task OnInitializedAsync()
+        {
+            Elements = bookings;
+        }
+
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private string value1, value2;
+
+        private string[] states =
     {
-        Elements = bookings;
-    }
-
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private string value1, value2;
-
-    private string[] states =
-{
         "Hà Nội", "Bắc Ninh", "TP HCM",
     };
 
-    private string[] states2 =
-{
+        private string[] states2 =
+    {
         "Xác nhận", "Treo", "Hủy",
     };
 
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
 
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states;
+            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        private async Task<IEnumerable<string>> Search2(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states2;
+            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
     }
-
-    private async Task<IEnumerable<string>> Search2(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
-
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states2;
-        return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
-}

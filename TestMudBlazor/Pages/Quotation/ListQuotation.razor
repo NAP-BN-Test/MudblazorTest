@@ -34,7 +34,8 @@
 
             <MudGrid>
                 <MudItem xs="12">
-                    <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                    <MudTable Items="@Elements" Dense="@dense1" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" 
+                              >
                         <HeaderContent>
                             <MudTh>Số báo giá</MudTh>
                             <MudTh>Loại hình</MudTh>
@@ -59,7 +60,7 @@
                             <MudTd DataLabel="NguoiTao">@context.NguoiTao</MudTd>
                             <MudTd DataLabel="GhiChu">@context.GhiChu</MudTd>
                         </RowTemplate>
-                        <RowEditingTemplate>
+                        @*<RowEditingTemplate>
                             <MudTd DataLabel="SoBaoGia">
                                 <MudTextField @bind-Value="@context.SoBaoGia" Required />
                             </MudTd>
@@ -99,7 +100,7 @@
                             <MudTd DataLabel="GhiChu">
                                 <MudTextField @bind-Value="@context.GhiChu" />
                             </MudTd>
-                        </RowEditingTemplate>
+                        </RowEditingTemplate>*@
                         <PagerContent>
                             <MudTablePager PageSizeOptions="new int[]{50, 100}" />
                         </PagerContent>

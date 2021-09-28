@@ -112,50 +112,50 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 122 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\ListBooking.razor"
-       
-    private bool dense1 = false;
-    private string searchString;
-    private bool hover = true;
+#line 123 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\ListBooking.razor"
+           
+        private bool dense1 = false;
+        private string searchString;
+        private bool hover = true;
 
-    class Booking
+        class Booking
+        {
+            public string Service;
+            public string OrderNo;
+            public string HouseNo;
+            public string MasterNo;
+            public string JobNo;
+            public string BookingNo;
+            public string Customer;
+            public string Vessel;
+            public string VOY;
+            public string Consignee;
+            public string ConsigneeName;
+            public DateTime? DoorDate;
+            public DateTime? ETD;
+            public DateTime? ETA;
+            public string Carrier;
+            public string CarrierName;
+            public string POL;
+            public string POLName;
+            public string POD;
+            public string PODName;
+            public string ClosingDate;
+            public string CntrType;
+            public string CntrQty;
+            public string SalesCode;
+            public string SalesName;
+            public string Incoterms;
+            public string LoadType;
+            public string SVCTerm;
+            public string Package;
+            public string Unit;
+            public string WeightOP;
+            public string Status;
+        }
+
+        Booking[] bookings = new Booking[]
     {
-        public string Service;
-        public string OrderNo;
-        public string HouseNo;
-        public string MasterNo;
-        public string JobNo;
-        public string BookingNo;
-        public string Customer;
-        public string Vessel;
-        public string VOY;
-        public string Consignee;
-        public string ConsigneeName;
-        public DateTime? DoorDate;
-        public DateTime? ETD;
-        public DateTime? ETA;
-        public string Carrier;
-        public string CarrierName;
-        public string POL;
-        public string POLName;
-        public string POD;
-        public string PODName;
-        public string ClosingDate;
-        public string CntrType;
-        public string CntrQty;
-        public string SalesCode;
-        public string SalesName;
-        public string Incoterms;
-        public string LoadType;
-        public string SVCTerm;
-        public string Package;
-        public string Unit;
-        public string WeightOP;
-        public string Status;
-    }
-
-    Booking[] bookings = new Booking[]
-{
             new Booking { Service = "SEA", OrderNo = "", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-001" ,BookingNo="B01", Customer = "Công ty cổ phần Hà Thăng" , Vessel = "Maersk Discovery", VOY = "001" ,Consignee="SEIKO",
             ConsigneeName = "Công ty TNHH SEIKO VN", DoorDate = DateTime.Now, ETD = DateTime.Now , ETA = DateTime.Now, Carrier = "ABOU" ,CarrierName="ABOX SA", POL = "SH" , POLName = "SHANGHAI", POD = "CATLAI" ,PODName="CẢNG CÁT LÁI",
             ClosingDate = "", CntrType = "40 D’C", CntrQty = "1" , SalesCode = "Tamtt", SalesName = "Trần Thanh Tâm" , Incoterms = "CIF" ,LoadType="FCL",
@@ -169,7 +169,7 @@ using System.Net.Http.Json;
             ClosingDate = "", CntrType = "20D’C", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
             SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14020", Status = "ACTIVE"},
 
-        };
+            };
 
 
 
@@ -179,49 +179,50 @@ using System.Net.Http.Json;
 
 
 
-    private HashSet<Booking> selectedItems1 = new HashSet<Booking>();
-    private IEnumerable<Booking> Elements = new List<Booking>();
-    protected override async Task OnInitializedAsync()
+        private HashSet<Booking> selectedItems1 = new HashSet<Booking>();
+        private IEnumerable<Booking> Elements = new List<Booking>();
+        protected override async Task OnInitializedAsync()
+        {
+            Elements = bookings;
+        }
+
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private string value1, value2;
+
+        private string[] states =
     {
-        Elements = bookings;
-    }
-
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private string value1, value2;
-
-    private string[] states =
-{
         "Hà Nội", "Bắc Ninh", "TP HCM",
     };
 
-    private string[] states2 =
-{
+        private string[] states2 =
+    {
         "Xác nhận", "Treo", "Hủy",
     };
 
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
 
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states;
+            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
 
-    private async Task<IEnumerable<string>> Search2(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
+        private async Task<IEnumerable<string>> Search2(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
 
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states2;
-        return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states2;
+            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+    
 
 #line default
 #line hidden
