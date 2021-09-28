@@ -13,91 +13,91 @@ namespace TestMudBlazor.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 1 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 4 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 5 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 6 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 7 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 8 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 9 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 10 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using TestMudBlazor.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 11 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 12 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\_Imports.razor"
+#line 13 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\_Imports.razor"
 using AKSoftware.Localization.MultiLanguages.Blazor;
 
 #line default
@@ -112,23 +112,23 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 230 "c:\project\fontend\blazor\mudblazortest\TestMudBlazor\Pages\Demo.razor"
-       
-    bool open = false;
-    bool dense = false;
-    bool preserveOpenState = false;
-    bool Basic_CheckBox1 = false;
-    Breakpoint breakpoint = Breakpoint.Lg;
-    DrawerClipMode clipMode = DrawerClipMode.Never;
-    DateTime? date = DateTime.Today;
-    public string TextValue { get; set; }
-    private string value1;
-    private string _normalText;
-    private bool resetValueOnEmptyText;
-    private bool coerceText;
-    private bool coerceValue;
-    private string[] states =
-{
+#line 231 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Demo.razor"
+           
+        bool open = false;
+        bool dense = false;
+        bool preserveOpenState = false;
+        bool Basic_CheckBox1 = false;
+        Breakpoint breakpoint = Breakpoint.Lg;
+        DrawerClipMode clipMode = DrawerClipMode.Never;
+        DateTime? date = DateTime.Today;
+        public string TextValue { get; set; }
+        private string value1;
+        private string _normalText;
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private string[] states =
+    {
         "Alabama", "Alaska", "American Samoa", "Arizona",
         "Arkansas", "California", "Colorado", "Connecticut",
         "Delaware", "District of Columbia", "Federated States of Micronesia",
@@ -145,43 +145,44 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         "Washington", "West Virginia", "Wisconsin", "Wyoming",
     };
 
-    private async Task<IEnumerable<string>> Search1(string value)
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states;
+            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        void ToggleDrawer()
+        {
+            open = !open;
+        }
+
+
+        EarningReport[] earningReports = new EarningReport[]
     {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(5);
-
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
-
-    void ToggleDrawer()
-    {
-        open = !open;
-    }
-
-
-    EarningReport[] earningReports = new EarningReport[]
-{
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science " +
             "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" +
             " Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
         new EarningReport { Name = "Quincy Larson: Learn Google Sheets like a pro [free 3-hour course on spreadsheets for data science" },
-};
+    };
 
-    class EarningReport
-    {
-        public string Name;
-    }
+        class EarningReport
+        {
+            public string Name;
+        }
 
-    private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
-    private IEnumerable<EarningReport> Elements = new List<EarningReport>();
-    protected override async Task OnInitializedAsync()
-    {
-        Elements = earningReports;
-    }
+        private HashSet<EarningReport> selectedItems1 = new HashSet<EarningReport>();
+        private IEnumerable<EarningReport> Elements = new List<EarningReport>();
+        protected override async Task OnInitializedAsync()
+        {
+            Elements = earningReports;
+        }
+    
 
 #line default
 #line hidden
