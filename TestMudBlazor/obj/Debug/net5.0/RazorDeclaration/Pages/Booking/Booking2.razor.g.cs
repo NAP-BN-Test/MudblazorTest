@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 778 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 812 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();
@@ -152,6 +152,8 @@ using DiaLog;
             public DateTime? CargoClose { get; set; }
             public DateTime? WMGClose { get; set; }
             public DateTime? SIClose { get; set; }
+            public DateTime? DoorDate { get; set; }
+            public string WeightMEA { get; set; }
             public string Sale { get; set; }
             public string Operator { get; set; }
             public string User { get; set; }
@@ -169,7 +171,7 @@ using DiaLog;
             public string VIA { get; set; }
             public string PICTel1 { get; set; }
             public string FinalDest { get; set; }
-            public string ETD { get; set; }
+            public DateTime? ETD { get; set; }
             public string Shipper { get; set; }
             public string Warehose { get; set; }
             public DateTime? ETA { get; set; }
@@ -184,6 +186,7 @@ using DiaLog;
             public string Package { get; set; }
             public int Qty { get; set; }
             public string Item { get; set; }
+            public string Time { get; set; }
         }
 
         bool success;
@@ -251,15 +254,16 @@ using DiaLog;
 
         class DetailContainerlist
         {
+            public string Stt;
             public string Cntr;
             public string Qty;
         }
 
         DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
     {
-        new DetailContainerlist { Cntr = "OF", Qty = "1", },
-        new DetailContainerlist { Cntr = "OF", Qty = "2", },
- new DetailContainerlist { Cntr = "OF", Qty = "3", },
+        new DetailContainerlist { Stt = "1",Cntr = "OF", Qty = "1", },
+        new DetailContainerlist {Stt = "2", Cntr = "OF", Qty = "2", },
+ new DetailContainerlist { Stt = "3",Cntr = "OF", Qty = "3", },
                                     };
 
 

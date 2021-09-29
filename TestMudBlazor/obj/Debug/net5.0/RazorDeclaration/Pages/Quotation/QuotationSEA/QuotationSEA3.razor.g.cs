@@ -274,20 +274,21 @@ using DiaLog;
 
 
 
-       DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
-    {
-        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40", HaiMuoiDC="3.000.000", BonMuoiDC="4.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="Tons", GiaLCL="2.000.000"},
-        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-                };
+        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+{
+        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40", HaiMuoiDC="8.000.000", BonMuoiDC="9.000.000", HQ="1.000.000", FCLUnit="Container or CBM", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20",HaiMuoiDC="6.000", BonMuoiDC="7.000", HQ="1.000", FCLUnit="Container/ngày", GhiChu="", DVTLCL="CBM", GiaLCL="2.000"},
+        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="BL", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+         };
 
 
         DetailCuoc[] detailCuocs = new DetailCuoc[]
     {
         new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40", HaiMuoiDC="3.000.000", BonMuoiDC="4.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
-        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="1000", GhiChu="" , DVTLCL="Tons", GiaLCL="2.000.000"},
-        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="1000", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20", HaiMuoiDC="2.000", BonMuoiDC="3.000", HQ="1.000", DVFCL="Kgs", GhiChu="" , DVTLCL="Tons", GiaLCL="2.000"},
+        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
                };
+
 
 
 

@@ -171,14 +171,14 @@
                         <MudTh>Tên hãng tàu</MudTh>
                         <MudTh>Cảng bốc</MudTh>
                         <MudTh>Cảng dỡ</MudTh>
-                        <MudTh>Tiền tệ</MudTh>
-                        <MudTh>Loại cont</MudTh>
+                        <MudTh Style="text-align: center">Tiền tệ</MudTh>
+                        <MudTh Style="text-align: center">Loại cont</MudTh>
                         <MudTh>20'</MudTh>
                         <MudTh>40'</MudTh>
                         <MudTh>HQ</MudTh>
                         <MudTh>Đ.V FCL</MudTh>
                         <MudTh>Giá LCL</MudTh>
-                        <MudTh>DVT LCL</MudTh>
+                        <MudTh Style="text-align: center">DVT LCL</MudTh>
                         <MudTh>Ghi chú</MudTh>
                     </HeaderContent>
                     <RowTemplate>
@@ -191,9 +191,9 @@
                         <MudTd DataLabel="HaiMuoiDC" Style="text-align: right">@tableRowContext.HaiMuoiDC</MudTd>
                         <MudTd DataLabel="BonMuoiDC" Style="text-align: right">@tableRowContext.BonMuoiDC</MudTd>
                         <MudTd DataLabel="HQ" Style="text-align: right">@tableRowContext.HQ</MudTd>
-                        <MudTd DataLabel="DVFCL" Style="text-align: right">@tableRowContext.DVFCL</MudTd>
+                        <MudTd DataLabel="DVFCL" >@tableRowContext.DVFCL</MudTd>
                         <MudTd DataLabel="GiaLCL" Style="text-align: right">@tableRowContext.GiaLCL</MudTd>
-                        <MudTd DataLabel="DVTLCL" Style="text-align: center">@tableRowContext.DVTLCL</MudTd>
+                        <MudTd DataLabel="DVTLCL" >@tableRowContext.DVTLCL</MudTd>
                         <MudTd DataLabel="GhiChu">@tableRowContext.GhiChu</MudTd>
                     </RowTemplate>
                     <RowEditingTemplate>
@@ -270,14 +270,14 @@
                         <MudTh>Mã phí</MudTh>
                         <MudTh>Tên phí</MudTh>
                         <MudTh>Kiểu phí</MudTh>
-                        <MudTh>Tiền tệ</MudTh>
-                        <MudTh>Loại cont</MudTh>
+                        <MudTh Style="text-align: center">Tiền tệ</MudTh>
+                        <MudTh Style="text-align: center">Loại cont</MudTh>
                         <MudTh>20'</MudTh>
                         <MudTh>40'</MudTh>
                         <MudTh>HQ</MudTh>
                         <MudTh>FCL Unit</MudTh>
                         <MudTh>Giá LCL</MudTh>
-                        <MudTh>DVT LCL</MudTh>
+                        <MudTh Style="text-align: center">DVT LCL</MudTh>
                         <MudTh>Ghi chú</MudTh>
                     </HeaderContent>
                     <RowTemplate>
@@ -289,7 +289,7 @@
                         <MudTd DataLabel="HaiMuoiDC" Style="text-align: right">@tableRowContext2.HaiMuoiDC</MudTd>
                         <MudTd DataLabel="BonMuoiDC" Style="text-align: right">@tableRowContext2.BonMuoiDC</MudTd>
                         <MudTd DataLabel="HQ" Style="text-align: right">@tableRowContext2.HQ</MudTd>
-                        <MudTd DataLabel="FCLUnit" Style="text-align: center">@tableRowContext2.FCLUnit</MudTd>
+                        <MudTd DataLabel="FCLUnit" >@tableRowContext2.FCLUnit</MudTd>
                         <MudTd DataLabel="GiaLCL" Style="text-align: right">@tableRowContext2.GiaLCL</MudTd>
                         <MudTd DataLabel="DVTLCL" Style="text-align: center">@tableRowContext2.DVTLCL</MudTd>
                         <MudTd DataLabel="GhiChu">@tableRowContext2.GhiChu</MudTd>
@@ -498,20 +498,21 @@
 
 
 
-       DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
-    {
-        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40", HaiMuoiDC="3.000.000", BonMuoiDC="4.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="Tons", GiaLCL="2.000.000"},
-        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="Kgs", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
-                };
+        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+{
+        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40", HaiMuoiDC="8.000.000", BonMuoiDC="9.000.000", HQ="1.000.000", FCLUnit="Container or CBM", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20",HaiMuoiDC="6.000", BonMuoiDC="7.000", HQ="1.000", FCLUnit="Container/ngày", GhiChu="", DVTLCL="CBM", GiaLCL="2.000"},
+        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="BL", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+         };
 
 
         DetailCuoc[] detailCuocs = new DetailCuoc[]
     {
         new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40", HaiMuoiDC="3.000.000", BonMuoiDC="4.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
-        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="1000", GhiChu="" , DVTLCL="Tons", GiaLCL="2.000.000"},
-        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="1000", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20", HaiMuoiDC="2.000", BonMuoiDC="3.000", HQ="1.000", DVFCL="Kgs", GhiChu="" , DVTLCL="Tons", GiaLCL="2.000"},
+        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
                };
+
 
 
 

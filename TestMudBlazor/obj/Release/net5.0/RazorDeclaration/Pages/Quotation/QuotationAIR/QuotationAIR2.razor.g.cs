@@ -273,20 +273,21 @@ using DiaLog;
 
 
 
-                DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
-    {
-        new DetailCuocKhac { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  LoaiCuoc = "Cước chính",  TienTe="VNĐ" , Cuoc="AC", GhiChu="", TenCuoc="Cước vận chuyển hàng không", GiaDonVi="1.000.000", DonVi="KGS"},
-        new DetailCuocKhac { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", LoaiCuoc = "Phi làm Bill",  TienTe="USD" , Cuoc="AWB", GhiChu="", TenCuoc="Phí làm bill", GiaDonVi="300", DonVi="KGS"},
-        new DetailCuocKhac { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", LoaiCuoc = "Phí THC",  TienTe="VNĐ"  , Cuoc="THC", GhiChu="", TenCuoc="Phí xếp dỡ", GiaDonVi="300000", DonVi="KGS"},
-                    };
+        DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+{
+        new DetailCuocKhac { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  LoaiCuoc = "Cước chính",  TienTe="VNĐ" , Cuoc="AC", GhiChu="", TenCuoc="Cước vận chuyển hàng không", GiaDonVi="3.000.000", DonVi="Kg"},
+        new DetailCuocKhac { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", LoaiCuoc = "Phi làm Bill",  TienTe="USD" , Cuoc="AWB", GhiChu="", TenCuoc="Phí làm bill", GiaDonVi="300", DonVi="BL"},
+        new DetailCuocKhac { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", LoaiCuoc = "Phí THC",  TienTe="VNĐ"  , Cuoc="THC", GhiChu="", TenCuoc="Phí xếp dỡ tại sân bay", GiaDonVi="300.000", DonVi="Kg"},
+            };
 
 
         DetailCuoc[] detailCuocs = new DetailCuoc[]
     {
-        new DetailCuoc { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  CangBoc = "Sân bay Nội Bài",  TienTe="VNĐ" , CangDo="Sân bay Tân Sơn Nhất", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí an ninh", },
-        new DetailCuoc { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", CangBoc = "Sân bay Liên Khương",  TienTe="USD" , CangDo="Sân bay Nội Bài",Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="",  PhuPhi="Phụ phí an ninh", },
-        new DetailCuoc { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", CangBoc = "Sân bay Vinh",  TienTe="VNĐ"  , CangDo="Sân bay Cát Bi Hải Phòng", Min="", Am45="",Duong45="",Duong100="",Duong300="",Duong500="",Duong1000="", PhuPhi="Phụ phí soi chiếu", },
+        new DetailCuoc { MaHangVanChuyen = "DHL", HangVanChuyen = "Công ty cổ phần giao nhận Toàn Cầu DHL",  CangBoc = "Sân bay Nội Bài",  TienTe="VNĐ" , CangDo="Sân bay Tân Sơn Nhất", Min="200.000", Am45="100.000",Duong45="400.000",Duong100="500.000",Duong300="600.000",Duong500="",Duong1000="700.000", PhuPhi="Phụ phí an ninh", },
+        new DetailCuoc { MaHangVanChuyen = "MTV", HangVanChuyen = "Công ty TNHH MTV Tổng công ty Tân Cảng Sài Gòn", CangBoc = "Sân bay Liên Khương",  TienTe="USD" , CangDo="Sân bay Nội Bài",Min="50", Am45="100",Duong45="",Duong100="100",Duong300="200",Duong500="400",Duong1000="500",  PhuPhi="Phụ phí an ninh", },
+        new DetailCuoc { MaHangVanChuyen = "Transerco", HangVanChuyen = "Tổng công ty vận tải Hà Nội", CangBoc = "Sân bay Vinh",  TienTe="VNĐ"  , CangDo="Sân bay Cát Bi Hải Phòng", Min="300.000", Am45="500.000",Duong45="",Duong100="450.000",Duong300="600.000",Duong500="600.000",Duong1000="700.000", PhuPhi="Phụ phí soi chiếu", },
                    };
+
 
 
 

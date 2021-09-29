@@ -120,10 +120,13 @@ using System.Net.Http.Json;
 
             Quatation[] quatation = new Quatation[]
             {
-            new Quatation { SoBaoGia = "HP-DN", LoaiHinh = "SEA", MaKhachHang = "ThuyKhue" , TenKhachHang = "Công ty Cổ phần Giầy Thụy Khuê", NguoiPhuTrach = "Tâm" ,CangBoc="Cảng Hải Phòng", CangDo = "Cảng Đà Nẵng" , TrangThai = "Hoạt Động", NguoiTao = "Long" ,GhiChu=""},
-            new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="Sân bay Nôi Bài", CangDo = "Sân bay Tân Sơn Nhất" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
-            new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="Cảng Hải Phòng", CangDo = "TOKYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
+            new Quatation { SoBaoGia = "HP-DN", LoaiHinh = "SEA", MaKhachHang = "ThuyKhue" , TenKhachHang = "Công ty Cổ phần Giầy Thụy Khuê", NguoiPhuTrach = "Tâm" ,CangBoc="HPH", CangDo = "VNDAN" , TrangThai = "Hoạt Động", NguoiTao = "Long" ,GhiChu=""},
+            new Quatation { SoBaoGia = "NB-TSN", LoaiHinh = "AIR", MaKhachHang = "HaThang" , TenKhachHang = "Công ty Cổ phần Hà Thăng", NguoiPhuTrach = "Nam" ,CangBoc="HAN ", CangDo = "SGN" , TrangThai = "Không hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
+            new Quatation { SoBaoGia = "HPH-JPTYO", LoaiHinh = "SEA", MaKhachHang = "PASORY" , TenKhachHang = "Công ty Cổ phần PA SÔ RY", NguoiPhuTrach = "Hải" ,CangBoc="HPH", CangDo = "JPTYO" , TrangThai = "Hoạt động", NguoiTao = "Tâm" ,GhiChu=""},
                 };
+
+
+
 
 
 

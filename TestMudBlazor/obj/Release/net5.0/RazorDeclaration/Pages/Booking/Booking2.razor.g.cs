@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 337 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 778 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();
@@ -259,6 +259,7 @@ using DiaLog;
     {
         new DetailContainerlist { Cntr = "OF", Qty = "1", },
         new DetailContainerlist { Cntr = "OF", Qty = "2", },
+ new DetailContainerlist { Cntr = "OF", Qty = "3", },
                                     };
 
 
