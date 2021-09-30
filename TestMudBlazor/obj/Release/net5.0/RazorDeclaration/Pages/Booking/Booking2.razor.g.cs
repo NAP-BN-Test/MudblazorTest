@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 812 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 828 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();
@@ -153,7 +153,8 @@ using DiaLog;
             public DateTime? WMGClose { get; set; }
             public DateTime? SIClose { get; set; }
             public DateTime? DoorDate { get; set; }
-            public string WeightMEA { get; set; }
+            public string Weight { get; set; }
+            public string Measure { get; set; }
             public string Sale { get; set; }
             public string Operator { get; set; }
             public string User { get; set; }
@@ -186,7 +187,9 @@ using DiaLog;
             public string Package { get; set; }
             public int Qty { get; set; }
             public string Item { get; set; }
-            public string Time { get; set; }
+            public TimeSpan? Time1 { get; set; }
+            public TimeSpan? Time2 { get; set; }
+            public TimeSpan? Time3 { get; set; }
         }
 
         bool success;
