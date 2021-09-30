@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 828 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 833 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();
@@ -149,9 +149,9 @@ using DiaLog;
             public string FreightTerms { get; set; }
             public string ServiceTerms { get; set; }
             public string IncoTerms { get; set; }
-            public DateTime? CargoClose { get; set; }
-            public DateTime? WMGClose { get; set; }
-            public DateTime? SIClose { get; set; }
+            public string CargoClose { get; set; }
+            public string WMGClose { get; set; }
+            public string SIClose { get; set; }
             public DateTime? DoorDate { get; set; }
             public string Weight { get; set; }
             public string Measure { get; set; }

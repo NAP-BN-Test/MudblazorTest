@@ -856,3 +856,7 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDecl
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Booking\Booking2.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Quotation\QuotationSEA\QuotationSEA3.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\WorkOrder\ListWorkOrder.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\WorkOrder\ListWorkOrder.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\WorkOrder\WorkOrder.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\WorkOrder\WorkOrder.razor.g.cs

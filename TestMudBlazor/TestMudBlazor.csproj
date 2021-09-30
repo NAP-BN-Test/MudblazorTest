@@ -19,8 +19,4 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\WorkOder\" />
-  </ItemGroup>
-
 </Project>

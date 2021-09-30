@@ -1,0 +1,175 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listwordorder"
+@inject ISnackbar Snackbar
+
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudMainContent Class="pt-16 px-16">
+    <MudGrid Style="margin-top: 10px; ">
+        <MudGrid>
+            <MudItem xs="12" Style="margin-top: 10px">
+                <MudText Typo="Typo.h5" GutterBottom="true">Danh sách Work Order</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudToolBar Class="toolbarCustom">
+                    <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                                  Class="mt-0 searchcutom"></MudTextField>
+                    <MudSpacer />
+                    <MudIconButton Icon="@Icons.Material.Outlined.Archive" />
+                    <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
+                </MudToolBar>
+            </MudItem>
+        </MudGrid>
+
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTable Items="@Elements" FixedHeader="true" Style="white-space: nowrap" Dense="@dense1" Breakpoint="Breakpoint.Sm" HorizontalScrollbar="true" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add(" Commit Edit Handler Invoked"))">
+                    <HeaderContent>
+                        <MudTh>JOB No</MudTh>
+                        <MudTh>JOB date</MudTh>
+                        <MudTh>Type</MudTh>
+                        <MudTh>Type of trade</MudTh>
+                        <MudTh>Master B/L No</MudTh>
+                        <MudTh>House B/L No</MudTh>
+                        <MudTh>Vessel/ VOY</MudTh>
+                        <MudTh>Liner Booking No</MudTh>
+                        <MudTh>CDs No</MudTh>
+                        <MudTh>Declaration date</MudTh>
+                        <MudTh>Container</MudTh>
+                        <MudTh>Customer</MudTh>
+                        <MudTh>Shipper</MudTh>
+                        <MudTh>Consignee</MudTh>
+                        <MudTh>POL CODE</MudTh>
+                        <MudTh>POL Name</MudTh>
+                        <MudTh>POD CODE</MudTh>
+                        <MudTh>POD Name</MudTh>
+                        <MudTh>Received date</MudTh>
+                        <MudTh>Operating</MudTh>
+                        <MudTh>Create by</MudTh>
+                        <MudTh>Notes Internal</MudTh>
+                        <MudTh>Service</MudTh>
+                        <MudTh>Delivery date</MudTh>
+                        <MudTh>Incoterms</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="JobNo">@context.JobNo</MudTd>
+                        <MudTd DataLabel="JobDate">@context.JobDate</MudTd>
+                        <MudTd DataLabel="Type">@context.Type</MudTd>
+                        <MudTd DataLabel="TypeOfTrade">@context.TypeOfTrade</MudTd>
+                        <MudTd DataLabel="MasterBLNo">@context.MasterBLNo</MudTd>
+                        <MudTd DataLabel="HouseBLNo">@context.HouseBLNo</MudTd>
+                        <MudTd DataLabel="VesselVOY">@context.VesselVOY</MudTd>
+                        <MudTd DataLabel="LinerBookingNo">@context.LinerBookingNo</MudTd>
+                        <MudTd DataLabel="CDsNo">@context.CDsNo</MudTd>
+                        <MudTd DataLabel="DeclarationDate">@context.DeclarationDate</MudTd>
+                        <MudTd DataLabel="Container">@context.Container</MudTd>
+                        <MudTd DataLabel="Customer">@context.Customer</MudTd>
+                        <MudTd DataLabel="Shipper">@context.Shipper</MudTd>
+                        <MudTd DataLabel="Consignee">@context.Consignee</MudTd>
+                        <MudTd DataLabel="PolCode">@context.PolCode</MudTd>
+                        <MudTd DataLabel="PolName">@context.PolName</MudTd>
+                        <MudTd DataLabel="PodCode">@context.PodCode</MudTd>
+                        <MudTd DataLabel="PodName">@context.PodName</MudTd>
+                        <MudTd DataLabel="Receiveddate">@context.Receiveddate</MudTd>
+                        <MudTd DataLabel="Operating">@context.Operating</MudTd>
+                        <MudTd DataLabel="CreateBy">@context.CreateBy</MudTd>
+                        <MudTd DataLabel="NotesInternal">@context.NotesInternal</MudTd>
+                        <MudTd DataLabel="Service">@context.Service</MudTd>
+                        <MudTd DataLabel="DeliveryDate">@context.DeliveryDate</MudTd>
+                        <MudTd DataLabel="Incoterms">@context.Incoterms</MudTd>
+
+
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                    </PagerContent>
+
+                </MudTable>
+                <div class="d-flex flex-wrap mt-4">
+                    <MudSwitch @bind-Checked="@dense1" Color="Color.Secondary">Thu hẹp</MudSwitch>
+                    <MudSpacer />
+
+                </div>
+            </MudItem>
+        </MudGrid>
+    </MudGrid>
+</MudMainContent>
+@code {
+    private bool dense1 = false;
+    private string searchString;
+    private bool hover = true;
+
+    class WorkOrder
+    {
+        public string JobNo;
+        public string JobDate;
+        public string Type;
+        public string TypeOfTrade;
+        public string MasterBLNo;
+        public string HouseBLNo;
+        public string VesselVOY;
+        public string LinerBookingNo;
+        public string CDsNo;
+        public string DeclarationDate;
+        public string Container;
+        public string Customer;
+        public string Shipper;
+        public string Consignee;
+        public string PolCode;
+        public string PolName;
+        public string PodName;
+        public string PodCode;
+        public string Receiveddate;
+        public string Operating;
+        public string CreateBy;
+        public string NotesInternal;
+        public string Service;
+        public string DeliveryDate;
+        public string Incoterms;
+
+    }
+
+    WorkOrder[] workorders = new WorkOrder[]
+{
+            new WorkOrder { JobNo = "NAP21-S09001 ", JobDate = DateTime.Now.ToString("dd/MM/yyyy"), Type = "Trucking" , TypeOfTrade = "Export", MasterBLNo = "PRO15-00191" ,HouseBLNo="150200193", VesselVOY = "SUNSHINE BANDAMA/1505N " ,
+            LinerBookingNo = "Công ty TNHH SEIKO VN", CDsNo = "100889346020", DeclarationDate = DateTime.Now.ToString("dd/MM/yyyy") , Container = "TEMU6140325" ,Customer="Công ty cổ phần Hà Thăng", Shipper = "Công ty cổ phần Phú Hưng" , Consignee = "Công ty cổ phần thương mại và hợp tác quốc tế Đại La", PolCode = "HPH" ,PolName="CẢNG HẢI PHÒNG ",
+             PodCode = "VNDAN", PodName = "CẢNG ĐÀ NẴNG" ,Receiveddate = DateTime.Now.ToString("dd/MM/yyyy") , Operating = "Tamtt", NotesInternal = "" , Service = "SEA" ,DeliveryDate=DateTime.Now.ToString("dd/MM/yyyy"),
+            Incoterms = "CIF", CreateBy = "Tâm"},
+            new WorkOrder { JobNo = "NAP21-S09002", JobDate = DateTime.Now.ToString("dd/MM/yyyy"), Type = "Logistic Service" , TypeOfTrade = "Import", MasterBLNo = "NSSLBSHPC1700122" ,HouseBLNo=" PLIHQ47117743", VesselVOY = "SINAR BANGKA/1703S " ,
+            LinerBookingNo = "Công ty TNHH SEIKO VN", CDsNo = "102449434840", DeclarationDate = DateTime.Now.ToString("dd/MM/yyyy") , Container = "CXDU1572275" ,Customer="Công ty cổ phần may 10", Shipper = "Kyoungnam Retainer" , Consignee = "Công ty cổ phần Nam An Phú", PolCode = "KRPUS" ,PolName="BUSAN, KOREA ",
+             PodCode = "HPH", PodName = "CẢNG HẢI PHÒNG" ,Receiveddate = DateTime.Now.ToString("dd/MM/yyyy") , Operating = "Tamtt", NotesInternal = "" , Service = "SEA" ,DeliveryDate=DateTime.Now.ToString("dd/MM/yyyy"),
+            Incoterms = "FOB", CreateBy = "Tâm"},
+
+            new WorkOrder { JobNo = "NAP21-S09003", JobDate = DateTime.Now.ToString("dd/MM/yyyy"), Type = "Customer Declaration" , TypeOfTrade = "Export", MasterBLNo = "SITNGBL11369B" ,HouseBLNo="LNBC11201697", VesselVOY = "SUNSHINE BANDAMA/V.20168 " ,
+            LinerBookingNo = "Công ty TNHH SEIKO VN", CDsNo = "102050943260", DeclarationDate = DateTime.Now.ToString("dd/MM/yyyy") , Container = "TEMU6142076" ,Customer="Công ty cổ phần Hà Thăng", Shipper = "Công ty cổ phần Phú Hưng" , Consignee = "CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ HỢP TÁC QUỐC TẾ ĐẠI LA", PolCode = "HNDAN" ,PolName="CẢNG ĐÀ NẴNG",
+             PodCode = "NGB", PodName = "NINGBO, CN" ,Receiveddate = DateTime.Now.ToString("dd/MM/yyyy") , Operating = "Tamtt", NotesInternal = "" , Service = "SEA" ,DeliveryDate=DateTime.Now.ToString("dd/MM/yyyy"),
+            Incoterms = "EXW", CreateBy = "Tâm"},
+
+        };
+
+
+    private HashSet<WorkOrder>
+selectedItems1 = new HashSet<WorkOrder>
+    ();
+    private IEnumerable<WorkOrder>
+        Elements = new List<WorkOrder>
+            ();
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = workorders;
+    }
+
+}
+

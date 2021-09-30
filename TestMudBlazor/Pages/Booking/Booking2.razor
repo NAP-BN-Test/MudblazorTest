@@ -117,15 +117,15 @@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudGrid>
-                                <MudItem xs="8" Style="padding: 12px 0 12px 12px">
                                     <MudNumericField @bind-Value="model.Weight" Label="Weight" Variant="Variant.Outlined" For="@(() => model.Weight)" Margin="Margin.Dense"></MudNumericField>
-                                </MudItem>
-                                <MudItem xs="4">
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            
                                     <MudNumericField @bind-Value="model.Measure" Label="Measure" Variant="Variant.Outlined" For="@(() => model.Measure)" Margin="Margin.Dense"></MudNumericField>
-                                </MudItem>
-                            </MudGrid>
-                            </MudItem>
+                        </MudItem>
 
                     </MudGrid>
                     <MudGrid>
@@ -312,43 +312,48 @@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
+                            <MudTextField @bind-Value="model.HouseNo" Label="Booking No" Disabled="true" Variant="Variant.Outlined" For="@(() => model.HouseNo)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
                             <MudTextField @bind-Value="model.MasterNo" Label="Master No" Placeholder="" Disabled="true" Variant="Variant.Outlined" For="@(() => model.MasterNo)" Margin="Margin.Dense"></MudTextField>
                         </MudItem>
                     </MudGrid>
 
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudTextField @bind-Value="model.WMGClose" Label="WMG Close" Placeholder="dd/MM/yyyy; hh:mm"  Variant="Variant.Outlined" For="@(() => model.WMGClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
+                            <MudTextField @bind-Value="model.WMGClose" Label="WMG Close" Placeholder="DD/MM/YYYY; HH:MM" Variant="Variant.Outlined" For="@(() => model.WMGClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
                             @*<MudDatePicker Label="WMG Close" @bind-Date="model.WMGClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.WMGClose)" Margin="Margin.Dense" />*@
                         </MudItem>
                         @*<MudItem xs="4">
-                            <MudTimePicker L Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
-                        </MudItem>*@
+                <MudTimePicker L Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
+            </MudItem>*@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudTextField @bind-Value="model.SIClose" Label="S/I Close" Placeholder="dd/MM/yyyy; hh:mm" Variant="Variant.Outlined" For="@(() => model.SIClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
+                            <MudTextField @bind-Value="model.SIClose" Label="S/I Close" Placeholder="DD/MM/YYYY; HH:MM" Variant="Variant.Outlined" For="@(() => model.SIClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
                             @*<MudDatePicker Label="WMG Close" @bind-Date="model.WMGClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.WMGClose)" Margin="Margin.Dense" />*@
                         </MudItem>
                         @*<MudItem xs="8" Style="padding: 12px 0 12px 12px">
-                            <MudDatePicker Label="S/I Close" @bind-Date="model.SIClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.SIClose)" Margin="Margin.Dense" />
-                        </MudItem>
-                        <MudItem xs="4">
-                            <MudTimePicker Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
-                        </MudItem>*@
+                <MudDatePicker Label="S/I Close" @bind-Date="model.SIClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.SIClose)" Margin="Margin.Dense" />
+            </MudItem>
+            <MudItem xs="4">
+                <MudTimePicker Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
+            </MudItem>*@
 
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudTextField @bind-Value="model.CargoClose" Label="Cargo Close" Placeholder="dd/MM/yyyy; hh:mm" Variant="Variant.Outlined" For="@(() => model.CargoClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
+                            <MudTextField @bind-Value="model.CargoClose" Label="Cargo Close" Placeholder="DD/MM/YYYY; HH:MM" Variant="Variant.Outlined" For="@(() => model.CargoClose)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" AdornmentIcon="@Icons.Material.Filled.Schedule" Adornment="Adornment.End"></MudTextField>
                             @*<MudDatePicker Label="WMG Close" @bind-Date="model.WMGClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.WMGClose)" Margin="Margin.Dense" />*@
                         </MudItem>
                         @*<MudItem xs="8" Style="padding: 12px 0 12px 12px">
-                            <MudDatePicker Label="Cargo Close" @bind-Date="model.CargoClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.CargoClose)" Margin="Margin.Dense" />
-                        </MudItem>
-                        <MudItem xs="4">
-                            <MudTimePicker Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
-                        </MudItem>*@
+                <MudDatePicker Label="Cargo Close" @bind-Date="model.CargoClose" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.CargoClose)" Margin="Margin.Dense" />
+            </MudItem>
+            <MudItem xs="4">
+                <MudTimePicker Editable="true" Margin="Margin.Dense" Variant="Variant.Outlined" AdornmentColor="Color.Tertiary" />
+            </MudItem>*@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
@@ -840,9 +845,9 @@
             public string FreightTerms { get; set; }
             public string ServiceTerms { get; set; }
             public string IncoTerms { get; set; }
-            public DateTime? CargoClose { get; set; }
-            public DateTime? WMGClose { get; set; }
-            public DateTime? SIClose { get; set; }
+            public string CargoClose { get; set; }
+            public string WMGClose { get; set; }
+            public string SIClose { get; set; }
             public DateTime? DoorDate { get; set; }
             public string Weight { get; set; }
             public string Measure { get; set; }
