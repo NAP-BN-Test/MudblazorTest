@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 614 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
+#line 851 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
                
             private bool dense1 = true;
             private bool dense2 = true;
@@ -207,6 +207,8 @@ using DiaLog;
                 Elements5 = Descriptions;
                 Elements6 = customsDeclarationInfos;
                 Elements7 = TruckingInfomations;
+                Elements8 = Sellings;
+                Elements9 = Byings;
             }
 
             private void OpenOtherCharges()
@@ -345,6 +347,12 @@ using DiaLog;
             private HashSet<TruckingInfomation> selectedItems7 = new HashSet<TruckingInfomation>();
             private IEnumerable<TruckingInfomation> Elements7 = new List<TruckingInfomation>();
 
+            private HashSet<Selling> selectedItems8 = new HashSet<Selling>();
+            private IEnumerable<Selling> Elements8 = new List<Selling>();
+
+            private HashSet<Bying> selectedItems9 = new HashSet<Bying>();
+            private IEnumerable<Bying> Elements9= new List<Bying>();
+
 
             class Description
             {
@@ -384,14 +392,16 @@ using DiaLog;
                 public string Deliverydate;
                 public string DeliveryLocation;
             }
+
+
             TruckingInfomation[] TruckingInfomations = new TruckingInfomation[]
                    {
         new TruckingInfomation {
-            Number = "1",Licenseplates = "TEMU6142076", TypeCar = "40 D'C", PackageQuantity = 1,Package = "", GrossWeight = 2,Measure = "BOX",Transportation = "BOX", Drive = "1",Mobile = "TEMU6142076", Notes = "40 D'C", ContainerNumber = "1",Seal = "TEMU6142076", TypeCont = "40 D'C",DeliveryLocation = "1",Deliverydate = "TEMU6142076", PickUplocation = "40 D'C",Receiveddate = "1"},
+            Number = "1",Licenseplates = "29A66.66", TypeCar = "10T", PackageQuantity = 3,Package = "PLTS", GrossWeight = 2,Measure = "3.630",Transportation = "Công ty TNHH TM & DVVT Hoa Lâm", Drive = "Long",Mobile = "0972194890", Notes = "", ContainerNumber = "TEMU6140325",Seal = "SITA625179", TypeCont = "40 D'C",DeliveryLocation = "220 Giải Phóng",Deliverydate = "02/10/2021", PickUplocation = "Hải Phòng",Receiveddate = "10//10/2021"},
         new TruckingInfomation {
-            Number = "1",Licenseplates = "TEMU6142076", TypeCar = "40 D'C", PackageQuantity = 1,Package = "", GrossWeight = 2,Measure = "BOX",Transportation = "BOX", Drive = "1",Mobile = "TEMU6142076", Notes = "40 D'C", ContainerNumber = "1",Seal = "TEMU6142076", TypeCont = "40 D'C",DeliveryLocation = "1",Deliverydate = "TEMU6142076", PickUplocation = "40 D'C",Receiveddate = "1"},
+            Number = "2",Licenseplates = "15C123.45", TypeCar = "14M", PackageQuantity = 8,Package = "BOX", GrossWeight = 3,Measure = "9.850",Transportation = "Công ty TNHH DV VT Trọng Tấn", Drive = "Nam",Mobile = "0327461696", Notes = "", ContainerNumber = "TEMU6142076",Seal = "NB564073", TypeCont = "20 D'C",DeliveryLocation = "Đà Nẵng",Deliverydate = "29/02/2021", PickUplocation = "Hải Phòng",Receiveddate = "07/10/2021"},
         new TruckingInfomation {
-            Number = "1",Licenseplates = "TEMU6142076", TypeCar = "40 D'C", PackageQuantity = 1,Package = "", GrossWeight = 2,Measure = "BOX",Transportation = "BOX", Drive = "1",Mobile = "TEMU6142076", Notes = "40 D'C", ContainerNumber = "1",Seal = "TEMU6142076", TypeCont = "40 D'C",DeliveryLocation = "1",Deliverydate = "TEMU6142076", PickUplocation = "40 D'C",Receiveddate = "1"},
+            Number = "3",Licenseplates = "20B345.67", TypeCar = "45H", PackageQuantity = 42,Package = "CTNS", GrossWeight = 4,Measure = "4.850",Transportation = "Công ty cổ phần TMDV vận tải E&F", Drive = "Sơn",Mobile = "01634155249", Notes = "", ContainerNumber = "SEGU4730475",Seal = "SITA803808", TypeCont = "40 D'C",DeliveryLocation = "Vĩnh Phúc",Deliverydate = "21/09/2021", PickUplocation = "Hà Tĩnh",Receiveddate = "23/09/2021"},
                                                };
 
 
@@ -418,6 +428,106 @@ using DiaLog;
             SoCI = "01/VN-HI/2007",HouseBLNo = "PEX00011618002", CDNo = "102050943260", Declarationdate = "02/10/2021",CDLevel ="", POL = "CẢNG HẢI PHÒNG",POD = "CẢNG ĐÀ NẴNG",CustomsRecruitment = "Cục hải quan thành phố Hà Nội", },
                                            };
 
+
+
+
+
+            class Selling
+            {
+                public string Customer;
+                public string FareFareName;
+                public string TaxType;
+                public string Currency;
+                public string ExRate;
+                public string Unit;
+                public int Qty;
+                public string Rate;
+                public string Tax1;
+                public string Amt;
+                public string LocalAmount;
+                public string VAT;
+                public string Remark;
+                public string Evidence;
+                public string Amount;
+                public string BillNo;
+                public string Group;
+                public string Tax2;
+                public string TaxDate;
+                public string Paid;
+                public string PaidDate;
+                public string Department;
+                public string Create;
+                public string Createdate;
+            }
+
+            Selling[] Sellings = new Selling[]
+                   {
+        new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+         new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+          new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+
+                                               };
+
+
+            class Bying
+            {
+                public string Vendor;
+                public string FareFareName;
+                public string TaxType;
+                public string Currency;
+                public string ExRate;
+                public string Unit;
+                public int Qty;
+                public string Rate;
+                public string Tax1;
+                public string Amt;
+                public string LocalAmount;
+                public string VAT;
+                public string Remark;
+                public string Evidence;
+                public string Amount;
+                public string BillNo;
+                public string Group;
+                public string Tax2;
+                public string TaxDate;
+                public string Paid;
+                public string PaidDate;
+                public string Department;
+                public string Create;
+                public string Createdate;
+            }
+
+            Bying[] Byings = new Bying[]
+                       {
+        new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+         new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+          new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+
+                                                   };
 
         
 

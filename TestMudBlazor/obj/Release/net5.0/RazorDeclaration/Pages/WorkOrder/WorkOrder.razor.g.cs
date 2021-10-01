@@ -103,6 +103,28 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
+using DiaLog;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/workorder")]
     public partial class WorkOrder : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +132,410 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 851 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\WorkOrder.razor"
+               
+            private bool dense1 = true;
+            private bool dense2 = true;
+            WorkOrderForm model = new WorkOrderForm();
+            GhiChuBaoGia model1 = new GhiChuBaoGia();
+
+            public class WorkOrderForm
+            {
+                public string JobNo { get; set; }
+                public string JobDate { get; set; }
+                public string Type { get; set; }
+                public string TypeOfTrade { get; set; }
+                public string MasterBLNo { get; set; }
+                public string HouseBLNo { get; set; }
+                public string VOY { get; set; }
+                public string Vessel { get; set; }
+                public string LinerBookingNo { get; set; }
+                public string CDsNo;
+                public string DeclarationDate { get; set; }
+                public string Container { get; set; }
+                public string Customer { get; set; }
+                public string Shipper { get; set; }
+                public string Consignee { get; set; }
+                public string PolCode { get; set; }
+                public string PolName { get; set; }
+                public DateTime? ETD { get; set; }
+                public DateTime? ETA { get; set; }
+                public DateTime? Qty { get; set; }
+                public int GWeight { get; set; }
+                public int Measure { get; set; }
+                public string PodName { get; set; }
+                public string PodCode { get; set; }
+                public string Receiveddate { get; set; }
+                public string Operating { get; set; }
+                public string CreateBy { get; set; }
+                public string NotesInternal { get; set; }
+                public string Service { get; set; }
+                public DateTime? DeliveryDate { get; set; }
+                public string Incoterms { get; set; }
+                public string Seller { get; set; }
+                public string Cargo { get; set; }
+                public string Package { get; set; }
+                public string Salesman { get; set; }
+                public string PublicNotes { get; set; }
+                public string WorkOrderNo { get; set; }
+                public string Partner { get; set; }
+
+            }
+            public class GhiChuBaoGia
+            {
+                public string GhiChu { get; set; }
+                public string LienHe { get; set; }
+            }
+
+
+
+            bool success;
+            string[] errors = { };
+            private void OnValidSubmit(EditContext context)
+            {
+            }
+
+            private void OnValidSubmit1(EditContext context)
+            {
+            }
+            protected override async Task OnInitializedAsync()
+            {
+                Elements2 = detailcuockhacs;
+                Elements3 = detailCuocs;
+                Elements4 = detailContainerlists;
+                Elements5 = Descriptions;
+                Elements6 = customsDeclarationInfos;
+                Elements7 = TruckingInfomations;
+                Elements8 = Sellings;
+                Elements9 = Byings;
+            }
+
+            private void OpenOtherCharges()
+            {
+                DialogService.Show<DialogOtherChargesSEA>("Simple Dialog");
+            }
+
+            private void OpenFreightCharges()
+            {
+                DialogService.Show<DialogFreightChargesSEA>("Simple Dialog");
+            }
+
+
+            private bool resetValueOnEmptyText;
+            private bool coerceText;
+            private bool coerceValue;
+            private string value1, value2;
+            private bool hover = true;
+            public string searchString { get; set; }
+
+            private string[] states =
+        {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+    };
+
+            private string[] states2 =
+            {
+        "Xác nhận", "Treo", "Hủy",
+    };
+
+            private async Task<IEnumerable<string>> Search1(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
+
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states;
+                return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            private async Task<IEnumerable<string>> Search2(string value)
+            {
+                // In real life use an asynchronous function for fetching data from an api.
+                await Task.Delay(5);
+
+                // if text is null or empty, show complete list
+                if (string.IsNullOrEmpty(value))
+                    return states2;
+                return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            }
+
+            class DetailCuocKhac
+            {
+                public string MaPhi;
+                public string TenPhi;
+                public string KieuPhi;
+                public string TienTe;
+                public string LoaiCont;
+                public string HaiMuoiDC;
+                public string BonMuoiDC;
+                public string HQ;
+                public string FCLUnit;
+                public string GiaLCL;
+                public string DVTLCL;
+                public string GhiChu;
+            }
+
+            class DetailCuoc
+            {
+                public string MaHangTau;
+                public string TenHangTau;
+                public string CangBoc;
+                public string CangDo;
+                public string TienTe;
+                public string LoaiCont;
+                public string HaiMuoiDC;
+                public string BonMuoiDC;
+                public string HQ;
+                public string DVFCL;
+                public string GiaLCL;
+                public string DVTLCL;
+                public string GhiChu;
+            }
+
+
+
+            DetailCuocKhac[] detailcuockhacs = new DetailCuocKhac[]
+        {
+        new DetailCuocKhac { MaPhi = "OF", TenPhi = "Cước vận tải quốc tế",  KieuPhi = "Cước vận chuyển chính",  TienTe="VNĐ" , LoaiCont="40", HaiMuoiDC="8.000.000", BonMuoiDC="9.000.000", HQ="1.000.000", FCLUnit="Container or CBM", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuocKhac { MaPhi = "THC", TenPhi = "Phí xếp dỡ", KieuPhi = "Phí THC",  TienTe="USD" , LoaiCont="20",HaiMuoiDC="6.000", BonMuoiDC="7.000", HQ="1.000", FCLUnit="Container/ngày", GhiChu="", DVTLCL="CBM", GiaLCL="2.000"},
+        new DetailCuocKhac { MaPhi = "DOC", TenPhi = "Phí chứng từ", KieuPhi = "Phí chứng từ",  TienTe="VNĐ"  , LoaiCont="40",HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", FCLUnit="BL", GhiChu="", DVTLCL="CBM", GiaLCL="1.000.000"},
+             };
+
+
+            DetailCuoc[] detailCuocs = new DetailCuoc[]
+        {
+        new DetailCuoc { MaHangTau = "ABOU", TenHangTau = "ABOX SA",  CangBoc = "Cảng Hải Phòng",  TienTe="VNĐ" , CangDo="TOKYO – TOKYO,Japan", LoaiCont="40", HaiMuoiDC="3.000.000", BonMuoiDC="4.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
+        new DetailCuoc { MaHangTau = "AUSU", TenHangTau = "ACE LINES LTD", CangBoc = "Cảng Đà Nẵng",  TienTe="USD" , CangDo="Cảng Hải Phòng", LoaiCont="20", HaiMuoiDC="2.000", BonMuoiDC="3.000", HQ="1.000", DVFCL="Kgs", GhiChu="" , DVTLCL="Tons", GiaLCL="2.000"},
+        new DetailCuoc { MaHangTau = "ADVU", TenHangTau = "ADV INC", CangBoc = "Dongxing China",  TienTe="VNĐ"  , CangDo="Cảng Chân Mây", LoaiCont="40", HaiMuoiDC="1.000.000", BonMuoiDC="2.000.000", HQ="1.000.000", DVFCL="Kgs", GhiChu="" , DVTLCL="CBM", GiaLCL="1.000.000"},
+                   };
+
+            class DetailContainerlist
+            {
+                public string Stt;
+                public string Cntr;
+                public string Qty;
+            }
+
+            DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
+        {
+        new DetailContainerlist { Stt = "1",Cntr = "OF", Qty = "1", },
+        new DetailContainerlist {Stt = "2", Cntr = "OF", Qty = "2", },
+ new DetailContainerlist { Stt = "3",Cntr = "OF", Qty = "3", },
+                                    };
+
+
+            private HashSet<DetailContainerlist> selectedItems4 = new HashSet<DetailContainerlist>();
+            private IEnumerable<DetailContainerlist> Elements4 = new List<DetailContainerlist>();
+
+            private HashSet<DetailCuocKhac> selectedItems = new HashSet<DetailCuocKhac>();
+            private IEnumerable<DetailCuocKhac> Elements2 = new List<DetailCuocKhac>();
+
+            private HashSet<DetailCuoc> selectedItems3 = new HashSet<DetailCuoc>();
+            private IEnumerable<DetailCuoc> Elements3 = new List<DetailCuoc>();
+
+            private HashSet<Description> selectedItems5 = new HashSet<Description>();
+            private IEnumerable<Description> Elements5= new List<Description>();
+
+            private HashSet<CustomsDeclarationInfo> selectedItems6 = new HashSet<CustomsDeclarationInfo>();
+            private IEnumerable<CustomsDeclarationInfo> Elements6= new List<CustomsDeclarationInfo>();
+
+            private HashSet<TruckingInfomation> selectedItems7 = new HashSet<TruckingInfomation>();
+            private IEnumerable<TruckingInfomation> Elements7 = new List<TruckingInfomation>();
+
+            private HashSet<Selling> selectedItems8 = new HashSet<Selling>();
+            private IEnumerable<Selling> Elements8 = new List<Selling>();
+
+            private HashSet<Bying> selectedItems9 = new HashSet<Bying>();
+            private IEnumerable<Bying> Elements9= new List<Bying>();
+
+
+            class Description
+            {
+                public string Number;
+                public string ContainerNumber;
+                public string Type;
+                public string Seal;
+                public int PackageQuantity ;
+                public string Package;
+            }
+
+            Description[] Descriptions = new Description[]
+           {
+        new Description { Number = "1",ContainerNumber = "TEMU6142076", Type = "40 D'C", Seal = "NB564073",PackageQuantity = 5, Package = "BOX", },
+        new Description { Number = "2",ContainerNumber = "CXDU1572275", Type = "20 D'C", Seal = "MOL85003411",PackageQuantity = 10, Package = "BAG", },
+        new Description { Number = "1",ContainerNumber = "TEMU6145025", Type = "1", Seal = "SITA825179",PackageQuantity = 3, Package = "BASKET", },
+                                       };
+
+            class TruckingInfomation
+            {
+                public string Number;
+                public string Licenseplates;
+                public string TypeCar;
+                public int PackageQuantity;
+                public string Package;
+                public int GrossWeight ;
+                public string Measure;
+                public string Transportation;
+                public string Drive;
+                public string Mobile;
+                public string Notes;
+                public string ContainerNumber;
+                public string Seal;
+                public string TypeCont;
+                public string Receiveddate;
+                public string PickUplocation;
+                public string Deliverydate;
+                public string DeliveryLocation;
+            }
+
+
+            TruckingInfomation[] TruckingInfomations = new TruckingInfomation[]
+                   {
+        new TruckingInfomation {
+            Number = "1",Licenseplates = "29A66.66", TypeCar = "10T", PackageQuantity = 3,Package = "PLTS", GrossWeight = 2,Measure = "3.630",Transportation = "Công ty TNHH TM & DVVT Hoa Lâm", Drive = "Long",Mobile = "0972194890", Notes = "", ContainerNumber = "TEMU6140325",Seal = "SITA625179", TypeCont = "40 D'C",DeliveryLocation = "220 Giải Phóng",Deliverydate = "02/10/2021", PickUplocation = "Hải Phòng",Receiveddate = "10//10/2021"},
+        new TruckingInfomation {
+            Number = "2",Licenseplates = "15C123.45", TypeCar = "14M", PackageQuantity = 8,Package = "BOX", GrossWeight = 3,Measure = "9.850",Transportation = "Công ty TNHH DV VT Trọng Tấn", Drive = "Nam",Mobile = "0327461696", Notes = "", ContainerNumber = "TEMU6142076",Seal = "NB564073", TypeCont = "20 D'C",DeliveryLocation = "Đà Nẵng",Deliverydate = "29/02/2021", PickUplocation = "Hải Phòng",Receiveddate = "07/10/2021"},
+        new TruckingInfomation {
+            Number = "3",Licenseplates = "20B345.67", TypeCar = "45H", PackageQuantity = 42,Package = "CTNS", GrossWeight = 4,Measure = "4.850",Transportation = "Công ty cổ phần TMDV vận tải E&F", Drive = "Sơn",Mobile = "01634155249", Notes = "", ContainerNumber = "SEGU4730475",Seal = "SITA803808", TypeCont = "40 D'C",DeliveryLocation = "Vĩnh Phúc",Deliverydate = "21/09/2021", PickUplocation = "Hà Tĩnh",Receiveddate = "23/09/2021"},
+                                               };
+
+
+            class CustomsDeclarationInfo
+            {
+                public string SoCI;
+                public string HouseBLNo;
+                public string CDNo;
+                public string Declarationdate;
+                public string CDLevel;
+                public string POL;
+                public string POD;
+                public string CustomsRecruitment;
+
+            }
+
+            CustomsDeclarationInfo[] customsDeclarationInfos = new CustomsDeclarationInfo[]
+               {
+        new CustomsDeclarationInfo {
+            SoCI = "IV1806001",HouseBLNo = "TEMU6142076", CDNo = "10889346020", Declarationdate = "29/09/2021",CDLevel = "", POL = "CẢNG CÁT LÁI",POD = "CẢNG ĐÀ NẴNG",CustomsRecruitment = "Cục hải quan thành phố Hà Nội", },
+        new CustomsDeclarationInfo {
+            SoCI = "73/INV-SINT",HouseBLNo = "HMSO-15001162", CDNo = "102449434840", Declarationdate = "01/10/2021",CDLevel = "", POL = "CẢNG HẢI PHÒNG",POD = "CẢNG CHÂN MÂY",CustomsRecruitment = "Cục hải quan thành phố Hà Nội", },
+        new CustomsDeclarationInfo {
+            SoCI = "01/VN-HI/2007",HouseBLNo = "PEX00011618002", CDNo = "102050943260", Declarationdate = "02/10/2021",CDLevel ="", POL = "CẢNG HẢI PHÒNG",POD = "CẢNG ĐÀ NẴNG",CustomsRecruitment = "Cục hải quan thành phố Hà Nội", },
+                                           };
+
+
+
+
+
+            class Selling
+            {
+                public string Customer;
+                public string FareFareName;
+                public string TaxType;
+                public string Currency;
+                public string ExRate;
+                public string Unit;
+                public int Qty;
+                public string Rate;
+                public string Tax1;
+                public string Amt;
+                public string LocalAmount;
+                public string VAT;
+                public string Remark;
+                public string Evidence;
+                public string Amount;
+                public string BillNo;
+                public string Group;
+                public string Tax2;
+                public string TaxDate;
+                public string Paid;
+                public string PaidDate;
+                public string Department;
+                public string Create;
+                public string Createdate;
+            }
+
+            Selling[] Sellings = new Selling[]
+                   {
+        new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+         new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+          new Selling {
+            Customer = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+
+                                               };
+
+
+            class Bying
+            {
+                public string Vendor;
+                public string FareFareName;
+                public string TaxType;
+                public string Currency;
+                public string ExRate;
+                public string Unit;
+                public int Qty;
+                public string Rate;
+                public string Tax1;
+                public string Amt;
+                public string LocalAmount;
+                public string VAT;
+                public string Remark;
+                public string Evidence;
+                public string Amount;
+                public string BillNo;
+                public string Group;
+                public string Tax2;
+                public string TaxDate;
+                public string Paid;
+                public string PaidDate;
+                public string Department;
+                public string Create;
+                public string Createdate;
+            }
+
+            Bying[] Byings = new Bying[]
+                       {
+        new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+         new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+          new Bying {
+            Vendor = "IV1806001",FareFareName = "TEMU6142076", TaxType = "10889346020", Currency = "29/09/2021",ExRate = "", Unit = "CẢNG CÁT LÁI",Qty = 1,Rate = "Cục hải quan thành phố Hà Nội",
+        Tax1 = "IV1806001",Amt = "TEMU6142076", LocalAmount = "10889346020", VAT = "29/09/2021",Remark = "", Evidence = "CẢNG CÁT LÁI",Amount = "1",BillNo = "Cục hải quan thành phố Hà Nội",
+        Group = "IV1806001",Tax2 = "TEMU6142076", TaxDate = "10889346020", Paid = "29/09/2021",PaidDate = "", Department = "CẢNG CÁT LÁI",Create = "",Createdate = "Cục hải quan thành phố Hà Nội", },
+
+
+                                                   };
+
+        
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISnackbar Snackbar { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDialogService DialogService { get; set; }
     }
 }
 #pragma warning restore 1591
