@@ -860,3 +860,5 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDe
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\WorkOrder\WorkOrder.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\WorkOrder\ListWorkOrder.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\WorkOrder\WorkOrder.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\RazorDeclaration\Pages\WorkOrder\Charge.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Release\net5.0\Razor\Pages\WorkOrder\Charge.razor.g.cs

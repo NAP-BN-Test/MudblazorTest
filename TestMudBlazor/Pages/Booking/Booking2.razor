@@ -31,7 +31,7 @@
                 <MudItem xs="12" >
                     <MudGrid>
                         <MudItem xs="6">
-                            <MudText Style="line-height: 60px" Typo="Typo.h5" GutterBottom="true">Booking</MudText>
+                            <MudText Style="line-height: 60px" Typo="Typo.h5" Color="Color.Tertiary" GutterBottom="true">Booking</MudText>
                         </MudItem>
                         <MudItem xs="6">
                             <MudToolBar Class="toolBar">
@@ -254,7 +254,7 @@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudAutocomplete T="string" Label="Inco Terms" @bind-Value="model.IncoTerms" SearchFunc="@Search1"
+                            <MudAutocomplete T="string" Label="IncoTerms" @bind-Value="model.IncoTerms" SearchFunc="@Search1"
                                              ResetValueOnEmptyText="@resetValueOnEmptyText"
                                              CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.IncoTerms)" Margin="Margin.Dense" />
                         </MudItem>

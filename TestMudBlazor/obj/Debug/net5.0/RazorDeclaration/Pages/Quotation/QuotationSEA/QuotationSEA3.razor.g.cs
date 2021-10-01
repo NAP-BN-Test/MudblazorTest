@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 361 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor"
+#line 365 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Quotation\QuotationSEA\QuotationSEA3.razor"
            
         private bool dense1 = true;
         private bool dense2 = true;

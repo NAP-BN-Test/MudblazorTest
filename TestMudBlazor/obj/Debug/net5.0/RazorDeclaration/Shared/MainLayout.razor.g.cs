@@ -111,7 +111,7 @@ using AKSoftware.Localization.MultiLanguages.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 119 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
+#line 120 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Shared\MainLayout.razor"
        
     private string[] states =
                     {
