@@ -25,7 +25,7 @@
 </style>
 
 <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
-    <MudMainContent Class="pt-16 px-16">
+    <MudMainContent Class="pt-16 px-16 " Style="padding-bottom: 30px">
         <MudContainer Class="mt-16">
             <MudGrid>
                 <MudItem xs="12" >
@@ -117,14 +117,14 @@
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                                    <MudNumericField @bind-Value="model.Weight" Label="Weight" Variant="Variant.Outlined" For="@(() => model.Weight)" Margin="Margin.Dense"></MudNumericField>
+                            <MudNumericField @bind-Value="model.Weight" Label="Weight" Variant="Variant.Outlined" For="@(() => model.Weight)" Margin="Margin.Dense"></MudNumericField>
                         </MudItem>
 
                     </MudGrid>
                     <MudGrid>
                         <MudItem xs="12">
-                            
-                                    <MudNumericField @bind-Value="model.Measure" Label="Measure" Variant="Variant.Outlined" For="@(() => model.Measure)" Margin="Margin.Dense"></MudNumericField>
+
+                            <MudNumericField @bind-Value="model.Measure" Label="Measure" Variant="Variant.Outlined" For="@(() => model.Measure)" Margin="Margin.Dense"></MudNumericField>
                         </MudItem>
 
                     </MudGrid>
@@ -133,6 +133,14 @@
                             <MudNumericField @bind-Value="model.NWeight" Label="N. Weight" Variant="Variant.Outlined" For="@(() => model.NWeight)" Margin="Margin.Dense"></MudNumericField>
                         </MudItem>
 
+                    </MudGrid>
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Trucker" @bind-Value="model.Trucker" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Trucker)" Margin="Margin.Dense" />
+                        </MudItem>
                     </MudGrid>
                 </MudItem>
 
@@ -220,6 +228,10 @@
                                              CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Warehose)" Margin="Margin.Dense" />
                         </MudItem>
                     </MudGrid>
+                    
+
+                    
+
                 </MudItem>
 
                 <MudItem xs="12" sm="6" md="3">
@@ -230,7 +242,7 @@
                                              CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Service)" Margin="Margin.Dense" />
                         </MudItem>
                     </MudGrid>
-                    
+
                     <MudGrid>
                         <MudItem xs="12">
                             <MudAutocomplete T="string" Label="Load Type" @bind-Value="model.LoadType" SearchFunc="@Search1"
@@ -263,10 +275,10 @@
 
                     <MudGrid>
                         <MudItem xs="12">
-                            <MudTable Class="table_custom"  Context="tableRowContext" Items="@Elements2" Dense="true" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover"
-                                      CommitEditTooltip="Commit Edit" HeaderClass="table_custom_heard"  OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                            <MudTable Class="table_custom" Context="tableRowContext" Items="@Elements2" Dense="true" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover"
+                                      CommitEditTooltip="Commit Edit" HeaderClass="table_custom_heard" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
 
-                                <HeaderContent >
+                                <HeaderContent>
                                     <MudTh>No</MudTh>
                                     <MudTh>Cntr</MudTh>
                                     <MudTh>Qty</MudTh>
@@ -293,15 +305,21 @@
                                     </MudHidden>
 
                                     @*<MudHidden IsHidden="selectedItems != null || selectedItems.Count > 0" Invert="true">
-                                        <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm</MudButton>
-                                    </MudHidden>*@
+                            <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm</MudButton>
+                        </MudHidden>*@
                                     <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm</MudButton>
                                 </PagerContent>
                             </MudTable>
                         </MudItem>
+
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField @bind-Value="model.CYInfor" Label="CY Infor" Variant="Variant.Outlined" Lines="5" For="@(() => model.CYInfor)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
                     </MudGrid>
 
-                    
                 </MudItem>
 
                 <MudItem xs="12" sm="6" md="3">
@@ -313,6 +331,11 @@
                     <MudGrid>
                         <MudItem xs="12">
                             <MudTextField @bind-Value="model.HouseNo" Label="Booking No" Disabled="true" Variant="Variant.Outlined" For="@(() => model.HouseNo)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField @bind-Value="model.HouseNo" Label="Job No" Disabled="true" Variant="Variant.Outlined" For="@(() => model.HouseNo)" Margin="Margin.Dense"></MudTextField>
                         </MudItem>
                     </MudGrid>
                     <MudGrid>
@@ -381,6 +404,8 @@
                             <MudDatePicker Label="Date" @bind-Date="model.Date" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.Date)" Margin="Margin.Dense" />
                         </MudItem>
                     </MudGrid>
+
+                    
                     <MudGrid>
                         <MudItem xs="12">
                             <MudTextField @bind-Value="model.Remark" Label="Remark" Variant="Variant.Outlined" For="@(() => model.Remark)" Lines="5" Margin="Margin.Dense"></MudTextField>
@@ -886,6 +911,8 @@
             public TimeSpan? Time1 { get; set; }
             public TimeSpan? Time2 { get; set; }
             public TimeSpan? Time3 { get; set; }
+            public string Trucker { get; set; }
+            public string CYInfor { get; set; }
         }
 
         bool success;

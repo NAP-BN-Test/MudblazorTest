@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 833 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
+#line 858 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking2.razor"
            
 
         Booking model = new Booking();
@@ -190,6 +190,8 @@ using DiaLog;
             public TimeSpan? Time1 { get; set; }
             public TimeSpan? Time2 { get; set; }
             public TimeSpan? Time3 { get; set; }
+            public string Trucker { get; set; }
+            public string CYInfor { get; set; }
         }
 
         bool success;

@@ -133,12 +133,12 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 384 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\Charge.razor"
+#line 425 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\Charge.razor"
        
     private bool dense1 = true;
     private bool dense2 = true;
     Charges model = new Charges();
-
+    public string Search { get; set; }
     public class Charges
     {
         public string Profit { get; set; }
@@ -226,8 +226,10 @@ using DiaLog;
 
     class Selling
     {
+        public string Number;
         public string Customer;
-        public string FareFareName;
+        public string FareName;
+        public string Fare;
         public string TaxType;
         public string Currency;
         public string ExRate;
@@ -255,19 +257,19 @@ using DiaLog;
     Selling[] Sellings = new Selling[]
                    {
         new Selling {
-            Customer = "Công ty cổ phần Hà Thăng",FareFareName = "THC/Phí xếp dỡ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container/ngày",Qty = 1,Rate = "500.000",
+            Customer = "Công ty cổ phần Hà Thăng",Fare = "THC", FareName = "Phí xếp dỡ",TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container/ngày",Qty = 1,Rate = "500.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "500.000", VAT = "0%",Remark = "", Evidence = "Internal",Amount = "500.000",BillNo = "HPAY21030015",
-        Group = "Y1",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y1",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "1", },
 
          new Selling {
-            Customer = "Công ty cổ phần Hà Thăng",FareFareName = "DOC/Phí chứng từ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "BL",Qty = 1,Rate = "1.000.000",
+            Customer = "Công ty cổ phần Hà Thăng",Fare = "DOC",FareName = "Phí chứng từ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "BL",Qty = 1,Rate = "1.000.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "1.000.000", VAT = "0%",Remark = "", Evidence = "Tax",Amount = "1.000.000",BillNo = "HPAY21030015",
-        Group = "Y",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "2",},
 
           new Selling {
-            Customer = "IV1806001",FareFareName = "OF/Cước vận tải nội địa", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container or CBM",Qty = 1,Rate = "4.000.000",
+            Customer = "IV1806001",Fare = "OF",FareName = "Cước vận tải nội địa", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container or CBM",Qty = 1,Rate = "4.000.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "4.000.000", VAT = "29/09/2021",Remark = "", Evidence = "Tax",Amount = "4.000.000",BillNo = "HPAY21030015",
-        Group = "Y",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y",Tax2 = "Y", TaxDate = "01/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "3",},
 
 
                                                };
@@ -275,8 +277,10 @@ using DiaLog;
 
     class Buying
     {
+        public string Number;
         public string Vendor;
-        public string FareFareName;
+        public string FareName;
+        public string Fare;
         public string TaxType;
         public string Currency;
         public string ExRate;
@@ -304,19 +308,19 @@ using DiaLog;
     Buying[] Buyings = new Buying[]
                        {
         new Buying {
-            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",FareFareName = "TRG/Phí vận tải đường bộ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Shpt",Qty = 1,Rate = "4.000.000",
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare = "TRG", FareName = "Phí vận tải đường bộ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Shpt",Qty = 1,Rate = "4.000.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "4.000.000", VAT = "0%",Remark = "", Evidence = "Tax",Amount = "4.000.000",BillNo = "HPAY21030016",
-        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "1",},
 
          new Buying {
-            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",FareFareName = "TOL Fee/Phí cầu đường", TaxType = "0% VAT", Currency = "600.000",ExRate = "", Unit = "Container",Qty = 1,Rate = "600.000",
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare= "TOL Fee", FareName = "Phí cầu đường", TaxType = "0% VAT", Currency = "600.000",ExRate = "", Unit = "Container",Qty = 1,Rate = "600.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "600.000", VAT = "0%",Remark = "", Evidence = "Internal",Amount = "600.000",BillNo = "HPAY21030016",
-        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "2",},
 
           new Buying {
-            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",FareFareName = "LON/Phí nâng", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container",Qty = 1,Rate = "700.000",
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare = "LON", FareName = "Phí nâng",TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container",Qty = 1,Rate = "700.000",
         Tax1 = "Y",Amt = "0", LocalAmount = "700.000", VAT = "0%",Remark = "", Evidence = "Tax",Amount = "1",BillNo = "HPAY21030016",
-        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", },
+        Group = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Paid = "N",PaidDate = "", Department = "SALES",Create = "Tamtt",Createdate = "01/10/2021", Number = "3",},
 
 
                                                    };

@@ -410,11 +410,11 @@ Console.WriteLine(model.Type);
     TruckingInfomation[] TruckingInfomations = new TruckingInfomation[]
            {
         new TruckingInfomation {
-            Number = "1",Licenseplates = "29A66.66", TypeCar = "10T", PackageQuantity = 3,Package = "PLTS", GrossWeight = 2,Measure = "3.630",Transportation = "Công ty TNHH TM & DVVT Hoa Lâm", Drive = "Long",Mobile = "0972194890", Notes = "", ContainerNumber = "TEMU6140325",Seal = "SITA625179", TypeCont = "40 D'C",DeliveryLocation = "220 Giải Phóng",Deliverydate = "02/10/2021", PickUplocation = "Hải Phòng",Receiveddate = "10//10/2021"},
+            Number = "1",Licenseplates = "29A66.66", TypeCar = "10T", PackageQuantity = 3,Package = "PLTS", GrossWeight = 2,Measure = "3.630",Transportation = "DACO ", Drive = "Long",Mobile = "0972194890", Notes = "", ContainerNumber = "TEMU6140325",Seal = "SITA625179", TypeCont = "40 D'C",DeliveryLocation = "220 Giải Phóng",Deliverydate = "02/10/2021", PickUplocation = "Hải Phòng",Receiveddate = "10//10/2021"},
         new TruckingInfomation {
-            Number = "2",Licenseplates = "15C123.45", TypeCar = "14M", PackageQuantity = 8,Package = "BOX", GrossWeight = 3,Measure = "9.850",Transportation = "Công ty TNHH DV VT Trọng Tấn", Drive = "Nam",Mobile = "0327461696", Notes = "", ContainerNumber = "TEMU6142076",Seal = "NB564073", TypeCont = "20 D'C",DeliveryLocation = "Đà Nẵng",Deliverydate = "29/02/2021", PickUplocation = "Hải Phòng",Receiveddate = "07/10/2021"},
+            Number = "2",Licenseplates = "15C123.45", TypeCar = "14M", PackageQuantity = 8,Package = "BOX", GrossWeight = 3,Measure = "9.850",Transportation = "DANKO", Drive = "Nam",Mobile = "0327461696", Notes = "", ContainerNumber = "TEMU6142076",Seal = "NB564073", TypeCont = "20 D'C",DeliveryLocation = "Đà Nẵng",Deliverydate = "29/02/2021", PickUplocation = "Hải Phòng",Receiveddate = "07/10/2021"},
         new TruckingInfomation {
-            Number = "3",Licenseplates = "20B345.67", TypeCar = "45H", PackageQuantity = 42,Package = "CTNS", GrossWeight = 4,Measure = "4.850",Transportation = "Công ty cổ phần TMDV vận tải E&F", Drive = "Sơn",Mobile = "01634155249", Notes = "", ContainerNumber = "SEGU4730475",Seal = "SITA803808", TypeCont = "40 D'C",DeliveryLocation = "Vĩnh Phúc",Deliverydate = "21/09/2021", PickUplocation = "Hà Tĩnh",Receiveddate = "23/09/2021"},
+            Number = "3",Licenseplates = "20B345.67", TypeCar = "45H", PackageQuantity = 42,Package = "CTNS", GrossWeight = 4,Measure = "4.850",Transportation = "DANKO", Drive = "Sơn",Mobile = "01634155249", Notes = "", ContainerNumber = "SEGU4730475",Seal = "SITA803808", TypeCont = "40 D'C",DeliveryLocation = "Vĩnh Phúc",Deliverydate = "21/09/2021", PickUplocation = "Hà Tĩnh",Receiveddate = "23/09/2021"},
                                            };
 
 

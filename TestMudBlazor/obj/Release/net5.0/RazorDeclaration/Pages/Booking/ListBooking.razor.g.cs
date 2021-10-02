@@ -112,7 +112,7 @@ using System.Net.Http.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 123 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\ListBooking.razor"
+#line 125 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\ListBooking.razor"
        
     private bool dense1 = false;
     private string searchString;
@@ -150,7 +150,8 @@ using System.Net.Http.Json;
         public string SVCTerm;
         public string Package;
         public string Unit;
-        public string WeightOP;
+        public string Weight;
+        public string OP;
         public string Status;
     }
 
@@ -159,15 +160,15 @@ using System.Net.Http.Json;
             new Booking { Service = "SEA", OrderNo = "Or-240921", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-001" ,BookingNo="SGN0794274", Customer = "Công ty cổ phần Hà Thăng" , Vessel = "Maersk Discovery", VOY = "001" ,Consignee="SEIKO",
             ConsigneeName = "Công ty TNHH SEIKO VN", DoorDate = DateTime.Now.ToString(""), ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "ABOU" ,CarrierName="ABOX SA", POL = "SH" , POLName = "SHANGHAI", POD = "CATLAI" ,PODName="CẢNG CÁT LÁI",
             ClosingDate = DateTime.Now.ToString(""), CntrType = "40", CntrQty = "1" , SalesCode = "Tamtt", SalesName = "Trần Thanh Tâm" , Incoterms = "CIF" ,LoadType="FCL",
-            SVCTerm = "CY/CY", Package = "BOX", Unit = "kgs" , WeightOP = "6.500", Status = "Hoạt động"},
+            SVCTerm = "CY/CY", Package = "BOX", Unit = "kgs" , Weight = "6.500", OP="DB", Status = "Hoạt động"},
             new Booking { Service = "SEA", OrderNo = "Or-250921", HouseNo = "LNBCLI201697" , MasterNo = "SITGNBCL113569B", JobNo = "NAP21-002" ,BookingNo="855291456", Customer = "Công ty TNHH Mai Hương" , Vessel = "AKARI", VOY = "002" ,Consignee="Haivina",
             ConsigneeName = "Công ty TNHH Haivina", DoorDate = DateTime.Now.ToString(""), ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "ADVU" ,CarrierName="ADVU INC", POL = "Ningbo" , POLName = "NINGBO ", POD = "HPH" ,PODName="CẢNG HẢI PHÒNG",
             ClosingDate = DateTime.Now.ToString(""), CntrType = "20", CntrQty = "1" , SalesCode = "NamLV", SalesName = "Lê Vĩnh Nam" , Incoterms = "FOB" ,LoadType="FCL",
-            SVCTerm = "CFS-DOOR", Package = "BOX", Unit = "kgs" , WeightOP = "883.950", Status = "Hoạt động"},
+            SVCTerm = "CFS-DOOR", Package = "BOX", Unit = "kgs" , Weight = "883.950",OP="DB", Status = "Hoạt động"},
             new Booking { Service = "SEA", OrderNo = "Or-280921", HouseNo = "HMSO-15001162" , MasterNo = "MOLU12014991846", JobNo = "NAP21-003" ,BookingNo="2601352270", Customer = "Công ty cổ phần Nhựa Châu Âu" , Vessel = "BIEN DONG NAVIGATOR", VOY = "510W" ,Consignee="FIT",
             ConsigneeName = "Công ty TNHH FIT Việt Nam", DoorDate = DateTime.Now.ToString(""), ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "AGIP SPA" ,CarrierName="AGIP SPA", POL = "JPTYO" , POLName = "TOKYO ", POD = "HPH" ,PODName="CẢNG HẢI PHÒNG",
             ClosingDate = DateTime.Now.ToString(""), CntrType = "20", CntrQty = "1" , SalesCode = "SonLM", SalesName = "Lê Minh Sơn" , Incoterms = "CIF" ,LoadType="FCL",
-            SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , WeightOP = "14.020", Status = "Hoạt động"},
+            SVCTerm = "CY/CY", Package = "BAG", Unit = "KGS" , Weight = "14.020",OP="DB", Status = "Hoạt động"},
         };
 
 
