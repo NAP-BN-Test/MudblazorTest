@@ -3,14 +3,14 @@
     "",
     "\\TestMudBlazor",
     "\\TestMudBlazor\\Pages",
-    "\\TestMudBlazor\\Pages\\Category",
-    "\\TestMudBlazor\\Pages\\Category\\Warehouse",
+    "\\TestMudBlazor\\Pages\\Booking",
     "\\TestMudBlazor\\Pages\\DiaLog",
+    "\\TestMudBlazor\\Pages\\Job",
     "\\TestMudBlazor\\Pages\\Quotation",
     "\\TestMudBlazor\\Pages\\Quotation\\QuotationAIR",
     "\\TestMudBlazor\\Pages\\Quotation\\QuotationSEA",
     "\\TestMudBlazor\\Pages\\WorkOrder"
   ],
-  "SelectedNode": "\\TestMudBlazor\\Pages\\WorkOrder\\WorkOrder.razor",
+  "SelectedNode": "\\TestMudBlazor\\Pages\\Booking\\BookingComponent.razor",
   "PreviewInSolutionExplorer": false
 }

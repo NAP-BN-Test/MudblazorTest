@@ -1,0 +1,399 @@
+﻿@using System.Net.Http.Json
+@inject HttpClient httpClient
+@page "/listjob"
+@inject ISnackbar Snackbar
+<style>
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+</style>
+<MudLayout>
+    <MudDrawer Width="500px" @bind-Open="@openRight" Anchor="Anchor.Right" Elevation="2" Variant="@DrawerVariant.Persistent">
+        <MudDrawerHeader Style="margin-top: 70px">
+            <MudIconButton Icon="@Icons.Material.Outlined.ArrowForward" @onclick="@ToggleRightDrawer"/>
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudTabs Elevation="1" Rounded="true" PanelClass="pa-4" Style="padding: 0 20px">
+                <MudTabPanel Text="Invoice" ToolTip="ToolTip One">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Tên khách hàng" MaxHeight="150">
+                            @*<MudTable Hover="true" Breakpoint="Breakpoint.Sm" Height="500px" FixedHeader="true"
+                                      Items="@Elements"
+                                      GroupBy="@_groupDefinition"
+                                      GroupHeaderStyle="background-color:var(--mud-palette-background-grey)"
+                                      GroupFooterClass="mb-4"
+                                      Dense="true"
+                                      MultiSelection="true">
+                                <HeaderContent>
+                                    <MudTh>Nr</MudTh>
+                                    <MudTh>Sign</MudTh>
+                                    <MudTh>Name</MudTh>
+                                    <MudTh>Group</MudTh>
+                                    <MudTh>Position</MudTh>
+                                    <MudTh>Molar mass</MudTh>
+                                </HeaderContent>
+                                <GroupHeaderTemplate>
+                                    <MudTh Class="mud-table-cell-custom-group" colspan="6">@($"{context.GroupName}: {context.Key}")</MudTh>
+                                </GroupHeaderTemplate>
+
+                                <RowTemplate>
+                                    <MudTd DataLabel="Nr">@context.Number</MudTd>
+                                    <MudTd DataLabel="Sign">@context.Sign</MudTd>
+                                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                                    <MudTd DataLabel="Group">@context.Group</MudTd>
+                                    <MudTd DataLabel="Position">@context.Position</MudTd>
+                                    <MudTd Style="text-align:right" DataLabel="Molar mass">@context.Molar</MudTd>
+                                </RowTemplate>
+                                <GroupFooterTemplate>
+                                    <MudTh Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Mass: @context.Items.Sum((e) => e.Molar)</MudTh>
+                                </GroupFooterTemplate>
+                            </MudTable>*@
+                        </MudExpansionPanel>
+                        <MudExpansionPanel Text="Số hóa đơn" MaxHeight="500">
+
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                    
+                </MudTabPanel>
+                <MudTabPanel Text="Payment" ToolTip="ToolTip Two">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Panel One" MaxHeight="150">
+                            Panel One Content
+                        </MudExpansionPanel>
+                        <MudExpansionPanel Text="Panel Two" MaxHeight="500">
+
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudTabPanel>
+                <MudTabPanel Text="D/C note" ToolTip="ToolTip Three">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Panel One" MaxHeight="150">
+                            Panel One Content
+                        </MudExpansionPanel>
+                        <MudExpansionPanel Text="Panel Two" MaxHeight="500">
+
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudTabPanel>
+
+                <MudTabPanel Text="Profit/Loss" ToolTip="ToolTip Three">
+                    <MudExpansionPanels>
+                        <MudExpansionPanel Text="Panel One" MaxHeight="150">
+                            Panel One Content
+                        </MudExpansionPanel>
+                        <MudExpansionPanel Text="Panel Two" MaxHeight="500">
+
+                        </MudExpansionPanel>
+                    </MudExpansionPanels>
+                </MudTabPanel>
+            </MudTabs>
+            
+
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent Class="pt-16 px-16" Style="min-height: 100%">
+
+        <MudDrawerContainer Class="mud-height-full">
+
+
+
+
+            <MudGrid Style="margin-top: 10px; ">
+                <MudGrid>
+                    <MudItem xs="12" Style="margin-top: 10px">
+                        <MudText Typo="Typo.h5" GutterBottom="true" Color="Color.Tertiary">Danh sách Job</MudText>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudToolBar Class="toolbarCustom">
+                            <MudTextField @bind-Value="searchString" Style="width: 50%" Placeholder="Search"
+                                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium"
+                                          Class="mt-0 searchcutom"></MudTextField>
+                            <MudSpacer />
+                            <MudIconButton Icon="@Icons.Material.Outlined.Archive" @onclick="@ToggleRightDrawer"/>
+                            <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+
+
+                        </MudToolBar>
+                    </MudItem>
+                </MudGrid>
+
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTable  Items="@Elements"  FixedHeader="true" Style="white-space: nowrap" Dense="@dense1" Breakpoint="Breakpoint.Sm" HorizontalScrollbar="true" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                            <HeaderContent>
+                                <MudTh>Service</MudTh>
+                                <MudTh>S/R No</MudTh>
+                                <MudTh>House No</MudTh>
+                                <MudTh>Master No</MudTh>
+                                <MudTh>Job No</MudTh>
+                                <MudTh>Salesman</MudTh>
+                                <MudTh>Customer</MudTh>
+                                <MudTh>Customer Name</MudTh>
+                                <MudTh>Vessel</MudTh>
+                                <MudTh>VOY</MudTh>
+                                <MudTh>ETD</MudTh>
+                                <MudTh>ETA</MudTh>
+                                <MudTh>Carrier</MudTh>
+                                <MudTh>POL</MudTh>
+                                <MudTh>POD</MudTh>
+                                <MudTh>Confirm by</MudTh>
+                                <MudTh>Confirm at</MudTh>
+                                <MudTh>Confirm W/O by</MudTh>
+                                <MudTh>Confirm W/O at</MudTh>
+                                <MudTh>Insert User</MudTh>
+                                <MudTh>Manifest</MudTh>
+                                <MudTh>Invoice</MudTh>
+                                <MudTh>Payment</MudTh>
+                                <MudTh>D/C Note</MudTh>
+                                <MudTh>Tax</MudTh>
+                                <MudTh>Slip</MudTh>
+                                <MudTh>Closed</MudTh>
+                            </HeaderContent>
+                            <RowTemplate >
+                                <MudTd DataLabel="Service">@context.Service</MudTd>
+                                <MudTd DataLabel="SRNo">@context.SRNo</MudTd>
+                                <MudTd DataLabel="HouseNo">@context.HouseNo</MudTd>
+                                <MudTd DataLabel="MasterNo">@context.MasterNo</MudTd>
+                                <MudTd DataLabel="JobNo">@context.JobNo</MudTd>
+                                <MudTd DataLabel="Salesman">@context.Salesman</MudTd>
+                                <MudTd DataLabel="Customer">@context.Customer</MudTd>
+                                <MudTd DataLabel="CustomerName">@context.CustomerName</MudTd>
+                                <MudTd DataLabel="Vessel">@context.Vessel</MudTd>
+                                @*<MudTd DataLabel="VOY">@context.VOY</MudTd>*@
+                                <MudTd DataLabel="ETD">@context.ETD</MudTd>
+                                <MudTd DataLabel="ETA">@context.ETA</MudTd>
+                                <MudTd DataLabel="Carrier">@context.Carrier</MudTd>
+                                <MudTd DataLabel="POL">@context.POL</MudTd>
+                                <MudTd DataLabel="POD">@context.POD</MudTd>
+                                <MudTd DataLabel="ConfirmBy">@context.ConfirmBy</MudTd>
+                                <MudTd DataLabel="ConfirmAt">@context.ConfirmAt</MudTd>
+                                <MudTd DataLabel="ConfirmWOby">@context.ConfirmWOby</MudTd>
+                                <MudTd DataLabel="ConfirmWOat">@context.ConfirmWOat</MudTd>
+                                <MudTd DataLabel="InsertUser">@context.InsertUser</MudTd>
+                                <MudTd DataLabel="Manifest">@context.Manifest</MudTd>
+                                <MudTd DataLabel="Invoice">@context.Invoice</MudTd>
+                                <MudTd DataLabel="Payment">@context.Payment</MudTd>
+                                <MudTd DataLabel="DCNote">@context.DCNote</MudTd>
+                                <MudTd DataLabel="Tax">@context.Tax</MudTd>
+                                <MudTd DataLabel="Slip">@context.Slip</MudTd>
+                                <MudTd DataLabel="Closed">@context.Closed</MudTd>
+                            </RowTemplate>
+                            <PagerContent>
+                                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                            </PagerContent>
+
+                        </MudTable>
+                        <div class="d-flex flex-wrap mt-4">
+                            <MudSwitch @bind-Checked="@dense1"  Color="Color.Secondary">Thu hẹp</MudSwitch>
+                            @*<MudSwitch @bind-Checked="@bordered2" Color="Color.Warning">Khung</MudSwitch>*@
+                            <MudSpacer />
+
+                        </div>
+                    </MudItem>
+                </MudGrid>
+            </MudGrid>
+        </MudDrawerContainer>
+
+    </MudMainContent>
+</MudLayout>
+    
+
+    @code {
+
+            [CascadingParameter]
+            public bool Rtl { get; set; }
+
+            bool openLeft = false;
+            bool openRight = false;
+
+            void ToggleLeftDrawer()
+            {
+                openLeft = !openLeft;
+            }
+
+            public void ToggleRightDrawer()
+            {
+                openRight = !openRight;
+            }
+
+
+        private bool dense1 = false;
+        private string searchString;
+        private bool hover = true;
+
+        class Job
+        {
+            public string Service;
+            public string SRNo;
+            public string HouseNo;
+            public string MasterNo;
+            public string JobNo;
+            public string Salesman;
+            public string Customer;
+            public string CustomerName;
+            public string Vessel;
+            //public string VOY;
+            public string ETD;
+            public string ETA;
+            public string Carrier;
+            public string POL;
+            public string POD;
+            public string ConfirmBy;
+            public string ConfirmAt;
+            public string ConfirmWOby;
+            public string ConfirmWOat;
+            public string Manifest;
+            public string InsertUser;
+            public string Invoice;
+            public string Payment;
+            public string DCNote;
+            public string Tax;
+            public string Slip;
+            public string Closed;
+        }
+
+        Job[] Jobs = new Job[]
+    {
+            new Job { Service = "SEA", SRNo = "HSE2105002", HouseNo = "LSHCLI204198" , MasterNo = "KYHCMH2002775", JobNo = "NAP21-1021001" ,Salesman="Tamtt", Customer = "Hathang" , CustomerName = "Công ty cổ phần Hà Thăng" , Vessel = "MAERSK DISCOVERY",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "ABOX SA" , POL = "KRPUS" ,  POD = "VNHPH" ,
+             ConfirmBy = "Admin", ConfirmAt = "04/10/2021" , ConfirmWOby = "Namlv", ConfirmWOat = "04/10/2021" , Manifest = "" ,InsertUser="",
+            Invoice = "Checked", Payment = "Uncheck", DCNote = "Checked" , Tax = "Uncheck", Slip="Checked", Closed = "N"},
+            new Job { Service = "AIR", SRNo = "HSE2105002", HouseNo = "LNBCLI201697" , MasterNo = "SITGNBCL113569B", JobNo = "NAP21-1021002" ,Salesman="Tamtt", Customer = "AASC" , CustomerName = "All Korea" , Vessel = "SHUNSHINE BANDAMA",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "APLU" , POL = "HAN" ,  POD = "ICN" ,
+             ConfirmBy = "Admin", ConfirmAt = "02/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "02/10/2021" , Manifest = "Unchecked" ,InsertUser="",
+            Invoice = "Unchecked", Payment = "Checked", DCNote = "Checked" , Tax = "Checked", Slip="Unchecked", Closed = "N"},
+            new Job { Service = "SEA", SRNo = "HSE2105008", HouseNo = "LNBCLI201697" , MasterNo = "SITNGBCL113569B", JobNo = "NAP21-1021003" ,Salesman="Tamtt", Customer = "ALLKR" , CustomerName = "Công ty cổ phần Hà Thăng" , Vessel = "APL PARIS",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "EVER" , POL = "VNHPH" ,  POD = "AEIND" ,
+             ConfirmBy = "Admin", ConfirmAt = "05/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "05/10/2021" , Manifest = "Checked" ,InsertUser="",
+            Invoice = "Unchecked", Payment = "Checked", DCNote = "Checked" , Tax = "Checked", Slip="Unchecked", Closed = "N"},
+new Job { Service = "SEA", SRNo = "HSE2105006", HouseNo = "EPLS2105012" , MasterNo = "TNH01021999", JobNo = "NAP21-1021004" ,Salesman="Tamtt", Customer = "CABLE" , CustomerName = "Cửa hàng bán dây mạng" , Vessel = "APL 01",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "CJSC" , POL = "AIVAL" ,  POD = "VBHPH" ,
+             ConfirmBy = "Admin", ConfirmAt = "10/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "10/10/2021" , Manifest = "Unchecked" ,InsertUser="",
+            Invoice = "Checked", Payment = "Unchecked", DCNote = "Checked" , Tax = "Unchecked", Slip="Checked", Closed = "N"},
+            new Job { Service = "SEA", SRNo = "HSE2105003", HouseNo = "EPLS2105008" , MasterNo = "AH01021999", JobNo = "NAP21-1021005" ,Salesman="Tamtt", Customer = "HUONGVIET" , CustomerName = "Công ty TNHH dịch vụ du lịch hương mại Hương Việt" , Vessel = "AKARI",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "CCIF" , POL = "AEDAS" ,  POD = "VNHPH" ,
+             ConfirmBy = "Admin", ConfirmAt = "12/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "12/10/2021" , Manifest = "Unchecked" ,InsertUser="",
+            Invoice = "Unchecked", Payment = "Checked", DCNote = "Checked" , Tax = "Unchecked", Slip="Checked", Closed = "N"},
+            new Job { Service = "AIR", SRNo = "HSE2105009", HouseNo = "EPLS2105015" , MasterNo = "HNT01021999", JobNo = "NAP21-1021006" ,Salesman="Tamtt", Customer = "KIYI CHINA" , CustomerName = "KIRI CHINA" , Vessel = "BAGAN STAR",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "CHIW" , POL = "VNHPH" ,  POD = "ANBUB" ,
+             ConfirmBy = "Admin", ConfirmAt = "15/10/2021" , ConfirmWOby = "Admin", ConfirmWOat = "16/10/2021" , Manifest = "Checked" ,InsertUser="N",
+            Invoice = "Checked", Payment = "Unchecked", DCNote = "Checked" , Tax = "Checked", Slip="Checked", Closed = "N"},
+new Job { Service = "SEA", SRNo = "HAE2105002", HouseNo = "GLD0000118" , MasterNo = "98812345555", JobNo = "NAP21-1021007" ,Salesman="Tamtt", Customer = "ARISTON" , CustomerName = "ARISTON Thermo VietNam LTD" , Vessel = "AKARI",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "ABOX SA" , POL = "ABE" ,  POD = "ABQ" ,
+             ConfirmBy = "Admin", ConfirmAt = "16/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "16/10/2021" , Manifest = "Unchecked" ,InsertUser="",
+            Invoice = "Checked", Payment = "Unchecked", DCNote = "Checked" , Tax = "Checked", Slip="Unchecked", Closed = "N"},
+            new Job { Service = "SEA", SRNo = "HSE2105005", HouseNo = "EPLS2105011" , MasterNo = "MSBE2105005", JobNo = "NAP21-1021008" ,Salesman="Tamtt", Customer = "APLOG" , CustomerName = "Aplog" , Vessel = "AKARI",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "APLU" , POL = "VNHPH" ,  POD = "AEAMU" ,
+             ConfirmBy = "Admin", ConfirmAt = "20/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "20/10/2021" , Manifest = "Checked" ,InsertUser="FCL",
+            Invoice = "Checked", Payment = "Unchecked", DCNote = "Checked" , Tax = "Checked", Slip="Checked", Closed = "N"},
+            new Job { Service = "SEA", SRNo = "HAE2105002", HouseNo = "GLD0000118" , MasterNo = "02043913928", JobNo = "NAP21-1021009" ,Salesman="Tamtt", Customer = "Hathang" , CustomerName = "Công ty cổ phần Hà Thăng" , Vessel = "SITC HAIPHONG",
+            ETD = DateTime.Now.ToString("dd/MM/yyyy") , ETA = DateTime.Now.ToString("dd/MM/yyyy"), Carrier = "ZIMU" , POL = "HAN" ,  POD = "ICN" ,
+             ConfirmBy = "Admin", ConfirmAt = "21/10/2021" , ConfirmWOby = "Tamtt", ConfirmWOat = "21/10/2021" , Manifest = "Checked" ,InsertUser="",
+            Invoice = "Checked", Payment = "Checked", DCNote = "Checked" , Tax = "Checked", Slip="Unchecked", Closed = "N"},
+            };
+
+
+
+
+
+
+
+
+
+
+        private HashSet<Job> selectedItems1 = new HashSet<Job>();
+        private IEnumerable<Job> Elements = new List<Job>();
+        protected override async Task OnInitializedAsync()
+        {
+            Elements = Jobs;
+            Elements2 = detailContainerlists;
+        }
+
+        private bool resetValueOnEmptyText;
+        private bool coerceText;
+        private bool coerceValue;
+        private string value1, value2;
+
+        private string[] states =
+    {
+        "Hà Nội", "Bắc Ninh", "TP HCM",
+    };
+
+        private string[] states2 =
+    {
+        "Xác nhận", "Treo", "Hủy",
+    };
+
+        private async Task<IEnumerable<string>> Search1(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states;
+            return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        private async Task<IEnumerable<string>> Search2(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return states2;
+            return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        class DetailContainerlist
+        {
+            public string Stt;
+            public string Cntr;
+            public string Qty;
+        }
+
+        DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
+    {
+        new DetailContainerlist { Stt = "1",Cntr = "OF", Qty = "1", },
+        new DetailContainerlist {Stt = "2", Cntr = "OF", Qty = "2", },
+ new DetailContainerlist { Stt = "3",Cntr = "OF", Qty = "3", },
+                                        };
+
+        private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
+        private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
+
+
+        //    private tablegroupdefinition<testtable> _groupdefinition = new()
+        //    {
+        //        groupname = "group",
+        //        indentation = false,
+        //        expandable = true,
+        //        isinitiallyexpanded = false,
+        //        selector = (e) => e.group
+        //    };
+
+        //    private ienumerable<testtable> testtabless = new list<testtable>();
+
+        //    class testtable
+        //    {
+        //        public string group;
+        //        public string name;
+        //        public string small;
+        //        public int position;
+        //        public int number;
+        //        public string molar;
+        //        public electrons;
+        //        }
+
+        //    testtable[] testtabless = new testtable[]
+        //{
+        //        new testtable {group="other",position=0,name="hydrogen",number=1,small="h",molar="abc",electrons=[1]},
+        //                                    };
+    }
+

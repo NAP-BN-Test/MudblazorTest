@@ -862,3 +862,11 @@ C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDecl
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\WorkOrder\WorkOrder.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\WorkOrder\Charge.razor.g.cs
 C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\WorkOrder\Charge.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Job\ListJobrazor.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Job\ListJobrazor.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Job\ChargeJob.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Job\ChargeJob.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Job\JobManagement.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Job\JobManagement.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\RazorDeclaration\Pages\Booking\Booking3.razor.g.cs
+C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\obj\Debug\net5.0\Razor\Pages\Booking\Booking3.razor.g.cs

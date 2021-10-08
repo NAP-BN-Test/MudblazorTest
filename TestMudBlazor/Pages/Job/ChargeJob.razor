@@ -1,0 +1,579 @@
+﻿@page "/chargejob"
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@inject IDialogService DialogService
+@using DiaLog
+@inject ISnackbar Snackbar
+<style>
+    .mud-tab {
+        justify-content: unset !important;
+    }
+
+    .mud-toolbar.mud-toolbar-gutters.toolbarCustom {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+
+    .table_custom_heard_Selling {
+        /*background-color: #8080809e !important*/
+    }
+
+    .mud-ripple {
+        /*padding: 0 12px 0 12px;*/
+    }
+</style>
+<MudMainContent Style="background-color: #f5f5f5; padding: 60px 30px 30px 30px;">
+
+    <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+
+        <div style="margin-top: 30px; padding: 0 20px; margin-bottom: 50px">
+            <MudGrid>
+                <MudItem xs="6">
+                    <MudText Style="line-height: 60px" Color="Color.Tertiary" Typo="Typo.h5" GutterBottom="true">Charge Job</MudText>
+                </MudItem>
+                <MudItem xs="6">
+                    <MudToolBar Class="toolBar">
+                        <MudSpacer />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Save" />
+                        <MudIconButton Icon="@Icons.Material.Outlined.Print" />
+                    </MudToolBar>
+                </MudItem>
+            </MudGrid>
+
+            <MudGrid>
+                <MudItem xs="12" sm="6" md="3">
+
+                    <MudDatePicker Style="background-color: white" Label="Ex. Date" @bind-Date="model.ExDate" DateFormat="dd/MM/yyyy" Variant="Variant.Outlined" For="@(() => model.ExDate)" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudAutocomplete Style="background-color: white" T="string" Label="Ex. Rate" @bind-Value="model.ExRate" SearchFunc="@Search1"
+                                     ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                     CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ExRate)" Margin="Margin.Dense" />
+                </MudItem>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudTextField T="string" Style="background-color: white" Label="Profit" @bind-Value="model.Profit" Variant="Variant.Outlined" For="@(() => model.Profit)" Margin="Margin.Dense" Disabled="true" />
+                </MudItem>
+            </MudGrid>
+
+
+
+        </div>
+
+
+
+    </EditForm>
+    <div style="margin: 10px 20px 0px 20px; padding: 10px 0px 1px 0; background-color: white; border-radius: 5px ">
+
+        <MudGrid Style="margin-top: 10px; padding: 0 20px; margin-bottom: 20px">
+            <MudItem xs="12" sm="6" md="6">
+                <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Selling</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="Search" Label="Search" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+            </MudItem>
+        </MudGrid>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTable Items="@Elements8" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" MultiSelection="true" HeaderClass="table_custom_heard_Selling" @bind-SelectedItems="selectedItems8" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                    @*<ToolBarContent>
+                            <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Selling</MudText>
+                            <MudSpacer />
+                            <MudTextField @bind-Value="Search" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                        </ToolBarContent>*@
+                    <HeaderContent>
+                        <MudTh>No</MudTh>
+                        <MudTh>Customer</MudTh>
+                        <MudTh>Fare</MudTh>
+                        <MudTh>FareName</MudTh>
+                        <MudTh>Tax Type</MudTh>
+                        <MudTh>Currency</MudTh>
+                        <MudTh>ExRate</MudTh>
+                        <MudTh>Unit</MudTh>
+                        <MudTh>Qty</MudTh>
+                        <MudTh>Rate</MudTh>
+                        <MudTh>Tax1</MudTh>
+                        <MudTh>Amt</MudTh>
+                        <MudTh>Local Amount</MudTh>
+                        <MudTh>VAT</MudTh>
+                        <MudTh>Remark</MudTh>
+                        <MudTh>Evidence</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Number">@tableRowContext2.Number</MudTd>
+                        <MudTd DataLabel="Customer">@tableRowContext2.Customer</MudTd>
+                        <MudTd DataLabel="Fare">@tableRowContext2.Fare</MudTd>
+                        <MudTd DataLabel="FareName">@tableRowContext2.FareName</MudTd>
+                        <MudTd DataLabel="TaxType">@tableRowContext2.TaxType</MudTd>
+                        <MudTd DataLabel="Currency">@tableRowContext2.Currency</MudTd>
+                        <MudTd DataLabel="ExRate">@tableRowContext2.ExRate</MudTd>
+                        <MudTd DataLabel="Unit">@tableRowContext2.Unit</MudTd>
+                        <MudTd DataLabel="Qty">@tableRowContext2.Qty</MudTd>
+                        <MudTd DataLabel="Rate">@tableRowContext2.Rate</MudTd>
+                        <MudTd DataLabel="Tax1">@tableRowContext2.Tax1</MudTd>
+                        <MudTd DataLabel="Amt">@tableRowContext2.Amt</MudTd>
+                        <MudTd DataLabel="LocalAmount">@tableRowContext2.LocalAmount</MudTd>
+                        <MudTd DataLabel="VAT">@tableRowContext2.VAT</MudTd>
+                        <MudTd DataLabel="Remark">@tableRowContext2.Remark</MudTd>
+                        <MudTd DataLabel="Evidence">@tableRowContext2.Evidence</MudTd>
+                    </RowTemplate>
+                    <RowEditingTemplate>
+                        <MudTd DataLabel="Number">
+                        </MudTd>
+                        <MudTd DataLabel="Customer">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Customer" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Customer)" />
+                        </MudTd>
+
+                        <MudTd DataLabel="Fare">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Fare" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Fare)" />
+
+                        </MudTd>
+                        <MudTd DataLabel="FareName">
+                            <MudTextField @bind-Value="@tableRowContext2.FareName" />
+
+                        </MudTd>
+                        <MudTd DataLabel="TaxType">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.TaxType" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.TaxType)" />
+                        </MudTd>
+                        <MudTd DataLabel="Currency">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Currency" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Currency)" />
+                        </MudTd>
+                        <MudTd DataLabel="ExRate">
+                            <MudTextField @bind-Value="@tableRowContext2.ExRate" />
+                        </MudTd>
+                        <MudTd DataLabel="Unit">
+                            <MudTextField @bind-Value="@tableRowContext2.Unit" />
+                        </MudTd>
+                        <MudTd DataLabel="Qty">
+                            <MudNumericField @bind-Value="@tableRowContext2.Qty" />
+                        </MudTd>
+                        <MudTd DataLabel="Rate">
+                            <MudTextField @bind-Value="@tableRowContext2.Rate" />
+                        </MudTd>
+                        <MudTd DataLabel="Tax1">
+                            <MudTextField @bind-Value="@tableRowContext2.Tax1" />
+                        </MudTd>
+                        <MudTd DataLabel="Amt">
+                            <MudTextField @bind-Value="@tableRowContext2.Amt" />
+                        </MudTd>
+                        <MudTd DataLabel="LocalAmount">
+                            <MudTextField @bind-Value="@tableRowContext2.LocalAmount" />
+                        </MudTd>
+                        <MudTd DataLabel="VAT">
+                            <MudTextField @bind-Value="@tableRowContext2.VAT" />
+                        </MudTd>
+                        <MudTd DataLabel="Remark">
+                            <MudTextField @bind-Value="@tableRowContext2.Remark" />
+                        </MudTd>
+                        <MudTd DataLabel="Evidence">
+                            <MudTextField @bind-Value="@tableRowContext2.Evidence" />
+                        </MudTd>
+                        
+
+
+
+                    </RowEditingTemplate>
+
+                    <PagerContent>
+                        <div style="border-bottom: 1px solid; display: flex; justify-content: flex-end ; width: 100% ;">
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="12">Total Foreign: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Local: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total VAT: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Amount: 1.000.000.000</MudTh>
+                        </div>
+
+                        <MudButton Style="padding: 5px 0px" Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
+
+                    </PagerContent>
+
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </div>
+</MudMainContent>
+
+<MudMainContent Style="background-color: #f5f5f5; padding: 10px 30px 60px 30px; ">
+    <div style="margin: 10px 20px 0px 20px; padding: 10px 0px 1px 0; background-color: white; border-radius: 5px ">
+
+        <MudGrid Style="margin-top: 10px; padding: 0 20px; margin-bottom: 20px">
+            <MudItem xs="12" sm="6" md="6">
+                <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Buying</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField @bind-Value="Search" Label="Search" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+            </MudItem>
+        </MudGrid>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTable Items="@Elements9" Virtualize="true" FixedHeader="true" MultiSelection="true" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" HeaderClass="table_custom_heard_Selling" @bind-SelectedItems="selectedItems9" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                    <HeaderContent>
+                        <MudTh>No</MudTh>
+                        <MudTh>Vendor</MudTh>
+                        <MudTh>Fare</MudTh>
+                        <MudTh>FareName</MudTh>
+                        <MudTh>Tax Type</MudTh>
+                        <MudTh>Currency</MudTh>
+                        <MudTh>ExRate</MudTh>
+                        <MudTh>Unit</MudTh>
+                        <MudTh>Qty</MudTh>
+                        <MudTh>Rate</MudTh>
+                        <MudTh>Tax1</MudTh>
+                        <MudTh>Amt</MudTh>
+                        <MudTh>Local Amount</MudTh>
+                        <MudTh>VAT</MudTh>
+                        <MudTh>Remark</MudTh>
+                        <MudTh>Evidence</MudTh>
+                        <MudTh>InvoiceNo</MudTh>
+                        <MudTh>InvoiceDate</MudTh>
+                        <MudTh>Tax2</MudTh>
+                        <MudTh>Tax Date</MudTh>
+                        <MudTh>SlipNo</MudTh>
+                        <MudTh>Setoff</MudTh>
+                        <MudTh>SetoffDate</MudTh>
+                        <MudTh>Creator</MudTh>
+                        <MudTh>Modifier</MudTh>
+                        <MudTh>ModifierDate</MudTh>
+                        <MudTh>Dept</MudTh>
+                        <MudTh>Office</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Number">@tableRowContext2.Number</MudTd>
+                        <MudTd DataLabel="Vendor">@tableRowContext2.Vendor</MudTd>
+                        <MudTd DataLabel="Fare">@tableRowContext2.Fare</MudTd>
+                        <MudTd DataLabel="FareName">@tableRowContext2.FareName</MudTd>
+                        <MudTd DataLabel="TaxType">@tableRowContext2.TaxType</MudTd>
+                        <MudTd DataLabel="Currency">@tableRowContext2.Currency</MudTd>
+                        <MudTd DataLabel="ExRate">@tableRowContext2.ExRate</MudTd>
+                        <MudTd DataLabel="Unit">@tableRowContext2.Unit</MudTd>
+                        <MudTd DataLabel="Qty">@tableRowContext2.Qty</MudTd>
+                        <MudTd DataLabel="Rate">@tableRowContext2.Rate</MudTd>
+                        <MudTd DataLabel="Tax1">@tableRowContext2.Tax1</MudTd>
+                        <MudTd DataLabel="Amt">@tableRowContext2.Amt</MudTd>
+                        <MudTd DataLabel="LocalAmount">@tableRowContext2.LocalAmount</MudTd>
+                        <MudTd DataLabel="VAT">@tableRowContext2.VAT</MudTd>
+                        <MudTd DataLabel="Remark">@tableRowContext2.Remark</MudTd>
+                        <MudTd DataLabel="Evidence">@tableRowContext2.Evidence</MudTd>
+                        <MudTd DataLabel="InvoiceNo">@tableRowContext2.InvoiceNo</MudTd>
+                        <MudTd DataLabel="InvoiceDate">@tableRowContext2.InvoiceDate</MudTd>
+                        <MudTd DataLabel="Tax2">@tableRowContext2.Tax2</MudTd>
+                        <MudTd DataLabel="TaxDate">@tableRowContext2.TaxDate</MudTd>
+                        <MudTd DataLabel="SlipNo">@tableRowContext2.SlipNo</MudTd>
+                        <MudTd DataLabel="Setoff">@tableRowContext2.Setoff</MudTd>
+                        <MudTd DataLabel="SetoffDate">@tableRowContext2.SetoffDate</MudTd>
+                        <MudTd DataLabel="Creator">@tableRowContext2.Creator</MudTd>
+                        <MudTd DataLabel="Modifier">@tableRowContext2.Modifier</MudTd>
+                        <MudTd DataLabel="ModifierDate">@tableRowContext2.ModifierDate</MudTd>
+                        <MudTd DataLabel="Dept">@tableRowContext2.Dept</MudTd>
+                        <MudTd DataLabel="Office">@tableRowContext2.Office</MudTd>
+                    </RowTemplate>
+                    <RowEditingTemplate>
+                        <MudTd DataLabel="Number">
+                        </MudTd>
+                        <MudTd DataLabel="Customer">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Vendor" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Vendor)" />
+                        </MudTd>
+                        <MudTd DataLabel="Fare">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Fare" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Fare)" />
+
+                        </MudTd>
+                        <MudTd DataLabel="FareName">
+                            <MudTextField @bind-Value="@tableRowContext2.FareName" />
+
+                        </MudTd>
+                        <MudTd DataLabel="TaxType">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.TaxType" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.TaxType)" />
+                        </MudTd>
+                        <MudTd DataLabel="Currency">
+                            <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Currency" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Currency)" />
+                        </MudTd>
+                        <MudTd DataLabel="ExRate">
+                            <MudTextField @bind-Value="@tableRowContext2.ExRate" />
+                        </MudTd>
+                        <MudTd DataLabel="Unit">
+                            <MudTextField @bind-Value="@tableRowContext2.Unit" />
+                        </MudTd>
+                        <MudTd DataLabel="Qty">
+                            <MudNumericField @bind-Value="@tableRowContext2.Qty" />
+                        </MudTd>
+                        <MudTd DataLabel="Rate">
+                            <MudTextField @bind-Value="@tableRowContext2.Rate" />
+                        </MudTd>
+                        <MudTd DataLabel="Tax1">
+                            <MudTextField @bind-Value="@tableRowContext2.Tax1" />
+                        </MudTd>
+                        <MudTd DataLabel="Amt">
+                            <MudTextField @bind-Value="@tableRowContext2.Amt" />
+                        </MudTd>
+                        <MudTd DataLabel="LocalAmount">
+                            <MudTextField @bind-Value="@tableRowContext2.LocalAmount" />
+                        </MudTd>
+                        <MudTd DataLabel="VAT">
+                            <MudTextField @bind-Value="@tableRowContext2.VAT" />
+                        </MudTd>
+                        <MudTd DataLabel="Remark">
+                            <MudTextField @bind-Value="@tableRowContext2.Remark" />
+                        </MudTd>
+                        <MudTd DataLabel="Evidence">
+                            <MudTextField @bind-Value="@tableRowContext2.Evidence" />
+                        </MudTd>
+                        <MudTd DataLabel="InvoiceNo">
+                            <MudTextField @bind-Value="@tableRowContext2.InvoiceNo" />
+                        </MudTd>
+                        <MudTd DataLabel="InvoiceDate">
+                            <MudTextField @bind-Value="@tableRowContext2.InvoiceDate" />
+                        </MudTd>
+                        <MudTd DataLabel="Tax2">
+                            <MudTextField @bind-Value="@tableRowContext2.Tax2" />
+                        </MudTd>
+                        <MudTd DataLabel="TaxDate">
+                            <MudTextField @bind-Value="@tableRowContext2.TaxDate" />
+                        </MudTd>
+                        <MudTd DataLabel="SlipNo">
+                            <MudTextField @bind-Value="@tableRowContext2.SlipNo" />
+                        </MudTd>
+                        <MudTd DataLabel="Setoff">
+                            <MudTextField @bind-Value="@tableRowContext2.Setoff" />
+                        </MudTd>
+                        <MudTd DataLabel="SetoffDate">
+                            <MudTextField @bind-Value="@tableRowContext2.SetoffDate" />
+                        </MudTd>
+                        <MudTd DataLabel="Creator">
+                            <MudTextField @bind-Value="@tableRowContext2.Creator" />
+                        </MudTd>
+                        <MudTd DataLabel="Modifier">
+                            <MudTextField @bind-Value="@tableRowContext2.Modifier" />
+                        </MudTd>
+                        <MudTd DataLabel="ModifierDate">
+                            <MudTextField @bind-Value="@tableRowContext2.ModifierDate" />
+                        </MudTd>
+                        <MudTd DataLabel="Dept">
+                            <MudTextField @bind-Value="@tableRowContext2.Dept" />
+                        </MudTd>
+                        <MudTd DataLabel="Office">
+                            <MudTextField @bind-Value="@tableRowContext2.Office" />
+                        </MudTd>
+
+
+
+                    </RowEditingTemplate>
+                    <PagerContent>
+                        <div style="border-bottom: 1px solid; display: flex; justify-content: flex-end ; width: 100% ;">
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="12">Total Foreign: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Local: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total VAT: 1.000.000.000</MudTh>
+                            <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Amount: 1.000.000.000</MudTh>
+                        </div>
+
+                        <MudButton Style="padding: 5px 0px" Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
+
+                    </PagerContent>
+
+                </MudTable>
+            </MudItem>
+        </MudGrid>
+    </div>
+</MudMainContent>
+
+@code {
+    private bool dense1 = true;
+    private bool dense2 = true;
+    Charges model = new Charges();
+    public string Search { get; set; }
+    public class Charges
+    {
+        public string Profit { get; set; }
+        public string ExRate { get; set; }
+        public DateTime? ExDate { get; set; }
+
+    }
+
+
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+    }
+
+    private void OnValidSubmit1(EditContext context)
+    {
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        Elements8 = SellingJobs;
+        Elements9 = BuyingJobs;
+    }
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+    private bool hover = true;
+    public string searchString { get; set; }
+
+    private string[] states =
+{
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+    };
+
+    private string[] states2 =
+    {
+        "Xác nhận", "Treo", "Hủy",
+    };
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search2(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states2;
+        return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+
+
+
+
+    private HashSet<SellingJob> selectedItems8 = new HashSet<SellingJob>();
+    private IEnumerable<SellingJob> Elements8 = new List<SellingJob>();
+
+    private HashSet<BuyingJob> selectedItems9 = new HashSet<BuyingJob>();
+    private IEnumerable<BuyingJob> Elements9 = new List<BuyingJob>();
+
+
+
+
+
+
+
+
+
+    class SellingJob
+    {
+        public string Number;
+        public string Customer;
+        public string FareName;
+        public string Fare;
+        public string TaxType;
+        public string Currency;
+        public string ExRate;
+        public string Unit;
+        public int Qty;
+        public string Rate;
+        public string Tax1;
+        public string Amt;
+        public string LocalAmount;
+        public string VAT;
+        public string Remark;
+        public string Evidence;
+
+    }
+    SellingJob[] SellingJobs = new SellingJob[]
+                   {
+        new SellingJob {
+            Customer = "Công ty cổ phần Hà Thăng",Fare = "THC", FareName = "Phí xếp dỡ",TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container/ngày",Qty = 1,Rate = "500.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "500.000", VAT = "0%",Remark = "", Evidence = "Internal", Number = "1", },
+
+         new SellingJob {
+            Customer = "Công ty cổ phần Hà Thăng",Fare = "DOC",FareName = "Phí chứng từ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "BL",Qty = 1,Rate = "1.000.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "1.000.000", VAT = "0%",Remark = "", Evidence = "Tax", Number = "2",},
+
+          new SellingJob {
+            Customer = "Công ty cổ phần Hà Thăng",Fare = "OF",FareName = "Cước vận tải nội địa", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container or CBM",Qty = 1,Rate = "4.000.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "4.000.000", VAT = "29/09/2021",Remark = "", Evidence = "Tax", Number = "3",},
+
+                   };
+
+
+    class BuyingJob
+    {
+        public string Number;
+        public string Vendor;
+        public string FareName;
+        public string Fare;
+        public string TaxType;
+        public string Currency;
+        public string ExRate;
+        public string Unit;
+        public int Qty;
+        public string Rate;
+        public string Tax1;
+        public string Amt;
+        public string LocalAmount;
+        public string VAT;
+        public string Remark;
+        public string Evidence;
+        public string InvoiceNo;
+        public string InvoiceDate;
+        public string Tax2;
+        public string TaxDate;
+        public string SlipNo;
+        public string Setoff;
+        public string SetoffDate;
+        public string Creator;
+        public string Modifier;
+        public string ModifierDate;
+        public string Dept;
+        public string Office;
+    }
+
+    BuyingJob[] BuyingJobs = new BuyingJob[]
+                    {
+        new BuyingJob {
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare = "TRG", FareName = "Phí vận tải đường bộ", TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Shpt",Qty = 1,Rate = "4.000.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "4.000.000", VAT = "0%",Remark = "", Evidence = "Tax",InvoiceNo = "4.000.000",InvoiceDate = "HPAY21030016",
+        SlipNo = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Setoff = "N",SetoffDate = "", Creator = "SALES",Modifier = "Tamtt",ModifierDate = "01/10/2021",Dept = "SALES",Office = "Tamtt", Number = "1",},
+
+         new BuyingJob {
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare= "TOL Fee", FareName = "Phí cầu đường", TaxType = "0% VAT", Currency = "600.000",ExRate = "", Unit = "Container",Qty = 1,Rate = "600.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "600.000", VAT = "0%",Remark = "", Evidence = "Internal",InvoiceNo = "4.000.000",InvoiceDate = "HPAY21030016",
+        SlipNo = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Setoff = "N",SetoffDate = "", Creator = "SALES",Modifier = "Tamtt",ModifierDate = "01/10/2021",Dept = "SALES",Office = "Tamtt", Number = "2",},
+
+          new BuyingJob {
+            Vendor = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",Fare = "LON", FareName = "Phí nâng",TaxType = "0% VAT", Currency = "VNĐ",ExRate = "", Unit = "Container",Qty = 1,Rate = "700.000",
+        Tax1 = "Y",Amt = "0", LocalAmount = "700.000", VAT = "0%",Remark = "", Evidence = "Tax",InvoiceNo = "4.000.000",InvoiceDate = "HPAY21030016",
+        SlipNo = "Y",Tax2 = "Y", TaxDate = "11/10/2021", Setoff = "N",SetoffDate = "", Creator = "SALES",Modifier = "Tamtt",ModifierDate = "01/10/2021",Dept = "SALES",Office = "Tamtt", Number = "3",},
+
+                                                    };
+
+}
+
+
+

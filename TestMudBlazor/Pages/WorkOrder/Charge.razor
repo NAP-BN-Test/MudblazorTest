@@ -23,7 +23,7 @@
     }
 
     .mud-ripple {
-        padding: 0 12px 0 12px;
+        /*padding: 0 12px 0 12px;*/
     }
 </style>
 <MudMainContent Style="background-color: #f5f5f5; padding: 60px 30px 30px 30px;">
@@ -75,12 +75,17 @@
                 <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Selling</MudText>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+                <MudTextField @bind-Value="Search" Label="Search"  Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
             </MudItem>
         </MudGrid>
         <MudGrid>
             <MudItem xs="12">
                 <MudTable Items="@Elements8" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" MultiSelection="true" HeaderClass="table_custom_heard_Selling" @bind-SelectedItems="selectedItems8" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                    @*<ToolBarContent>
+                        <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Selling</MudText>
+                        <MudSpacer />
+                        <MudTextField @bind-Value="Search" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                    </ToolBarContent>*@
                     <HeaderContent>
                         <MudTh>No</MudTh>
                         <MudTh>Customer</MudTh>
@@ -230,7 +235,7 @@
 
 
                     </RowEditingTemplate>
-                   
+
                     <PagerContent>
                         <div style="border-bottom: 1px solid; display: flex; justify-content: flex-end ; width: 100% ;">
                             <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="12">Total Foreign: 1.000.000.000</MudTh>
@@ -257,7 +262,7 @@
                 <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">Buying</MudText>
             </MudItem>
             <MudItem xs="12" sm="6" md="6">
-                <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+                <MudTextField @bind-Value="Search" Label="Search"  Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
             </MudItem>
         </MudGrid>
         <MudGrid>

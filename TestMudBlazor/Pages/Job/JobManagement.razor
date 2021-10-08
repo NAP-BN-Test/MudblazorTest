@@ -1,0 +1,621 @@
+﻿@page "/jobmanagement"
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@inject IDialogService DialogService
+@using DiaLog
+@inject ISnackbar Snackbar
+<style>
+    .mud-tab {
+        justify-content: unset !important;
+    }
+
+    .toolBar {
+        padding-left: 6px;
+        padding-right: 0px;
+    }
+
+    .searchcutom.mud-input-control > .mud-input-control-input-container > div.mud-input.mud-input-text {
+        margin-top: 0px;
+    }
+
+    .table_custom_heard {
+        background-color: rgb(42,223,187) !important;
+        color: white
+    }
+</style>
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <MudMainContent Class="pt-16 px-16 " Style="padding-bottom: 30px">
+        <MudContainer Class="mt-16">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudGrid>
+                        <MudItem xs="6">
+                            <MudText Style="line-height: 60px" Typo="Typo.h5" Color="Color.Tertiary" GutterBottom="true">Job Management</MudText>
+                        </MudItem>
+                        <MudItem xs="6">
+                            <MudToolBar Class="toolBar">
+                                <MudSpacer />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Add" ButtonType="ButtonType.Submit" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
+                                <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
+                            </MudToolBar>
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+            </MudGrid>
+
+            <MudGrid>
+                <MudItem xs="12" sm="6" md="3">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Service" @bind-Value="model.Service" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Service)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Bound" @bind-Value="model.Bound" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Bound)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Customer" @bind-Value="model.Customer" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Customer)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="P.I.C/Tel" @bind-Value="model.PICTel1" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.PICTel1)" Margin="Margin.Dense" />
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Shipper" @bind-Value="model.Shipper" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Shipper)" Margin="Margin.Dense" />
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Consignee" @bind-Value="model.Consignee" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Consignee)" Margin="Margin.Dense" />
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Partner" @bind-Value="model.Partner" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Partner)" Margin="Margin.Dense" />
+                        </MudItem>
+
+                    </MudGrid>
+                </MudItem>
+
+                <MudItem xs="12" sm="6" md="3">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Carrier" @bind-Value="model.Carrier" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Carrier)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="8" Style="padding: 12px 0 12px 12px">
+                            <MudTextField @bind-Value="model.Vessel" Label="Vessel" Variant="Variant.Outlined" For="@(() => model.Vessel)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
+                        <MudItem xs="4">
+                            <MudTextField @bind-Value="model.VOY" Label="VOY" Variant="Variant.Outlined" For="@(() => model.VOY)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudDatePicker Label="ETA" @bind-Date="model.ETA" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.ETA)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudDatePicker Label="ETD" @bind-Date="model.ETD" DateFormat="dd/MM/yyyy" AdornmentColor="Color.Tertiary" Variant="Variant.Outlined" For="@(() => model.ETD)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="POL" @bind-Value="model.POL" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.POL)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="POD" @bind-Value="model.POD" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.POD)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+
+                </MudItem>
+
+                <MudItem xs="12" sm="6" md="3">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudGrid>
+                                <MudItem xs="8" Style="padding: 12px 0 12px 12px">
+                                    <MudTextField @bind-Value="model.Package" Label="Package" Variant="Variant.Outlined" For="@(() => model.Package)" Margin="Margin.Dense"></MudTextField>
+                                </MudItem>
+                                <MudItem xs="4">
+                                    <MudNumericField @bind-Value="model.Qty" Label="Qty" Variant="Variant.Outlined" For="@(() => model.Qty)" Margin="Margin.Dense"></MudNumericField>
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudNumericField @bind-Value="model.Weight" Label="Weight" Variant="Variant.Outlined" For="@(() => model.Weight)" Margin="Margin.Dense"></MudNumericField>
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+
+                            <MudNumericField @bind-Value="model.Measure" Label="Measure" Variant="Variant.Outlined" For="@(() => model.Measure)" Margin="Margin.Dense"></MudNumericField>
+                        </MudItem>
+
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudNumericField @bind-Value="model.NWeight" Label="N. Weight" Variant="Variant.Outlined" For="@(() => model.NWeight)" Margin="Margin.Dense"></MudNumericField>
+                        </MudItem>
+
+                    </MudGrid>
+
+
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTable Class="table_custom" Context="tableRowContext" Items="@Elements2" Dense="true" MultiSelection="true" @bind-SelectedItems="selectedItems" Hover="@hover"
+                                      CommitEditTooltip="Commit Edit" HeaderClass="table_custom_heard" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+
+                                <HeaderContent>
+                                    <MudTh>No</MudTh>
+                                    <MudTh>Cntr</MudTh>
+                                    <MudTh>Qty</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd DataLabel="No">@tableRowContext.Stt</MudTd>
+                                    <MudTd DataLabel="Cntr">@tableRowContext.Cntr</MudTd>
+                                    <MudTd DataLabel="Qty">@tableRowContext.Qty</MudTd>
+                                </RowTemplate>
+                                <RowEditingTemplate>
+                                    <MudTd DataLabel="STT">
+                                        <MudTextField @bind-Value="@tableRowContext.Stt" Required />
+                                    </MudTd>
+                                    <MudTd DataLabel="Cntr">
+                                        <MudTextField @bind-Value="@tableRowContext.Cntr" Required />
+                                    </MudTd>
+                                    <MudTd DataLabel="Qty">
+                                        <MudTextField @bind-Value="@tableRowContext.Qty" Required />
+                                    </MudTd>
+                                </RowEditingTemplate>
+                                <PagerContent>
+                                    <MudHidden IsHidden="selectedItems==null || selectedItems.Count == 0" Invert="true">
+                                        <MudButton Variant="Variant.Text" FullWidth="true">Xóa dòng</MudButton>
+                                    </MudHidden>
+
+                                    @*<MudHidden IsHidden="selectedItems != null || selectedItems.Count > 0" Invert="true">
+                                            <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm</MudButton>
+                                        </MudHidden>*@
+                                    <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm</MudButton>
+                                </PagerContent>
+                            </MudTable>
+                        </MudItem>
+
+
+                    </MudGrid>
+
+
+                </MudItem>
+
+                <MudItem xs="12" sm="6" md="3">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField @bind-Value="model.HouseNo" Label="Job No" Disabled="true" Variant="Variant.Outlined" For="@(() => model.HouseNo)" Margin="Margin.Dense"></MudTextField>
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Load Type" @bind-Value="model.LoadType" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.LoadType)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="IncoTerms" @bind-Value="model.IncoTerms" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.IncoTerms)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Freight Terms" @bind-Value="model.FreightTerms" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.FreightTerms)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Service Terms" @bind-Value="model.ServiceTerms" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.ServiceTerms)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+
+
+
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Operator" @bind-Value="model.Operator" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Operator)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudAutocomplete T="string" Label="Sales" @bind-Value="model.Sale" SearchFunc="@Search1"
+                                             ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                             CoerceText="@coerceText" CoerceValue="@coerceValue" Variant="Variant.Outlined" For="@(() => model.Sale)" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+
+
+
+
+                    @*<MudGrid>
+                            <MudItem xs="12">
+                                <MudTextField @bind-Value="model.Remark" Label="Remark" Variant="Variant.Outlined" For="@(() => model.Remark)" Lines="5" Margin="Margin.Dense"></MudTextField>
+                            </MudItem>
+                        </MudGrid>*@
+                </MudItem>
+            </MudGrid>
+        </MudContainer>
+    </MudMainContent>
+
+
+    <MudMainContent Style="background-color: #f5f5f5; padding: 10px 30px 60px 30px; ">
+        <div style="margin: 50px 20px 0px 20px; padding: 10px 0px 1px 0; background-color: white; border-radius: 5px ">
+
+            <MudGrid Style="margin-top: 10px; padding: 0 20px; margin-bottom: 20px">
+                <MudItem xs="12" sm="6" md="6">
+                    <MudText Color="Color.Tertiary" Style="padding-top: .35em;" Typo="Typo.h6" GutterBottom="true">B/L Information </MudText>
+                </MudItem>
+                @*<MudItem xs="12" sm="6" md="6">
+                    <MudTextField @bind-Value="Search" Label="Search" Adornment="Adornment.End" AdornmentIcon="@Icons.Filled.Search" Margin="Margin.Dense" AdornmentColor="Color.Tertiary" />
+                </MudItem>*@
+            </MudGrid>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTable Items="@Elements9" Virtualize="true" FixedHeader="true" MultiSelection="true" Style="white-space: nowrap" Context="tableRowContext2" Dense="@dense2" HeaderClass="table_custom_heard_Selling" @bind-SelectedItems="selectedItems9" Hover="@hover" CommitEditTooltip="Commit Edit" OnCommitEditClick="@(() => Snackbar.Add("Commit Edit Handler Invoked"))">
+                        <HeaderContent>
+                            <MudTh>No</MudTh>
+                            <MudTh>B/L Type</MudTh>
+                            <MudTh>Service</MudTh>
+                            <MudTh>B/L No</MudTh>
+                            <MudTh>MBL No</MudTh>
+                            <MudTh>S/R No</MudTh>
+                            <MudTh>Customer</MudTh>
+                            <MudTh>Package</MudTh>
+                            <MudTh>Pkg. Unit</MudTh>
+                            <MudTh>Weight</MudTh>
+                            <MudTh>Measure</MudTh>
+                            <MudTh>ETD</MudTh>
+                            <MudTh>ETA</MudTh>
+                            <MudTh>By User</MudTh>
+                            <MudTh>Ex. Date</MudTh>
+                            <MudTh>Ex. Rate</MudTh>
+                            <MudTh>Profit</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Number">@tableRowContext2.Number</MudTd>
+                            <MudTd DataLabel="BLType">@tableRowContext2.BLType</MudTd>
+                            <MudTd DataLabel="Service">@tableRowContext2.Service</MudTd>
+                            <MudTd DataLabel="BLNo">@tableRowContext2.BLNo</MudTd>
+                            <MudTd DataLabel="MBLNo">@tableRowContext2.MBLNo</MudTd>
+                            <MudTd DataLabel="SRNo">@tableRowContext2.SRNo</MudTd>
+                            <MudTd DataLabel="Customer">@tableRowContext2.Customer</MudTd>
+                            <MudTd DataLabel="Package">@tableRowContext2.Package</MudTd>
+                            <MudTd DataLabel="PkgUnit">@tableRowContext2.PkgUnit</MudTd>
+                            <MudTd DataLabel="Weight">@tableRowContext2.Weight</MudTd>
+                            <MudTd DataLabel="Measure">@tableRowContext2.Measure</MudTd>
+                            <MudTd DataLabel="ETD">@tableRowContext2.ETD</MudTd>
+                            <MudTd DataLabel="ETA">@tableRowContext2.ETA</MudTd>
+                            <MudTd DataLabel="ByUser">@tableRowContext2.ByUser</MudTd>
+                            <MudTd DataLabel="ExDate">@tableRowContext2.ExDate</MudTd>
+                            <MudTd DataLabel="ExRate">@tableRowContext2.ExRate</MudTd>
+                            <MudTd DataLabel="Profit">@tableRowContext2.Profit</MudTd>
+                            
+                        </RowTemplate>
+                        <RowEditingTemplate>
+                            <MudTd DataLabel="Number">
+                            </MudTd>
+                            <MudTd DataLabel="BLType">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.BLType" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.BLType)" />
+                            </MudTd>
+                            <MudTd DataLabel="Service">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Service" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Service)" />
+
+                            </MudTd>
+                            <MudTd DataLabel="BLNo">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.BLNo" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.BLNo)" />
+                            </MudTd>
+                            <MudTd DataLabel="SRNo">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.SRNo" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.SRNo)" />
+                            </MudTd>
+                            <MudTd DataLabel="MBLNo">
+                                <MudTextField @bind-Value="@tableRowContext2.MBLNo" />
+                            </MudTd>
+                            <MudTd DataLabel="Customer">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Customer" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Customer)" />
+                            </MudTd>
+                            <MudTd DataLabel="Package">
+                                <MudTextField @bind-Value="@tableRowContext2.Package" />
+                            </MudTd>
+                            <MudTd DataLabel="PkgUnit">
+                                <MudTextField @bind-Value="@tableRowContext2.PkgUnit" />
+                            </MudTd>
+                            <MudTd DataLabel="Weight">
+                                <MudTextField @bind-Value="@tableRowContext2.Weight" />
+                            </MudTd>
+                            <MudTd DataLabel="Measure">
+                                <MudTextField @bind-Value="@tableRowContext2.Measure" />
+                            </MudTd>
+                            <MudTd DataLabel="ETD">
+                                <MudTextField @bind-Value="@tableRowContext2.ETD" />
+                            </MudTd>
+                            <MudTd DataLabel="ETA">
+                                <MudTextField @bind-Value="@tableRowContext2.ETA" />
+                            </MudTd>
+                            <MudTd DataLabel="ByUser">
+                                <MudTextField @bind-Value="@tableRowContext2.ByUser" />
+                            </MudTd>
+                            <MudTd DataLabel="ExDate">
+                                <MudTextField @bind-Value="@tableRowContext2.ExDate" />
+                            </MudTd>
+
+                            <MudTd DataLabel="ExRate">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.ExRate" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.ExRate)" />
+                            </MudTd>
+                            <MudTd DataLabel="Profit">
+                                <MudAutocomplete T="string" @bind-Value="@tableRowContext2.Profit" SearchFunc="@Search1"
+                                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                                 CoerceText="@coerceText" CoerceValue="@coerceValue" For="@(() => @tableRowContext2.Profit)" />
+                            </MudTd>
+
+                        </RowEditingTemplate>
+                        <PagerContent>
+                            @*<div style="border-bottom: 1px solid; display: flex; justify-content: flex-end ; width: 100% ;">
+                                <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="12">Total Foreign: 1.000.000.000</MudTh>
+                                <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Local: 1.000.000.000</MudTh>
+                                <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total VAT: 1.000.000.000</MudTh>
+                                <MudTh style="border-bottom: none; font-weight: 500" Class="mud-table-cell-custom-group mud-table-cell-custom-group-footer" colspan="6">Total Amount: 1.000.000.000</MudTh>
+                            </div>*@
+
+                            @*<MudButton Style="padding: 5px 0px" Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>*@
+
+                            <MudButton Variant="Variant.Text" FullWidth="true">Bấm vào để thêm dòng</MudButton>
+
+                        </PagerContent>
+
+                    </MudTable>
+                </MudItem>
+            </MudGrid>
+
+
+
+        </div>
+
+        <MudGrid>
+            <MudItem xs="12" Style="padding: 50px 30px 0px 30px">
+                <MudTextField @bind-Value="model.Remark" Style="background: white " Label="Remark" Variant="Variant.Outlined" For="@(() => model.Remark)" Lines="3" Margin="Margin.Dense"></MudTextField>
+            </MudItem>
+        </MudGrid>
+    </MudMainContent>
+
+</EditForm>
+
+@code {
+    private bool dense2 = true;
+    public string Search { get; set; }
+    JbManagement model = new JbManagement();
+    GhiChuBaoGia model1 = new GhiChuBaoGia();
+    public class GhiChuBaoGia
+    {
+        public string GhiChu { get; set; }
+        public string LienHe { get; set; }
+    }
+    public class JbManagement
+    {
+        public string LoadType { get; set; }
+        public string FreightTerms { get; set; }
+        public string ServiceTerms { get; set; }
+        public string IncoTerms { get; set; }
+        public string CargoClose { get; set; }
+        public string Weight { get; set; }
+        public string Measure { get; set; }
+        public string Sale { get; set; }
+        public string Operator { get; set; }
+        public string Remark { get; set; }
+
+        public string HouseNo { get; set; }
+        public string MasterNo { get; set; }
+        public string Service { get; set; }
+        public string Bound { get; set; }
+        public string POR { get; set; }
+        public string Carrier { get; set; }
+        public string Customer { get; set; }
+        public string Vessel { get; set; }
+        public string VOY { get; set; }
+        public string VIA { get; set; }
+        public string PICTel1 { get; set; }
+        public string FinalDest { get; set; }
+        public DateTime? ETD { get; set; }
+        public string Shipper { get; set; }
+        public DateTime? ETA { get; set; }
+        public string PICTel2 { get; set; }
+        public string Delivery { get; set; }
+        public string POL { get; set; }
+        public string Consignee { get; set; }
+        public string POD { get; set; }
+        public string Partner { get; set; }
+        public int NWeight { get; set; }
+        public string Package { get; set; }
+        public int Qty { get; set; }
+    }
+
+    bool success;
+    string[] errors = { };
+    private void OnValidSubmit(EditContext context)
+    {
+        //detailQuatationSea1.Add(new DetailQuatationSea1 { MaPhi = "04041999999", TenPhi = "Dũng", KieuPhi = "TPBANK", TienTe = "VNĐ", DonGia = "1000/MIN(KG); 22.500/+45(KG)", GhiChu = "" });
+    }
+
+    private void OnValidSubmit1(EditContext context)
+    {
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        Elements2 = detailContainerlists;
+        Elements9 = BLInformations;
+    }
+
+    private void OpenDetailQuotation()
+    {
+        DialogService.Show<DialogDetailQuotationAir>("Simple Dialog");
+    }
+
+
+    private bool resetValueOnEmptyText;
+    private bool coerceText;
+    private bool coerceValue;
+    private string value1, value2;
+    private bool hover = true;
+    public string searchString { get; set; }
+
+    private string[] states =
+{
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+    };
+
+    private string[] states2 =
+    {
+        "Xác nhận", "Treo", "Hủy",
+    };
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    private async Task<IEnumerable<string>> Search2(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states2;
+        return states2.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+
+    class DetailContainerlist
+    {
+        public string Stt;
+        public string Cntr;
+        public string Qty;
+    }
+
+    DetailContainerlist[] detailContainerlists = new DetailContainerlist[]
+{
+        new DetailContainerlist { Stt = "1",Cntr = "OF", Qty = "1", },
+        new DetailContainerlist {Stt = "2", Cntr = "OF", Qty = "2", },
+ new DetailContainerlist { Stt = "3",Cntr = "OF", Qty = "3", },
+                                    };
+
+
+
+    private HashSet<DetailContainerlist> selectedItems = new HashSet<DetailContainerlist>();
+    private IEnumerable<DetailContainerlist> Elements2 = new List<DetailContainerlist>();
+
+    private HashSet<BLInformation> selectedItems9 = new HashSet<BLInformation>();
+    private IEnumerable<BLInformation> Elements9 = new List<BLInformation>();
+
+    class BLInformation
+    {
+        public string Number;
+        public string Profit;
+        public string ExRate;
+        public string ExDate;
+        public string ByUser;
+        public string ETA;
+        public string ETD;
+        public string Measure;
+        public string Weight;
+        public string PkgUnit;
+        public string Package;
+        public string Customer;
+        public string SRNo;
+        public string MBLNo;
+        public string BLNo;
+        public string Service;
+        public string BLType;
+
+    }
+
+    BLInformation[] BLInformations = new BLInformation[]
+               {
+        new BLInformation {
+            Profit = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",ExRate = "TRG", ExDate = "Phí vận tải đường bộ", ByUser = "0% VAT", ETA = "VNĐ",ETD = "", Measure = "Shpt",Weight = "",PkgUnit = "4.000.000",
+        Package = "Y",Customer = "0", SRNo = "4.000.000", MBLNo = "0%",BLNo = "", Service = "Tax",BLType="", Number="1"},
+
+         new BLInformation {
+            Profit = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",ExRate = "TRG", ExDate = "Phí vận tải đường bộ", ByUser = "0% VAT", ETA = "VNĐ",ETD = "", Measure = "Shpt",Weight = "",PkgUnit = "4.000.000",
+        Package = "Y",Customer = "0", SRNo = "4.000.000", MBLNo = "0%",BLNo = "", Service = "Tax",BLType="", Number="2"},
+
+         new BLInformation {
+            Profit = "4PS/Chi nhánh công ty cổ phần Pizza 4PS",ExRate = "TRG", ExDate = "Phí vận tải đường bộ", ByUser = "0% VAT", ETA = "VNĐ",ETD = "", Measure = "Shpt",Weight = "",PkgUnit = "4.000.000",
+        Package = "Y",Customer = "0", SRNo = "4.000.000", MBLNo = "0%",BLNo = "", Service = "Tax",BLType="", Number="3  "},
+                                               };
+}

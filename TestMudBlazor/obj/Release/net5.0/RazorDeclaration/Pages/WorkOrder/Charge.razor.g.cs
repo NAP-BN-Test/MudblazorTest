@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 432 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\Charge.razor"
+#line 437 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\WorkOrder\Charge.razor"
        
     private bool dense1 = true;
     private bool dense2 = true;
