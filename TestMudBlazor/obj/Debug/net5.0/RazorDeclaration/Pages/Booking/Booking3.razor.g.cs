@@ -133,7 +133,7 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 557 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking3.razor"
+#line 613 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking3.razor"
                
 
 
@@ -166,6 +166,7 @@ using DiaLog;
             //public string SelectedOption { get; set; }
 
             public string SelectedOption = "Sea";
+
             MudListItem selectedItem;
             object selectedValue = 1;
 

@@ -133,25 +133,40 @@ using DiaLog;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 311 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking3.razor"
+#line 567 "C:\Project\FontEnd\Blazor\MudblazorTest\TestMudBlazor\Pages\Booking\Booking3.razor"
                
 
-            private List<string> ctn = new List<string>();
-            private List<string> values = new List<string>();
 
-            private void AddValue() => values.Add("");
-            private void UpdateValue(int i, string value) => values[i] = value;
-            private void RemoveValue(int i) => values.RemoveAt(i);
             private void HandleSubmit()
             {
                 //Access and validate the values list here
             }
 
+            public class TodoItem
+            {
+                public string cnt { get; set; }
+                public int qty { get; set; }
+            }
 
+
+
+
+            void AddTodo()
+            {
+                todos.Add(new TodoItem { cnt = "", qty = 0 });
+            }
+
+            private void RemoveTodo(int i) => todos.RemoveAt(i);
+            private void UpdateCnt(int i, string value) => todos[i].cnt = value;
+            private void Updateqty(int i, string value) => todos[i].qty = Int32.Parse(value);
+
+            IList<TodoItem> todos = new List<TodoItem>();
+            
             private bool dense1 = true;
             //public string SelectedOption { get; set; }
 
             public string SelectedOption = "Sea";
+
             MudListItem selectedItem;
             object selectedValue = 1;
 
